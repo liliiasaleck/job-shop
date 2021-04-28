@@ -10,7 +10,9 @@ const useStyles = makeStyles({
   root: {
     marginTop: "20%",
   },
-  form: {},
+  form: {
+    width: "100vw",
+  },
   textfield: {
     width: "40%",
     display: "block",

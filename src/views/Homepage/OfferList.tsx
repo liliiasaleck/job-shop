@@ -3,7 +3,8 @@ import React from "react";
 const OfferList: React.FC = () => {
   return (
     <>
-      <h1>Content</h1>
+      <h1>Offer List</h1>
+      <h1>Map</h1>
     </>
   );
 };

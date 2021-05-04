@@ -7,14 +7,14 @@ import { NavLink } from "react-router-dom";
 import Icon from "@material-ui/core/Icon";
 
 const DropDownMenu: React.FC = () => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [anchorSignInButton, setAnchor] = useState<null | HTMLElement>(null);
 
   const handleClose = () => {
-    setAnchorEl(null);
+    setAnchor(null);
   };
 
   const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
+    setAnchor(event.currentTarget);
   };
 
   return (
@@ -30,9 +30,9 @@ const DropDownMenu: React.FC = () => {
       </Button>
       <Menu
         id="simple-menu"
-        anchorEl={anchorEl}
+        anchorEl={anchorSignInButton}
         keepMounted
-        open={Boolean(anchorEl)}
+        open={Boolean(anchorSignInButton)}
         onClose={handleClose}
       >
         <NavLink to="/signin">

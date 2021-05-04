@@ -16,8 +16,9 @@ import {
 } from "@material-ui/core/";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import DropDownMenu from "./DropDownMenu";
 import { makeStyles } from "@material-ui/core";
+import DropDownMenu from "../dropDownMenu/dropDownMenu";
+import { pageTitleText } from "./const/navigationPages.const";
 
 const useStyles = makeStyles({
   root: {
@@ -61,9 +62,7 @@ const Navbar: React.FC = () => {
           <NavLink to="/" className={classes.logo}>
             jobshop.it
           </NavLink>
-          <Typography className={classes.title}>
-            #1 Job Board for IT industry in Poland
-          </Typography>
+          <Typography className={classes.title}>{pageTitleText}</Typography>
           <NavLink to="/offers">
             <Button color="secondary">Offers</Button>
           </NavLink>
@@ -105,33 +104,3 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
-
-// const Navbar: React.FC = () => {
-//   return (
-//     <>
-//       <nav>
-//         <div className="nav-wrapper ">
-//           <NavLink to="/" className="brand-logo ">
-//             jobshop.it
-//           </NavLink>
-//           <ul id="nav-mobile" className="right hide-on-med-and-down">
-//             <li>
-//               <a href="/">Offers</a>
-//             </li>
-//             <li>
-//               <a href="/">Brands</a>
-//             </li>
-//             <li>
-//               <NavLink to="/signin">Sign in</NavLink>
-//             </li>
-//             <li>
-//               <NavLink to="/signup">Sign up</NavLink>
-//             </li>
-//           </ul>
-//         </div>
-//       </nav>
-//     </>
-//   );
-// };
-
-// export default Navbar;

@@ -1,7 +1,7 @@
-const initialState = {
+export const initialState = {
   user: "Unlogin user",
 };
 
-export default function userstate(state = initialState) {
+export function rootReducer(state = initialState) {
   return state;
 }

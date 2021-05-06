@@ -21,9 +21,6 @@ import DropDownMenu from "../dropDownMenu/dropDownMenu";
 import { pageTitleText } from "./const/navigationPages.const";
 
 const useStyles = makeStyles({
-  root: {
-    fontFamily: "Open Sans, sans-serif",
-  },
   logo: {
     color: "black",
     fontSize: "30px",

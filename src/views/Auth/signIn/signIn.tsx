@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState, ReactElement } from "react";
 import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Typography, TextField, Container } from "@material-ui/core";
@@ -8,9 +9,6 @@ import Icon from "@material-ui/core/Icon";
 import { pageTitleText } from "./components/const/signIn.const";
 
 const useStyles = makeStyles({
-  root: {
-    marginTop: "20%",
-  },
   form: {
     width: "100vw",
   },
@@ -29,7 +27,7 @@ type FormData = {
   password: string;
 };
 
-const SignIn: React.FC = () => {
+const SignIn = ({ email, password }: FormData): ReactElement => {
   const [name, setName] = useState("");
   const { register, handleSubmit } = useForm<FormData>();
   const classes = useStyles();
@@ -39,7 +37,7 @@ const SignIn: React.FC = () => {
   });
 
   return (
-    <Container className={classes.root}>
+    <Container>
       <Typography variant="h3">{pageTitleText}</Typography>
       <form
         className={classes.form}

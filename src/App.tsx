@@ -8,12 +8,23 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Brands from "./views/Brands/Brands";
 import PostJob from "./views/PostJob/PostJob";
 import SignInEmployer from "./views/Auth/signInEmployer/components/signInEmployer";
+import { makeStyles } from "@material-ui/core";
+import { Container } from "@material-ui/core";
 
+const useStyles = makeStyles({
+  root: {
+    height: "100vh",
+    width: "100vw",
+    marginTop: "5%",
+  },
+});
 const App: React.FC = () => {
+  const classes = useStyles();
+
   return (
     <BrowserRouter>
       <Navbar />
-      <div className="container">
+      <Container className={classes.root}>
         <Switch>
           <Route component={OfferList} path="/" exact />
           <Route component={SignIn} path="/signin" />
@@ -24,7 +35,7 @@ const App: React.FC = () => {
           <Route component={PostJob} path="/postjob" />
           <Route component={SignInEmployer} path="/signinemployer" />
         </Switch>
-      </div>
+      </Container>
     </BrowserRouter>
   );
 };

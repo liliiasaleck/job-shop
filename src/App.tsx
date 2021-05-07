@@ -1,15 +1,16 @@
 import React from "react";
 import Navbar from "./components/navbar/navbar";
-import SignIn from "./views/Auth/signIn/signIn";
-import OfferList from "./views/Homepage/OfferList";
-import SignUp from "./views/Auth/signUp/components/signUp";
-import AboutUs from "./views/About/AboutUs";
+import SignIn from "./views/auth/signIn/signIn";
+import OfferList from "./views/home/homePage";
+import SignUp from "./views/auth/signUp/components/signUp";
+import AboutUs from "./views/about/AboutUs";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Brands from "./views/Brands/Brands";
-import PostJob from "./views/PostJob/PostJob";
-import SignInEmployer from "./views/Auth/signInEmployer/components/signInEmployer";
+import Brands from "./views/brands/brands";
+import PostJob from "./views/postJob/PostJob";
+import SignInEmployer from "./views/auth/signInEmployer/components/signInEmployer";
 import { makeStyles } from "@material-ui/core";
 import { Container } from "@material-ui/core";
+import HomePage from "./views/home/homePage";
 
 const useStyles = makeStyles({
   root: {
@@ -30,7 +31,7 @@ const App: React.FC = () => {
           <Route component={SignIn} path="/signin" />
           <Route component={SignUp} path="/signup" />
           <Route component={AboutUs} path="/aboutus" />
-          <Route component={OfferList} path="/offers" />
+          <Route component={HomePage} path="/offers" />
           <Route component={Brands} path="/brands" />
           <Route component={PostJob} path="/postjob" />
           <Route component={SignInEmployer} path="/signinemployer" />

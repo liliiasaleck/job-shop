@@ -41,7 +41,7 @@ const useStyles = makeStyles({
     width: 250,
   },
   btnpost: {
-    border: "1px solid grey",
+    border: "1px solid lightgrey",
     borderRadius: "20px",
   },
 });

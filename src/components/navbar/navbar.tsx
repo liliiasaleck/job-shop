@@ -33,6 +33,7 @@ const useStyles = makeStyles({
   },
   toolbar: {
     backgroundColor: "white",
+    borderBottom: "1px solid lightgrey",
   },
   header: {
     boxShadow: "0px 0px 0px 0px",

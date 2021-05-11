@@ -14,8 +14,9 @@ import HomePage from "./views/home/homePage";
 
 const useStyles = makeStyles({
   root: {
-    height: "100vh",
+    height: "100%",
     width: "100vw",
+    padding: "0px 0px",
     marginTop: "5%",
   },
 });

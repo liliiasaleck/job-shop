@@ -1,17 +1,17 @@
-import { Toolbar } from "@material-ui/core";
-import React from "react";
-import { makeStyles } from "@material-ui/core";
-import Search from "./components/searchBar";
-import DropDown from "./components/dropDown";
-import TechFilter from "./components/moreFilters";
+import {Toolbar, makeStyles} from '@material-ui/core';
+import React from 'react';
+
+import Search from './components/searchBar';
+import DropDown from './components/dropDown';
+import TechFilter from './components/moreFilters';
 
 const useStyles = makeStyles({
   toolbar: {
-    marginTop: "3%",
-    width: "100%",
-    padding: "0px 0px 0px 0px",
-    backgroundColor: "white",
-    color: "black",
+    marginTop: '3%',
+    width: '100%',
+    padding: '0px 0px 0px 0px',
+    backgroundColor: 'white',
+    color: 'black',
   },
 });
 

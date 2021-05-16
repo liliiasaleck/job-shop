@@ -1,49 +1,45 @@
-import React from "react";
+import React, {useState} from 'react';
 import {
   AppBar,
   Toolbar,
   Button,
   Typography,
   IconButton,
-} from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
-import {
   Drawer,
   ListItem,
   List,
   ListItemIcon,
   ListItemText,
-} from "@material-ui/core/";
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { makeStyles } from "@material-ui/core";
-import DropDownMenu from "../dropDownMenu/dropDownMenu";
-import { pageTitleText } from "./const/navigationPages.const";
+  makeStyles} from '@material-ui/core';
+import MenuIcon from '@material-ui/icons/Menu';
+import {NavLink} from 'react-router-dom';
+import DropDownMenu from '../dropDownMenu/dropDownMenu';
+import {pageTitleText} from './const/navigationPages.const';
 
 const useStyles = makeStyles({
   logo: {
-    color: "black",
-    fontSize: "30px",
-    marginBottom: "10px",
+    color: 'black',
+    fontSize: '30px',
+    marginBottom: '10px',
   },
   title: {
     flexGrow: 1,
-    marginLeft: "10px",
-    color: "grey",
+    marginLeft: '10px',
+    color: 'grey',
   },
   toolbar: {
-    backgroundColor: "white",
-    borderBottom: "1px solid lightgrey",
+    backgroundColor: 'white',
+    borderBottom: '1px solid lightgrey',
   },
   header: {
-    boxShadow: "0px 0px 0px 0px",
+    boxShadow: '0px 0px 0px 0px',
   },
   list: {
     width: 250,
   },
   btnpost: {
-    border: "1px solid lightgrey",
-    borderRadius: "20px",
+    border: '1px solid lightgrey',
+    borderRadius: '20px',
   },
 });
 
@@ -57,17 +53,17 @@ const Navbar: React.FC = () => {
     <>
       <AppBar className={classes.header}>
         <Toolbar className={classes.toolbar}>
-          <NavLink to="/" className={classes.logo}>
+          <NavLink to='/' className={classes.logo}>
             jobshop.it
           </NavLink>
           <Typography className={classes.title}>{pageTitleText}</Typography>
-          <NavLink to="/offers">
-            <Button color="secondary">Offers</Button>
+          <NavLink to='/offers'>
+            <Button color='secondary'>Offers</Button>
           </NavLink>
-          <NavLink to="/brands">
+          <NavLink to='/brands'>
             <Button>Brands</Button>
           </NavLink>
-          <NavLink to="/postjob">
+          <NavLink to='/postjob'>
             <Button className={classes.btnpost}>Post a job</Button>
           </NavLink>
           <DropDownMenu />
@@ -76,21 +72,21 @@ const Navbar: React.FC = () => {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Drawer anchor="right" onClose={() => setOpenDrawer(false)} open={open}>
+      <Drawer anchor='right' onClose={() => setOpenDrawer(false)} open={open}>
         <List className={classes.list}>
-          <ListItem divider>
+          <ListItem>
             <Typography>jobshop.it</Typography>
           </ListItem>
           <ListItem button>
             <ListItemIcon>
-              <NavLink to="/signinemployer">
+              <NavLink to='/signinemployer'>
                 <ListItemText>Employer Panel</ListItemText>
               </NavLink>
             </ListItemIcon>
           </ListItem>
           <ListItem button>
             <ListItemIcon>
-              <NavLink to="/aboutus">
+              <NavLink to='/aboutus'>
                 <ListItemText>About us</ListItemText>
               </NavLink>
             </ListItemIcon>

@@ -1,19 +1,19 @@
-import React from "react";
-import Map from "./components/map";
-import Offers from "./components/offers";
-import Navigation from "./components/navigation/navigation";
-import Container from "@material-ui/core/Container";
-import { makeStyles } from "@material-ui/core";
+import React from 'react';
+import Map from './components/map';
+import Offers from './components/offers';
+import Navigation from './components/navigation/navigation';
+import Container from '@material-ui/core/Container';
+import {makeStyles} from '@material-ui/core';
 
 const useStyles = makeStyles({
   container: {
-    width: "100%",
-    display: "flex",
-    justifyContent: "space-between",
-    padding: "0px 0px 0px 0px",
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'space-between',
+    padding: '0px 0px 0px 0px',
   },
   main: {
-    width: "100%",
+    width: '100%',
   },
 });
 

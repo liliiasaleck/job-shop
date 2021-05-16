@@ -1,16 +1,16 @@
-import React from "react";
-import { makeStyles, Grid, Paper } from "@material-ui/core";
+import React from 'react';
+import {makeStyles, Grid, Paper} from '@material-ui/core';
 
 const useStyles = makeStyles({
   container: {
-    width: "65%",
-    height: "100%",
-    //border: "1px solid lightgrey",
-    backgroundColor: "lightgrey",
+    width: '65%',
+    height: '100%',
+    // border: "1px solid lightgrey",
+    backgroundColor: 'lightgrey',
   },
-  item: { marginTop: "10px", backgroundColor: "lightgrey" },
+  item: {marginTop: '10px', backgroundColor: 'lightgrey'},
   title: {
-    height: "100px",
+    height: '100px',
   },
 });
 

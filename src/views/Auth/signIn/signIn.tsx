@@ -1,24 +1,20 @@
-import React from "react";
-import { useState, ReactElement } from "react";
-import { NavLink } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import { Typography, TextField, Container } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core";
-import { Button } from "@material-ui/core";
-import Icon from "@material-ui/core/Icon";
-import { pageTitleText } from "./components/const/signIn.const";
+import React, { ReactElement} from 'react';
+import {NavLink} from 'react-router-dom';
+import {useForm} from 'react-hook-form';
+import {Typography, TextField, Container , makeStyles , Button} from '@material-ui/core';
+import { pageTitleText } from './components/const/signIn.const';
 
 const useStyles = makeStyles({
   form: {
-    width: "100vw",
+    width: '00vw',
   },
   textfield: {
-    width: "40%",
-    display: "block",
+    width: '40%',
+    display: 'block',
   },
   btn: {
-    width: "15%",
-    borderRadius: "20px",
+    width: '15%',
+    borderRadius: '20px',
   },
 });
 
@@ -27,8 +23,8 @@ type FormData = {
   password: string;
 };
 
-const SignIn = ({ email, password }: FormData): ReactElement => {
-  const [name, setName] = useState("");
+const SignIn = ({email, password}: FormData): ReactElement => {
+  // const [name, setName] = useState('');
   const { register, handleSubmit } = useForm<FormData>();
   const classes = useStyles();
 
@@ -38,32 +34,32 @@ const SignIn = ({ email, password }: FormData): ReactElement => {
 
   return (
     <Container>
-      <Typography variant="h3">{pageTitleText}</Typography>
+      <Typography variant='h3'>{pageTitleText}</Typography>
       <form
         className={classes.form}
         noValidate
-        autoComplete="off"
+        autoComplete='off'
         onSubmit={onSubmit}
       >
         <TextField
           className={classes.textfield}
-          label="Email"
-          variant="outlined"
-          {...register("email")}
+          label='Email'
+          variant='outlined'
+          {...register('email')}
           required
         />
         <TextField
           className={classes.textfield}
-          label="Password"
-          variant="outlined"
-          {...register("password")}
+          label='Password'
+          variant='outlined'
+          {...register('password')}
           required
         />
-        <Button variant="contained" color="secondary" className={classes.btn}>
+        <Button variant='contained' color='secondary' className={classes.btn}>
           Sign in
         </Button>
         <Typography>
-          New account? <NavLink to="/signup">Register</NavLink>
+          New account? <NavLink to='/signup'>Register</NavLink>
         </Typography>
       </form>
     </Container>

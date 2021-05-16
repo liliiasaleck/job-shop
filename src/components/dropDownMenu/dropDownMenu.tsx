@@ -1,14 +1,13 @@
-import React from "react";
-import Button from "@material-ui/core/Button";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
-import Icon from "@material-ui/core/Icon";
+import React, {useState} from 'react';
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import {NavLink} from 'react-router-dom';
+import Icon from '@material-ui/core/Icon';
+
 
 const DropDownMenu: React.FC = () => {
   const [anchorSignInButton, setAnchor] = useState<null | HTMLElement>(null);
-
   const handleClose = () => {
     setAnchor(null);
   };
@@ -16,7 +15,6 @@ const DropDownMenu: React.FC = () => {
   const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchor(event.currentTarget);
   };
-
   return (
     <>
       <Button

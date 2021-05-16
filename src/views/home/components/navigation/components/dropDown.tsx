@@ -1,58 +1,55 @@
-import React from "react";
-import Button from "@material-ui/core/Button";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
-import { useState } from "react";
-import Icon from "@material-ui/core/Icon";
-import { makeStyles } from "@material-ui/core";
-import { Typography } from "@material-ui/core/";
-import { Accordion } from "@material-ui/core";
-import { AccordionSummary } from "@material-ui/core";
-import { AccordionDetails } from "@material-ui/core";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+/* eslint-disable max-len */
+import React, {useState} from 'react';
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import Icon from '@material-ui/core/Icon';
+import {makeStyles, Typography, Accordion, AccordionSummary, AccordionDetails} from '@material-ui/core';
+
+
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
   main: {
-    width: "30%",
-    marginLeft: "20%",
-    color: "grey",
-    border: "1px solid lightgrey",
-    borderRadius: "40px",
+    width: '30%',
+    marginLeft: '20%',
+    color: 'grey',
+    border: '1px solid lightgrey',
+    borderRadius: '40px',
   },
-  menu: { minWidth: "100% " },
+  menu: {minWidth: '100% '},
   container: {
-    display: "flex",
+    display: 'flex',
   },
   title: {
-    marginLeft: "15px",
+    marginLeft: '15px',
   },
   city: {
-    border: "1px solid lightgrey",
-    borderRadius: "40px",
-    margin: "10px 10px 10px 10px",
+    border: '1px solid lightgrey',
+    borderRadius: '40px',
+    margin: '10px 10px 10px 10px',
   },
   remote: {
-    border: "1px solid lightgrey",
-    borderRadius: "40px",
-    width: "30%",
-    margin: "10px 10px 10px 10px",
+    border: '1px solid lightgrey',
+    borderRadius: '40px',
+    width: '13%',
+    margin: '10px 10px 10px 10px',
   },
-  close: { marginLeft: "400px" },
+  close: {marginLeft: '400px'},
 }));
 
 const DropDown: React.FC = () => {
   const classes = useStyles();
-
   const [anchorLocation, setAnchor] = useState<null | HTMLElement>(null);
-
+  // const [city, setCity] = useState<null | HTMLElement>(null);
   const handleClose = () => {
     setAnchor(null);
   };
-
   const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchor(event.currentTarget);
   };
-
+  // const handleChange = (event: React.MouseEvent<HTMLButtonElement>) =>
+  // setValue(e.target.value);
   return (
     <>
       <Button
@@ -94,6 +91,15 @@ const DropDown: React.FC = () => {
           <MenuItem className={classes.city} onClick={handleClose}>
             Wroclaw
           </MenuItem>
+          <MenuItem className={classes.city} onClick={handleClose}>
+            Poznań
+          </MenuItem>
+          <MenuItem className={classes.city} onClick={handleClose}>
+            Trójmiasto
+          </MenuItem>
+          <MenuItem className={classes.city} onClick={handleClose}>
+            Śląsk
+          </MenuItem>
         </div>
         <Typography className={classes.title}>Top World</Typography>
         <div className={classes.container}>
@@ -120,22 +126,22 @@ const DropDown: React.FC = () => {
           </AccordionSummary>
           <AccordionDetails>
             <MenuItem className={classes.city} onClick={handleClose}>
-              Warsaw
+              Białystok
             </MenuItem>
             <MenuItem className={classes.city} onClick={handleClose}>
-              Krakow
+              Łódź
             </MenuItem>
             <MenuItem className={classes.city} onClick={handleClose}>
-              Wroclaw
+              Olsztyn
             </MenuItem>
             <MenuItem className={classes.city} onClick={handleClose}>
-              Warsaw
+              Bydgoszcz
             </MenuItem>
             <MenuItem className={classes.city} onClick={handleClose}>
-              Krakow
+              Kielce
             </MenuItem>
             <MenuItem className={classes.city} onClick={handleClose}>
-              Wroclaw
+              Lublin
             </MenuItem>
           </AccordionDetails>
         </Accordion>

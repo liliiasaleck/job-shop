@@ -36,7 +36,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint . --ext .ts, .tsx src --fix"
   },
-  "prettier":{
+  "prettier": {
     "singleQuote": true,
     "printWidth": 100
   },

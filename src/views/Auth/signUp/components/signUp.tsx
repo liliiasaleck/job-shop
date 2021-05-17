@@ -1,8 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { Typography, TextField, Container , makeStyles , Button , Checkbox } from '@material-ui/core';
-
+import {Typography, TextField, Container, makeStyles, Button, Checkbox} from '@material-ui/core';
 
 const useStyles = makeStyles({
   root: {
@@ -24,35 +23,29 @@ type FormData = {
 
 const SignUp: React.FC = () => {
   // const [name, setName] = useState("");
-  const {register, handleSubmit} = useForm<FormData>();
+  const { register, handleSubmit } = useForm<FormData>();
   const classes = useStyles();
 
-  const onSubmit = handleSubmit(({email}) => {
+  const onSubmit = handleSubmit(({ email }) => {
     console.log(email);
   });
 
   return (
     <Container className={classes.root}>
-      <Typography variant='h3'>Get started for free</Typography>
-      <form
-        className={classes.form}
-        noValidate
-        autoComplete='off'
-        action='#'
-        onSubmit={onSubmit}
-      >
+      <Typography variant="h3">Get started for free</Typography>
+      <form className={classes.form} noValidate autoComplete="off" action="#" onSubmit={onSubmit}>
         <TextField
           className={classes.textfield}
-          label='Email'
-          variant='outlined'
+          label="Email"
+          variant="outlined"
           {...register('email')}
         />
         <Checkbox className={classes.btn} />
-        <Button variant='contained' color='secondary' className={classes.btn}>
+        <Button variant="contained" color="secondary" className={classes.btn}>
           Register
         </Button>
         <Typography>
-          Already have an account? <NavLink to='/signin'>Sign in</NavLink>
+          Already have an account? <NavLink to="/signin">Sign in</NavLink>
         </Typography>
       </form>
     </Container>

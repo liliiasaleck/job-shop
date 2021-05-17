@@ -4,12 +4,12 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Icon from '@material-ui/core/Icon';
-import {makeStyles, Typography, Accordion, AccordionSummary, AccordionDetails} from '@material-ui/core';
+import {makeStyles, Typography, Accordion, AccordionSummary, AccordionDetails, Theme} from '@material-ui/core';
 
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme: Theme) => ({
   main: {
     width: '30%',
     marginLeft: '20%',
@@ -48,8 +48,6 @@ const DropDown: React.FC = () => {
   const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchor(event.currentTarget);
   };
-  // const handleChange = (event: React.MouseEvent<HTMLButtonElement>) =>
-  // setValue(e.target.value);
   return (
     <>
       <Button

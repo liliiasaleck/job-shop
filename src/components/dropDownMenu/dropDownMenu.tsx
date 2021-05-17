@@ -18,25 +18,25 @@ const DropDownMenu: React.FC = () => {
   return (
     <>
       <Button
-        aria-controls="simple-menu"
-        aria-haspopup="true"
+        aria-controls='simple-menu'
+        aria-haspopup='true'
         onClick={openMenu}
         endIcon={<Icon>expand_more</Icon>}
-        color="secondary"
+        color='secondary'
       >
         Sign in
       </Button>
       <Menu
-        id="simple-menu"
+        id='simple-menu'
         anchorEl={anchorSignInButton}
         keepMounted
         open={Boolean(anchorSignInButton)}
         onClose={handleClose}
       >
-        <NavLink to="/signin">
+        <NavLink to='/signin'>
           <MenuItem onClick={handleClose}>Sign in as a developer</MenuItem>
         </NavLink>
-        <NavLink to="/signinemployer">
+        <NavLink to='/signinemployer'>
           <MenuItem onClick={handleClose}>Sign in to Employer Panel</MenuItem>
         </NavLink>
       </Menu>

@@ -4,12 +4,12 @@ import SignIn from './views/auth/signIn/signIn';
 import OfferList from './views/home/homePage';
 import SignUp from './views/auth/signUp/components/signUp';
 import AboutUs from './views/about/AboutUs';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Brands from './views/brands/brands';
 import PostJob from './views/postJob/PostJob';
 import SignInEmployer from './views/auth/signInEmployer/components/signInEmployer';
-import { makeStyles } from '@material-ui/core';
-import { Container } from '@material-ui/core';
+import {makeStyles, Container} from '@material-ui/core';
+
 import HomePage from './views/home/homePage';
 
 const useStyles = makeStyles({
@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     height: '100%',
     width: '100vw',
     padding: '0px 0px',
-    marginTop: '5%'
+    marginTop: '5%',
   },
 });
 const App: React.FC = () => {

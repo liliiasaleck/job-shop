@@ -1,6 +1,5 @@
 import {Toolbar, makeStyles} from '@material-ui/core';
 import React from 'react';
-
 import Search from './components/searchBar';
 import DropDown from './components/dropDown';
 import TechFilter from './components/moreFilters';

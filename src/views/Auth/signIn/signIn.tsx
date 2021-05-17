@@ -1,22 +1,33 @@
 import React, { ReactElement} from 'react';
 import {NavLink} from 'react-router-dom';
 import {useForm} from 'react-hook-form';
-import {Typography, TextField, Container , makeStyles , Button} from '@material-ui/core';
+import {Typography, TextField, makeStyles , Button, Theme, createStyles} from '@material-ui/core';
 import { pageTitleText } from './components/const/signIn.const';
 
-const useStyles = makeStyles({
-  form: {
-    width: '00vw',
-  },
-  textfield: {
-    width: '40%',
-    display: 'block',
-  },
-  btn: {
-    width: '15%',
-    borderRadius: '20px',
-  },
-});
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      width: '100vw',
+      height: '100vh',
+      display:'flex',
+      flexDirection: 'column',
+      justifyContent: 'centre'
+    },
+    form:{
+ 
+    },
+    textfield: {
+      width: '40%',
+      display: 'block',
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+    },
+    btn: {
+      width: '15%',
+      borderRadius: '20px',
+    },
+  }),
+);
 
 type FormData = {
   email: string;
@@ -33,8 +44,8 @@ const SignIn = ({email, password}: FormData): ReactElement => {
   });
 
   return (
-    <Container>
-      <Typography variant='h3'>{pageTitleText}</Typography>
+    <div className={classes.root}>
+      <Typography variant='h4'>{pageTitleText}</Typography>
       <form
         className={classes.form}
         noValidate
@@ -62,7 +73,7 @@ const SignIn = ({email, password}: FormData): ReactElement => {
           New account? <NavLink to='/signup'>Register</NavLink>
         </Typography>
       </form>
-    </Container>
+    </div>
   );
 };
 

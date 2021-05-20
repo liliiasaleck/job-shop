@@ -1,23 +1,30 @@
 /* eslint-disable max-len */
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Icon from '@material-ui/core/Icon';
-import {makeStyles, Typography, Accordion, AccordionSummary, AccordionDetails, Theme} from '@material-ui/core';
-
+import {
+  makeStyles,
+  Typography,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Theme,
+} from '@material-ui/core';
 
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme: Theme) => ({
   main: {
-    width: '30%',
-    marginLeft: '20%',
+    width: '15%',
+    marginLeft: '6rem',
     color: 'grey',
     border: '1px solid lightgrey',
     borderRadius: '40px',
+    textAlign: 'left',
   },
-  menu: {minWidth: '100% '},
+  menu: { minWidth: '100% ' },
   container: {
     display: 'flex',
   },
@@ -35,7 +42,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: '13%',
     margin: '10px 10px 10px 10px',
   },
-  close: {marginLeft: '400px'},
+  close: { marginLeft: '400px' },
 }));
 
 const DropDown: React.FC = () => {
@@ -118,9 +125,7 @@ const DropDown: React.FC = () => {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography className={classes.title}>
-              Other locations Poland
-            </Typography>
+            <Typography className={classes.title}>Other locations Poland</Typography>
           </AccordionSummary>
           <AccordionDetails>
             <MenuItem className={classes.city} onClick={handleClose}>
@@ -143,11 +148,7 @@ const DropDown: React.FC = () => {
             </MenuItem>
           </AccordionDetails>
         </Accordion>
-        <Button
-          className={classes.remote}
-          aria-controls="simple-menu"
-          aria-haspopup="true"
-        >
+        <Button className={classes.remote} aria-controls="simple-menu" aria-haspopup="true">
           Clear filter
         </Button>
       </Menu>

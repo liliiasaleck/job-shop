@@ -17,22 +17,23 @@ import Navbar from '../../components/navbar/navbar';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    box: {
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      zIndex: 1,
-      width: '70vw',
-      height: '80vh',
-      textAlign: 'left',
-      overflowY: 'scroll',
-      backgroundColor: 'white',
-      padding: '30px',
-      boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
+    container: {
+      height: '100vh',
     },
     form: {
-      width: '70vw',
+      position: 'absolute',
+      top: '60%',
+      left: '50%',
+      width: '70%',
+      transform: 'translate(-50%, -50%)',
+      height: '100vh',
+      zIndex: 1,
+      textAlign: 'left',
+      backgroundColor: 'white',
+      padding: '30px',
+      overflow: 'hidden',
+      overflowY: 'scroll',
+      boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
     },
     textField: {
       marginLeft: theme.spacing(1),
@@ -68,11 +69,11 @@ const Brands: React.FC = () => {
   };
 
   return (
-    <>
+    <div>
       <Navbar />
-      <Box className={classes.box}>
-        <Button aria-controls="simple-menu" endIcon={<Icon>arrow_back</Icon>} />
+      <Box className={classes.container}>
         <form className={classes.form} noValidate autoComplete="off">
+          <Button aria-controls="simple-menu" endIcon={<Icon>arrow_back</Icon>} />
           <Typography className={classes.title}>About company </Typography>
           <TextField className={classes.textField} id="standard-basic" label="Company name" />
           <TextField className={classes.textField} id="standard-basic" label="Company size" />
@@ -128,7 +129,7 @@ const Brands: React.FC = () => {
           </Button>
         </form>
       </Box>
-    </>
+    </div>
   );
 };
 

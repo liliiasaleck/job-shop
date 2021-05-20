@@ -11,6 +11,7 @@ import {
   ListItemIcon,
   ListItemText,
   makeStyles,
+  Divider,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from 'react-router-dom';
@@ -71,6 +72,7 @@ const Navbar: React.FC = () => {
           <ListItem>
             <Typography>jobshop.it</Typography>
           </ListItem>
+          <Divider />
           <ListItem button>
             <ListItemIcon>
               <Link to="/signinemployer">

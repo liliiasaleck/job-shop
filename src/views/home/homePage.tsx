@@ -2,14 +2,12 @@ import React from 'react';
 import Map from './components/map';
 import Offers from './components/offers';
 import Navigation from './components/navigation/navigation';
-import Container from '@material-ui/core/Container';
 import { Box, makeStyles } from '@material-ui/core';
 import Navbar from '../../components/navbar/navbar';
 
 const useStyles = makeStyles({
   box: {
     width: '100vw',
-    height: '100vh',
     display: 'flex',
     justifyContent: 'space-between',
     padding: '0px 0px 0px 0px',

@@ -3,30 +3,30 @@ import Map from './components/map';
 import Offers from './components/offers';
 import Navigation from './components/navigation/navigation';
 import Container from '@material-ui/core/Container';
-import {makeStyles} from '@material-ui/core';
+import { Box, makeStyles } from '@material-ui/core';
+import Navbar from '../../components/navbar/navbar';
 
 const useStyles = makeStyles({
-  container: {
-    width: '100%',
+  box: {
+    width: '100vw',
+    height: '100vh',
     display: 'flex',
     justifyContent: 'space-between',
     padding: '0px 0px 0px 0px',
-  },
-  main: {
-    width: '100%',
   },
 });
 
 const HomePage: React.FC = () => {
   const classes = useStyles();
   return (
-    <div className={classes.main}>
+    <>
+      <Navbar />
       <Navigation />
-      <Container className={classes.container}>
+      <Box className={classes.box}>
         <Offers />
         <Map />
-      </Container>
-    </div>
+      </Box>
+    </>
   );
 };
 

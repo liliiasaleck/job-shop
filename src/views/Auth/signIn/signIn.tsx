@@ -1,27 +1,41 @@
 import React, { ReactElement } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { Typography, TextField, makeStyles, Button, Theme, createStyles } from '@material-ui/core';
+import Navbar from '../../../components/navbar/navbar';
+import {
+  Typography,
+  TextField,
+  makeStyles,
+  Button,
+  Theme,
+  createStyles,
+  Box,
+} from '@material-ui/core';
 import { pageTitleText } from './components/const/signIn.const';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    root: {
+    box: {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      zIndex: 1,
       width: '100vw',
-      height: '100vh',
+      textAlign: 'center',
+    },
+    form: {
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'centre',
+      alignItems: 'center',
     },
-    form: {},
     textfield: {
-      width: '40%',
-      display: 'block',
-      marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
+      marginTop: '2rem',
+      width: '20rem',
     },
     btn: {
-      width: '15%',
+      width: '10rem',
+      marginTop: '2rem',
       borderRadius: '20px',
     },
   })
@@ -42,32 +56,34 @@ const SignIn = ({ email, password }: FormData): ReactElement => {
   });
 
   return (
-    <div className={classes.root}>
-      <Typography
-   variant="h4">{pageTitleText}</Typography>
-      <form className={classes.form} noValidate autoComplete="off" onSubmit={onSubmit}>
-        <TextField
-          className={classes.textfield}
-          label="Email"
-          variant="outlined"
-          {...register('email')}
-          required
-        />
-        <TextField
-          className={classes.textfield}
-          label="Password"
-          variant="outlined"
-          {...register('password')}
-          required
-        />
-        <Button variant="contained" color="secondary" className={classes.btn}>
-          Sign in
-        </Button>
-        <Typography>
-          New account? <NavLink to="/signup">Register</NavLink>
-        </Typography>
-      </form>
-    </div>
+    <>
+      <Navbar />
+      <Box className={classes.box}>
+        <form className={classes.form} noValidate autoComplete="off" onSubmit={onSubmit}>
+          <Typography variant="h4">{pageTitleText}</Typography>
+          <TextField
+            className={classes.textfield}
+            label="Email"
+            variant="outlined"
+            {...register('email')}
+            required
+          />
+          <TextField
+            className={classes.textfield}
+            label="Password"
+            variant="outlined"
+            {...register('password')}
+            required
+          />
+          <Button variant="contained" color="secondary" className={classes.btn}>
+            Sign in
+          </Button>
+          <Typography>
+            New account? <Link to="/signup">Register</Link>
+          </Typography>
+        </form>
+      </Box>
+    </>
   );
 };
 

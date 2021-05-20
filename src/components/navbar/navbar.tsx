@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   AppBar,
   Toolbar,
@@ -10,11 +10,12 @@ import {
   List,
   ListItemIcon,
   ListItemText,
-  makeStyles} from '@material-ui/core';
+  makeStyles,
+} from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import {NavLink} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import DropDownMenu from '../dropDownMenu/dropDownMenu';
-import {pageTitleText} from './const/navigationPages.const';
+import { pageTitleText } from './const/navigationPages.const';
 
 const useStyles = makeStyles({
   logo: {
@@ -37,10 +38,6 @@ const useStyles = makeStyles({
   list: {
     width: 250,
   },
-  btnpost: {
-    border: '1px solid lightgrey',
-    borderRadius: '20px',
-  },
 });
 
 const Navbar: React.FC = () => {
@@ -53,43 +50,56 @@ const Navbar: React.FC = () => {
     <>
       <AppBar className={classes.header}>
         <Toolbar className={classes.toolbar}>
-          <NavLink to='/' className={classes.logo}>
+          <Link to="/" className={classes.logo}>
             jobshop.it
-          </NavLink>
+          </Link>
           <Typography className={classes.title}>{pageTitleText}</Typography>
-          <NavLink to='/offers'>
-            <Button color='secondary'>Offers</Button>
-          </NavLink>
-          <NavLink to='/brands'>
-            <Button>Brands</Button>
-          </NavLink>
-          <NavLink to='/postjob'>
-            <Button className={classes.btnpost}>Post a job</Button>
-          </NavLink>
+          <Link to="/offers">
+            <Button color="secondary">Offers</Button>
+          </Link>
+          <Link to="/postjob">
+            <Button>Post a job</Button>
+          </Link>
           <DropDownMenu />
           <IconButton onClick={handleDrawer}>
             <MenuIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Drawer anchor='right' onClose={() => setOpenDrawer(false)} open={open}>
+      <Drawer anchor="right" onClose={() => setOpenDrawer(false)} open={open}>
         <List className={classes.list}>
           <ListItem>
             <Typography>jobshop.it</Typography>
           </ListItem>
           <ListItem button>
             <ListItemIcon>
-              <NavLink to='/signinemployer'>
+              <Link to="/signinemployer">
                 <ListItemText>Employer Panel</ListItemText>
-              </NavLink>
+              </Link>
             </ListItemIcon>
           </ListItem>
           <ListItem button>
+            <ListItemIcon></ListItemIcon>
+          </ListItem>
+          <ListItem button>
             <ListItemIcon>
-              <NavLink to='/aboutus'>
-                <ListItemText>About us</ListItemText>
-              </NavLink>
+              <Link to="/signin">
+                <ListItemText>Developer Panel</ListItemText>
+              </Link>
             </ListItemIcon>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon></ListItemIcon>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <Link to="/signinemployer">
+                <ListItemText>About us</ListItemText>
+              </Link>
+            </ListItemIcon>
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon></ListItemIcon>
           </ListItem>
         </List>
       </Drawer>

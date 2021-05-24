@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Navbar from '../../../../components/navbar/navbar';
-import { useForm } from 'react-hook-form';
+import {useForm} from 'react-hook-form';
 import {
   Typography,
   TextField,
@@ -49,10 +49,10 @@ type FormData = {
 
 const SignUp: React.FC = () => {
   // const [name, setName] = useState("");
-  const { register, handleSubmit } = useForm<FormData>();
+  const {register, handleSubmit} = useForm<FormData>();
   const classes = useStyles();
 
-  const onSubmit = handleSubmit(({ email, password }) => {
+  const onSubmit = handleSubmit(({email, password}) => {
     console.log(email);
   });
 

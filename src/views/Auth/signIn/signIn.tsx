@@ -1,6 +1,6 @@
-import React, { ReactElement } from 'react';
-import { Link } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+import React, {ReactElement} from 'react';
+import {Link} from 'react-router-dom';
+import {useForm} from 'react-hook-form';
 import Navbar from '../../../components/navbar/navbar';
 import {
   Typography,
@@ -11,7 +11,7 @@ import {
   createStyles,
   Box,
 } from '@material-ui/core';
-import { pageTitleText } from './components/const/signIn.const';
+import {pageTitleText} from './components/const/signIn.const';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -46,12 +46,12 @@ type FormData = {
   password: string;
 };
 
-const SignIn = ({ email, password }: FormData): ReactElement => {
+const SignIn = ({email, password}: FormData): ReactElement => {
   // const [name, setName] = useState('');
-  const { register, handleSubmit } = useForm<FormData>();
+  const {register, handleSubmit} = useForm<FormData>();
   const classes = useStyles();
 
-  const onSubmit = handleSubmit(({ email, password }) => {
+  const onSubmit = handleSubmit(({email, password}) => {
     console.log(email, password);
   });
 

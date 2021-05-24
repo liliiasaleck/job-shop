@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   AppBar,
   Toolbar,
@@ -14,9 +14,9 @@ import {
   Divider,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import DropDownMenu from '../dropDownMenu/dropDownMenu';
-import { pageTitleText } from './const/navigationPages.const';
+import {pageTitleText} from './const/navigationPages.const';
 
 const useStyles = makeStyles({
   logo: {

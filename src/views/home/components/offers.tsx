@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Grid, Paper, Box } from '@material-ui/core';
+import {makeStyles, Grid, Paper, Box} from '@material-ui/core';
 
 const useStyles = makeStyles({
   box: {

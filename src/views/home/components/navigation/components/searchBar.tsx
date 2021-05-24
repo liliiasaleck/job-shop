@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import {makeStyles, createStyles, Theme} from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 
@@ -41,7 +41,7 @@ const Search: React.FC = () => {
           root: classes.inputRoot,
           input: classes.inputInput,
         }}
-        inputProps={{ 'aria-label': 'search' }}
+        inputProps={{'aria-label': 'search'}}
       />
     </div>
   );

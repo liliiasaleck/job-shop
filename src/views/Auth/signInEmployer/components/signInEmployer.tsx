@@ -1,4 +1,4 @@
-import React, { ReactElement } from 'react';
+import React, {ReactElement} from 'react';
 import Navbar from '../../../../components/navbar/navbar';
 import {
   Box,
@@ -10,7 +10,7 @@ import {
   Theme,
   Typography,
 } from '@material-ui/core';
-import { useForm } from 'react-hook-form';
+import {useForm} from 'react-hook-form';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -50,11 +50,11 @@ type FormData = {
   password: string;
 };
 
-const SignInEmployer = ({ email, password }: FormData): ReactElement => {
+const SignInEmployer = ({email, password}: FormData): ReactElement => {
   const classes = useStyles();
-  const { register, handleSubmit } = useForm<FormData>();
+  const {register, handleSubmit} = useForm<FormData>();
 
-  const onSubmit = handleSubmit(({ email, password }) => {
+  const onSubmit = handleSubmit(({email, password}) => {
     console.log(email, password);
   });
 

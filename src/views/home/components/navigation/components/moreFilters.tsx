@@ -10,7 +10,7 @@ import {
   Divider,
   Icon,
 } from '@material-ui/core';
-import { useState } from 'react';
+import {useState} from 'react';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({

@@ -2,7 +2,7 @@ import React from 'react';
 import Map from './components/map';
 import Offers from './components/offers';
 import Navigation from './components/navigation/navigation';
-import { Box, makeStyles } from '@material-ui/core';
+import {Box, makeStyles} from '@material-ui/core';
 import Navbar from '../../components/navbar/navbar';
 
 const useStyles = makeStyles({

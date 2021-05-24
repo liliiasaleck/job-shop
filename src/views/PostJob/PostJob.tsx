@@ -64,7 +64,7 @@ const Brands: React.FC = () => {
   const classes = useStyles();
   const [type, setType] = React.useState('');
 
-  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+  const handleChange = (event: React.ChangeEvent<{value: unknown}>) => {
     setType(event.target.value as string);
   };
 

@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     borderRadius: '40px',
     textAlign: 'left',
   },
-  menu: { minWidth: '100% ' },
+  menu: {minWidth: '100% '},
   container: {
     display: 'flex',
   },
@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     width: '13%',
     margin: '10px 10px 10px 10px',
   },
-  close: { marginLeft: '400px' },
+  close: {marginLeft: '400px'},
 }));
 
 const DropDown: React.FC = () => {

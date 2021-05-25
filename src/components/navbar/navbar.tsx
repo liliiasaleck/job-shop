@@ -8,7 +8,6 @@ import {
   Drawer,
   ListItem,
   List,
-  ListItemIcon,
   ListItemText,
   makeStyles,
   Divider,
@@ -74,34 +73,19 @@ const Navbar: React.FC = () => {
           </ListItem>
           <Divider />
           <ListItem button>
-            <ListItemIcon>
-              <Link to="/signinemployer">
-                <ListItemText>Employer Panel</ListItemText>
-              </Link>
-            </ListItemIcon>
+            <Link to="/signinemployer">
+              <ListItemText>Employer Panel</ListItemText>
+            </Link>
           </ListItem>
           <ListItem button>
-            <ListItemIcon></ListItemIcon>
+            <Link to="/signin">
+              <ListItemText>Developer Panel</ListItemText>
+            </Link>
           </ListItem>
           <ListItem button>
-            <ListItemIcon>
-              <Link to="/signin">
-                <ListItemText>Developer Panel</ListItemText>
-              </Link>
-            </ListItemIcon>
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon></ListItemIcon>
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon>
-              <Link to="/signinemployer">
-                <ListItemText>About us</ListItemText>
-              </Link>
-            </ListItemIcon>
-          </ListItem>
-          <ListItem button>
-            <ListItemIcon></ListItemIcon>
+            <Link to="/offers">
+              <ListItemText>About us</ListItemText>
+            </Link>
           </ListItem>
         </List>
       </Drawer>

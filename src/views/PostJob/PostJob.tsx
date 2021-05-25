@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const Brands: React.FC = () => {
+const PostJob: React.FC = () => {
   const classes = useStyles();
   const [type, setType] = React.useState('');
 
@@ -133,4 +133,4 @@ const Brands: React.FC = () => {
   );
 };
 
-export default Brands;
+export default PostJob;

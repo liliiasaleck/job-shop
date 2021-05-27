@@ -1,7 +1,7 @@
 import React from 'react';
-import {makeStyles, Grid, Paper, Box} from '@material-ui/core';
+import {makeStyles, Box, useTheme, useMediaQuery} from '@material-ui/core';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   box: {
     width: '65%',
     height: '98vh',
@@ -24,26 +24,22 @@ const useStyles = makeStyles({
     marginRight: '5px',
     marginBottom: '5px',
   },
-});
+}));
 
-const Offers: React.FC = () => {
+const Offers: React.FC = (props) => {
   const classes = useStyles();
   return (
     <>
       <Box className={classes.box}>
-        <div className={classes.offer}>Box</div>
-        <div className={classes.offer}>Box</div>
-        <div className={classes.offer}>Box</div>
-        <div className={classes.offer}>Box</div>
-        <div className={classes.offer}>Box</div>
-        <div className={classes.offer}>Box</div>
-        <div className={classes.offer}>Box</div>
-        <div className={classes.offer}>Box</div>
-        <div className={classes.offer}>Box</div>
-        <div className={classes.offer}>Box</div>
-        <div className={classes.offer}>Box</div>
-        <div className={classes.offer}>Box</div>
-        <div className={classes.offer}>Box</div>
+        <div className={classes.offer}>Offer</div>
+        <div className={classes.offer}>Offer</div>
+        <div className={classes.offer}>Offer</div>
+        <div className={classes.offer}>Offer</div>
+        <div className={classes.offer}>Offer</div>
+        <div className={classes.offer}>Offer</div>
+        <div className={classes.offer}>Offer</div>
+        <div className={classes.offer}>Offer</div>
+        <div className={classes.offer}>Offer</div>
       </Box>
     </>
   );

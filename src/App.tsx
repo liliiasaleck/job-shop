@@ -8,6 +8,7 @@ import PostJob from './views/postJob/postJob';
 import SignInEmployer from './views/auth/signInEmployer/components/signInEmployer';
 import './App.css';
 import HomePage from './views/home/homePage';
+import AboutUs from './views/aboutUs/aboutUs';
 
 const App: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const App: React.FC = () => {
       <Route component={HomePage} path="/offers" />
       <Route component={PostJob} path="/postjob" />
       <Route component={SignInEmployer} path="/signinemployer" />
+      <Route component={AboutUs} path="/aboutus" />
     </>
   );
 };

@@ -83,7 +83,7 @@ const Navbar: React.FC = () => {
             </Link>
           </ListItem>
           <ListItem button>
-            <Link to="/offers">
+            <Link to="/aboutus">
               <ListItemText>About us</ListItemText>
             </Link>
           </ListItem>

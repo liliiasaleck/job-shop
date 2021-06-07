@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const SingleOffer = () => {
-  return <div>hej</div>;
+  return <div>Sigle offer</div>;
 };
 
 export default SingleOffer;

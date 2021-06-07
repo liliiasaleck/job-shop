@@ -16,6 +16,9 @@ import MenuIcon from '@material-ui/icons/Menu';
 import {Link} from 'react-router-dom';
 import DropDownMenu from '../dropDownMenu/dropDownMenu';
 import {pageTitleText} from './const/navigationPages.const';
+import WorkIcon from '@material-ui/icons/Work';
+import GroupIcon from '@material-ui/icons/Group';
+import ComputerIcon from '@material-ui/icons/Computer';
 
 const useStyles = makeStyles({
   logo: {
@@ -36,7 +39,13 @@ const useStyles = makeStyles({
     boxShadow: '0px 0px 0px 0px',
   },
   list: {
-    width: 250,
+    width: '300px',
+    paddingLeft: '30px',
+  },
+  textlink: {
+    color: 'inherit',
+    textDecoration: 'inherit',
+    paddingLeft: '30px',
   },
 });
 
@@ -73,17 +82,20 @@ const Navbar: React.FC = () => {
           </ListItem>
           <Divider />
           <ListItem button>
-            <Link to="/signinemployer">
+            <WorkIcon />
+            <Link className={classes.textlink} to="/signinemployer">
               <ListItemText>Employer Panel</ListItemText>
             </Link>
           </ListItem>
           <ListItem button>
-            <Link to="/signin">
+            <ComputerIcon />
+            <Link className={classes.textlink} to="/signin">
               <ListItemText>Developer Panel</ListItemText>
             </Link>
           </ListItem>
           <ListItem button>
-            <Link to="/aboutus">
+            <GroupIcon />
+            <Link className={classes.textlink} to="/aboutus">
               <ListItemText>About us</ListItemText>
             </Link>
           </ListItem>

@@ -34,6 +34,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "dev": "ts-node ./src/server.ts",
     "lint": "eslint . --ext .ts, .tsx src --fix"
   },
   "prettier": {

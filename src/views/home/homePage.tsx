@@ -3,7 +3,6 @@ import Map from './components/map';
 import Offers from './components/offers';
 import Navigation from './components/navigation/navigation';
 import {Box, makeStyles, useMediaQuery} from '@material-ui/core';
-import Navbar from '../../components/navbar/navbar';
 
 const useStyles = makeStyles({
   box: {
@@ -19,7 +18,6 @@ const HomePage: React.FC = () => {
 
   return (
     <>
-      <Navbar />
       <Navigation />
       <Box className={classes.box}>
         <Offers />

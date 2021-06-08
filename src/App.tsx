@@ -9,11 +9,14 @@ import SignInEmployer from './views/auth/signInEmployer/components/signInEmploye
 import './App.css';
 import HomePage from './views/home/homePage';
 import AboutUs from './views/aboutUs/aboutUs';
+import Navbar from './components/navbar/navbar';
+import SingleOffer from './views/home/components/offers/singleOffer';
 
 const App: React.FC = () => {
   return (
     <>
       <CssBaseline />
+      <Navbar />
       <Route component={OfferList} path="/" exact />
       <Route component={SignIn} path="/signin" />
       <Route component={SignUp} path="/signup" />

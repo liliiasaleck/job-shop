@@ -4,7 +4,7 @@ import OfferList from './views/home/homePage';
 import SignUp from './views/auth/signUp/components/signUp';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import {Route} from 'react-router-dom';
-import PostJob from './views/postJob/postJob';
+import PostJob from './views/PostJob/postJob';
 import SignInEmployer from './views/auth/signInEmployer/components/signInEmployer';
 import './App.css';
 import HomePage from './views/home/homePage';

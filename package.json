@@ -1,6 +1,6 @@
 {
   "name": "job-shop",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.3",
@@ -63,6 +63,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
+    "case-sensitive-paths-webpack-plugin": "^2.4.0",
     "eslint": "^7.26.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^8.3.0",

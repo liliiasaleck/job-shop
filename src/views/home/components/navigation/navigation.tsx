@@ -6,10 +6,11 @@ import MoreFilter from './components/moreFilters';
 
 const useStyles = makeStyles({
   toolbar: {
+    display: 'flex',
+    justifyContent: 'space-around',
     width: '100%',
     backgroundColor: 'white',
     color: 'black',
-    display: 'flex',
     position: 'absolute',
     top: '12%',
     left: '50%',

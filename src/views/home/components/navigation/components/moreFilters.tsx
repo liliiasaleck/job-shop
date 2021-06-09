@@ -12,6 +12,7 @@ import {
   MenuItem,
   Slider,
 } from '@material-ui/core';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -25,7 +26,10 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(2, 4, 3),
     },
     main: {
-      width: '100%',
+      display: 'flex',
+      alignSelf: 'flex-end',
+      justifyContent: 'center',
+      width: '50%',
       marginLeft: '15rem',
       color: 'grey',
       border: '1px solid lightgrey',
@@ -68,6 +72,7 @@ const MoreFilter: React.FC = () => {
         onClick={handleOpen}
         endIcon={<Icon>expand_more</Icon>}
       >
+        <MoreVertIcon />
         More Filters
       </Button>
       <Modal className={classes.modal} open={open} onClose={handleClose}>

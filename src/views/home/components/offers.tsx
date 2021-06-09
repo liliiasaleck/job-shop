@@ -5,6 +5,8 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import {offers} from './offers/const/offerList.const';
+import {Switch, Route, Router, Link} from 'react-router-dom';
+import SingleOffer from './offers/singleOffer';
 
 const useStyles = makeStyles((theme) => ({
   box: {
@@ -47,21 +49,23 @@ const Offers: React.FC = () => {
   return (
     <>
       <Box className={classes.box}>
-        <Card className={classes.offer}>
-          <CardActionArea className={classes.main}>
-            <div>Logo</div>
-            <CardContent className={classes.content}>
-              <div className={classes.title}>
-                <Typography variant="h6">{offers.title}</Typography>
-                <Typography variant="h6">{offers.salary}</Typography>
-              </div>
-              <div className={classes.location}>
-                <Typography>{offers.city}</Typography>
-                <Typography>{offers.tech}</Typography>
-              </div>
-            </CardContent>
-          </CardActionArea>
-        </Card>
+        <Link to="/singleoffer">
+          <Card className={classes.offer}>
+            <CardActionArea className={classes.main}>
+              <div>Logo</div>
+              <CardContent className={classes.content}>
+                <div className={classes.title}>
+                  <Typography variant="h6">{offers.title}</Typography>
+                  <Typography variant="h6">{offers.salary}</Typography>
+                </div>
+                <div className={classes.location}>
+                  <Typography>{offers.city}</Typography>
+                  <Typography>{offers.tech}</Typography>
+                </div>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Link>
       </Box>
     </>
   );

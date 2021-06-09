@@ -75,8 +75,8 @@ const SignUp: React.FC = () => {
             {...register('password')}
             required
           />
-          <Checkbox className={classes.btn} />
-          <Typography>I accept terms of service *</Typography>
+          <Checkbox className={classes.btn} required />
+          <Typography>I accept terms of service </Typography>
           <Button variant="contained" color="secondary" className={classes.btn}>
             Register
           </Button>

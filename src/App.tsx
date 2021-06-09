@@ -24,6 +24,7 @@ const App: React.FC = () => {
       <Route component={PostJob} path="/postjob" />
       <Route component={SignInEmployer} path="/signinemployer" />
       <Route component={AboutUs} path="/aboutus" />
+      <Route component={SingleOffer} path="/singleoffer" />
     </>
   );
 };

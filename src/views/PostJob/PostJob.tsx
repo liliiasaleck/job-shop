@@ -75,12 +75,12 @@ const PostJob: React.FC = () => {
         <form className={classes.form} noValidate autoComplete="off">
           <Button aria-controls="simple-menu" endIcon={<Icon>arrow_back</Icon>} />
           <Typography className={classes.title}>About company </Typography>
-          <TextField className={classes.textField} id="standard-basic" label="Company name" />
-          <TextField className={classes.textField} id="standard-basic" label="Company size" />
-          <TextField className={classes.textField} id="standard-basic" label="Company website" />
+          <TextField className={classes.textField} label="Company name" />
+          <TextField className={classes.textField} label="Company size" />
+          <TextField className={classes.textField} label="Company website" />
 
           <Typography className={classes.title}>Position info</Typography>
-          <TextField className={classes.offerTitle} id="standard-basic" label="Offer title" />
+          <TextField className={classes.offerTitle} label="Offer title" />
           <FormControl className={classes.formControl}>
             <InputLabel id="demo-simple-select-label">Experience level</InputLabel>
             <Select
@@ -110,16 +110,8 @@ const PostJob: React.FC = () => {
               <MenuItem value={30}>Mandate contract</MenuItem>
             </Select>
           </FormControl>
-          <TextField
-            className={classes.textField}
-            id="standard-basic"
-            label="Monthly salary from (gross)"
-          />
-          <TextField
-            className={classes.textField}
-            id="standard-basic"
-            label="Monthly salary from (gross)"
-          />
+          <TextField className={classes.textField} label="Monthly salary from (gross)" />
+          <TextField className={classes.textField} label="Monthly salary from (gross)" />
           <Typography className={classes.title}>Main technology</Typography>
           <div>technologies ICONS</div>
           <Typography className={classes.title}>Job description</Typography>

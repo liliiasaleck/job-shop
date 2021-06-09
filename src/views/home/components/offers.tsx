@@ -5,7 +5,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import {offers} from './offers/const/offerList.const';
-import {Switch, Route, Router, Link} from 'react-router-dom';
+import {Switch, Route, Router, Link, useRouteMatch} from 'react-router-dom';
 import SingleOffer from './offers/singleOffer';
 
 const useStyles = makeStyles((theme) => ({
@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Offers: React.FC = () => {
   const classes = useStyles();
+
   return (
     <>
       <Box className={classes.box}>

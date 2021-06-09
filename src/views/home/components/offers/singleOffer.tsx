@@ -1,6 +1,8 @@
-import {Box, makeStyles} from '@material-ui/core';
+import {Box, Button, makeStyles} from '@material-ui/core';
+import {ArrowBack} from '@material-ui/icons';
 import React from 'react';
 import Navigation from '../navigation/navigation';
+import {useHistory} from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   box: {
@@ -10,12 +12,15 @@ const useStyles = makeStyles((theme) => ({
 
 const SingleOffer: React.FC = () => {
   const classes = useStyles();
+  const history = useHistory();
 
   return (
     <>
       <Navigation />
       <Box className={classes.box}>
-        <h1>Single Offer</h1>
+        <Button onClick={() => history.push('/')}>
+          <ArrowBack />
+        </Button>
       </Box>
     </>
   );

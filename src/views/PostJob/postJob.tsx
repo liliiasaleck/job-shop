@@ -2,9 +2,6 @@ import {
   Icon,
   Button,
   TextField,
-  createStyles,
-  makeStyles,
-  Theme,
   Typography,
   FormControl,
   Select,
@@ -14,51 +11,7 @@ import {
 } from '@material-ui/core';
 import React from 'react';
 import Navbar from '../../components/navbar/navbar';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    container: {
-      height: '100vh',
-    },
-    form: {
-      position: 'absolute',
-      top: '60%',
-      left: '50%',
-      width: '70%',
-      transform: 'translate(-50%, -50%)',
-      height: '100vh',
-      zIndex: 1,
-      textAlign: 'left',
-      backgroundColor: 'white',
-      padding: '30px',
-      overflow: 'hidden',
-      overflowY: 'scroll',
-      boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
-    },
-    textField: {
-      marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
-      width: '25ch',
-    },
-    title: {
-      marginTop: '2%',
-      marginBottom: '2%',
-      fontSize: '18px',
-      color: '#f50057',
-    },
-    offerTitle: {
-      width: '60%',
-    },
-    formControl: {
-      margin: theme.spacing(3),
-      minWidth: 120,
-    },
-    select: {
-      marginTop: theme.spacing(2),
-      width: '150px',
-    },
-  })
-);
+import {useStyles} from './postJob.style';
 
 const PostJob: React.FC = () => {
   const classes = useStyles();
@@ -73,7 +26,9 @@ const PostJob: React.FC = () => {
       <Navbar />
       <Box className={classes.container}>
         <form className={classes.form} noValidate autoComplete="off">
-          <Button aria-controls="simple-menu" endIcon={<Icon>arrow_back</Icon>} />
+          <Button aria-controls="simple-menu" startIcon={<Icon>arrow_back</Icon>}>
+            Back
+          </Button>
           <Typography className={classes.title}>About company </Typography>
           <TextField className={classes.textField} label="Company name" />
           <TextField className={classes.textField} label="Company size" />

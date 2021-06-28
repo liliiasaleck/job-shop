@@ -1,16 +1,15 @@
-import {Box, Button, makeStyles} from '@material-ui/core';
+import {Box, Button} from '@material-ui/core';
 import {ArrowBack} from '@material-ui/icons';
 import React from 'react';
-import Navigation from '../navigation/navigation';
+import Navigation from '../../../../components/navigation/navigation';
 import {useHistory} from 'react-router-dom';
+import {useStyles} from './singleOffer.style';
 
-const useStyles = makeStyles((theme) => ({
-  box: {
-    marginTop: '10rem',
+const SingleOffer: React.FC = ({
+  location: {
+    state: {title, salary, city, companyName},
   },
-}));
-
-const SingleOffer: React.FC = () => {
+}: any) => {
   const classes = useStyles();
   const history = useHistory();
 
@@ -18,6 +17,12 @@ const SingleOffer: React.FC = () => {
     <>
       <Navigation />
       <Box className={classes.box}>
+        <h1>SINGLE OFFER</h1>
+        <h2>{title}</h2>
+        <h3>{salary}</h3>
+        <h4>
+          {city} | {companyName}
+        </h4>
         <Button onClick={() => history.push('/')}>
           <ArrowBack />
         </Button>

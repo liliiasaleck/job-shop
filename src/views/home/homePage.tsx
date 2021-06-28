@@ -1,17 +1,8 @@
 import React from 'react';
-import Map from './components/map';
 import Offers from './components/offers';
-import Navigation from './components/navigation/navigation';
-import {Box, makeStyles, useMediaQuery} from '@material-ui/core';
-
-const useStyles = makeStyles({
-  box: {
-    width: '100vw',
-    display: 'flex',
-    justifyContent: 'space-between',
-    padding: '0px 0px 0px 0px',
-  },
-});
+import Navigation from '../../components/navigation/navigation';
+import {Box, useMediaQuery} from '@material-ui/core';
+import {useStyles} from './homePage.style';
 
 const HomePage: React.FC = () => {
   const classes = useStyles();
@@ -21,7 +12,6 @@ const HomePage: React.FC = () => {
       <Navigation />
       <Box className={classes.box}>
         <Offers />
-        <Map />
       </Box>
     </>
   );

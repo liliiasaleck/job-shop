@@ -1,46 +1,7 @@
 import React from 'react';
-import {
-  makeStyles,
-  Theme,
-  createStyles,
-  Modal,
-  Typography,
-  Fade,
-  Button,
-  Divider,
-  Icon,
-  MenuItem,
-  Slider,
-} from '@material-ui/core';
+import {Modal, Typography, Fade, Button, Divider, Icon, MenuItem, Slider} from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    modal: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    paper: {
-      backgroundColor: theme.palette.background.paper,
-      padding: theme.spacing(2, 4, 3),
-    },
-    main: {
-      display: 'flex',
-      alignSelf: 'flex-end',
-      justifyContent: 'center',
-      width: '50%',
-      marginLeft: '15rem',
-      color: 'grey',
-      border: '1px solid lightgrey',
-      borderRadius: '40px',
-    },
-    slider: {
-      width: '400px',
-      color: '#f50057',
-    },
-  })
-);
+import {useStyles} from './moreFilters.style';
 
 function valuetext(value: number) {
   return `${value}+ PLN`;
@@ -72,7 +33,6 @@ const MoreFilter: React.FC = () => {
         onClick={handleOpen}
         endIcon={<Icon>expand_more</Icon>}
       >
-        <MoreVertIcon />
         More Filters
       </Button>
       <Modal className={classes.modal} open={open} onClose={handleClose}>

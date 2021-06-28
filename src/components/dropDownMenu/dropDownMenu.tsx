@@ -1,18 +1,10 @@
 import React, {useState} from 'react';
-import {Button, List, ListItem, ListItemText, makeStyles, Menu, MenuItem} from '@material-ui/core/';
+import {Button, List, ListItem, ListItemText, Menu} from '@material-ui/core/';
 import {Link} from 'react-router-dom';
 import Icon from '@material-ui/core/Icon';
 import ComputerIcon from '@material-ui/icons/Computer';
 import WorkIcon from '@material-ui/icons/Work';
-
-const useStyles = makeStyles({
-  textlink: {
-    color: 'inherit',
-    textDecoration: 'inherit',
-    paddingLeft: '30px',
-    width: '200px',
-  },
-});
+import {useStyles} from './dropDown.style';
 
 const DropDownMenu: React.FC = () => {
   const classes = useStyles();

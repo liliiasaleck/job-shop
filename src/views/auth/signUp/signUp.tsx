@@ -1,46 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import Navbar from '../../../../components/navbar/navbar';
+import Navbar from '../../../components/navbar/navbar';
 import {useForm} from 'react-hook-form';
-import {
-  Typography,
-  TextField,
-  Container,
-  makeStyles,
-  Button,
-  Checkbox,
-  Theme,
-  createStyles,
-  Box,
-} from '@material-ui/core';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    box: {
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      zIndex: 1,
-      width: '100vw',
-      textAlign: 'center',
-    },
-    form: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
-    textfield: {
-      marginTop: '2rem',
-      width: '20rem',
-    },
-    btn: {
-      width: '10rem',
-      marginTop: '1rem',
-      borderRadius: '20px',
-    },
-  })
-);
+import {Typography, TextField, Button, Checkbox, Box} from '@material-ui/core';
+import {useStyles} from './signUp.style';
 
 type FormData = {
   email: string;

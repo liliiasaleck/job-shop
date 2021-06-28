@@ -4,45 +4,9 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Icon from '@material-ui/core/Icon';
-import {
-  makeStyles,
-  Typography,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
-  Theme,
-} from '@material-ui/core';
-
+import {Typography, Accordion, AccordionSummary, AccordionDetails} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-
-const useStyles = makeStyles((theme: Theme) => ({
-  main: {
-    width: '15%',
-    color: 'grey',
-    border: '1px solid lightgrey',
-    borderRadius: '40px',
-    textAlign: 'left',
-  },
-  menu: {minWidth: '100% '},
-  container: {
-    display: 'flex',
-  },
-  title: {
-    marginLeft: '15px',
-  },
-  city: {
-    border: '1px solid lightgrey',
-    borderRadius: '40px',
-    margin: '10px 10px 10px 10px',
-  },
-  remote: {
-    border: '1px solid lightgrey',
-    borderRadius: '40px',
-    width: '13%',
-    margin: '10px 10px 10px 10px',
-  },
-  close: {marginLeft: '400px'},
-}));
+import {useStyles} from './dropDown.style';
 
 const DropDown: React.FC = () => {
   const classes = useStyles();

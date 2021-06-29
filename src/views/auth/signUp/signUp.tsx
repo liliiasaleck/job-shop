@@ -38,13 +38,18 @@ const SignUp: React.FC = () => {
             {...register('password')}
             required
           />
-          <Checkbox className={classes.btn} required />
-          <Typography>I accept terms of service </Typography>
+          <div className={classes.checkbox}>
+            <Checkbox required />
+            <Typography>I accept terms of service </Typography>
+          </div>
           <Button variant="contained" color="secondary" className={classes.btn}>
             Register
           </Button>
           <Typography>
-            Already have an account? <Link to="/signin">Sign in</Link>
+            Already have an account?{' '}
+            <Link to="/signin" className={classes.signin}>
+              Sign in
+            </Link>
           </Typography>
         </form>
       </Box>

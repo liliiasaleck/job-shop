@@ -8,7 +8,7 @@ const Search: React.FC = () => {
 
   return (
     <div className={classes.search}>
-      <div className={classes.icon}>
+      <div className={classes.searchIcon}>
         <SearchIcon />
       </div>
       <InputBase

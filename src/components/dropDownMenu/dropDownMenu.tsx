@@ -5,6 +5,7 @@ import Icon from '@material-ui/core/Icon';
 import ComputerIcon from '@material-ui/icons/Computer';
 import WorkIcon from '@material-ui/icons/Work';
 import {useStyles} from './dropDown.style';
+import {routes} from '../../helpers/routes';
 
 const DropDownMenu: React.FC = () => {
   const classes = useStyles();
@@ -19,6 +20,7 @@ const DropDownMenu: React.FC = () => {
   return (
     <>
       <Button
+        className={classes.button}
         aria-controls="simple-menu"
         aria-haspopup="true"
         onClick={openMenu}
@@ -36,14 +38,14 @@ const DropDownMenu: React.FC = () => {
       >
         <List>
           <ListItem button>
-            <WorkIcon />
-            <Link className={classes.textlink} to="/signin">
+            <WorkIcon color="secondary" />
+            <Link className={classes.textlink} to={routes.signIn}>
               <ListItemText>Employer Panel</ListItemText>
             </Link>
           </ListItem>
           <ListItem button>
-            <ComputerIcon />
-            <Link className={classes.textlink} to="/signinemployer">
+            <ComputerIcon color="secondary" />
+            <Link className={classes.textlink} to={routes.signInEmployer}>
               <ListItemText>Developer Panel</ListItemText>
             </Link>
           </ListItem>

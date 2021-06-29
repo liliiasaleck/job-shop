@@ -10,6 +10,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     paper: {
       backgroundColor: theme.palette.background.paper,
       padding: theme.spacing(2, 4, 3),
+      color: 'rgb(119, 119, 119)',
     },
     main: {
       display: 'flex',
@@ -17,13 +18,32 @@ export const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'center',
       width: '45%',
       marginLeft: '15rem',
-      color: 'grey',
       border: '1px solid lightgrey',
       borderRadius: '40px',
+      textTransform: 'capitalize',
     },
-    slider: {
-      width: '400px',
-      color: '#f50057',
+    button: {
+      color: 'rgb(119, 119, 119)',
+      textTransform: 'capitalize',
+      border: '1px solid #D0D0D0',
+      borderRadius: '40px',
+      margin: '10px 10px 10px 10px',
+    },
+    item: {
+      border: '1px solid #D0D0D0',
+      borderRadius: '40px',
+      margin: '10px 10px 10px 10px',
+      color: '#99A1AB',
+    },
+    box: {
+      display: 'flex',
+    },
+    buttons: {
+      display: 'flex',
+      justifyContent: 'space-between',
+    },
+    text: {
+      margin: '10px 10px',
     },
   })
 );

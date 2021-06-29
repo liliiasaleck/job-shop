@@ -35,14 +35,16 @@ const Navbar: React.FC = () => {
             jobshop.it
           </Link>
           <Typography className={classes.title}>{pageTitleText}</Typography>
-          <Link to={routes.main}>
-            <Button color="secondary">Offers</Button>
+          <Link className={classes.buttons} to={routes.main}>
+            <Button className={classes.buttons} color="secondary">
+              Offers
+            </Button>
           </Link>
-          <Link to={routes.postJob}>
-            <Button>Post a job</Button>
+          <Link className={classes.buttons} to={routes.postJob}>
+            <Button className={classes.buttons}>Post job</Button>
           </Link>
           <DropDownMenu />
-          <IconButton onClick={handleDrawer}>
+          <IconButton className={classes.buttons} onClick={handleDrawer}>
             <MenuIcon />
           </IconButton>
         </Toolbar>
@@ -50,9 +52,8 @@ const Navbar: React.FC = () => {
       <Drawer anchor="right" onClose={() => setOpenDrawer(false)} open={open}>
         <List className={classes.list}>
           <ListItem>
-            <Typography>jobshop.it</Typography>
+            <Typography className={classes.menu}>Menu</Typography>
           </ListItem>
-          <Divider />
           <ListItem button>
             <WorkIcon />
             <Link className={classes.textlink} to={routes.signInEmployer}>

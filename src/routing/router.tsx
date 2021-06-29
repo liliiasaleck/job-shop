@@ -19,12 +19,12 @@ const Router = () => {
         <MainTemplate>
           <Route component={HomePage} path={routes.main} exact />
           <Route component={SingleOffer} path={routes.singleOffer} />
+          <Route component={SignIn} path={routes.signIn} />
+          <Route component={SignUp} path={routes.signUp} />
+          <Route component={PostJob} path={routes.postJob} />
+          <Route component={SignInEmployer} path={routes.signInEmployer} />
+          <Route component={AboutUs} path={routes.aboutUs} />
         </MainTemplate>
-        <Route component={SignIn} path={routes.signIn} />
-        <Route component={SignUp} path={routes.signUp} />
-        <Route component={PostJob} path={routes.postJob} />
-        <Route component={SignInEmployer} path={routes.signInEmployer} />
-        <Route component={AboutUs} path={routes.aboutUs} />
       </Switch>
     </BrowserRouter>
   );

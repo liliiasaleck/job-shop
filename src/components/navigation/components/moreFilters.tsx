@@ -3,14 +3,9 @@ import {Modal, Typography, Fade, Button, Divider, Icon, MenuItem, Slider} from '
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import {useStyles} from './moreFilters.style';
 
-function valuetext(value: number) {
-  return `${value}+ PLN`;
-}
-
 const MoreFilter: React.FC = () => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState<number[]>([0, 100]);
 
   const handleOpen = () => {
     setOpen(true);
@@ -18,10 +13,6 @@ const MoreFilter: React.FC = () => {
 
   const handleClose = () => {
     setOpen(false);
-  };
-
-  const handleChange = (event: any, newValue: number | number[]) => {
-    setValue(newValue as number[]);
   };
 
   return (
@@ -38,47 +29,35 @@ const MoreFilter: React.FC = () => {
       <Modal className={classes.modal} open={open} onClose={handleClose}>
         <Fade in={open}>
           <div className={classes.paper}>
-            <Typography>More filters</Typography>
+            <Typography className={classes.text}>More filters</Typography>
             <Divider />
             <div>
-              <Typography>Salary expectations?</Typography>
-              <Slider
-                className={classes.slider}
-                value={value}
-                onChange={handleChange}
-                valueLabelDisplay="auto"
-                getAriaValueText={valuetext}
-                max={50000}
-                min={0}
-                step={1000}
-              />
+              <Typography className={classes.text}>Employment Type</Typography>
+            </div>
+            <div className={classes.box}>
+              <MenuItem className={classes.item}>All</MenuItem>
+              <MenuItem className={classes.item}>B2B</MenuItem>
+              <MenuItem className={classes.item}>Permanent</MenuItem>
+              <MenuItem className={classes.item}>Mandate contract</MenuItem>
             </div>
             <Divider />
             <div>
-              <Typography>Employment Type</Typography>
+              <Typography className={classes.text}>Seniority</Typography>
             </div>
-            <div>
-              <MenuItem>All</MenuItem>
-              <MenuItem>B2B</MenuItem>
-              <MenuItem>Permanent</MenuItem>
-              <MenuItem>Mandate contract</MenuItem>
+            <div className={classes.box}>
+              <MenuItem className={classes.item}>All</MenuItem>
+              <MenuItem className={classes.item}>Junior</MenuItem>
+              <MenuItem className={classes.item}>Mid</MenuItem>
+              <MenuItem className={classes.item}>Senior</MenuItem>
             </div>
-            <Divider />
-            <div>
-              <Typography>Seniority</Typography>
+            <div className={classes.buttons}>
+              <Button className={classes.button} aria-controls="simple-menu" aria-haspopup="true">
+                Clear filter
+              </Button>
+              <Button className={classes.button} aria-controls="simple-menu" aria-haspopup="true">
+                Show offers
+              </Button>
             </div>
-            <div>
-              <MenuItem>All</MenuItem>
-              <MenuItem>Junior</MenuItem>
-              <MenuItem>Mid</MenuItem>
-              <MenuItem>Senior</MenuItem>
-            </div>
-            <Button aria-controls="simple-menu" aria-haspopup="true">
-              Clear filter
-            </Button>
-            <Button aria-controls="simple-menu" aria-haspopup="true">
-              Show offers
-            </Button>
           </div>
         </Fade>
       </Modal>

@@ -17,15 +17,14 @@ const SingleOffer: React.FC = ({
     <>
       <Navigation />
       <Box className={classes.box}>
-        <h1>SINGLE OFFER</h1>
+        <Button onClick={() => history.push('/')}>
+          <ArrowBack />
+        </Button>
         <h2>{title}</h2>
         <h3>{salary}</h3>
         <h4>
           {city} | {companyName}
         </h4>
-        <Button onClick={() => history.push('/')}>
-          <ArrowBack />
-        </Button>
       </Box>
     </>
   );

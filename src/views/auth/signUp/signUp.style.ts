@@ -22,8 +22,17 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     btn: {
       width: '10rem',
-      marginTop: '1rem',
+      margin: '1rem 1rem',
       borderRadius: '20px',
+    },
+    signin: {
+      textDecorationLine: 'none',
+    },
+    checkbox: {
+      display: 'flex',
+      height: '10px',
+      margin: '2rem 2rem',
+      color: 'rgb(135, 152, 173)',
     },
   })
 );

@@ -22,8 +22,11 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     btn: {
       width: '10rem',
-      marginTop: '2rem',
+      margin: '2rem 1rem',
       borderRadius: '20px',
+    },
+    register: {
+      textDecorationLine: 'none',
     },
   })
 );

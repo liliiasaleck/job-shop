@@ -14,4 +14,18 @@ export const useStyles = makeStyles({
     zIndex: 1,
     padding: '20px 20px',
   },
+  div: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    width: '71%',
+    height: '30px',
+    backgroundColor: 'white',
+    color: 'black',
+    position: 'absolute',
+    top: '20%',
+    left: '30%',
+    transform: 'translate(-50%, -50%)',
+    zIndex: 1,
+    padding: '20px 20px',
+  },
 });

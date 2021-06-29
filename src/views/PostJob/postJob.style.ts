@@ -21,10 +21,10 @@ export const useStyles = makeStyles((theme: Theme) =>
       boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
     },
     textField: {
-      marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
-      width: '25ch',
+      width: '15rem',
       borderBottom: 'none',
+      marginLeft: '2rem',
+      marginRight: '2rem',
     },
     title: {
       marginTop: '2%',
@@ -34,14 +34,22 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     offerTitle: {
       width: '60%',
+      marginRight: '2rem',
+      marginLeft: '2rem',
     },
-    formControl: {
-      margin: theme.spacing(3),
-      minWidth: 120,
-    },
+    formControl: {},
     select: {
       marginTop: theme.spacing(2),
-      width: '150px',
+      width: '15rem',
+    },
+    btn: {
+      textTransform: 'capitalize',
+      fontSize: '16px',
+    },
+    textarea: {
+      width: '100%',
+      fontSize: '16px',
+      padding: '10px 10px 10px 10px',
     },
   })
 );

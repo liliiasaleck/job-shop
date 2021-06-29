@@ -12,8 +12,8 @@ const TechFilter: React.FC = () => {
       <div className={classes.round}>All</div>
 
       {skills.map((skill, index) => (
-        <div key={index} color="green" className={classes.round}>
-          <FontAwesomeIcon icon={skill.icon} />
+        <div key={index} className={classes.round}>
+          <FontAwesomeIcon size="1x" className={classes.icon} icon={skill.icon} fixedWidth />
         </div>
       ))}
     </div>

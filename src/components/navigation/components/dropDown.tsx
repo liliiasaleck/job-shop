@@ -4,14 +4,12 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Icon from '@material-ui/core/Icon';
-import {Typography, Accordion, AccordionSummary, AccordionDetails} from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {Typography, Divider} from '@material-ui/core';
 import {useStyles} from './dropDown.style';
 
 const DropDown: React.FC = () => {
   const classes = useStyles();
   const [anchorLocation, setAnchor] = useState<null | HTMLElement>(null);
-  // const [city, setCity] = useState<null | HTMLElement>(null);
   const handleClose = () => {
     setAnchor(null);
   };
@@ -81,37 +79,8 @@ const DropDown: React.FC = () => {
             London
           </MenuItem>
         </div>
-
-        <Accordion>
-          <AccordionSummary
-            expandIcon={<ExpandMoreIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography className={classes.title}>Other locations Poland</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <MenuItem className={classes.city} onClick={handleClose}>
-              Białystok
-            </MenuItem>
-            <MenuItem className={classes.city} onClick={handleClose}>
-              Łódź
-            </MenuItem>
-            <MenuItem className={classes.city} onClick={handleClose}>
-              Olsztyn
-            </MenuItem>
-            <MenuItem className={classes.city} onClick={handleClose}>
-              Bydgoszcz
-            </MenuItem>
-            <MenuItem className={classes.city} onClick={handleClose}>
-              Kielce
-            </MenuItem>
-            <MenuItem className={classes.city} onClick={handleClose}>
-              Lublin
-            </MenuItem>
-          </AccordionDetails>
-        </Accordion>
-        <Button className={classes.remote} aria-controls="simple-menu" aria-haspopup="true">
+        <Divider />
+        <Button className={classes.clear} aria-controls="simple-menu" aria-haspopup="true">
           Clear filter
         </Button>
       </Menu>

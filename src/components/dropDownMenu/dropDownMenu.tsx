@@ -25,6 +25,7 @@ const DropDownMenu: React.FC = () => {
         aria-haspopup="true"
         onClick={openMenu}
         endIcon={<Icon>expand_more</Icon>}
+        variant="contained"
         color="secondary"
       >
         Sign in

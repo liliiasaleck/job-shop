@@ -16,8 +16,8 @@ export const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       alignSelf: 'flex-end',
       justifyContent: 'center',
-      width: '45%',
-      marginLeft: '15rem',
+      width: '100%',
+      marginLeft: 'rem',
       border: '1px solid lightgrey',
       borderRadius: '40px',
       textTransform: 'capitalize',
@@ -44,6 +44,9 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     text: {
       margin: '10px 10px',
+    },
+    dropdown: {
+      width: '15%',
     },
   })
 );

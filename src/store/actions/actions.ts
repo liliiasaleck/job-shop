@@ -9,3 +9,8 @@ export const searchOfferByName = (value) => ({
   type: actionsTypes.SEARCH_OFFER_BY_NAME,
   payload: value,
 });
+
+// export const filterCityType = (city) => ({
+//   type: actionsTypes.SEARCH_OFFER_BY_CITY,
+//   payload: city,
+// });

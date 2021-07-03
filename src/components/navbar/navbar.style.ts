@@ -45,4 +45,15 @@ export const useStyles = makeStyles({
     textTransform: 'uppercase',
     fontSize: '20px',
   },
+  post: {
+    textDecoration: 'none',
+    textTransform: 'capitalize',
+    fontFamily: 'Open Sans, sans-serif',
+    fontSize: '14px',
+    color: 'rgb(119, 119, 119)',
+    border: '1px solid #D0D0D0',
+    borderRadius: '20px',
+    marginRight: '1rem',
+    width: '100px',
+  },
 });

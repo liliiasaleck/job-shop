@@ -1,5 +1,4 @@
-/* eslint-disable max-len */
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -9,6 +8,7 @@ import {useStyles} from './dropDown.style';
 
 const DropDown: React.FC = () => {
   const classes = useStyles();
+
   const [anchorLocation, setAnchor] = useState<null | HTMLElement>(null);
   const handleClose = () => {
     setAnchor(null);
@@ -16,6 +16,7 @@ const DropDown: React.FC = () => {
   const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchor(event.currentTarget);
   };
+
   return (
     <>
       <Button
@@ -36,9 +37,7 @@ const DropDown: React.FC = () => {
         onClick={handleClose}
       >
         <div className={classes.container}>
-          <MenuItem className={classes.remote} onClick={handleClose}>
-            Remote
-          </MenuItem>
+          <MenuItem className={classes.remote}>Remote</MenuItem>
           <Button
             className={classes.close}
             aria-controls="simple-menu"

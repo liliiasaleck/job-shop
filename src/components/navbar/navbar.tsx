@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
             </Button>
           </Link>
           <Link className={classes.buttons} to={routes.postJob}>
-            <Button className={classes.buttons}>Post job</Button>
+            <Button className={classes.post}>Post job</Button>
           </Link>
           <DropDownMenu />
           <IconButton className={classes.buttons} onClick={handleDrawer}>

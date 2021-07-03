@@ -10,5 +10,7 @@ export const useStyles = makeStyles({
   button: {
     textTransform: 'capitalize',
     textDecoration: 'none',
+    borderRadius: '20px',
+    boxShadow: 'none',
   },
 });

@@ -2,9 +2,7 @@ import {createStyles, makeStyles, Theme} from '@material-ui/core';
 
 export const useStyles = makeStyles({
   main: {
-    width: '300px',
     display: 'flex',
-    flexDirection: 'row',
   },
   round: {
     display: 'flex',

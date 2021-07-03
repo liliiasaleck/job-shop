@@ -16,7 +16,7 @@ const MoreFilter: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className={classes.dropdown}>
       <Button
         className={classes.main}
         aria-controls="simple-menu"

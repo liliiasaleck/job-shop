@@ -16,8 +16,8 @@ export const useStyles = makeStyles({
   },
   div: {
     display: 'flex',
-    justifyContent: 'space-around',
-    width: '71%',
+    justifyContent: 'space-between',
+    width: '100%',
     height: '30px',
     backgroundColor: 'white',
     color: 'black',

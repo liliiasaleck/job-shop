@@ -26,9 +26,13 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     btn: {
       margin: '20px',
+      textTransform: 'capitalize',
     },
     title: {
       padding: '20px',
+    },
+    checkbox: {
+      color: 'rgb(135, 152, 173)',
     },
   })
 );

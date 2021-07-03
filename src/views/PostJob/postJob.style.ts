@@ -51,5 +51,12 @@ export const useStyles = makeStyles((theme: Theme) =>
       fontSize: '16px',
       padding: '10px 10px 10px 10px',
     },
+    submitbtn: {
+      width: '10rem',
+      marginTop: '2rem',
+      borderRadius: '20px',
+      textTransform: 'capitalize',
+      fontSize: '16px',
+    },
   })
 );

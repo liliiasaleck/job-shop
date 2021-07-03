@@ -10,7 +10,6 @@ import {
   Box,
 } from '@material-ui/core';
 import React from 'react';
-import Navbar from '../../components/navbar/navbar';
 import {useStyles} from './postJob.style';
 import {useHistory} from 'react-router-dom';
 import {ArrowBack} from '@material-ui/icons';
@@ -28,7 +27,6 @@ const PostJob: React.FC = () => {
 
   return (
     <div>
-      <Navbar />
       <Box className={classes.container}>
         <form className={classes.form} noValidate autoComplete="off">
           <Button className={classes.btn} onClick={() => history.push('/')}>
@@ -82,9 +80,8 @@ const PostJob: React.FC = () => {
           <TextField className={classes.textField} label="Office city" />
           <TextField className={classes.textField} label="Office street" />
           <Typography className={classes.title}>Agreements</Typography>
-          <TextareaAutosize className={classes.textarea} rowsMin={1} />
-
-          <Button type="submit" aria-controls="simple-menu" aria-haspopup="true">
+          <TextareaAutosize className={classes.textarea} rowsMin={10} />
+          <Button className={classes.submitbtn} variant="contained" color="secondary">
             Submit
           </Button>
         </form>

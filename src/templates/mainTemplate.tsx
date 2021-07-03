@@ -1,3 +1,4 @@
+import Navigation from '../components/navigation/navigation';
 import React from 'react';
 import Map from '../components/map/map';
 import {routes} from '../helpers/routes';

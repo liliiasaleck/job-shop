@@ -7,14 +7,19 @@ import Typography from '@material-ui/core/Typography';
 import {offers} from './singleOffers/const/offerList.const';
 import {Link} from 'react-router-dom';
 import {useStyles} from './offers.style';
+import {useSelector} from 'react-redux';
+import Navigation from '../../../components/navigation/navigation';
 
 const Offers: React.FC = () => {
   const classes = useStyles();
 
+  const offersList = useSelector(({offersList}: any) => offersList);
+
   return (
     <>
+      <Navigation />
       <Box className={classes.box}>
-        {offers.map((offert) => {
+        {offersList.map((offert) => {
           const {title, salary, city, tech, id} = offert;
           return (
             <Link

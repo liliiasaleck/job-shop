@@ -10,6 +10,7 @@ import SingleOffer from '../views/home/components/singleOffers/singleOffer';
 import Navbar from '../components/navbar/navbar';
 import MainTemplate from '../templates/mainTemplate';
 import {routes} from '../helpers/routes';
+import Navigation from '../components/navigation/navigation';
 
 const Router = () => {
   return (

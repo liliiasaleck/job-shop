@@ -35,20 +35,37 @@ const MoreFilter: React.FC = () => {
               <Typography className={classes.text}>Employment Type</Typography>
             </div>
             <div className={classes.box}>
-              <MenuItem className={classes.item}>All</MenuItem>
-              <MenuItem className={classes.item}>B2B</MenuItem>
-              <MenuItem className={classes.item}>Permanent</MenuItem>
-              <MenuItem className={classes.item}>Mandate contract</MenuItem>
+              <MenuItem className={classes.item} onClick={handleClose}>
+                All
+              </MenuItem>
+              <MenuItem className={classes.item} onClick={handleClose}>
+                B2B
+              </MenuItem>
+              <MenuItem className={classes.item} onClick={handleClose}>
+                Permanent
+              </MenuItem>
+              <MenuItem className={classes.item} onClick={handleClose}>
+                Mandate contract
+              </MenuItem>
             </div>
-            <Divider />
             <div>
-              <Typography className={classes.text}>Seniority</Typography>
+              <Typography className={classes.text} onClick={handleClose}>
+                Seniority
+              </Typography>
             </div>
             <div className={classes.box}>
-              <MenuItem className={classes.item}>All</MenuItem>
-              <MenuItem className={classes.item}>Junior</MenuItem>
-              <MenuItem className={classes.item}>Mid</MenuItem>
-              <MenuItem className={classes.item}>Senior</MenuItem>
+              <MenuItem className={classes.item} onClick={handleClose}>
+                All
+              </MenuItem>
+              <MenuItem className={classes.item} onClick={handleClose}>
+                Junior
+              </MenuItem>
+              <MenuItem className={classes.item} onClick={handleClose}>
+                Mid
+              </MenuItem>
+              <MenuItem className={classes.item} onClick={handleClose}>
+                Senior
+              </MenuItem>
             </div>
             <div className={classes.buttons}>
               <Button className={classes.button} aria-controls="simple-menu" aria-haspopup="true">

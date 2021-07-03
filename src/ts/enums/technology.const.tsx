@@ -14,6 +14,11 @@ type skill = {
 // Porpawic techfilters
 export const skills: skill[] = [
   {
+    display: 'All',
+    tech: 'all',
+    icon: faJs,
+  },
+  {
     display: 'JS',
     tech: 'js',
     icon: faJs,

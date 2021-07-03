@@ -15,7 +15,6 @@
     "@types/jest": "^26.0.22",
     "@types/material-ui": "^0.21.8",
     "@types/node": "^14.14.37",
-    "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "@types/react-router-dom": "^5.1.7",
     "formik": "^2.2.6",
@@ -64,6 +63,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react": "^17.0.13",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
     "case-sensitive-paths-webpack-plugin": "^2.4.0",

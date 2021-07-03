@@ -24,6 +24,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       width: '10rem',
       margin: '1rem 1rem',
       borderRadius: '20px',
+      textTransform: 'capitalize',
     },
     signin: {
       textDecorationLine: 'none',

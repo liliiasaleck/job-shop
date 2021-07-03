@@ -39,8 +39,10 @@ const SignInEmployer = ({email, password}: FormData): ReactElement => {
             {...register('password')}
             required
           />
-          <Checkbox />
-          <Typography>Remember me </Typography>
+          <div>
+            <Checkbox className={classes.checkbox} />
+            <span>Remember me </span>
+          </div>
           <Button variant="contained" color="secondary" className={classes.btn}>
             Sign in
           </Button>

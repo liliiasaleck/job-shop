@@ -33,7 +33,7 @@ const DropDown: React.FC = () => {
         anchorEl={anchorLocation}
         keepMounted
         open={Boolean(anchorLocation)}
-        onClose={handleClose}
+        onClick={handleClose}
       >
         <div className={classes.container}>
           <MenuItem className={classes.remote} onClick={handleClose}>
@@ -80,7 +80,12 @@ const DropDown: React.FC = () => {
           </MenuItem>
         </div>
         <Divider />
-        <Button className={classes.clear} aria-controls="simple-menu" aria-haspopup="true">
+        <Button
+          className={classes.clear}
+          aria-controls="simple-menu"
+          aria-haspopup="true"
+          onClick={handleClose}
+        >
           Clear filter
         </Button>
       </Menu>

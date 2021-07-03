@@ -9,7 +9,7 @@ export const useStyles = makeStyles((theme) => ({
     top: '50%',
     left: '83%',
     transform: 'translate(-50%, -50%)',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'none',
     },
   },

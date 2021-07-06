@@ -23,6 +23,7 @@ const Offers: React.FC = () => {
           const {title, salary, city, tech, id} = offert;
           return (
             <Link
+              className={classes.link}
               to={{
                 pathname: `/singleoffer/${title.replace(/\s/g, '-')}`,
                 state: offert,
@@ -31,7 +32,7 @@ const Offers: React.FC = () => {
             >
               <Card className={classes.offer}>
                 <CardActionArea className={classes.main}>
-                  <div>Logo</div>
+                  <div></div>
                   <CardContent className={classes.content}>
                     <div className={classes.large}>
                       <Typography>{title}</Typography>

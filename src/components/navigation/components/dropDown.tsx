@@ -5,6 +5,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Icon from '@material-ui/core/Icon';
 import {Typography, Divider} from '@material-ui/core';
 import {useStyles} from './dropDown.style';
+import {topPolandLocations, topWorldLocations} from '../../../helpers/topLocations';
 
 const DropDown: React.FC = () => {
   const classes = useStyles();
@@ -47,36 +48,20 @@ const DropDown: React.FC = () => {
         </div>
         <Typography className={classes.title}>Top Poland</Typography>
         <div className={classes.container}>
-          <MenuItem className={classes.city} onClick={handleClose}>
-            Warsaw
-          </MenuItem>
-          <MenuItem className={classes.city} onClick={handleClose}>
-            Krakow
-          </MenuItem>
-          <MenuItem className={classes.city} onClick={handleClose}>
-            Wroclaw
-          </MenuItem>
-          <MenuItem className={classes.city} onClick={handleClose}>
-            Poznań
-          </MenuItem>
-          <MenuItem className={classes.city} onClick={handleClose}>
-            Trójmiasto
-          </MenuItem>
-          <MenuItem className={classes.city} onClick={handleClose}>
-            Śląsk
-          </MenuItem>
+          {topPolandLocations.map((location, index) => (
+            <MenuItem key={index} className={classes.city} onClick={handleClose}>
+              {location}
+            </MenuItem>
+          ))}
         </div>
+
         <Typography className={classes.title}>Top World</Typography>
         <div className={classes.container}>
-          <MenuItem className={classes.city} onClick={handleClose}>
-            New York
-          </MenuItem>
-          <MenuItem className={classes.city} onClick={handleClose}>
-            Berlin
-          </MenuItem>
-          <MenuItem className={classes.city} onClick={handleClose}>
-            London
-          </MenuItem>
+          {topWorldLocations.map((location, index) => (
+            <MenuItem key={index} className={classes.city} onClick={handleClose}>
+              {location}
+            </MenuItem>
+          ))}
         </div>
         <Divider />
         <Button

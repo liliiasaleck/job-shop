@@ -28,6 +28,7 @@ export const useStyles = makeStyles((theme) => ({
   main: {
     display: 'flex',
     justifyContent: 'space-between',
+    textDecoration: 'none',
   },
   large: {
     display: 'flex',
@@ -54,5 +55,8 @@ export const useStyles = makeStyles((theme) => ({
   tech: {
     color: 'rgb(153, 161, 171)',
     fontSize: '12px',
+  },
+  link: {
+    textDecoration: 'none',
   },
 }));

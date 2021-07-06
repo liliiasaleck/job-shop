@@ -3,6 +3,7 @@ import {offers} from '../../views/home/components/singleOffers/const/offerList.c
 export const initialState = {
   user: 'Unlogin user',
   offersList: [...offers],
+  tech: '',
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -17,11 +18,16 @@ const rootReducer = (state = initialState, action) => {
       return payload !== 'all'
         ? {
             ...state,
-            offersList: offers.filter((offer) => offer.tech === payload),
+            offersList:
+              state.tech === payload
+                ? [...offers]
+                : offers.filter((offer) => offer.tech === payload),
+            tech: state.tech === payload ? 'all' : payload,
           }
         : {
             ...state,
             offersList: [...offers],
+            tech: 'all',
           };
 
     case actionsTypes.SEARCH_OFFER_BY_NAME:

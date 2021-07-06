@@ -16,11 +16,12 @@ export const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       alignSelf: 'flex-end',
       justifyContent: 'center',
-      width: '100%',
+      width: '80%',
       marginLeft: 'rem',
       border: '1px solid lightgrey',
       borderRadius: '40px',
       textTransform: 'capitalize',
+      color: 'grey',
     },
     button: {
       color: 'rgb(119, 119, 119)',

@@ -1,6 +1,6 @@
 import {IconProp} from '@fortawesome/fontawesome-svg-core';
 import {faJs, faHtml5, faPhp, faPython, faJava} from '@fortawesome/free-brands-svg-icons';
-import {faMobile, faSearch, faTasks, faUserCog} from '@fortawesome/free-solid-svg-icons';
+import {faGem, faMobile, faSearch, faTasks, faUserCog} from '@fortawesome/free-solid-svg-icons';
 
 type skill = {
   display: string;
@@ -8,9 +8,6 @@ type skill = {
   icon: IconProp;
 };
 
-// type item_enum = {
-//   [ string]: item;
-// };
 // Porpawic techfilters
 export const skills: skill[] = [
   {
@@ -63,5 +60,15 @@ export const skills: skill[] = [
     display: 'PM',
     tech: 'pm',
     icon: faTasks,
+  },
+  {
+    display: 'Ruby',
+    tech: 'ruby',
+    icon: faGem,
+  },
+  {
+    display: 'Ruby',
+    tech: 'ruby',
+    icon: faGem,
   },
 ];

@@ -22,7 +22,7 @@ const TechFilter: React.FC = () => {
           {tech === 'all' ? (
             'All'
           ) : (
-            <FontAwesomeIcon size="1x" className={classes.icon} icon={icon} fixedWidth />
+            <FontAwesomeIcon size="lg" className={classes.icon} icon={icon} fixedWidth />
           )}
         </div>
       ))}

@@ -8,30 +8,34 @@ export const useStyles = makeStyles((theme) => ({
   },
   top: {
     background:
-      'linear-gradient(0deg, rgba(195,34,87,0.06906512605042014) 0%, rgba(200,45,253,0.46682422969187676) 100%)',
+      'linear-gradient(0deg, rgba(245,0,87,0.5116421568627452) 0%, rgba(245,0,87,0.9626225490196079) 37%)',
     margin: '10px',
     borderRadius: '5px',
     height: '220px',
     boxShadow: ' rgb(0 0 0 / 8%) 0px 2px 2px 0px, rgb(0 0 0 / 6%) 0px 1px 5px 0px',
   },
   maininfo: {
-    paddingTop: '3rem',
-    paddingLeft: '5rem',
+    paddingTop: '4rem',
+    paddingLeft: '2rem',
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    width: '70%',
+    width: '55%',
+    color: 'white',
+    fontFamily: 'Open Sans, sans-serif',
   },
   btnback: {
     height: '30px',
     marginLeft: '20px',
     backgroundColor: 'rgba(0, 0, 0, 0.2)',
     transform: 'translateY(170%)',
+    color: 'white',
   },
   information: {
     transform: 'translateY(-40%)',
     display: 'flex',
     justifyContent: 'space-around',
+    fontFamily: 'Open Sans, sans-serif',
   },
   infodiv: {
     backgroundColor: 'rgb(255, 255, 255)',
@@ -49,6 +53,7 @@ export const useStyles = makeStyles((theme) => ({
     borderRadius: '5px',
     height: '300px',
     boxShadow: ' rgb(0 0 0 / 8%) 0px 2px 2px 0px, rgb(0 0 0 / 6%) 0px 1px 5px 0px',
+    fontFamily: 'Open Sans, sans-serif',
   },
   divform: {
     backgroundColor: 'rgb(255, 255, 255)',

@@ -1,6 +1,8 @@
 import React from 'react';
 import {Modal, Typography, Fade, Button, Divider, Icon, MenuItem, Slider} from '@material-ui/core';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import {employmentType} from '../../../helpers/employmentType.cons';
+import {experienceLvl} from '../../../helpers/experienceLvl.const';
 import {useStyles} from './moreFilters.style';
 
 const MoreFilter: React.FC = () => {
@@ -35,18 +37,11 @@ const MoreFilter: React.FC = () => {
               <Typography className={classes.text}>Employment Type</Typography>
             </div>
             <div className={classes.box}>
-              <MenuItem className={classes.item} onClick={handleClose}>
-                All
-              </MenuItem>
-              <MenuItem className={classes.item} onClick={handleClose}>
-                B2B
-              </MenuItem>
-              <MenuItem className={classes.item} onClick={handleClose}>
-                Permanent
-              </MenuItem>
-              <MenuItem className={classes.item} onClick={handleClose}>
-                Mandate contract
-              </MenuItem>
+              {employmentType.map((employment, index) => (
+                <MenuItem key={index} className={classes.item} onClick={handleClose}>
+                  {employment}
+                </MenuItem>
+              ))}
             </div>
             <div>
               <Typography className={classes.text} onClick={handleClose}>
@@ -54,18 +49,11 @@ const MoreFilter: React.FC = () => {
               </Typography>
             </div>
             <div className={classes.box}>
-              <MenuItem className={classes.item} onClick={handleClose}>
-                All
-              </MenuItem>
-              <MenuItem className={classes.item} onClick={handleClose}>
-                Junior
-              </MenuItem>
-              <MenuItem className={classes.item} onClick={handleClose}>
-                Mid
-              </MenuItem>
-              <MenuItem className={classes.item} onClick={handleClose}>
-                Senior
-              </MenuItem>
+              {experienceLvl.map((experience, index) => (
+                <MenuItem key={index} className={classes.item} onClick={handleClose}>
+                  {experience}
+                </MenuItem>
+              ))}
             </div>
             <div className={classes.buttons}>
               <Button className={classes.button} aria-controls="simple-menu" aria-haspopup="true">

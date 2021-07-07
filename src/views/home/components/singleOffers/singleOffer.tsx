@@ -23,7 +23,7 @@ const SingleOffer: React.FC = ({
     state: {
       title,
       salary,
-      city,
+      location,
       companyName,
       employmentType,
       companySize,
@@ -49,7 +49,7 @@ const SingleOffer: React.FC = ({
               <Typography variant="h5">{title}</Typography>
               <Typography>
                 <FontAwesomeIcon icon={faMapMarkerAlt} />
-                {city}
+                {location}
               </Typography>
               <Typography>
                 {salary} - {employmentType}

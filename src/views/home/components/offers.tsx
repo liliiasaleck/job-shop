@@ -20,7 +20,7 @@ const Offers: React.FC = () => {
       <Navigation />
       <Box className={classes.box}>
         {offersList.map((offert) => {
-          const {title, salary, city, tech, id} = offert;
+          const {title, salary, location, tech, id} = offert;
           return (
             <Link
               className={classes.link}
@@ -39,7 +39,7 @@ const Offers: React.FC = () => {
                       <Typography color="secondary">{salary}</Typography>
                     </div>
                     <div className={classes.small}>
-                      <Typography className={classes.location}>{city}</Typography>
+                      <Typography className={classes.location}>{location}</Typography>
                       <Typography className={classes.tech}>{tech}</Typography>
                     </div>
                   </CardContent>

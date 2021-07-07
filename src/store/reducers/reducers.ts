@@ -40,6 +40,18 @@ const rootReducer = (state = initialState, action) => {
           }
         : {...state, offersList: [...offers]};
 
+    case actionsTypes.FILTER_OFFERS_BY_LOCATION:
+      return {
+        ...state,
+        offersList: offers.filter((offer) => offer.location === payload),
+      };
+
+    case actionsTypes.RESET_FILTERS:
+      return {
+        ...state,
+        offersList: [...offers],
+      };
+
     default:
       return state;
   }

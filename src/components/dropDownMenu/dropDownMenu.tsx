@@ -40,13 +40,13 @@ const DropDownMenu: React.FC = () => {
         <List>
           <ListItem button>
             <WorkIcon color="secondary" />
-            <Link className={classes.textlink} to={routes.signIn}>
+            <Link className={classes.textlink} to={routes.signInEmployer}>
               <ListItemText>Employer Panel</ListItemText>
             </Link>
           </ListItem>
           <ListItem button>
             <ComputerIcon color="secondary" />
-            <Link className={classes.textlink} to={routes.signInEmployer}>
+            <Link className={classes.textlink} to={routes.signIn}>
               <ListItemText>Developer Panel</ListItemText>
             </Link>
           </ListItem>

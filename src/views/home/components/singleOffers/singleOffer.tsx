@@ -29,6 +29,7 @@ const SingleOffer: React.FC = ({
       companySize,
       experience,
       jobDescription,
+      logo,
     },
   },
 }: any) => {
@@ -44,7 +45,9 @@ const SingleOffer: React.FC = ({
         </Button>
         <div className={classes.top}>
           <div className={classes.maininfo}>
-            <div>Logo</div>
+            <div className={classes.imagebox}>
+              <img className={classes.image} src={logo} />
+            </div>
             <div>
               <Typography variant="h5">{title}</Typography>
               <Typography>

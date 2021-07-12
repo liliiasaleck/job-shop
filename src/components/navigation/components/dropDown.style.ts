@@ -1,12 +1,21 @@
 import {createStyles, makeStyles, Theme} from '@material-ui/core';
 
 export const useStyles = makeStyles((theme: Theme) => ({
-  main: {
+  mainLocation: {
     width: '12%',
     color: 'grey',
     border: '1px solid #D0D0D0',
     borderRadius: '40px',
     textTransform: 'capitalize',
+  },
+
+  mainSelectedLocation: {
+    width: '12%',
+    color: 'rgb(255,64,129)',
+    border: '1px solid rgb(255,64,129)',
+    borderRadius: '40px',
+    textTransform: 'capitalize',
+    backgroundColor: 'rgba(255, 64, 129, 0.08)',
   },
   menu: {minWidth: '100% '},
   container: {
@@ -38,11 +47,11 @@ export const useStyles = makeStyles((theme: Theme) => ({
     color: '#99A1AB',
   },
   clear: {
-    border: '1px solid #D0D0D0',
     borderRadius: '40px',
     width: '18%',
     margin: '20px 10px 20px 10px',
-    color: '#99A1AB',
+    color: 'White',
+    backgroundColor: '#ff4081',
     textTransform: 'capitalize',
   },
 }));

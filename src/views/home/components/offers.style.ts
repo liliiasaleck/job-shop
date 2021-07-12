@@ -3,19 +3,21 @@ import {createStyles, makeStyles, Theme} from '@material-ui/core';
 export const useStyles = makeStyles((theme) => ({
   box: {
     width: '65%',
-    height: '98vh',
+    height: '80%',
     overflow: 'hidden',
     overflowY: 'scroll',
     position: 'absolute',
-    paddingTop: '9rem',
-    top: '50%',
+    top: '59%',
     left: '33%',
     transform: 'translate(-50%, -50%)',
     [theme.breakpoints.down('md')]: {
-      width: '100%',
+      width: '80%',
     },
     [theme.breakpoints.down('sm')]: {
-      width: '100%',
+      width: '70%',
+      position: 'fixed',
+      top: '30%',
+      left: '33%',
     },
   },
   offer: {
@@ -58,5 +60,10 @@ export const useStyles = makeStyles((theme) => ({
   },
   link: {
     textDecoration: 'none',
+  },
+  image: {
+    width: '80px',
+    height: '40px',
+    marginLeft: '1rem',
   },
 }));

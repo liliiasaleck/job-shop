@@ -3,10 +3,9 @@ import {createStyles, makeStyles, Theme} from '@material-ui/core';
 export const useStyles = makeStyles((theme) => ({
   container: {
     width: '35%',
-    height: '100%',
+    height: '80%',
     position: 'absolute',
-    paddingTop: '10rem',
-    top: '50%',
+    top: '57%',
     left: '83%',
     transform: 'translate(-50%, -50%)',
     [theme.breakpoints.down('md')]: {

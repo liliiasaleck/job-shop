@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box} from '@material-ui/core';
+import {Box, useTheme} from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -12,15 +12,15 @@ import Navigation from '../../../components/navigation/navigation';
 
 const Offers: React.FC = () => {
   const classes = useStyles();
+  const theme = useTheme();
 
   const offersList = useSelector(({offersList}: any) => offersList);
 
   return (
     <>
-      <Navigation />
       <Box className={classes.box}>
         {offersList.map((offert) => {
-          const {title, salary, location, tech, id} = offert;
+          const {title, salary, location, tech, id, logo} = offert;
           return (
             <Link
               className={classes.link}
@@ -32,7 +32,7 @@ const Offers: React.FC = () => {
             >
               <Card className={classes.offer}>
                 <CardActionArea className={classes.main}>
-                  <div></div>
+                  <img className={classes.image} src={logo} />
                   <CardContent className={classes.content}>
                     <div className={classes.large}>
                       <Typography>{title}</Typography>

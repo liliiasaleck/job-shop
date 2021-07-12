@@ -15,7 +15,7 @@ export const useStyles = makeStyles((theme) => ({
     boxShadow: ' rgb(0 0 0 / 8%) 0px 2px 2px 0px, rgb(0 0 0 / 6%) 0px 1px 5px 0px',
   },
   maininfo: {
-    paddingTop: '4rem',
+    paddingTop: '3rem',
     paddingLeft: '2rem',
     display: 'flex',
     flexDirection: 'row',
@@ -95,5 +95,18 @@ export const useStyles = makeStyles((theme) => ({
   },
   textarea: {
     width: '47%',
+  },
+  image: {
+    width: '90px',
+    height: '50px',
+  },
+  imagebox: {
+    width: '120px',
+    height: '120px',
+    backgroundColor: 'rgb(255 255 255 / 48%)',
+    borderRadius: '50%',
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'center',
   },
 }));

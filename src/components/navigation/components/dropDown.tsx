@@ -36,7 +36,9 @@ const DropDown: React.FC = () => {
   return (
     <>
       <Button
-        className={classes.main}
+        className={
+          currentLocation === 'Location' ? classes.mainLocation : classes.mainSelectedLocation
+        }
         aria-controls="simple-menu"
         aria-haspopup="true"
         onClick={openMenu}
@@ -97,13 +99,13 @@ const DropDown: React.FC = () => {
             </MenuItem>
           ))}
         </div>
-        <Divider />
         <Button
           className={classes.clear}
           aria-controls="simple-menu"
           aria-haspopup="true"
           onClick={() => {
             dispatch(resetFilters());
+            handleCurrentLocationChange('Location');
             handleClose();
           }}
         >

@@ -27,5 +27,6 @@ export const useStyles = makeStyles({
     transform: 'translate(-50%, -50%)',
     zIndex: 1,
     padding: '20px 20px',
+    focus: 'red',
   },
 });

@@ -3,7 +3,7 @@ import {offers} from '../../views/home/components/singleOffers/const/offerList.c
 export const initialState = {
   user: 'Unlogin user',
   offersList: [...offers],
-  tech: '',
+  tech: 'all',
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -50,6 +50,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         offersList: [...offers],
+        tech: 'all',
       };
 
     default:

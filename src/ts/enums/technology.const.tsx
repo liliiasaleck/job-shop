@@ -15,7 +15,7 @@ export const skills: skill[] = [
     display: 'All',
     tech: 'all',
     icon: faJs,
-    backgroundColor: 'rgb(255, 125, 80)',
+    backgroundColor: 'rgb(186, 104, 200)',
   },
   {
     display: 'JS',

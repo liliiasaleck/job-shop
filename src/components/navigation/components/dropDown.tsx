@@ -6,15 +6,14 @@ import Icon from '@material-ui/core/Icon';
 import {Typography, Divider} from '@material-ui/core';
 import {useStyles} from './dropDown.style';
 import {topPolandLocations, topWorldLocations} from '../../../helpers/topLocations';
-import {useDispatch} from 'react-redux';
-import {filterOffersByLocation, resetFilters} from '../../../store/actions/actions';
+import {useDispatch, useSelector} from 'react-redux';
+import {filterOffersByLocation, resetFilters, changeLocation} from '../../../store/actions/actions';
 
 const DropDown: React.FC = () => {
   const classes = useStyles();
 
   const dispatch = useDispatch();
 
-  const [currentLocation, setCurrentLocation] = useState('Location');
   const [anchorLocation, setAnchor] = useState<null | HTMLElement>(null);
   const handleClose = () => {
     setAnchor(null);
@@ -23,9 +22,7 @@ const DropDown: React.FC = () => {
     setAnchor(event.currentTarget);
   };
 
-  const handleCurrentLocationChange = (newLocation) => {
-    setCurrentLocation(newLocation);
-  };
+  const currentLocation = useSelector((state: any) => state.location);
 
   useEffect(() => {
     if (currentLocation !== 'Location') {
@@ -55,10 +52,7 @@ const DropDown: React.FC = () => {
         onClick={handleClose}
       >
         <div className={classes.container}>
-          <MenuItem
-            className={classes.remote}
-            onClick={() => handleCurrentLocationChange('Remote')}
-          >
+          <MenuItem className={classes.remote} onClick={() => dispatch(changeLocation('Remote'))}>
             Remote
           </MenuItem>
           <Button
@@ -75,7 +69,7 @@ const DropDown: React.FC = () => {
               key={index}
               className={classes.city}
               onClick={() => {
-                handleCurrentLocationChange(location);
+                dispatch(changeLocation(location));
                 handleClose();
               }}
             >
@@ -91,7 +85,7 @@ const DropDown: React.FC = () => {
               key={index}
               className={classes.city}
               onClick={() => {
-                handleCurrentLocationChange(location);
+                dispatch(changeLocation(location));
                 handleClose();
               }}
             >
@@ -105,11 +99,11 @@ const DropDown: React.FC = () => {
           aria-haspopup="true"
           onClick={() => {
             dispatch(resetFilters());
-            handleCurrentLocationChange('Location');
+            dispatch(changeLocation('Location'));
             handleClose();
           }}
         >
-          Clear filter
+          Clear filters
         </Button>
       </Menu>
     </>

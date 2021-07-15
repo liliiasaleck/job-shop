@@ -9,6 +9,7 @@ import {
   ListItem,
   List,
   ListItemText,
+  useTheme,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import {Link} from 'react-router-dom';
@@ -22,6 +23,8 @@ import {useStyles} from './navbar.style';
 
 const Navbar: React.FC = () => {
   const classes = useStyles();
+  const theme = useTheme();
+
   const [open, setOpenDrawer] = useState(false);
   const handleDrawer = () => {
     setOpenDrawer(true);
@@ -43,7 +46,7 @@ const Navbar: React.FC = () => {
             <Button className={classes.post}>Post job</Button>
           </Link>
           <DropDownMenu />
-          <IconButton className={classes.buttons} onClick={handleDrawer}>
+          <IconButton className={classes.hamburger} onClick={handleDrawer}>
             <MenuIcon />
           </IconButton>
         </Toolbar>

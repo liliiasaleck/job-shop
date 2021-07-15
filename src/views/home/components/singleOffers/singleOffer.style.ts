@@ -5,6 +5,9 @@ export const useStyles = makeStyles((theme) => ({
     marginTop: '7rem',
     backgroundColor: '#fafafa',
     width: '64%',
+    [theme.breakpoints.down('md')]: {
+      width: '100vw',
+    },
   },
   top: {
     background:

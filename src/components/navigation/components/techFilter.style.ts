@@ -1,8 +1,11 @@
 import {createStyles, makeStyles, Theme} from '@material-ui/core';
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles((theme) => ({
   main: {
     display: 'flex',
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    },
   },
   round: {
     display: 'flex',
@@ -19,4 +22,4 @@ export const useStyles = makeStyles({
   },
 
   icon: {},
-});
+}));

@@ -11,13 +11,10 @@ export const useStyles = makeStyles((theme) => ({
     left: '33%',
     transform: 'translate(-50%, -50%)',
     [theme.breakpoints.down('md')]: {
-      width: '80%',
-    },
-    [theme.breakpoints.down('sm')]: {
-      width: '70%',
+      width: '100vw',
       position: 'fixed',
-      top: '30%',
-      left: '33%',
+      top: '60%',
+      left: '50%',
     },
   },
   offer: {

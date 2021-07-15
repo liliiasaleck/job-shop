@@ -6,6 +6,7 @@ import {
   InputAdornment,
   TextField,
   Typography,
+  useTheme,
 } from '@material-ui/core';
 import {PermIdentity, ArrowBack} from '@material-ui/icons';
 import React from 'react';
@@ -35,6 +36,7 @@ const SingleOffer: React.FC = ({
 }: any) => {
   const classes = useStyles();
   const history = useHistory();
+  const theme = useTheme();
 
   return (
     <>

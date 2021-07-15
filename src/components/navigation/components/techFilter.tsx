@@ -6,9 +6,12 @@ import {filterOffersByTech} from '../../../store/actions/actions';
 import {useState} from 'react';
 import {skills} from '../../../ts/enums/technology.const';
 import {useSelector} from 'react-redux';
+import {useTheme} from '@material-ui/core';
 
 const TechFilter: React.FC = () => {
   const classes = useStyles();
+  const theme = useTheme();
+
   console.log(skills);
 
   const selectedTech = useSelector((state: any) => state.tech);

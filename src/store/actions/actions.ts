@@ -18,3 +18,8 @@ export const filterOffersByLocation = (location) => ({
 export const resetFilters = () => ({
   type: actionsTypes.RESET_FILTERS,
 });
+
+export const changeLocation = (newLocation) => ({
+  type: actionsTypes.CHANGE_LOCATION,
+  payload: newLocation,
+});

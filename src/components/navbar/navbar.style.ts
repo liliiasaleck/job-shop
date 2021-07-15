@@ -1,6 +1,6 @@
 import {createStyles, makeStyles, Theme} from '@material-ui/core';
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles((theme) => ({
   logo: {
     color: '#484848',
     fontSize: '30px',
@@ -8,6 +8,12 @@ export const useStyles = makeStyles({
     textDecoration: 'none',
     fontWeight: 'bold',
     fontFamily: 'Open Sans, sans-serif',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '20px',
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '16px',
+    },
   },
   title: {
     flexGrow: 1,
@@ -15,6 +21,9 @@ export const useStyles = makeStyles({
     color: '#909090',
     fontSize: '15px',
     fontFamily: 'Open Sans, sans-serif',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
   },
   toolbar: {
     backgroundColor: 'white',
@@ -38,6 +47,15 @@ export const useStyles = makeStyles({
     textTransform: 'capitalize',
     fontFamily: 'Open Sans, sans-serif',
     fontSize: '14px',
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    },
+  },
+  hamburger: {
+    textDecoration: 'none',
+    textTransform: 'capitalize',
+    fontFamily: 'Open Sans, sans-serif',
+    fontSize: '14px',
   },
   menu: {
     fontWeight: 'bold',
@@ -55,5 +73,8 @@ export const useStyles = makeStyles({
     borderRadius: '20px',
     marginRight: '1rem',
     width: '100px',
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    },
   },
-});
+}));

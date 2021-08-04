@@ -3,23 +3,26 @@ import {useMediaQuery} from '@material-ui/core';
 import {useStyles} from './map.style';
 import {useTheme} from '@material-ui/styles';
 import {MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
+import './map.css';
 
 const Map: React.FC = () => {
   const classes = useStyles();
   const theme = useTheme();
   return (
-    <div className={classes.container}>Map</div>
-    // <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
-    //   <TileLayer
-    //     attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    //     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-    //   />
-    //   <Marker position={[51.505, -0.09]}>
-    //     <Popup>
-    //       A pretty CSS3 popup. <br /> Easily customizable.
-    //     </Popup>
-    //   </Marker>
-    // </MapContainer>
+    <div className={classes.container}>
+      <MapContainer center={[52.229675, 21.01223]} zoom={6} scrollWheelZoom={false}>
+        <TileLayer
+          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          url="https://api.mapbox.com/styles/v1/lilisaleck/ckror7g104glw17modhmn4e38/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoibGlsaXNhbGVjayIsImEiOiJja3JvcmQyNmoxOWt5MnFudmRyNW1zZXYzIn0.NumWx7r3TL6dVWONLYmH8Q
+"
+        />
+        <Marker position={[52.229675, 21.01223]}>
+          <Popup>
+            A pretty CSS3 popup. <br /> Easily customizable.
+          </Popup>
+        </Marker>
+      </MapContainer>
+    </div>
   );
 };
 

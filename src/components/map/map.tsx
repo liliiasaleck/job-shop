@@ -1,13 +1,10 @@
 import React from 'react';
-import {useMediaQuery} from '@material-ui/core';
 import {useStyles} from './map.style';
-import {useTheme} from '@material-ui/styles';
 import {MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
 import './map.css';
 
 const Map: React.FC = () => {
   const classes = useStyles();
-  const theme = useTheme();
   return (
     <div className={classes.container}>
       <MapContainer center={[52.229675, 21.01223]} zoom={6} scrollWheelZoom={false}>

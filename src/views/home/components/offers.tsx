@@ -8,13 +8,33 @@ import {offers} from './singleOffers/const/offerList.const';
 import {Link} from 'react-router-dom';
 import {useStyles} from './offers.style';
 import {useSelector} from 'react-redux';
-import Navigation from '../../../components/navigation/navigation';
+import api from '../../../api/baseURL';
+import {useEffect} from 'react';
+import { useState } from 'react';
 
 const Offers: React.FC = () => {
   const classes = useStyles();
   const theme = useTheme();
 
+  //fetch
+  const [offers, setOffers] = useState([]);
+
   const offersList = useSelector(({offersList}: any) => offersList);
+
+    //fetch
+  const retrieveOffers = async () => {
+    const response = await api.get('/offers');
+    return response.data;
+  };
+
+  //fetch
+  useEffect(() => {
+    const getAllOffers = async()=>{
+      const allOffers= await retrieveOffers();
+      if (allOffers) setOffers(allOffers);
+    };
+    getAllOffers();
+  }, []);
 
   return (
     <>

@@ -3,7 +3,7 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Icon from '@material-ui/core/Icon';
-import {Typography, Divider} from '@material-ui/core';
+import {Typography} from '@material-ui/core';
 import {useStyles} from './dropDown.style';
 import {topPolandLocations, topWorldLocations} from '../../../helpers/topLocations';
 import {useDispatch, useSelector} from 'react-redux';

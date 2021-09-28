@@ -9,11 +9,9 @@ import {
   ListItem,
   List,
   ListItemText,
-  useTheme,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import {Link} from 'react-router-dom';
-import DropDownMenu from '../dropDownMenu/dropDownMenu';
 import {pageTitleText} from './const/navigationPages.const';
 import WorkIcon from '@material-ui/icons/Work';
 import GroupIcon from '@material-ui/icons/Group';
@@ -23,7 +21,6 @@ import {useStyles} from './navbar.style';
 
 const Navbar: React.FC = () => {
   const classes = useStyles();
-  const theme = useTheme();
 
   const [open, setOpenDrawer] = useState(false);
   const handleDrawer = () => {
@@ -33,10 +30,13 @@ const Navbar: React.FC = () => {
     <>
       <AppBar className={classes.header}>
         <Toolbar className={classes.toolbar}>
+          <div className={classes.logoDiv}>
           <Link to={routes.main} className={classes.logo}>
             jobshop.it
           </Link>
           <Typography className={classes.title}>{pageTitleText}</Typography>
+          </div>
+          <div>
           <Link className={classes.buttons} to={routes.main}>
             <Button className={classes.buttons} color="secondary">
               Offers
@@ -45,10 +45,13 @@ const Navbar: React.FC = () => {
           <Link className={classes.buttons} to={routes.postJob}>
             <Button className={classes.post}>Post job</Button>
           </Link>
-          <DropDownMenu />
+          <Link className={classes.buttons} to={routes.signInEmployer}>
+            <Button className={classes.signInButton}  >Sign in</Button>
+          </Link>
           <IconButton className={classes.hamburger} onClick={handleDrawer}>
             <MenuIcon />
           </IconButton>
+          </div>
         </Toolbar>
       </AppBar>
       <Drawer anchor="right" onClose={() => setOpenDrawer(false)} open={open}>

@@ -8,9 +8,7 @@ import {
   Icon,
   MenuItem,
   Slider,
-  colors,
 } from '@material-ui/core';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import {employmentType} from '../../../helpers/employmentType.cons';
 import {experienceLvl} from '../../../helpers/experienceLvl.const';
 import {useStyles} from './moreFilters.style';

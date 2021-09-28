@@ -3,7 +3,6 @@ import React from 'react';
 import {useStyles} from './techFilter.style';
 import {useDispatch} from 'react-redux';
 import {filterOffersByTech} from '../../../store/actions/actions';
-import {useState} from 'react';
 import {skills} from '../../../ts/enums/technology.const';
 import {useSelector} from 'react-redux';
 import {useTheme} from '@material-ui/core';

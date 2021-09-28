@@ -17,7 +17,6 @@ import {faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import EmailIcon from '@material-ui/icons/Email';
 import CreateIcon from '@material-ui/icons/Create';
-import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 
 const SingleOffer: React.FC = ({
   location: {

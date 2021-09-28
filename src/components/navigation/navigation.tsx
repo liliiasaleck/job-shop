@@ -1,4 +1,4 @@
-import {Button, Toolbar} from '@material-ui/core';
+import { Toolbar} from '@material-ui/core';
 import React from 'react';
 import Search from './components/searchBar';
 import DropDown from './components/dropDown';

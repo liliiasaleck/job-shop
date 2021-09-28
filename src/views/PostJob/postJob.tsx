@@ -1,5 +1,4 @@
 import {
-  Icon,
   Button,
   TextField,
   Typography,

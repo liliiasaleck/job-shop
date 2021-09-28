@@ -1,4 +1,4 @@
-import {createStyles, makeStyles, Theme} from '@material-ui/core';
+import { makeStyles, } from '@material-ui/core';
 
 export const useStyles = makeStyles((theme) => ({
   box: {
@@ -59,8 +59,8 @@ export const useStyles = makeStyles((theme) => ({
     textDecoration: 'none',
   },
   image: {
-    width: '80px',
-    height: '40px',
+    width: '120px',
+    height: '50px',
     marginLeft: '1rem',
   },
 }));

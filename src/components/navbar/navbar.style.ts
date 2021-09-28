@@ -1,33 +1,44 @@
-import {createStyles, makeStyles, Theme} from '@material-ui/core';
+import {makeStyles} from '@material-ui/core';
 
 export const useStyles = makeStyles((theme) => ({
   logo: {
     color: '#484848',
-    fontSize: '30px',
+    fontSize: '35px',
     marginBottom: '5px',
     textDecoration: 'none',
     fontWeight: 'bold',
-    fontFamily: 'Open Sans, sans-serif',
     [theme.breakpoints.down('md')]: {
-      fontSize: '20px',
+      fontSize: '25px',
     },
     [theme.breakpoints.down('sm')]: {
-      fontSize: '16px',
+      fontSize: '20px',
     },
+  
+  },
+  logoDiv:{
+    display:'flex',
   },
   title: {
-    flexGrow: 1,
     marginLeft: '15px',
     color: '#909090',
     fontSize: '15px',
-    fontFamily: 'Open Sans, sans-serif',
+    marginTop:'1.3rem',
+    [theme.breakpoints.down('md')]: {
+      marginTop:'0.8rem',
+      fontSize: '12px',
+
+
+    },
     [theme.breakpoints.down('sm')]: {
       display: 'none',
+
     },
   },
   toolbar: {
     backgroundColor: 'white',
     borderBottom: '1px solid gainsboro',
+    display:"flex",
+    justifyContent: "space-between"
   },
   header: {
     boxShadow: '0px 0px 0px 0px',
@@ -76,5 +87,21 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       display: 'none',
     },
+  },
+  signInButton: {
+    textDecoration: 'none',
+    textTransform: 'capitalize',
+    fontFamily: 'Open Sans, sans-serif',
+    fontSize: '14px',
+    color: '#fff',
+    borderRadius: '20px',
+    marginRight: '1rem',
+    width: '100px',
+    backgroundColor: '#ff4081',
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    },
+    
+    
   },
 }));

@@ -1,4 +1,13 @@
 import Neoteric from '../../../../../assets/img/neoteric.png';
+import Accenture from '../../../../../assets/img/Accenture.png';
+import Code from '../../../../../assets/img/Code.png';
+import Apzumi from '../../../../../assets/img/Apzumi.png';
+import Divante from '../../../../../assets/img/Divante.png';
+import Netguru from '../../../../../assets/img/Netguru.png';
+import Elpassion from '../../../../../assets/img/elpassion.png';
+
+
+
 
 export const offers = [
   {
@@ -28,7 +37,7 @@ export const offers = [
     salaryTo: 7500,
     location: 'Krakow',
     tech: 'java',
-    logo: 'Logo',
+    logo: Accenture,
     experience: 'Mid',
     companySize: 50,
     companyName: 'ABB',
@@ -46,7 +55,7 @@ export const offers = [
     salaryTo: 6500,
     location: 'Remote',
     tech: 'html',
-    logo: 'Logo',
+    logo: Netguru,
     experience: 'Mid',
     companySize: 10,
     companyName: 'IBPM',
@@ -64,7 +73,7 @@ export const offers = [
     salaryTo: 7500,
     location: 'Wroclaw',
     tech: 'php',
-    logo: 'Logo',
+    logo: Elpassion,
     experience: 'Mid',
     companySize: 70,
     companyName: 'ABB',
@@ -82,7 +91,7 @@ export const offers = [
     salaryTo: 10500,
     location: 'Poznań',
     tech: 'python',
-    logo: 'Logo',
+    logo: Code,
     experience: 'Mid',
     companySize: 20,
     companyName: 'Code & Papper',
@@ -100,7 +109,7 @@ export const offers = [
     salaryTo: 8500,
     location: 'Trójmiasto',
     tech: 'mobile',
-    logo: 'Logo',
+    logo: Apzumi,
     experience: 'Mid',
     companySize: 20,
     companyName: 'Polcode',
@@ -118,7 +127,7 @@ export const offers = [
     salaryTo: 14000,
     location: 'Śląsk',
     tech: 'testing',
-    logo: 'Logo',
+    logo: Divante,
     experience: 'Senior',
     companySize: 10,
     companyName: 'ABB',
@@ -136,7 +145,7 @@ export const offers = [
     salaryTo: 10500,
     location: 'New York',
     tech: 'admin',
-    logo: 'Logo',
+    logo: Netguru,
     experience: 'Mid',
     companySize: 40,
     companyName: 'PDA IT Solutions',

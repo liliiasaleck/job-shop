@@ -1,20 +1,17 @@
 import React, {ReactElement} from 'react';
-import {Link} from 'react-router-dom';
-import {useForm} from 'react-hook-form';
 import Navbar from '../../../components/navbar/navbar';
-import {Typography, TextField, Button, Box} from '@material-ui/core';
-import {pageTitleText} from './const/signIn.const';
-import {useStyles} from './signIn.style';
+import {Box, Button, Checkbox, TextField, Typography} from '@material-ui/core';
+import {useForm} from 'react-hook-form';
+import {useStyles} from './signInEmployer.styles';
 
 type FormData = {
   email: string;
   password: string;
 };
 
-const SignIn = ({email, password}: FormData): ReactElement => {
-  // const [name, setName] = useState('');
-  const {register, handleSubmit} = useForm<FormData>();
+const SignInEmployer = ({email, password}: FormData): ReactElement => {
   const classes = useStyles();
+  const {register, handleSubmit} = useForm<FormData>();
 
   const onSubmit = handleSubmit(({email, password}) => {
     console.log(email, password);
@@ -25,7 +22,9 @@ const SignIn = ({email, password}: FormData): ReactElement => {
       <Navbar />
       <Box className={classes.box}>
         <form className={classes.form} noValidate autoComplete="off" onSubmit={onSubmit}>
-          <Typography variant="h4">{pageTitleText}</Typography>
+          <Typography className={classes.title} variant="h5">
+            jobshop.it
+          </Typography>
           <TextField
             className={classes.textfield}
             label="Email"
@@ -40,16 +39,17 @@ const SignIn = ({email, password}: FormData): ReactElement => {
             {...register('password')}
             required
           />
+          <div>
+            <Checkbox className={classes.checkbox} />
+            <span>Remember me </span>
+          </div>
           <Button variant="contained" color="secondary" className={classes.btn}>
             Sign in
           </Button>
-          <Typography>
-            New account? <Link to="/signup">Register</Link>
-          </Typography>
         </form>
       </Box>
     </>
   );
 };
 
-export default SignIn;
+export default SignInEmployer;

@@ -1,10 +1,6 @@
 import {
-  Icon,
   Button,
   TextField,
-  createStyles,
-  makeStyles,
-  Theme,
   Typography,
   FormControl,
   Select,
@@ -13,56 +9,16 @@ import {
   Box,
 } from '@material-ui/core';
 import React from 'react';
-import Navbar from '../../components/navbar/navbar';
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    container: {
-      height: '100vh',
-    },
-    form: {
-      position: 'absolute',
-      top: '60%',
-      left: '50%',
-      width: '70%',
-      transform: 'translate(-50%, -50%)',
-      height: '100vh',
-      zIndex: 1,
-      textAlign: 'left',
-      backgroundColor: 'white',
-      padding: '30px',
-      overflow: 'hidden',
-      overflowY: 'scroll',
-      boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
-    },
-    textField: {
-      marginLeft: theme.spacing(1),
-      marginRight: theme.spacing(1),
-      width: '25ch',
-    },
-    title: {
-      marginTop: '2%',
-      marginBottom: '2%',
-      fontSize: '18px',
-      color: '#f50057',
-    },
-    offerTitle: {
-      width: '60%',
-    },
-    formControl: {
-      margin: theme.spacing(3),
-      minWidth: 120,
-    },
-    select: {
-      marginTop: theme.spacing(2),
-      width: '150px',
-    },
-  })
-);
+import {useStyles} from './postJob.style';
+import {useHistory} from 'react-router-dom';
+import {ArrowBack} from '@material-ui/icons';
+import TechFilter from '../../components/navigation/components/techFilter';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 const PostJob: React.FC = () => {
   const classes = useStyles();
   const [type, setType] = React.useState('');
+  const history = useHistory();
 
   const handleChange = (event: React.ChangeEvent<{value: unknown}>) => {
     setType(event.target.value as string);
@@ -70,10 +26,12 @@ const PostJob: React.FC = () => {
 
   return (
     <div>
-      <Navbar />
       <Box className={classes.container}>
         <form className={classes.form} noValidate autoComplete="off">
-          <Button aria-controls="simple-menu" endIcon={<Icon>arrow_back</Icon>} />
+          <Button className={classes.btn} onClick={() => history.push('/')}>
+            <ArrowBack />
+            Back
+          </Button>
           <Typography className={classes.title}>About company </Typography>
           <TextField className={classes.textField} label="Company name" />
           <TextField className={classes.textField} label="Company size" />
@@ -96,6 +54,9 @@ const PostJob: React.FC = () => {
             </Select>
           </FormControl>
           <Typography className={classes.title}>Employment type</Typography>
+
+          <TextField className={classes.textField} label="Monthly salary from" />
+          <TextField className={classes.textField} label="Monthly salary to" />
           <FormControl className={classes.formControl}>
             <InputLabel id="demo-simple-select-label">Employment type</InputLabel>
             <Select
@@ -110,13 +71,16 @@ const PostJob: React.FC = () => {
               <MenuItem value={30}>Mandate contract</MenuItem>
             </Select>
           </FormControl>
-          <TextField className={classes.textField} label="Monthly salary from (gross)" />
-          <TextField className={classes.textField} label="Monthly salary from (gross)" />
           <Typography className={classes.title}>Main technology</Typography>
-          <div>technologies ICONS</div>
+          <TechFilter />
           <Typography className={classes.title}>Job description</Typography>
-          <div>TEXTFIELD</div>
-          <Button type="submit" aria-controls="simple-menu" aria-haspopup="true">
+          <TextareaAutosize className={classes.textarea} rowsMin={10} />
+          <Typography className={classes.title}>Choose your location</Typography>
+          <TextField className={classes.textField} label="Office city" />
+          <TextField className={classes.textField} label="Office street" />
+          <Typography className={classes.title}>Agreements</Typography>
+          <TextareaAutosize className={classes.textarea} rowsMin={10} />
+          <Button className={classes.submitbtn} variant="contained" color="secondary">
             Submit
           </Button>
         </form>

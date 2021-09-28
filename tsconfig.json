@@ -10,7 +10,6 @@
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": false,
     "module": "esnext",
@@ -21,6 +20,7 @@
     "jsx": "react-jsx",
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": true,
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "src"

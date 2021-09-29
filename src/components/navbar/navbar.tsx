@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
           <Link className={classes.buttons} to={routes.postJob}>
             <Button className={classes.post}>Post job</Button>
           </Link>
-          <Link className={classes.buttons} to={routes.signInEmployer}>
+          <Link className={classes.buttons} to={routes.signIn}>
             <Button className={classes.signInButton}  >Sign in</Button>
           </Link>
           <IconButton className={classes.hamburger} onClick={handleDrawer}>
@@ -61,14 +61,14 @@ const Navbar: React.FC = () => {
           </ListItem>
           <ListItem button>
             <WorkIcon />
-            <Link className={classes.textlink} to={routes.signInEmployer}>
-              <ListItemText>Employer Panel</ListItemText>
+            <Link className={classes.textlink} to={routes.main}>
+              <ListItemText>Offers</ListItemText>
             </Link>
           </ListItem>
           <ListItem button>
             <ComputerIcon />
             <Link className={classes.textlink} to={routes.signIn}>
-              <ListItemText>Developer Panel</ListItemText>
+              <ListItemText>Sign in</ListItemText>
             </Link>
           </ListItem>
           <ListItem button>

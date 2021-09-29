@@ -15,6 +15,8 @@ const rootReducer = (state = initialState, action) => {
     case actionsTypes.LOGOUT_USER:
       return {...state, isUserLogged: false};
 
+      
+
     case actionsTypes.FILTER_OFFERS_BY_TECH:
       return payload !== 'all'
         ? {

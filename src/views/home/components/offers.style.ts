@@ -51,6 +51,11 @@ export const useStyles = makeStyles((theme) => ({
     color: 'rgb(153, 161, 171)',
     fontSize: '12px',
   },
+  locationInfo:{
+display:'flex',
+width:'10rem',
+justifyContent:'space-between'
+  },
   tech: {
     color: 'rgb(153, 161, 171)',
     fontSize: '12px',

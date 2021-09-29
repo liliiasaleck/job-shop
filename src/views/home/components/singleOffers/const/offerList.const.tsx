@@ -1,10 +1,4 @@
-import Neoteric from '../../../../../assets/img/neoteric.png';
-import Accenture from '../../../../../assets/img/Accenture.png';
-import Code from '../../../../../assets/img/Code.png';
-import Apzumi from '../../../../../assets/img/Apzumi.png';
-import Divante from '../../../../../assets/img/Divante.png';
-import Netguru from '../../../../../assets/img/Netguru.png';
-import Elpassion from '../../../../../assets/img/elpassion.png';
+
 
 
 
@@ -18,7 +12,7 @@ export const offers = [
     salaryTo: 3200,
     location: 'Warsaw',
     tech: 'js',
-    logo: Neoteric,
+    logo: 'Logo',
     experience: 'Junior',
     companySize: 30,
     companyName: 'Netguru',
@@ -37,7 +31,7 @@ export const offers = [
     salaryTo: 7500,
     location: 'Krakow',
     tech: 'java',
-    logo: Accenture,
+    logo: 'Logo',
     experience: 'Mid',
     companySize: 50,
     companyName: 'ABB',
@@ -55,7 +49,7 @@ export const offers = [
     salaryTo: 6500,
     location: 'Remote',
     tech: 'html',
-    logo: Netguru,
+    logo: 'Logo',
     experience: 'Mid',
     companySize: 10,
     companyName: 'IBPM',
@@ -73,7 +67,7 @@ export const offers = [
     salaryTo: 7500,
     location: 'Wroclaw',
     tech: 'php',
-    logo: Elpassion,
+    logo: 'Logo',
     experience: 'Mid',
     companySize: 70,
     companyName: 'ABB',
@@ -91,7 +85,7 @@ export const offers = [
     salaryTo: 10500,
     location: 'Poznań',
     tech: 'python',
-    logo: Code,
+    logo: 'Logo',
     experience: 'Mid',
     companySize: 20,
     companyName: 'Code & Papper',
@@ -109,7 +103,7 @@ export const offers = [
     salaryTo: 8500,
     location: 'Trójmiasto',
     tech: 'mobile',
-    logo: Apzumi,
+    logo: 'Logo',
     experience: 'Mid',
     companySize: 20,
     companyName: 'Polcode',
@@ -127,7 +121,7 @@ export const offers = [
     salaryTo: 14000,
     location: 'Śląsk',
     tech: 'testing',
-    logo: Divante,
+    logo: 'Logo',
     experience: 'Senior',
     companySize: 10,
     companyName: 'ABB',
@@ -145,7 +139,7 @@ export const offers = [
     salaryTo: 10500,
     location: 'New York',
     tech: 'admin',
-    logo: Netguru,
+    logo: 'Logo',
     experience: 'Mid',
     companySize: 40,
     companyName: 'PDA IT Solutions',
@@ -229,6 +223,78 @@ export const offers = [
   },
   {
     id: 13,
+    title: 'Senior Java Developer',
+    // salary: '6000 - 7500 PLN',
+    salaryFrom: 6000,
+    salaryTo: 7500,
+    location: 'London',
+    tech: 'java',
+    logo: 'Logo',
+    experience: 'Senior',
+    companySize: 220,
+    companyName: 'Code Apps',
+    employmentType: 'Permanent',
+    jobDescription:
+      'As a JavaScript/TypeScript Developer, you will be working on one of several projects which we develop for our core clients across the US and Europe. Our clients range from established US/EU start-ups with a solid customer base to bigger multinational organisations. All of them develop sophisticated products which heavily rely on Javascript and Typescript technologies for both frontend and backend services. In our projects you will have autonomy within the role as well as opportunity to contribute to the overall success of the project. Our projects allow for a direct interaction with clients and offer a very agile and low-overhead work environment',
+    aboutCompany:
+      'Netguru builds digital products that let people do things differently. Share your challenge with our team, and we’ll work with you to deliver a revolutionary digital product. Our clients have changed the way people do banking, listen to music, learn languages, and rent bikes. Their products have been featured in TechCrunch, Business Insider, and Product Hunt.',
+  },
+  {
+    id: 14,
+    title: 'Senior Java Developer',
+    // salary: '6000 - 7500 PLN',
+    salaryFrom: 6000,
+    salaryTo: 7500,
+    location: 'London',
+    tech: 'java',
+    logo: 'Logo',
+    experience: 'Senior',
+    companySize: 220,
+    companyName: 'Code Apps',
+    employmentType: 'Permanent',
+    jobDescription:
+      'As a JavaScript/TypeScript Developer, you will be working on one of several projects which we develop for our core clients across the US and Europe. Our clients range from established US/EU start-ups with a solid customer base to bigger multinational organisations. All of them develop sophisticated products which heavily rely on Javascript and Typescript technologies for both frontend and backend services. In our projects you will have autonomy within the role as well as opportunity to contribute to the overall success of the project. Our projects allow for a direct interaction with clients and offer a very agile and low-overhead work environment',
+    aboutCompany:
+      'Netguru builds digital products that let people do things differently. Share your challenge with our team, and we’ll work with you to deliver a revolutionary digital product. Our clients have changed the way people do banking, listen to music, learn languages, and rent bikes. Their products have been featured in TechCrunch, Business Insider, and Product Hunt.',
+  },
+  {
+    id: 15,
+    title: 'Senior Java Developer',
+    // salary: '6000 - 7500 PLN',
+    salaryFrom: 6000,
+    salaryTo: 7500,
+    location: 'London',
+    tech: 'java',
+    logo: 'Logo',
+    experience: 'Senior',
+    companySize: 220,
+    companyName: 'Code Apps',
+    employmentType: 'Permanent',
+    jobDescription:
+      'As a JavaScript/TypeScript Developer, you will be working on one of several projects which we develop for our core clients across the US and Europe. Our clients range from established US/EU start-ups with a solid customer base to bigger multinational organisations. All of them develop sophisticated products which heavily rely on Javascript and Typescript technologies for both frontend and backend services. In our projects you will have autonomy within the role as well as opportunity to contribute to the overall success of the project. Our projects allow for a direct interaction with clients and offer a very agile and low-overhead work environment',
+    aboutCompany:
+      'Netguru builds digital products that let people do things differently. Share your challenge with our team, and we’ll work with you to deliver a revolutionary digital product. Our clients have changed the way people do banking, listen to music, learn languages, and rent bikes. Their products have been featured in TechCrunch, Business Insider, and Product Hunt.',
+  },
+  {
+    id: 16,
+    title: 'Senior Java Developer',
+    // salary: '6000 - 7500 PLN',
+    salaryFrom: 6000,
+    salaryTo: 7500,
+    location: 'London',
+    tech: 'java',
+    logo: 'Logo',
+    experience: 'Senior',
+    companySize: 220,
+    companyName: 'Code Apps',
+    employmentType: 'Permanent',
+    jobDescription:
+      'As a JavaScript/TypeScript Developer, you will be working on one of several projects which we develop for our core clients across the US and Europe. Our clients range from established US/EU start-ups with a solid customer base to bigger multinational organisations. All of them develop sophisticated products which heavily rely on Javascript and Typescript technologies for both frontend and backend services. In our projects you will have autonomy within the role as well as opportunity to contribute to the overall success of the project. Our projects allow for a direct interaction with clients and offer a very agile and low-overhead work environment',
+    aboutCompany:
+      'Netguru builds digital products that let people do things differently. Share your challenge with our team, and we’ll work with you to deliver a revolutionary digital product. Our clients have changed the way people do banking, listen to music, learn languages, and rent bikes. Their products have been featured in TechCrunch, Business Insider, and Product Hunt.',
+  },
+  {
+    id: 17,
     title: 'Senior Java Developer',
     // salary: '6000 - 7500 PLN',
     salaryFrom: 6000,

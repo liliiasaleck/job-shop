@@ -1,7 +1,8 @@
-import React, {ReactElement} from 'react';
+import React from 'react';
+import {Link} from 'react-router-dom';
 import Navbar from '../../../components/navbar/navbar';
-import {Box, Button, Checkbox, TextField, Typography} from '@material-ui/core';
 import {useForm} from 'react-hook-form';
+import {Typography, TextField, Button, Checkbox, Box} from '@material-ui/core';
 import {useStyles} from './signIn.styles';
 
 type FormData = {
@@ -9,28 +10,26 @@ type FormData = {
   password: string;
 };
 
-const SignInEmployer = ({email, password}: FormData): ReactElement => {
-  const classes = useStyles();
+const SignIn: React.FC = () => {
+  // const [name, setName] = useState("");
   const {register, handleSubmit} = useForm<FormData>();
+  const classes = useStyles();
 
   const onSubmit = handleSubmit(({email, password}) => {
-    console.log(email, password);
+    console.log(email);
   });
 
   return (
     <>
       <Navbar />
       <Box className={classes.box}>
-        <form className={classes.form} noValidate autoComplete="off" onSubmit={onSubmit}>
-          <Typography className={classes.title} variant="h5">
-            jobshop.it
-          </Typography>
+        <form className={classes.form} noValidate autoComplete="off" action="#" onSubmit={onSubmit}>
+          <Typography variant="h3">Get started for free</Typography>
           <TextField
             className={classes.textfield}
             label="Email"
             variant="outlined"
             {...register('email')}
-            required
           />
           <TextField
             className={classes.textfield}
@@ -39,17 +38,20 @@ const SignInEmployer = ({email, password}: FormData): ReactElement => {
             {...register('password')}
             required
           />
-          <div>
-            <Checkbox className={classes.checkbox} />
-            <span>Remember me </span>
-          </div>
+        
           <Button variant="contained" color="secondary" className={classes.btn}>
             Sign in
           </Button>
+          <Typography>
+            New account?
+            <Link to="/signup" className={classes.signin}>
+              Sign up
+            </Link>
+          </Typography>
         </form>
       </Box>
     </>
   );
 };
 
-export default SignInEmployer;
+export default SignIn;

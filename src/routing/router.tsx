@@ -21,7 +21,6 @@ const Router = () => {
           <Route component={SignIn} path={routes.signIn} />
           <Route component={SignUp} path={routes.signUp} />
           <Route component={PostJob} path={routes.postJob} />
-          <Route component={AboutUs} path={routes.aboutUs} />
         </MainTemplate>
       </Switch>
     </BrowserRouter>

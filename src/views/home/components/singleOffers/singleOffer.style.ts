@@ -2,9 +2,13 @@ import {makeStyles, } from '@material-ui/core';
 
 export const useStyles = makeStyles((theme) => ({
   box: {
-    marginTop: '7rem',
+    top: '13%',
     backgroundColor: '#fafafa',
-    width: '64%',
+    width: '65%',
+    overflow: 'hidden',
+    overflowY: 'scroll',
+    position: 'absolute',
+    height: '85%',
     [theme.breakpoints.down('md')]: {
       width: '100vw',
     },
@@ -86,8 +90,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   secondform: {
     margin: '3rem',
-    display: 'flex',
-    justifyContent: 'space-between',
+    
   },
   thirdform: {
     marginLeft: '2rem',
@@ -97,7 +100,7 @@ export const useStyles = makeStyles((theme) => ({
     color: 'rgb(135, 152, 173)',
   },
   textarea: {
-    width: '47%',
+    width: '100%',
   },
   image: {
     width: '90px',

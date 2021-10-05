@@ -39,7 +39,8 @@ const SingleOffer: React.FC = ({
 
   return (
     <>
-      <Navigation />
+            <Navigation />
+
       <Box className={classes.box}>
         <Button className={classes.btnback} onClick={() => history.push('/')}>
           <ArrowBack />

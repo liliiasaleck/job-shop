@@ -19,7 +19,7 @@ const TechFilter: React.FC = () => {
 
   return (
     <div className={classes.main}>
-      {skills.map(({icon, tech, backgroundColor}, index) => (
+      {skills.map(({icon, tech, backgroundColor, display}, index) => (
         <div
           key={index}
           className={classes.round}
@@ -32,7 +32,9 @@ const TechFilter: React.FC = () => {
             <FontAwesomeIcon size="lg" className={classes.icon} icon={icon} fixedWidth />
           )}
         </div>
-      ))}
+        
+      ))
+      }
     </div>
   );
 };

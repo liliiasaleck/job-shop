@@ -6,14 +6,16 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import {Link} from 'react-router-dom';
 import {useStyles} from './offers.style';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import api from '../../../api/baseURL';
 import {useEffect} from 'react';
 import { useState } from 'react';
+import { fetchOffers } from '../../../store/actions/actions';
 
 const Offers: React.FC = () => {
   const classes = useStyles();
   const theme = useTheme();
+  const dispatch = useDispatch();
 
   //fetch
   const [offers, setOffers] = useState([]);
@@ -28,17 +30,13 @@ const Offers: React.FC = () => {
 
   //fetch
   useEffect(() => {
-    const getAllOffers = async()=>{
-      const allOffers= await retrieveOffers();
-      if (allOffers) setOffers(allOffers);
-    };
-    getAllOffers();
+    dispatch(fetchOffers());
   }, []);
 
   return (
     <>
       <Box className={classes.box}>
-        {offersList.map((offer) => {
+        {offersList && offersList.map((offer) => {
           const {title, salary, location, tech, id, logo, companyName} = offer;
           return (
             <Link

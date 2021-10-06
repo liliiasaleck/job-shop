@@ -4,17 +4,18 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-import {offers} from './singleOffers/const/offerList.const';
 import {Link} from 'react-router-dom';
 import {useStyles} from './offers.style';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import api from '../../../api/baseURL';
 import {useEffect} from 'react';
 import { useState } from 'react';
+import { fetchOffers } from '../../../store/actions/actions';
 
 const Offers: React.FC = () => {
   const classes = useStyles();
   const theme = useTheme();
+  const dispatch = useDispatch();
 
   //fetch
   const [offers, setOffers] = useState([]);
@@ -29,24 +30,20 @@ const Offers: React.FC = () => {
 
   //fetch
   useEffect(() => {
-    const getAllOffers = async()=>{
-      const allOffers= await retrieveOffers();
-      if (allOffers) setOffers(allOffers);
-    };
-    getAllOffers();
+    dispatch(fetchOffers());
   }, []);
 
   return (
     <>
       <Box className={classes.box}>
-        {offersList.map((offert) => {
-          const {title, salary, location, tech, id, logo} = offert;
+        {offersList && offersList.map((offer) => {
+          const {title, salary, location, tech, id, logo, companyName} = offer;
           return (
             <Link
               className={classes.link}
               to={{
                 pathname: `/singleoffer/${title.replace(/\s/g, '-')}`,
-                state: offert,
+                state: offer,
               }}
               key={id}
             >
@@ -59,7 +56,10 @@ const Offers: React.FC = () => {
                       <Typography color="secondary">{salary}</Typography>
                     </div>
                     <div className={classes.small}>
+                      <div className={classes.locationInfo}>
+                      <Typography className={classes.location}>{companyName}</Typography>
                       <Typography className={classes.location}>{location}</Typography>
+                      </div>
                       <Typography className={classes.tech}>{tech}</Typography>
                     </div>
                   </CardContent>

@@ -46,7 +46,7 @@ const SignUp: React.FC = () => {
             Register
           </Button>
           <Typography>
-            Already have an account?{' '}
+            Already have an account?
             <Link to="/signin" className={classes.signin}>
               Sign in
             </Link>

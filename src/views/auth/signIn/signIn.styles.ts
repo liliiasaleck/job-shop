@@ -8,30 +8,31 @@ export const useStyles = makeStyles((theme: Theme) =>
       left: '50%',
       transform: 'translate(-50%, -50%)',
       zIndex: 1,
-      width: '25vw',
-      height: '50vh',
+      width: '100vw',
       textAlign: 'center',
-      backgroundColor: 'white',
-      padding: '30px',
-      boxShadow: 'rgba(149, 157, 165, 0.2) 2px 8px 24px',
     },
     form: {
       display: 'flex',
-      justifyContent: 'spaceBetween',
       flexDirection: 'column',
       alignItems: 'center',
     },
     textfield: {
-      margin: '10px',
+      marginTop: '2rem',
+      width: '20rem',
     },
     btn: {
-      margin: '20px',
+      width: '10rem',
+      margin: '1rem 1rem',
+      borderRadius: '20px',
       textTransform: 'capitalize',
     },
-    title: {
-      padding: '20px',
+    signin: {
+      textDecorationLine: 'none',
     },
     checkbox: {
+      display: 'flex',
+      height: '10px',
+      margin: '2rem 2rem',
       color: 'rgb(135, 152, 173)',
     },
   })

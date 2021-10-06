@@ -3,7 +3,7 @@ import {makeStyles} from '@material-ui/core';
 export const useStyles = makeStyles((theme) => ({
   logo: {
     color: '#484848',
-    fontSize: '35px',
+    fontSize: '25px',
     marginBottom: '5px',
     textDecoration: 'none',
     fontWeight: 'bold',
@@ -21,8 +21,8 @@ export const useStyles = makeStyles((theme) => ({
   title: {
     marginLeft: '15px',
     color: '#909090',
-    fontSize: '15px',
-    marginTop:'1.3rem',
+    fontSize: '14px',
+    marginTop:'0.7rem',
     [theme.breakpoints.down('md')]: {
       marginTop:'0.8rem',
       fontSize: '12px',
@@ -44,9 +44,16 @@ export const useStyles = makeStyles((theme) => ({
     boxShadow: '0px 0px 0px 0px',
   },
   list: {
-    width: '300px',
+    margin:'1rem 0 1rem 0 ',
+    width: '17rem',
     color: '#484848',
-    fontFamily: 'Open Sans, sans-serif',
+    height:'100%',
+    display:'flex',
+    flexDirection:'column',
+    flex:'1'
+
+    
+    
   },
   textlink: {
     color: 'inherit',
@@ -101,7 +108,19 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       display: 'none',
     },
-    
-    
   },
+  groupButton:{
+   marginTop:'auto',
+   width:'15rem',
+   marginLeft:'1rem',
+
+  },
+  registerButton:{
+    border:'1px solid lightgrey',
+    marginTop:'1rem',
+    height:'4rem'
+
+  }
+
+ 
 }));

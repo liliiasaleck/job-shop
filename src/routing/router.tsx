@@ -4,7 +4,6 @@ import HomePage from '../views/home/homePage';
 import SignIn from '../views/auth/signIn/signIn';
 import SignUp from '../views/auth/signUp/signUp';
 import PostJob from '../views/PostJob/postJob';
-import SignInEmployer from '../views/auth/signInEmployer/signInEmployer';
 import AboutUs from '../views/aboutUs/aboutUs';
 import SingleOffer from '../views/home/components/singleOffers/singleOffer';
 import Navbar from '../components/navbar/navbar';
@@ -22,8 +21,6 @@ const Router = () => {
           <Route component={SignIn} path={routes.signIn} />
           <Route component={SignUp} path={routes.signUp} />
           <Route component={PostJob} path={routes.postJob} />
-          <Route component={SignInEmployer} path={routes.signInEmployer} />
-          <Route component={AboutUs} path={routes.aboutUs} />
         </MainTemplate>
       </Switch>
     </BrowserRouter>

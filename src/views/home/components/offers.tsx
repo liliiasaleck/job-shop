@@ -10,7 +10,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import api from '../../../api/baseURL';
 import {useEffect} from 'react';
 import { useState } from 'react';
-import { fetchOffers } from '../../../store/actions/actions';
+import { fetchOffers } from '../../../store/actions/offersActions';
 
 const Offers: React.FC = () => {
   const classes = useStyles();
@@ -28,10 +28,18 @@ const Offers: React.FC = () => {
     return response.data;
   };
 
+  const location = useSelector(({location}: any) => location);
+
+  const tech = useSelector(({tech}: any) => tech);
+
+
+
   //fetch
   useEffect(() => {
-    dispatch(fetchOffers());
-  }, []);
+    console.log(location);
+      dispatch(fetchOffers());
+    
+  }, [location, tech]);
 
   return (
     <>

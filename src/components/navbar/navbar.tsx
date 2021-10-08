@@ -16,7 +16,7 @@ import {pageTitleText} from './const/navigationPages.const';
 import WorkIcon from '@material-ui/icons/Work';
 import GroupIcon from '@material-ui/icons/Group';
 import ComputerIcon from '@material-ui/icons/Computer';
-import {routes} from '../../helpers/routes';
+import {routes} from '../../routing/routes';
 import {useStyles} from './navbar.style';
 
 const Navbar: React.FC = () => {

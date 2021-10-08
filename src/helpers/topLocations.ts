@@ -1,10 +1,15 @@
 export const topPolandLocations: string[] = [
   'Warsaw',
-  'Cracow',
+  'Krakow',
+  'Lodz',
+  'Gdansk',
   'Wroclaw',
-  'Poznań',
-  'Trójmiasto',
-  'Śląsk',
+  'Lublin',
 ];
 
-export const topWorldLocations: string[] = ['New York', 'Berlin', 'London'];
+export const topWorldLocations: string[] = ['New York', 'Berlin', 'London', 'Sydney', 'San Francisco'];
+
+export const otherLocations: string[] = ['Poznan', 'Szczecin', 'Bydgoszcz', 'Bialystok', 'Gdynia', 'Radom', 'Kielce', 'Olsztyn','Gliwice'];
+
+
+

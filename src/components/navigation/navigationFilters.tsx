@@ -1,12 +1,12 @@
 import { Toolbar} from '@material-ui/core';
 import React from 'react';
 import Search from './components/searchBar';
-import DropDown from './components/dropDown';
+import DropDown from './components/locationDropDown';
 import MoreFilter from './components/moreFilters';
-import {useStyles} from './navigation.style';
+import {useStyles} from './navigationFilters.style';
 import TechFilter from './components/techFilter';
 
-const Navigation: React.FC = () => {
+const NavigationFilters: React.FC = () => {
   const classes = useStyles();
 
   return (
@@ -21,4 +21,4 @@ const Navigation: React.FC = () => {
   );
 };
 
-export default Navigation;
+export default NavigationFilters;

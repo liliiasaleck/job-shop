@@ -4,11 +4,10 @@ import HomePage from '../views/home/homePage';
 import SignIn from '../views/auth/signIn/signIn';
 import SignUp from '../views/auth/signUp/signUp';
 import PostJob from '../views/PostJob/postJob';
-import AboutUs from '../views/aboutUs/aboutUs';
 import SingleOffer from '../views/home/components/singleOffers/singleOffer';
 import Navbar from '../components/navbar/navbar';
 import MainTemplate from '../templates/mainTemplate';
-import {routes} from '../helpers/routes';
+import {routes} from './routes';
 
 const Router = () => {
   return (

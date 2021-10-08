@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import {PermIdentity, ArrowBack} from '@material-ui/icons';
 import React from 'react';
-import Navigation from '../../../../components/navigation/navigation';
+import Navigation from '../../../../components/navigation/navigationFilters';
 import {useHistory} from 'react-router-dom';
 import {useStyles} from './singleOffer.style';
 import {faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons';

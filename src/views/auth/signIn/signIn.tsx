@@ -4,6 +4,8 @@ import Navbar from '../../../components/navbar/navbar';
 import {useForm} from 'react-hook-form';
 import {Typography, TextField, Button, Checkbox, Box} from '@material-ui/core';
 import {useStyles} from './signIn.styles';
+import {pageTitleText} from '../const/signIn.const';
+
 
 type FormData = {
   email: string;
@@ -24,7 +26,7 @@ const SignIn: React.FC = () => {
       <Navbar />
       <Box className={classes.box}>
         <form className={classes.form} noValidate autoComplete="off" action="#" onSubmit={onSubmit}>
-          <Typography variant="h3">Get started for free</Typography>
+          <Typography variant="h3">{pageTitleText}</Typography>
           <TextField
             className={classes.textfield}
             label="Email"

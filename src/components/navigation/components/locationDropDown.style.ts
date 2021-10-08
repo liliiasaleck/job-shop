@@ -1,4 +1,4 @@
-import { makeStyles, Theme} from '@material-ui/core';
+import {makeStyles, Theme} from '@material-ui/core';
 
 export const useStyles = makeStyles((theme: Theme) => ({
   mainLocation: {
@@ -17,9 +17,16 @@ export const useStyles = makeStyles((theme: Theme) => ({
     textTransform: 'capitalize',
     backgroundColor: 'rgba(255, 64, 129, 0.08)',
   },
-  menu: {minWidth: '100% '},
+  menu: {
+    maxWidth: '50% ',
+    boxSizing: 'inherit',
+  },
   container: {
     display: 'flex',
+  },
+  containerOtherLocation:{
+    display: 'flex',
+flexWrap:'wrap'
   },
   title: {
     margin: '10px 10px 10px 20px',

@@ -7,17 +7,15 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     form: {
       position: 'absolute',
-      top: '60%',
+      top: '70%',
       left: '50%',
       width: '70%',
       transform: 'translate(-50%, -50%)',
-      height: '100vh',
       zIndex: 1,
       textAlign: 'left',
       backgroundColor: 'white',
       padding: '30px',
       overflow: 'hidden',
-      overflowY: 'scroll',
       boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
     },
     textField: {

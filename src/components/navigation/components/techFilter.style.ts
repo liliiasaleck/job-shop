@@ -3,9 +3,9 @@ import { makeStyles} from '@material-ui/core';
 export const useStyles = makeStyles((theme) => ({
   main: {
     display: 'flex',
-    [theme.breakpoints.down('md')]: {
-      display: 'none',
-    },
+    // [theme.breakpoints.down('md')]: {
+    //   display: 'none',
+    // },
   },
   round: {
     display: 'flex',

@@ -1,6 +1,6 @@
 import React from 'react';
 import Map from '../components/map/map';
-import {routes} from '../helpers/routes';
+import {routes} from '../routing/routes';
 
 const MainTemplate = ({children}: any) => {
   const {pathname} = window.location;

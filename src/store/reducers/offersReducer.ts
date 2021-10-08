@@ -5,6 +5,8 @@ export const initialState = {
   offersList: [],
   location: 'Location',
   tech: 'all',
+  experience: 'all',
+  employmentType: 'all',
 };
 
 export interface Offer {
@@ -25,78 +27,94 @@ export interface Offer {
 
 const rootReducer = (state = initialState, action) => {
   const {type, payload} = action;
+  console.log('TYPE');
+  console.log(type);
+
   switch (type) {
     case actionsTypes.LOGIN_USER:
       return {...state, isUserLogged: true};
     case actionsTypes.LOGOUT_USER:
       return {...state, isUserLogged: false};
 
-      case actionsTypes.FILTER_OFFERS_BY_TECH:
-        const {tech, offersList} = payload;
-        console.log('reducer payload');
-        console.log(offersList);
-        console.log(tech);
-  
-        return {
-          ...state,
-          offersList,
-          tech,
-        };
-  
-      case actionsTypes.SEARCH_OFFER_BY_NAME:
-        return payload.length !== 0
-          ? {
-              ...state,
-              offersList: offers.filter((offer) => {
-                return offer.title.toLowerCase().includes(payload.toLowerCase());
-              }),
-            }
-          : {...state, offersList};
-  
-      case actionsTypes.FILTER_OFFERS_BY_LOCATION:
-        const {location} = payload;
-        console.log('reducer for location');
-        console.log(payload);
-  
-        return {
-          ...state,
-          offersList,
-          location,
-        };
-  
-      case actionsTypes.RESET_FILTERS:
-        return {
-          ...state,
-          offersList: [...offers],
-          tech: 'all',
-          location: 'Location',
-        };
-  
-        case actionsTypes.CHANGE_LOCATION:
-          return {
-            ...state,
-            location: payload,
-          };
-        case actionsTypes.FETCH_OFFERS:
-          console.log(payload);
-    
-          return {
-            ...state,
-            offersList: payload,
-          };
-        case actionsTypes.FETCH_OFFERS_ERROR:
-          console.log(payload);
-    
-          return {
-            ...state,
-            offersList: payload,
-          };
-        default:
-          return state;
-      }
-    };
-    
-    export default rootReducer;
+    case actionsTypes.FILTER_OFFERS_BY_TECH:
+      const {tech} = payload;
+      console.log('reducer payload');
+      console.log(tech);
+
+      return {
+        ...state,
+        offersList: payload.offersList,
+        tech,
+      };
+
+    case actionsTypes.SEARCH_OFFER_BY_NAME:
+      return {
+        ...state,
+        offersList: payload.offersList,
+      };
+
+    //LOCATION
+
+    case actionsTypes.FILTER_OFFERS_BY_LOCATION:
+      const {location} = payload;
+      console.log('reducer for location');
+      console.log(payload);
+
+      return {
+        ...state,
+        offersList: payload.offersList,
+        location,
+      };
+
+    case actionsTypes.RESET_FILTERS:
+      console.log('reset reducer')
+      return {
+        ...state,
+        tech: 'all',
+        location: 'Location',
+      };
+
+    case actionsTypes.CHANGE_LOCATION:
+      return {
+        ...state,
+        location: payload,
+      };
+    case actionsTypes.FETCH_OFFERS:
+      console.log(payload);
+
+      return {
+        ...state,
+        offersList: payload,
+      };
+    case actionsTypes.FETCH_OFFERS_ERROR:
+      console.log(payload);
+
+      return {
+        ...state,
+        offersList: payload,
+      };
+    //SET_OFFERS
+    case actionsTypes.SET_OFFERS:
+      console.log(payload);
+
+      return {
+        ...state,
+        offersList: payload,
+      };
+    case actionsTypes.SET_OFFERS_ERROR:
+      console.log(payload);
+
+      return {
+        ...state,
+        offersList: payload,
+      };
+
+    default:
+      return state;
+  }
+};
+
+export default rootReducer;
 
 // import {actionsTypes} from '../actions/actionsTypes';
 // import {offers} from '../../views/home/components/singleOffers/const/offerList.const';

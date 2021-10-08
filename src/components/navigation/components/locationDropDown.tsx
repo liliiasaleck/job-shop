@@ -3,24 +3,31 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Icon from '@material-ui/core/Icon';
-import {Typography} from '@material-ui/core';
-import {useStyles} from './dropDown.style';
-import {topPolandLocations, topWorldLocations} from '../../../helpers/topLocations';
+import {Accordion, AccordionDetails, AccordionSummary, Typography} from '@material-ui/core';
+import {useStyles} from './locationDropDown.style';
+import {topPolandLocations, topWorldLocations, otherLocations} from '../../../helpers/topLocations';
 import {useDispatch, useSelector} from 'react-redux';
-import {filterOffersByLocation, resetFilters, changeLocation} from '../../../store/actions/actions';
+import {filterOffersByLocation, resetFilters, changeLocation} from '../../../store/actions/offersActions';
 
-const DropDown: React.FC = () => {
+const LocationDropDown: React.FC = () => {
   const classes = useStyles();
-
   const dispatch = useDispatch();
 
-  const [anchorLocation, setAnchor] = useState<null | HTMLElement>(null);
+  const [anchorLocation, setAnchor] = useState(null);
   const handleClose = () => {
     setAnchor(null);
   };
-  const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const openMenu = (event) => {
     setAnchor(event.currentTarget);
+
   };
+
+  const handleReset = () => {
+    dispatch(resetFilters());
+    // dispatch(changeLocation('Location'));
+    handleClose();
+  };
+
 
   const currentLocation = useSelector((state: any) => state.location);
 
@@ -93,14 +100,34 @@ const DropDown: React.FC = () => {
             </MenuItem>
           ))}
         </div>
+        <Accordion>
+          <AccordionSummary
+          >
+            <Typography className={classes.title}>Other locations Poland</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+          <div className={classes.containerOtherLocation}>
+          {otherLocations.map((location, index) => (
+            <MenuItem
+              key={index}
+              className={classes.city}
+              onClick={() => {
+                dispatch(changeLocation(location));
+                handleClose();
+              }}
+            >
+              {location}
+            </MenuItem>
+          ))}
+        </div>
+          </AccordionDetails>
+        </Accordion>
         <Button
           className={classes.clear}
           aria-controls="simple-menu"
           aria-haspopup="true"
           onClick={() => {
-            dispatch(resetFilters());
-            dispatch(changeLocation('Location'));
-            handleClose();
+            handleReset();
           }}
         >
           Clear filters
@@ -110,4 +137,4 @@ const DropDown: React.FC = () => {
   );
 };
 
-export default DropDown;
+export default LocationDropDown;

@@ -8,23 +8,38 @@ import {
   MenuItem,
   Box,
 } from '@material-ui/core';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {useStyles} from './postJob.style';
 import {useHistory} from 'react-router-dom';
 import {ArrowBack} from '@material-ui/icons';
-import TechFilter from '../../components/navigation/components/techFilter';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import Navbar from '../../components/navbar/navbar';
 import {skills} from '../../helpers/technology.const';
+import { setOffers } from '../../store/actions/offersActions';
+import { useDispatch } from 'react-redux';
 
 const PostJob: React.FC = () => {
   const classes = useStyles();
-  const [input, setInput] = React.useState('');
+  const [input, setInput] = useState('');
   const history = useHistory();
+  const dispatch = useDispatch();
+
+  const [address, setAddress] = useState('');
+
+
 
   const handleChange = (event) => {
     setInput(event.target.value);
   };
+
+  const handleAddressChange = (event) => {
+    setAddress(event.target.value);
+  };
+
+  // useEffect(() => {
+  //     dispatch(setOffers());
+  // }, []);
+
 
   return (
     <>
@@ -89,13 +104,13 @@ const PostJob: React.FC = () => {
                 </MenuItem>
               ))}
             </Select>
-          </FormControl>{' '}
+          </FormControl>
           <Typography className={classes.title}>Job description</Typography>
           <TextareaAutosize className={classes.textarea} rowsMin={10} />
           <Typography className={classes.title}>Choose your location</Typography>
           <TextField className={classes.textField} label="Office city" />
-          <TextField className={classes.textField} label="Office street" />
-          <Button className={classes.submitbtn} variant="contained" color="secondary">
+          <TextField className={classes.textField} label="Office street" onChange={()=> handleAddressChange}/>
+          <Button className={classes.submitbtn} variant="contained" color="secondary" onClick={() => dispatch(setOffers({address}))}>
             Submit
           </Button>
         </form>

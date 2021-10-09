@@ -9,6 +9,8 @@ import {topPolandLocations, topWorldLocations, otherLocations} from '../../../he
 import {useDispatch, useSelector} from 'react-redux';
 import {filterOffersByLocation, resetFilters, changeLocation} from '../../../store/actions/offersActions';
 
+
+
 const LocationDropDown: React.FC = () => {
   const classes = useStyles();
   const dispatch = useDispatch();

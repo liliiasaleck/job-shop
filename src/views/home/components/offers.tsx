@@ -38,7 +38,6 @@ const Offers: React.FC = () => {
   useEffect(() => {
     console.log(location);
       dispatch(fetchOffers());
-    
   }, [location, tech]);
 
   return (

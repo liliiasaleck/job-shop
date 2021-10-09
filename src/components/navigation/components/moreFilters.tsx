@@ -1,18 +1,11 @@
 import React, {useState} from 'react';
-import {
-  Modal,
-  Typography,
-  Fade,
-  Button,
-  Divider,
-  Icon,
-  MenuItem,
-  Slider,
-} from '@material-ui/core';
+import {Modal, Typography, Fade, Button, Divider, Icon, MenuItem, Slider} from '@material-ui/core';
 import {employmentType} from '../../../helpers/employmentType.cons';
 import {experienceLvl} from '../../../helpers/experienceLvl.const';
 import {useStyles} from './moreFilters.style';
 import {offers} from '../../../views/home/components/singleOffers/const/offerList.const';
+import {useDispatch} from 'react-redux';
+import {advancedFilter} from '../../../store/actions/offersActions';
 
 function valuetext(value: number) {
   return `${value}PLN`;
@@ -28,6 +21,8 @@ const MoreFilter: React.FC = () => {
   const [employmentTypeArray, setEmploymentTypeArray] = useState([...employmentType]);
   const [experienceLvlArray, setExperienceLvlArray] = useState([...experienceLvl]);
 
+  const dispatch = useDispatch();
+
   const handleChange = (event: any, newValue: number | number[]) => {
     setSalary(newValue as number[]);
   };
@@ -40,26 +35,30 @@ const MoreFilter: React.FC = () => {
     setOpen(false);
   };
 
-  const handleFilterOffersByExpEmplSalary = () => {
-    let selectedEmploymentType;
-    employmentTypeArray.forEach((item) => {
-      if (item.isSelected) {
-        selectedEmploymentType = item.type;
-      }
-    });
-
-    if (selectedEmploymentType !== 'All') {
-      const filteredOffers = offers.filter(
-        (offer) =>
-          offer.employmentType === selectedEmploymentType &&
-          offer.salaryFrom >= salary[0] &&
-          offer.salaryTo <= salary[1]
-      );
-      console.log(filteredOffers);
-    }
-
-    console.log(selectedEmploymentType);
+  const handleAdvancedFilter = () => {
+    dispatch(advancedFilter(salary[0], salary[1], selectedEmploymentType, selectedExperienceLvl));
   };
+
+  // const handleFilterOffersByExpEmplSalary = () => {
+  //   let selectedEmploymentType;
+  //   employmentTypeArray.forEach((item) => {
+  //     if (item.isSelected) {
+  //       selectedEmploymentType = item.type;
+  //     }
+  //   });
+
+  //   if (selectedEmploymentType !== 'All') {
+  //     const filteredOffers = offers.filter(
+  //       (offer) =>
+  //         offer.employmentType === selectedEmploymentType &&
+  //         offer.salaryFrom >= salary[0] &&
+  //         offer.salaryTo <= salary[1]
+  //     );
+  //     console.log(filteredOffers);
+  //   }
+
+  //   console.log(selectedEmploymentType);
+  // };
   const handleEmploymentTypeSelected = (type) => {
     const employmentTypeArrayWithSelectedType = employmentTypeArray.map((employment) =>
       employment.type === type
@@ -72,7 +71,7 @@ const MoreFilter: React.FC = () => {
             isSelected: false,
           }
     );
-
+    setSelectedEmploymentType(type);
     setEmploymentTypeArray([...employmentTypeArrayWithSelectedType]);
   };
 
@@ -88,7 +87,7 @@ const MoreFilter: React.FC = () => {
             isSelected: false,
           }
     );
-
+    setSelectedExperienceLvl(type);
     setExperienceLvlArray([...experienceLvlArrayWithSelectedType]);
   };
 
@@ -166,7 +165,7 @@ const MoreFilter: React.FC = () => {
               <Button
                 className={classes.showBtn}
                 onClick={() => {
-                  handleFilterOffersByExpEmplSalary();
+                  handleAdvancedFilter();
                   handleClose();
                 }}
               >

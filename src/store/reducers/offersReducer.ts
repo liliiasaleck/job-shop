@@ -5,8 +5,7 @@ export const initialState = {
   offersList: [],
   location: 'Location',
   tech: 'all',
-  experience: 'all',
-  employmentType: 'all',
+ 
 };
 
 export interface Offer {
@@ -66,13 +65,20 @@ const rootReducer = (state = initialState, action) => {
         location,
       };
 
-    case actionsTypes.RESET_FILTERS:
-      console.log('reset reducer')
+    case actionsTypes.ADVANCED_FILTER:
+      console.log(payload);
       return {
         ...state,
-        tech: 'all',
+        offersList: payload.offersList,
+      };
+
+    case actionsTypes.RESET_FILTERS:
+      return {
+        ...state,
         location: 'Location',
       };
+      
+   
 
     case actionsTypes.CHANGE_LOCATION:
       return {
@@ -93,14 +99,16 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         offersList: payload,
       };
+
     //SET_OFFERS
     case actionsTypes.SET_OFFERS:
       console.log(payload);
-
       return {
         ...state,
         offersList: payload,
       };
+
+      
     case actionsTypes.SET_OFFERS_ERROR:
       console.log(payload);
 

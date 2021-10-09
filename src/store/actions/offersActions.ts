@@ -19,10 +19,12 @@ export const fetchOffers = () => {
 
 //SET_OFFERS??
 
-export const setOffers = () => {
+export const setOffers = (jobDetailes) => {
   return async (dispatch, getState) => {
     try {
-      const result = await api.post('/offers');
+      const {address} = jobDetailes;
+      console.log(address);
+      const result = await api.post('/offers', address);
       if (result.data) dispatch({type: actionsTypes.SET_OFFERS, payload: result.data});
     } catch (error) {
       dispatch({type: actionsTypes.FETCH_OFFERS_ERROR, error});
@@ -83,15 +85,45 @@ export const searchOfferByName = (search) => {
 
 export const resetFilters = () => {
   return async (dispatch, getState) => {
-    console.log('resetFilter');
     dispatch({type: actionsTypes.RESET_FILTERS});
   };
 };
+
 
 export const changeLocation = (newLocation) => ({
   type: actionsTypes.CHANGE_LOCATION,
   payload: newLocation,
 });
+
+export const advancedFilter = (salaryFrom, salaryTo, employmentType, experience) => {
+  return async (dispatch, getState) => {
+    try {
+      let myParams = {};
+      if(salaryFrom){
+        myParams = {...myParams, salaryFrom}
+      }
+      if(salaryTo){
+        myParams = {...myParams, salaryTo}
+      }
+      if(employmentType){
+        myParams = {...myParams, employmentType}
+      }
+      if(experience){
+        myParams = {...myParams, experience}
+      }
+      console.log(myParams);
+      const result = await api.get('/offers', {params: {...myParams}});
+      if (result.data)
+        dispatch({
+          type: actionsTypes.ADVANCED_FILTER,
+          payload: {offersList: result.data},
+        });
+    } catch (error) {
+      dispatch({type: actionsTypes.FETCH_OFFERS_ERROR, error});
+    }
+  };
+};
+
 
 // api
 //   .get('/offers')

@@ -67,6 +67,12 @@ const Navbar: React.FC = () => {
               </Link>
             </ListItem>
             <ListItem button>
+              <WorkIcon />
+              <Link className={classes.textlink} to={routes.postJob}>
+                <ListItemText>Post a job</ListItemText>
+              </Link>
+            </ListItem>
+            <ListItem button>
               <ComputerIcon />
               <Link className={classes.textlink} to={routes.signIn}>
                 <ListItemText>Sign in</ListItemText>

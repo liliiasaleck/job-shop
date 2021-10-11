@@ -20,7 +20,7 @@ const Offers: React.FC = () => {
   //fetch
   const [offers, setOffers] = useState([]);
 
-  const offersList = useSelector(({offersList}: any) => offersList);
+  const offersList = useSelector(({offers}: any) => offers.offersList);
 
     //fetch
   const retrieveOffers = async () => {
@@ -28,17 +28,18 @@ const Offers: React.FC = () => {
     return response.data;
   };
 
-  const location = useSelector(({location}: any) => location);
-
-  const tech = useSelector(({tech}: any) => tech);
-
+  const location = useSelector(({offers}: any) => offers.location);
+  const tech = useSelector(({offers}: any) => offers.tech);
+  const currentLocation = useSelector((state: any) => state.offers.location);
 
 
   //fetch
   useEffect(() => {
     console.log(location);
+    console.log(currentLocation);
+
       dispatch(fetchOffers());
-  }, [location, tech]);
+  }, [currentLocation, tech]);
 
   return (
     <>

@@ -6,8 +6,9 @@ import api from '../../api/baseURL';
 export const fetchOffers = () => {
   return async (dispatch, getState) => {
     try {
-      const {tech, location} = getState();
-      if (tech === 'all' && location === 'Location') {
+      const {offers} = getState();
+      console.log(offers);
+      if (offers.location === 'Location') {
         const result = await api.get('/offers');
         if (result.data) dispatch({type: actionsTypes.FETCH_OFFERS, payload: result.data});
       }

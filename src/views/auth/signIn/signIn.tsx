@@ -1,10 +1,11 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import Navbar from '../../../components/navbar/navbar';
 import {useForm} from 'react-hook-form';
 import {Typography, TextField, Button, Checkbox, Box} from '@material-ui/core';
 import {useStyles} from './signIn.styles';
 import {pageTitleText} from '../const/signIn.const';
+import { useSelector } from 'react-redux';
 
 
 type FormData = {
@@ -21,16 +22,21 @@ const SignIn: React.FC = () => {
     console.log(email);
   });
 
+  const successMessage = useSelector(({ auth }: any) => auth.successMessage);
+
+
   return (
     <>
       <Navbar />
       <Box className={classes.box}>
         <form className={classes.form} noValidate autoComplete="off" action="#" onSubmit={onSubmit}>
-          <Typography variant="h3">{pageTitleText}</Typography>
+          <Typography className={classes.title} variant="h3">{pageTitleText}</Typography>
+          <Typography className={classes.successMessage} >{successMessage}</Typography>
           <TextField
             className={classes.textfield}
             label="Email"
             variant="outlined"
+            required
             {...register('email')}
           />
           <TextField

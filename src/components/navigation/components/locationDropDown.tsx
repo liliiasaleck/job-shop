@@ -31,7 +31,7 @@ const LocationDropDown: React.FC = () => {
   };
 
 
-  const currentLocation = useSelector((state: any) => state.location);
+  const currentLocation = useSelector((state: any) => state.offers.location);
 
   useEffect(() => {
     if (currentLocation !== 'Location') {

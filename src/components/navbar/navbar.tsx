@@ -15,6 +15,7 @@ import {Link} from 'react-router-dom';
 import {pageTitleText} from './const/navigationPages.const';
 import WorkIcon from '@material-ui/icons/Work';
 import GroupIcon from '@material-ui/icons/Group';
+import CreateIcon from '@material-ui/icons/Create';
 import ComputerIcon from '@material-ui/icons/Computer';
 import {routes} from '../../routing/routes';
 import {useStyles} from './navbar.style';
@@ -67,7 +68,7 @@ const Navbar: React.FC = () => {
               </Link>
             </ListItem>
             <ListItem button>
-              <WorkIcon />
+              <CreateIcon />
               <Link className={classes.textlink} to={routes.postJob}>
                 <ListItemText>Post a job</ListItemText>
               </Link>

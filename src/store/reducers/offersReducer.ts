@@ -5,6 +5,7 @@ export const initialState = {
   offersList: [],
   location: 'Location',
   tech: 'all',
+  
  
 };
 
@@ -24,16 +25,12 @@ export interface Offer {
   aboutCompany: string;
 }
 
-const rootReducer = (state = initialState, action) => {
+const offersReducer = (state = initialState, action) => {
   const {type, payload} = action;
   console.log('TYPE');
   console.log(type);
 
   switch (type) {
-    case actionsTypes.LOGIN_USER:
-      return {...state, isUserLogged: true};
-    case actionsTypes.LOGOUT_USER:
-      return {...state, isUserLogged: false};
 
     case actionsTypes.FILTER_OFFERS_BY_TECH:
       const {tech} = payload;
@@ -108,7 +105,7 @@ const rootReducer = (state = initialState, action) => {
         offersList: payload,
       };
 
-      
+
     case actionsTypes.SET_OFFERS_ERROR:
       console.log(payload);
 
@@ -122,7 +119,7 @@ const rootReducer = (state = initialState, action) => {
   }
 };
 
-export default rootReducer;
+export default offersReducer;
 
 // import {actionsTypes} from '../actions/actionsTypes';
 // import {offers} from '../../views/home/components/singleOffers/const/offerList.const';

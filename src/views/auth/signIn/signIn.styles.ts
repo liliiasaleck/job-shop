@@ -20,6 +20,9 @@ export const useStyles = makeStyles((theme: Theme) =>
       marginTop: '2rem',
       width: '20rem',
     },
+    title: {
+      marginBottom: '1rem',
+    },
     btn: {
       width: '10rem',
       margin: '1rem 1rem',
@@ -34,6 +37,12 @@ export const useStyles = makeStyles((theme: Theme) =>
       height: '10px',
       margin: '2rem 2rem',
       color: 'rgb(135, 152, 173)',
+    },
+
+    successMessage: {
+      color: 'green',
+      fontSize: '14px',
+      borderRadius: '3px',
     },
   })
 );

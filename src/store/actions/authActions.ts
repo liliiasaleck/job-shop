@@ -11,6 +11,8 @@ export const signUp = ({email, password}) => {
         dispatch({type: actionsTypes.SIGNUP_USER, payload: res.data});
       })
       .catch((err) => {
+        console.log(err);
+
         dispatch({type: actionsTypes.SIGNUP_USER_ERROR, err});
       });
   };

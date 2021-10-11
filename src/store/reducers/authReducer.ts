@@ -1,8 +1,9 @@
 import {actionsTypes} from './../actions/actionsTypes';
 
 const initState = {
-  authError: null,
+  authError: '',
   userJWT: '',
+  successMessage: ''
 };
 
 const authReducer = (state = initState, action) => {
@@ -11,11 +12,12 @@ const authReducer = (state = initState, action) => {
     case actionsTypes.SIGNUP_USER_ERROR:
       return {...state, authError: 'Register Failed'};
     case actionsTypes.SIGNUP_USER:
-      return {...state, authError: null};
+      console.log(payload);
+      return {...state, authError: '',successMessage:'Account created, please login now'}
     case actionsTypes.LOGIN_USER_ERROR:
       return {...state, authError: 'Login Failed'};
     case actionsTypes.LOGIN_USER:
-      return {...state, authError: null};
+      return {...state, authError: ''};
     default:
       return state;
   }

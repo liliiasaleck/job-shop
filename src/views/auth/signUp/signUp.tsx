@@ -1,12 +1,12 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import Navbar from '../../../components/navbar/navbar';
 import {useForm} from 'react-hook-form';
 import {Typography, TextField, Button, Checkbox, Box} from '@material-ui/core';
 import {useStyles} from './signUp.style';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signUp } from '../../../store/actions/authActions';
-import {pageTitleText} from '../const/signIn.const';
+import {pageTitleText, SignUpTitleText} from '../const/signIn.const';
 
 
 type FormData = {
@@ -25,17 +25,23 @@ const SignUp: React.FC = () => {
     dispatch(signUp({email,password}))  });
   const dispatch = useDispatch();
 
+  const signupError = useSelector(({ auth }: any) => auth.authError);
+
+  const successMessage = useSelector(({ auth }: any) => auth.successMessage);
+  if (successMessage) return <Redirect to="/signIn" />;
+
 
   return (
     <>
       <Navbar />
       <Box className={classes.box}>
         <form className={classes.form} noValidate autoComplete="off" action="#" onSubmit={onSubmit}>
-          <Typography variant="h3">{pageTitleText}</Typography>
+          <Typography variant="h3">{SignUpTitleText}</Typography>
           <TextField
             className={classes.textfield}
             label="Email"
             variant="outlined"
+            required
             {...register('email')}
           />
           <TextField
@@ -45,10 +51,10 @@ const SignUp: React.FC = () => {
             {...register('password')}
             required
           />
-          <div className={classes.checkbox}>
+          {/* <div className={classes.checkbox}>
             <Checkbox required />
             <Typography>I accept terms of service </Typography>
-          </div>
+          </div> */}
           <Button type="submit" variant="contained" color="secondary" className={classes.btn}>
             Register
           </Button>

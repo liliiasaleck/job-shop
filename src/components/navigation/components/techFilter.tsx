@@ -11,7 +11,7 @@ const TechFilter: React.FC = () => {
   const classes = useStyles();
   const theme = useTheme();
 
-  const selectedTech = useSelector((state: any) => state.tech);
+  const selectedTech = useSelector((state: any) => state.offers.tech);
 
   const dispatch = useDispatch();
 

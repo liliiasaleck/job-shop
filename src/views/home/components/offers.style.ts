@@ -1,4 +1,4 @@
-import { makeStyles, } from '@material-ui/core';
+import {makeStyles} from '@material-ui/core';
 
 export const useStyles = makeStyles((theme) => ({
   box: {
@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     overflowY: 'scroll',
     position: 'absolute',
-    top: '59%',
+    top: '57%',
     left: '33%',
     transform: 'translate(-50%, -50%)',
     [theme.breakpoints.down('md')]: {
@@ -40,9 +40,7 @@ export const useStyles = makeStyles((theme) => ({
   content: {
     width: '90%',
   },
-  salary: {
-    color: 'rgb(30, 198, 108)',
-  },
+ 
   title: {
     color: 'rgb(153, 161, 171)',
     fontSize: '12px',
@@ -51,10 +49,10 @@ export const useStyles = makeStyles((theme) => ({
     color: 'rgb(153, 161, 171)',
     fontSize: '12px',
   },
-  locationInfo:{
-display:'flex',
-width:'10rem',
-justifyContent:'space-between'
+  locationInfo: {
+    display: 'flex',
+    width: '10rem',
+    justifyContent: 'space-between',
   },
   tech: {
     color: 'rgb(153, 161, 171)',
@@ -63,9 +61,13 @@ justifyContent:'space-between'
   link: {
     textDecoration: 'none',
   },
+  salaryBox:{
+    display:'flex'
+  },
   image: {
     width: '120px',
     height: '50px',
     marginLeft: '1rem',
   },
+  
 }));

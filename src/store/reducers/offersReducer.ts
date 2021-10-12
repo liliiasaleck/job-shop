@@ -5,8 +5,6 @@ export const initialState = {
   offersList: [],
   location: 'Location',
   tech: 'all',
-  
- 
 };
 
 export interface Offer {
@@ -27,16 +25,10 @@ export interface Offer {
 
 const offersReducer = (state = initialState, action) => {
   const {type, payload} = action;
-  console.log('TYPE');
-  console.log(type);
 
   switch (type) {
-
     case actionsTypes.FILTER_OFFERS_BY_TECH:
       const {tech} = payload;
-      console.log('reducer payload');
-      console.log(tech);
-
       return {
         ...state,
         offersList: payload.offersList,
@@ -49,13 +41,9 @@ const offersReducer = (state = initialState, action) => {
         offersList: payload.offersList,
       };
 
-    //LOCATION
 
     case actionsTypes.FILTER_OFFERS_BY_LOCATION:
       const {location} = payload;
-      console.log('reducer for location');
-      console.log(payload);
-
       return {
         ...state,
         offersList: payload.offersList,
@@ -63,7 +51,6 @@ const offersReducer = (state = initialState, action) => {
       };
 
     case actionsTypes.ADVANCED_FILTER:
-      console.log(payload);
       return {
         ...state,
         offersList: payload.offersList,
@@ -74,40 +61,31 @@ const offersReducer = (state = initialState, action) => {
         ...state,
         location: 'Location',
       };
-      
-   
 
     case actionsTypes.CHANGE_LOCATION:
       return {
         ...state,
         location: payload,
       };
-    case actionsTypes.FETCH_OFFERS:
-      console.log(payload);
 
+    case actionsTypes.FETCH_OFFERS:
       return {
         ...state,
         offersList: payload,
       };
     case actionsTypes.FETCH_OFFERS_ERROR:
-      console.log(payload);
-
       return {
         ...state,
         offersList: payload,
       };
 
-    //SET_OFFERS
     case actionsTypes.SET_OFFERS:
-      console.log(payload);
       return {
         ...state,
         offersList: payload,
       };
-
 
     case actionsTypes.SET_OFFERS_ERROR:
-      console.log(payload);
 
       return {
         ...state,

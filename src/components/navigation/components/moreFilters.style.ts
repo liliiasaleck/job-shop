@@ -11,12 +11,18 @@ export const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: theme.palette.background.paper,
       padding: theme.spacing(2, 4, 3),
       color: 'rgb(119, 119, 119)',
+      width:'50%',
+      [theme.breakpoints.down('sm')]: {
+        height: '100%',
+        width: '100%',
+      },
+    },
+    filtersContainer: {
+      display: 'flex',
+      justifyContent: 'space-between',
     },
     main: {
-      display: 'flex',
-      alignSelf: 'flex-end',
-      justifyContent: 'center',
-      width: '100%',
+      display: 'inline-flex',
       marginLeft: 'rem',
       border: '1px solid lightgrey',
       borderRadius: '40px',
@@ -44,6 +50,10 @@ export const useStyles = makeStyles((theme: Theme) =>
     buttons: {
       display: 'flex',
       justifyContent: 'space-between',
+    },
+    close: {
+      marginLeft: '33rem',
+      color: '#99A1AB',
     },
     text: {
       margin: '15px 15px',

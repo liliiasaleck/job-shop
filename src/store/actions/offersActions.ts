@@ -1,7 +1,6 @@
 import {actionsTypes} from './actionsTypes';
 import api from '../../api/baseURL';
 
-//FETCH
 
 export const fetchOffers = () => {
   return async (dispatch, getState) => {
@@ -18,7 +17,6 @@ export const fetchOffers = () => {
   };
 };
 
-//SET_OFFERS??
 
 export const setOffers = (jobDetailes) => {
   return async (dispatch, getState) => {
@@ -33,7 +31,6 @@ export const setOffers = (jobDetailes) => {
   };
 };
 
-//BY_TECH
 export const filterOffersByTech = (tech) => {
   return async (dispatch, getState) => {
     try {
@@ -49,7 +46,6 @@ export const filterOffersByTech = (tech) => {
   };
 };
 
-//LOCATION??
 export const filterOffersByLocation = (location) => {
   return async (dispatch, getState) => {
     try {
@@ -65,11 +61,8 @@ export const filterOffersByLocation = (location) => {
   };
 };
 
-//SEARCH??
 
 export const searchOfferByName = (search) => {
-
-
   return async (dispatch, getState) => {
     try {
       const result = await api.get('/offers', {params: {search}});
@@ -112,7 +105,6 @@ export const advancedFilter = (salaryFrom, salaryTo, employmentType, experience)
       if(experience){
         myParams = {...myParams, experience}
       }
-      console.log(myParams);
       const result = await api.get('/offers', {params: {...myParams}});
       if (result.data)
         dispatch({
@@ -126,11 +118,3 @@ export const advancedFilter = (salaryFrom, salaryTo, employmentType, experience)
 };
 
 
-// api
-//   .get('/offers')
-//   .then((res) => {
-//     dispatch({type: actionsTypes.FETCH_OFFERS, payload: res.data});
-//   })
-//   .catch((err) => {
-//     dispatch({type: actionsTypes.FETCH_OFFERS_ERROR, err});
-//   });

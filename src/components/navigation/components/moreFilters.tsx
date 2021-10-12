@@ -3,9 +3,9 @@ import {Modal, Typography, Fade, Button, Divider, Icon, MenuItem, Slider} from '
 import {employmentType} from '../../../helpers/employmentType.cons';
 import {experienceLvl} from '../../../helpers/experienceLvl.const';
 import {useStyles} from './moreFilters.style';
-import {offers} from '../../../views/home/components/singleOffers/const/offerList.const';
 import {useDispatch} from 'react-redux';
 import {advancedFilter} from '../../../store/actions/offersActions';
+
 
 function valuetext(value: number) {
   return `${value}PLN`;
@@ -93,19 +93,22 @@ const MoreFilter: React.FC = () => {
 
   return (
     <div className={classes.dropdown}>
-      <Button
-        className={classes.main}
-        aria-controls="simple-menu"
-        aria-haspopup="true"
-        onClick={handleOpen}
-        endIcon={<Icon>expand_more</Icon>}
-      >
+      <Button className={classes.main} onClick={handleOpen} endIcon={<Icon>expand_more</Icon>}>
         More Filters
       </Button>
       <Modal className={classes.modal} open={open} onClose={handleClose}>
         <Fade in={open}>
           <div className={classes.paper}>
+            <div className={classes.filtersContainer}>
             <Typography className={classes.text}>More filters</Typography>
+            <Button
+              className={classes.close}
+              aria-controls="simple-menu"
+              aria-haspopup="true"
+              endIcon={<Icon>close</Icon>}
+              onClick={handleClose}
+            />
+            </div>
             <Divider />
             <div>
               <Typography className={classes.text}>Salary expectations?</Typography>

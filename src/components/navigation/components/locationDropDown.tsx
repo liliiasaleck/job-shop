@@ -7,9 +7,11 @@ import {Accordion, AccordionDetails, AccordionSummary, Typography} from '@materi
 import {useStyles} from './locationDropDown.style';
 import {topPolandLocations, topWorldLocations, otherLocations} from '../../../helpers/topLocations';
 import {useDispatch, useSelector} from 'react-redux';
-import {filterOffersByLocation, resetFilters, changeLocation} from '../../../store/actions/offersActions';
-
-
+import {
+  filterOffersByLocation,
+  resetFilters,
+  changeLocation,
+} from '../../../store/actions/offersActions';
 
 const LocationDropDown: React.FC = () => {
   const classes = useStyles();
@@ -21,15 +23,12 @@ const LocationDropDown: React.FC = () => {
   };
   const openMenu = (event) => {
     setAnchor(event.currentTarget);
-
   };
 
   const handleReset = () => {
     dispatch(resetFilters());
-    // dispatch(changeLocation('Location'));
     handleClose();
   };
-
 
   const currentLocation = useSelector((state: any) => state.offers.location);
 
@@ -103,25 +102,24 @@ const LocationDropDown: React.FC = () => {
           ))}
         </div>
         <Accordion>
-          <AccordionSummary
-          >
+          <AccordionSummary>
             <Typography className={classes.title}>Other locations Poland</Typography>
           </AccordionSummary>
           <AccordionDetails>
-          <div className={classes.containerOtherLocation}>
-          {otherLocations.map((location, index) => (
-            <MenuItem
-              key={index}
-              className={classes.city}
-              onClick={() => {
-                dispatch(changeLocation(location));
-                handleClose();
-              }}
-            >
-              {location}
-            </MenuItem>
-          ))}
-        </div>
+            <div className={classes.containerOtherLocation}>
+              {otherLocations.map((location, index) => (
+                <MenuItem
+                  key={index}
+                  className={classes.city}
+                  onClick={() => {
+                    dispatch(changeLocation(location));
+                    handleClose();
+                  }}
+                >
+                  {location}
+                </MenuItem>
+              ))}
+            </div>
           </AccordionDetails>
         </Accordion>
         <Button

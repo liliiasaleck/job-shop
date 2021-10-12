@@ -17,12 +17,12 @@ const TechFilter: React.FC = () => {
 
   return (
     <div className={classes.main}>
-      {skills.map(({icon, tech, backgroundColor, display}, index) => (
+      {skills.map(({icon, tech, background, display}, index) => (
         <div
           key={index}
           className={classes.round}
           onClick={() => dispatch(filterOffersByTech(tech))}
-          style={{backgroundColor: tech === selectedTech ? backgroundColor : 'rgb(145, 147, 170)'}}
+          style={{background: tech === selectedTech ? background : 'linear-gradient(-90deg, rgb(145, 147, 170), rgb(125, 130, 168))'}}
         >
           {tech === 'all' ? (
             'All'
@@ -30,9 +30,7 @@ const TechFilter: React.FC = () => {
             <FontAwesomeIcon size="lg" className={classes.icon} icon={icon} fixedWidth />
           )}
         </div>
-        
-      ))
-      }
+      ))}
     </div>
   );
 };

@@ -46,7 +46,7 @@ const Navbar: React.FC = () => {
             <Link className={classes.buttons} to={routes.postJob}>
               <Button className={classes.post}>Post job</Button>
             </Link>
-            <Link className={classes.buttons} to={routes.signIn}>
+            <Link className={classes.signInButtonLink} to={routes.signIn}>
               <Button className={classes.signInButton}>Sign in</Button>
             </Link>
             <IconButton className={classes.hamburger} onClick={handleDrawer}>
@@ -88,14 +88,18 @@ const Navbar: React.FC = () => {
           </div>
           <div className={classes.groupButton}>
             <ListItem button className={classes.registerButton}>
-              <ComputerIcon />
-              <Link  to={routes.signIn}>
+              <div className={classes.registerIcon}>
+              <ComputerIcon className={classes.icon}/>
+              </div>
+              <Link  to={routes.signIn} className={classes.registerLink}>
                 <ListItemText>Sign in</ListItemText>
               </Link>
             </ListItem>
-            <ListItem button className={classes.registerButton}>
-              <GroupIcon />
-              <Link  to={routes.signUp}>
+            <ListItem button className={classes.registerButton} >
+            <div className={classes.registerIcon}>
+              <GroupIcon className={classes.icon}/>
+              </div>
+              <Link  to={routes.signUp} className={classes.registerLink}>
                 <ListItemText>Sign up</ListItemText>
               </Link>
             </ListItem>

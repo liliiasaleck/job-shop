@@ -4,10 +4,9 @@ import Navbar from '../../../components/navbar/navbar';
 import {useForm} from 'react-hook-form';
 import {Typography, TextField, Button, Checkbox, Box} from '@material-ui/core';
 import {useStyles} from './signUp.style';
-import { useDispatch, useSelector } from 'react-redux';
-import { signUp } from '../../../store/actions/authActions';
+import {useDispatch, useSelector} from 'react-redux';
+import {signUp} from '../../../store/actions/authActions';
 import {pageTitleText, SignUpTitleText} from '../const/signIn.const';
-
 
 type FormData = {
   email: string;
@@ -15,21 +14,20 @@ type FormData = {
 };
 
 const SignUp: React.FC = () => {
-  
   // const [name, setName] = useState("");
   const {register, handleSubmit} = useForm<FormData>();
   const classes = useStyles();
 
   const onSubmit = handleSubmit(({email, password}) => {
     console.log(email, password);
-    dispatch(signUp({email,password}))  });
+    dispatch(signUp({email, password}));
+  });
   const dispatch = useDispatch();
 
-  const signupError = useSelector(({ auth }: any) => auth.authError);
+  const signUpError = useSelector(({auth}: any) => auth.authError);
 
-  const successMessage = useSelector(({ auth }: any) => auth.successMessage);
+  const successMessage = useSelector(({auth}: any) => auth.successMessage);
   if (successMessage) return <Redirect to="/signIn" />;
-
 
   return (
     <>
@@ -55,7 +53,7 @@ const SignUp: React.FC = () => {
             <Checkbox required />
             <Typography>I accept terms of service </Typography>
           </div> */}
-          <Button type="submit" variant="contained" color="secondary" className={classes.btn}>
+          <Button type="submit" variant="contained"  className={classes.btn}>
             Register
           </Button>
           <Typography>

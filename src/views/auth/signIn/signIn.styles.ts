@@ -1,4 +1,4 @@
-import {createStyles, makeStyles, Theme} from '@material-ui/core';
+import {colors, createStyles, makeStyles, Theme} from '@material-ui/core';
 
 export const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -18,19 +18,23 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     textfield: {
       marginTop: '2rem',
-      width: '20rem',
+      width: '25rem',
     },
     title: {
       marginBottom: '1rem',
     },
     btn: {
-      width: '10rem',
-      margin: '1rem 1rem',
+      width: '15rem',
+      margin: '2rem 2rem',
       borderRadius: '20px',
       textTransform: 'capitalize',
+      backgroundColor:'#ff4081',
+      color:'white'
     },
-    signin: {
+    signup: {
       textDecorationLine: 'none',
+      color:'#ff4081',
+
     },
     checkbox: {
       display: 'flex',

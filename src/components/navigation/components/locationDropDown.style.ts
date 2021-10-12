@@ -2,7 +2,7 @@ import {makeStyles, Theme} from '@material-ui/core';
 
 export const useStyles = makeStyles((theme: Theme) => ({
   mainLocation: {
-    width: '12%',
+    display: 'inline-flex',
     color: 'grey',
     border: '1px solid #D0D0D0',
     borderRadius: '40px',
@@ -18,15 +18,17 @@ export const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: 'rgba(255, 64, 129, 0.08)',
   },
   menu: {
-    maxWidth: '50% ',
+    width: '50% ',
     boxSizing: 'inherit',
+   
   },
   container: {
     display: 'flex',
   },
-  containerOtherLocation:{
+  containerOtherLocation: {
     display: 'flex',
-flexWrap:'wrap'
+    flexWrap: 'wrap',
+    
   },
   title: {
     margin: '10px 10px 10px 20px',

@@ -18,16 +18,20 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     textfield: {
       marginTop: '2rem',
-      width: '20rem',
+      width: '25rem',
     },
     btn: {
-      width: '10rem',
-      margin: '1rem 1rem',
+      width: '15rem',
+      margin: '2rem 2rem',
       borderRadius: '20px',
       textTransform: 'capitalize',
+      backgroundColor:'#ff4081',
+      color:'white'
     },
     signin: {
       textDecorationLine: 'none',
+      color:'#ff4081',
+
     },
     checkbox: {
       display: 'flex',

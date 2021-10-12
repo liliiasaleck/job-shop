@@ -9,8 +9,8 @@ import {useStyles} from './offers.style';
 import {useDispatch, useSelector} from 'react-redux';
 import api from '../../../api/baseURL';
 import {useEffect} from 'react';
-import { useState } from 'react';
-import { fetchOffers } from '../../../store/actions/offersActions';
+import {useState} from 'react';
+import {fetchOffers} from '../../../store/actions/offersActions';
 
 const Offers: React.FC = () => {
   const classes = useStyles();
@@ -22,7 +22,7 @@ const Offers: React.FC = () => {
 
   const offersList = useSelector(({offers}: any) => offers.offersList);
 
-    //fetch
+  //fetch
   const retrieveOffers = async () => {
     const response = await api.get('/offers');
     return response.data;
@@ -32,50 +32,53 @@ const Offers: React.FC = () => {
   const tech = useSelector(({offers}: any) => offers.tech);
   const currentLocation = useSelector((state: any) => state.offers.location);
 
-
   //fetch
   useEffect(() => {
     console.log(location);
     console.log(currentLocation);
 
-      dispatch(fetchOffers());
+    dispatch(fetchOffers());
   }, [currentLocation, tech]);
 
   return (
     <>
       <Box className={classes.box}>
-        {offersList && offersList.map((offer) => {
-          const {title, salary, location, tech, id, logo, companyName} = offer;
-          return (
-            <Link
-              className={classes.link}
-              to={{
-                pathname: `/singleoffer/${title.replace(/\s/g, '-')}`,
-                state: offer,
-              }}
-              key={id}
-            >
-              <Card className={classes.offer}>
-                <CardActionArea className={classes.main}>
-                  <img className={classes.image} src={logo} />
-                  <CardContent className={classes.content}>
-                    <div className={classes.large}>
-                      <Typography>{title}</Typography>
-                      <Typography color="secondary">{salary}</Typography>
-                    </div>
-                    <div className={classes.small}>
-                      <div className={classes.locationInfo}>
-                      <Typography className={classes.location}>{companyName}</Typography>
-                      <Typography className={classes.location}>{location}</Typography>
+        {offersList &&
+          offersList.map((offer) => {
+            const {title, salaryFrom, salaryTo, location, tech, id, logo, companyName} = offer;
+            return (
+              <Link
+                className={classes.link}
+                to={{
+                  pathname: `/singleoffer/${title.replace(/\s/g, '-')}`,
+                  state: offer,
+                }}
+                key={id}
+              >
+                <Card className={classes.offer}>
+                  <CardActionArea className={classes.main}>
+                    <img className={classes.image} src={logo} />
+                    <CardContent className={classes.content}>
+                      <div className={classes.large}>
+                        <Typography>{title}</Typography>
+                        <div className={classes.salaryBox}>
+                          <Typography color="secondary">{salaryFrom} - </Typography>
+                          <Typography color="secondary">&nbsp;{salaryTo} PLN</Typography>
+                        </div>
                       </div>
-                      <Typography className={classes.tech}>{tech}</Typography>
-                    </div>
-                  </CardContent>
-                </CardActionArea>
-              </Card>
-            </Link>
-          );
-        })}
+                      <div className={classes.small}>
+                        <div className={classes.locationInfo}>
+                          <Typography className={classes.location}>{companyName}</Typography>
+                          <Typography className={classes.location}>{location}</Typography>
+                        </div>
+                        <Typography className={classes.tech}>{tech}</Typography>
+                      </div>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Link>
+            );
+          })}
       </Box>
     </>
   );

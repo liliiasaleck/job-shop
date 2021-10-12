@@ -5,8 +5,7 @@ import {useForm} from 'react-hook-form';
 import {Typography, TextField, Button, Checkbox, Box} from '@material-ui/core';
 import {useStyles} from './signIn.styles';
 import {pageTitleText} from '../const/signIn.const';
-import { useSelector } from 'react-redux';
-
+import {useSelector} from 'react-redux';
 
 type FormData = {
   email: string;
@@ -20,9 +19,10 @@ const SignIn: React.FC = () => {
 
   const onSubmit = handleSubmit(({email, password}) => {
     console.log(email);
+    
   });
 
-  const successMessage = useSelector(({ auth }: any) => auth.successMessage);
+  const successMessage = useSelector(({auth}: any) => auth.successMessage);
 
 
   return (
@@ -30,8 +30,10 @@ const SignIn: React.FC = () => {
       <Navbar />
       <Box className={classes.box}>
         <form className={classes.form} noValidate autoComplete="off" action="#" onSubmit={onSubmit}>
-          <Typography className={classes.title} variant="h3">{pageTitleText}</Typography>
-          <Typography className={classes.successMessage} >{successMessage}</Typography>
+          <Typography className={classes.title} variant="h3">
+            {pageTitleText}
+          </Typography>
+          <Typography className={classes.successMessage}>{successMessage}</Typography>
           <TextField
             className={classes.textfield}
             label="Email"
@@ -46,13 +48,13 @@ const SignIn: React.FC = () => {
             {...register('password')}
             required
           />
-        
-          <Button variant="contained" color="secondary" className={classes.btn}>
+
+          <Button variant="contained" className={classes.btn}>
             Sign in
           </Button>
           <Typography>
             New account?
-            <Link to="/signup" className={classes.signin}>
+            <Link to="/signup" className={classes.signup}>
               Sign up
             </Link>
           </Typography>

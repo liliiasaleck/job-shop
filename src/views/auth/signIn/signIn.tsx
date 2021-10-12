@@ -5,7 +5,8 @@ import {useForm} from 'react-hook-form';
 import {Typography, TextField, Button, Checkbox, Box} from '@material-ui/core';
 import {useStyles} from './signIn.styles';
 import {pageTitleText} from '../const/signIn.const';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import { signIn } from '../../../store/actions/authActions';
 
 type FormData = {
   email: string;
@@ -16,20 +17,25 @@ const SignIn: React.FC = () => {
   // const [name, setName] = useState("");
   const {register, handleSubmit} = useForm<FormData>();
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+
 
   const onSubmit = handleSubmit(({email, password}) => {
     console.log(email);
-    
+    dispatch(signIn({email, password}));
   });
 
   const successMessage = useSelector(({auth}: any) => auth.successMessage);
+  const user = useSelector(({auth}: any) => auth.user);
+  if (user) return <Redirect to="/postJob" />;
 
 
   return (
     <>
       <Navbar />
       <Box className={classes.box}>
-        <form className={classes.form} noValidate autoComplete="off" action="#" onSubmit={onSubmit}>
+        <form className={classes.form} noValidate autoComplete="off" onSubmit={onSubmit}>
           <Typography className={classes.title} variant="h3">
             {pageTitleText}
           </Typography>
@@ -49,7 +55,7 @@ const SignIn: React.FC = () => {
             required
           />
 
-          <Button variant="contained" className={classes.btn}>
+          <Button variant="contained" className={classes.btn} type='submit'>
             Sign in
           </Button>
           <Typography>

@@ -19,6 +19,9 @@ import CreateIcon from '@material-ui/icons/Create';
 import ComputerIcon from '@material-ui/icons/Computer';
 import {routes} from '../../routing/routes';
 import {useStyles} from './navbar.style';
+import { useSelector } from 'react-redux';
+import SignInLinks from '../navbar/links/signInLinks';
+import SignOutLinks from '../navbar/links/signOutLinks';
 
 const Navbar: React.FC = () => {
   const classes = useStyles();
@@ -27,6 +30,10 @@ const Navbar: React.FC = () => {
   const handleDrawer = () => {
     setOpenDrawer(true);
   };
+
+  const user = useSelector(({auth}: any) => auth.user);
+
+  const links = user ? <SignOutLinks /> : <SignInLinks />;
   return (
     <>
       <AppBar className={classes.header}>
@@ -46,9 +53,7 @@ const Navbar: React.FC = () => {
             <Link className={classes.buttons} to={routes.postJob}>
               <Button className={classes.post}>Post job</Button>
             </Link>
-            <Link className={classes.signInButtonLink} to={routes.signIn}>
-              <Button className={classes.signInButton}>Sign in</Button>
-            </Link>
+            {links}
             <IconButton className={classes.hamburger} onClick={handleDrawer}>
               <MenuIcon />
             </IconButton>

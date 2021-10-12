@@ -17,22 +17,13 @@ const Offers: React.FC = () => {
   const theme = useTheme();
   const dispatch = useDispatch();
 
-  //fetch
-  const [offers, setOffers] = useState([]);
 
   const offersList = useSelector(({offers}: any) => offers.offersList);
-
-  //fetch
-  const retrieveOffers = async () => {
-    const response = await api.get('/offers');
-    return response.data;
-  };
 
   const location = useSelector(({offers}: any) => offers.location);
   const tech = useSelector(({offers}: any) => offers.tech);
   const currentLocation = useSelector((state: any) => state.offers.location);
-
-  //fetch
+  
   useEffect(() => {
     console.log(location);
     console.log(currentLocation);

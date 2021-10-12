@@ -18,12 +18,24 @@ export const fetchOffers = () => {
 };
 
 
+
+
 export const setOffers = (jobDetailes) => {
   return async (dispatch, getState) => {
     try {
+      const {auth} = getState();
+      const {user} = auth;
+      console.log(user);
+      const userObject = JSON.parse(user);
+      console.log(userObject);
+      let header;
+      if(userObject && userObject.accessToken){
+        header = { 'Authorization': 'Bearer ' + userObject.accessToken };
+      }
       const {address} = jobDetailes;
       console.log(address);
-      const result = await api.post('/offers', address);
+      console.log(jobDetailes);
+      const result = await api.post('/offers', {'body': jobDetailes}, {headers : {...header}} );
       if (result.data) dispatch({type: actionsTypes.SET_OFFERS, payload: result.data});
     } catch (error) {
       dispatch({type: actionsTypes.FETCH_OFFERS_ERROR, error});

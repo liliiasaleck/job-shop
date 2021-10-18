@@ -13,11 +13,13 @@ const TechFilter: React.FC = () => {
 
   const selectedTech = useSelector((state: any) => state.offers.tech);
 
+  
+
   const dispatch = useDispatch();
 
   return (
     <div className={classes.main}>
-      {skills.map(({icon, tech, background, display}, index) => (
+      {skills.map(({icon, tech, background}, index) => (
         <div
           key={index}
           className={classes.round}

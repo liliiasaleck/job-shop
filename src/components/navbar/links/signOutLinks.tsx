@@ -13,7 +13,7 @@ const SignOutLinks: React.FC = () => {
 
   return (
     <>
-      <Link to={routes.signIn}>
+      <Link to={routes.signIn} className={classes.signInButtonLink}>
         <Button className={classes.signInButton} onClick={() => dispatch(signOut())}>
           Sign Out
         </Button>

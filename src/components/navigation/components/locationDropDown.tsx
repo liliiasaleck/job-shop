@@ -11,13 +11,15 @@ import {
   filterOffersByLocation,
   resetFilters,
   changeLocation,
+  filterOffers,
 } from '../../../store/actions/offersActions';
 
-const LocationDropDown: React.FC = () => {
+export const LocationDropDown: React.FC = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
   const [anchorLocation, setAnchor] = useState(null);
+  
   const handleClose = () => {
     setAnchor(null);
   };
@@ -32,9 +34,10 @@ const LocationDropDown: React.FC = () => {
 
   const currentLocation = useSelector((state: any) => state.offers.location);
 
+
   useEffect(() => {
     if (currentLocation !== 'Location') {
-      dispatch(filterOffersByLocation(currentLocation));
+      dispatch(filterOffers());
     }
   }, [currentLocation]);
 

@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     form: {
       position: 'absolute',
-      top: '85%',
+      top: '100%',
       left: '50%',
       width: '70%',
       transform: 'translate(-50%, -50%)',
@@ -36,8 +36,8 @@ export const useStyles = makeStyles((theme: Theme) =>
       color: '#37474f',
     },
     offerTitle: {
-      width: '55%',
-      marginLeft: '2rem',
+      width: '57%',
+      marginLeft: '4.5rem',
     },
     formControl: {},
     select: {
@@ -51,7 +51,7 @@ export const useStyles = makeStyles((theme: Theme) =>
 
     },
     textarea: {
-      width: '100%',
+      width: '85%',
       fontSize: '16px',
       padding: '10px 10px 10px 10px',
     },

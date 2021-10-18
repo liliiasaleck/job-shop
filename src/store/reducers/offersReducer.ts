@@ -5,6 +5,10 @@ export const initialState = {
   offersList: [],
   location: 'Location',
   tech: 'all',
+  experience: '',
+  salaryTo: 0,
+  salaryFrom: 0,
+  employmentType: '',
 };
 
 export interface Offer {
@@ -41,7 +45,6 @@ const offersReducer = (state = initialState, action) => {
         offersList: payload.offersList,
       };
 
-
     case actionsTypes.FILTER_OFFERS_BY_LOCATION:
       const {location} = payload;
       return {
@@ -51,6 +54,7 @@ const offersReducer = (state = initialState, action) => {
       };
 
     case actionsTypes.ADVANCED_FILTER:
+      console.log(payload)
       return {
         ...state,
         offersList: payload.offersList,
@@ -80,16 +84,46 @@ const offersReducer = (state = initialState, action) => {
       };
 
     case actionsTypes.SET_OFFERS:
+      console.log(payload);
+      return {
+        ...state,
+      };
+
+    case actionsTypes.SET_OFFERS_ERROR:
       return {
         ...state,
         offersList: payload,
       };
 
-    case actionsTypes.SET_OFFERS_ERROR:
-
+    case actionsTypes.SET_SALARY:
       return {
         ...state,
-        offersList: payload,
+        salaryTo: payload[0],
+        salaryFrom: payload[1],
+      };
+
+    case actionsTypes.SET_EXPERIENCE:
+      return {
+        ...state,
+        experience: payload,
+      };
+
+    case actionsTypes.SET_TECH:
+      return {
+        ...state,
+        tech: payload,
+      };
+
+    case actionsTypes.SET_LOCATION:
+      return {
+        ...state,
+        location: payload,
+      };
+
+    case actionsTypes.SET_EMPLOYMENTTYPE:
+      return {
+        ...state,
+        employmentType: payload,
       };
 
     default:

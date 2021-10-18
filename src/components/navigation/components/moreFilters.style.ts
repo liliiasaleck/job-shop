@@ -11,7 +11,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: theme.palette.background.paper,
       padding: theme.spacing(2, 4, 3),
       color: 'rgb(119, 119, 119)',
-      width:'50%',
+      width:'40%',
       [theme.breakpoints.down('sm')]: {
         height: '100%',
         width: '100%',

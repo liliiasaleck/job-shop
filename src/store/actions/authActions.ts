@@ -41,7 +41,6 @@ export const signIn = ({email, password}) => {
 export const signOut = () => {
   localStorage.removeItem('user');
   return (dispatch, getState) => {
-    console.log('signout action');
     dispatch({type: actionsTypes.LOGOUT_USER});
   };
 };

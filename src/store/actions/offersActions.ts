@@ -2,6 +2,8 @@ import {actionsTypes} from './actionsTypes';
 import api from '../../api/baseURL';
 
 
+
+
 export const fetchOffers = () => {
   return async (dispatch, getState) => {
     try {
@@ -17,28 +19,25 @@ export const fetchOffers = () => {
   };
 };
 
-
-
-
 export const setOffers = (jobDetailes) => {
   return async (dispatch, getState) => {
     try {
       const {auth} = getState();
       const {user} = auth;
-      console.log(user);
       const userObject = JSON.parse(user);
-      console.log(userObject);
       let header;
-      if(userObject && userObject.accessToken){
-        header = { 'Authorization': 'Bearer ' + userObject.accessToken };
+      if (userObject && userObject.accessToken) {
+        header = {Authorization: 'Bearer ' + userObject.accessToken};
       }
       const {address} = jobDetailes;
-      console.log(address);
-      console.log(jobDetailes);
-      const result = await api.post('/offers', {'body': jobDetailes}, {headers : {...header}} );
-      if (result.data) dispatch({type: actionsTypes.SET_OFFERS, payload: result.data});
+      const result = await api.post('/offers', {...jobDetailes}, {headers: {...header},});
+      if (result.data) {
+        dispatch({type: actionsTypes.SET_OFFERS, payload: result.data});
+        
+      }
+
     } catch (error) {
-      dispatch({type: actionsTypes.FETCH_OFFERS_ERROR, error});
+      dispatch({type: actionsTypes.FETCH_OFFERS_ERROR, error});     
     }
   };
 };
@@ -73,7 +72,6 @@ export const filterOffersByLocation = (location) => {
   };
 };
 
-
 export const searchOfferByName = (search) => {
   return async (dispatch, getState) => {
     try {
@@ -96,26 +94,22 @@ export const resetFilters = () => {
 };
 
 
-export const changeLocation = (newLocation) => ({
-  type: actionsTypes.CHANGE_LOCATION,
-  payload: newLocation,
-});
 
 export const advancedFilter = (salaryFrom, salaryTo, employmentType, experience) => {
   return async (dispatch, getState) => {
     try {
       let myParams = {};
-      if(salaryFrom){
-        myParams = {...myParams, salaryFrom}
+      if (salaryFrom) {
+        myParams = {...myParams, salaryFrom};
       }
-      if(salaryTo){
-        myParams = {...myParams, salaryTo}
+      if (salaryTo) {
+        myParams = {...myParams, salaryTo};
       }
-      if(employmentType){
-        myParams = {...myParams, employmentType}
+      if (employmentType) {
+        myParams = {...myParams, employmentType};
       }
-      if(experience){
-        myParams = {...myParams, experience}
+      if (experience) {
+        myParams = {...myParams, experience};
       }
       const result = await api.get('/offers', {params: {...myParams}});
       if (result.data)
@@ -127,6 +121,55 @@ export const advancedFilter = (salaryFrom, salaryTo, employmentType, experience)
       dispatch({type: actionsTypes.FETCH_OFFERS_ERROR, error});
     }
   };
+
+  
 };
 
+export const filterOffers = () => {
+  return async (dispatch, getState) => {
+    try {
+      let myParams = {};
+      const {salaryFrom, salaryTo, employmentType, experience, location, tech} = getState().offers;
 
+      myParams = {
+        salaryFrom,
+        salaryTo,
+        employmentType,
+        experience,
+        tech,
+        location,
+      };
+      console.log('myParams');
+      console.log(myParams);
+      const result = await api.get('/offers', {params: {...myParams}});
+      if (result.data)
+        dispatch({
+          type: actionsTypes.ADVANCED_FILTER,
+          payload: {offersList: result.data},
+        });
+    } catch (error) {
+      dispatch({type: actionsTypes.FETCH_OFFERS_ERROR, error});
+    }
+  };
+};
+export const changeSalary = (salaryArray) => ({
+  type: actionsTypes.SET_SALARY,
+  payload: salaryArray,
+});
+
+export const changeTech = (tech) => ({
+  type: actionsTypes.SET_TECH,
+  payload: tech,
+});
+export const changeEmploymentType = (employmentType) => ({
+  type: actionsTypes.SET_EMPLOYMENTTYPE,
+  payload: employmentType,
+});
+export const changeExperience = (experience) => ({
+  type: actionsTypes.SET_EXPERIENCE,
+  payload: experience,
+});
+export const changeLocation = (location) => ({
+  type: actionsTypes.SET_LOCATION,
+  payload: location,
+});

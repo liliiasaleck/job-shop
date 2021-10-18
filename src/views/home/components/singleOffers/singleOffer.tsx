@@ -48,7 +48,8 @@ const SingleOffer: React.FC = ({
         <div className={classes.top}>
           <div className={classes.maininfo}>
             <div className={classes.imagebox}>
-              <img className={classes.image} src={logo} />
+            <Typography className={classes.image}>{logo}</Typography>
+              {/* <img className={classes.image} src={logo} /> */}
             </div>
             <div>
               <Typography variant="h5">{title}</Typography>

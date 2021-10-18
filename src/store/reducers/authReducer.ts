@@ -20,7 +20,7 @@ const authReducer = (state = initState, action) => {
     case actionsTypes.LOGIN_USER:
       return {...state, authError: '', user, successMessage:'Login successful'};
       case actionsTypes.LOGOUT_USER:
-      return {...state, authError: '', user,};
+      return {...state, authError: '', user, successMessage:'Logout successful'};
       case actionsTypes.REDIRECT_USER:
       return {...state, successMessage:'Please login to your account'};
     default:

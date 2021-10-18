@@ -6,7 +6,6 @@ import {useStyles} from './moreFilters.style';
 import {useDispatch} from 'react-redux';
 import {advancedFilter} from '../../../store/actions/offersActions';
 
-
 function valuetext(value: number) {
   return `${value}PLN`;
 }
@@ -93,21 +92,26 @@ const MoreFilter: React.FC = () => {
 
   return (
     <div className={classes.dropdown}>
-      <Button className={classes.main} onClick={handleOpen} endIcon={<Icon>expand_more</Icon>}>
+      <Button
+        className={classes.main}
+        onClick={handleOpen}
+        endIcon={<Icon>expand_more</Icon>}
+        startIcon={<Icon>tune</Icon>}
+      >
         More Filters
       </Button>
       <Modal className={classes.modal} open={open} onClose={handleClose}>
         <Fade in={open}>
           <div className={classes.paper}>
             <div className={classes.filtersContainer}>
-            <Typography className={classes.text}>More filters</Typography>
-            <Button
-              className={classes.close}
-              aria-controls="simple-menu"
-              aria-haspopup="true"
-              endIcon={<Icon>close</Icon>}
-              onClick={handleClose}
-            />
+              <Typography className={classes.text}>More filters</Typography>
+              <Button
+                className={classes.close}
+                aria-controls="simple-menu"
+                aria-haspopup="true"
+                endIcon={<Icon>close</Icon>}
+                onClick={handleClose}
+              />
             </div>
             <Divider />
             <div>

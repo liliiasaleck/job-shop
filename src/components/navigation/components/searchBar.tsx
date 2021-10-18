@@ -8,10 +8,10 @@ import {useDebounce} from '../../../hooks/useDebounce';
 
 const Search: React.FC = () => {
   const classes = useStyles();
-
   const [searchInputValue, setInputValue] = useState('');
   const dispatch = useDispatch();
   const debouncedSearchTerm: string = useDebounce<string>(searchInputValue, 500);
+
 
   useEffect(() => {
     dispatch(searchOfferByName(searchInputValue));

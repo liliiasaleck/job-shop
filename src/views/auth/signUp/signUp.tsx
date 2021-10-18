@@ -45,6 +45,7 @@ const SignUp: React.FC = () => {
           <TextField
             className={classes.textfield}
             label="Password"
+            type="password"
             variant="outlined"
             {...register('password')}
             required

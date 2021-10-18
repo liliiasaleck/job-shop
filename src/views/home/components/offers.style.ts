@@ -32,6 +32,7 @@ export const useStyles = makeStyles((theme) => ({
   large: {
     display: 'flex',
     justifyContent: 'space-between',
+    
   },
   small: {
     display: 'flex',
@@ -42,32 +43,50 @@ export const useStyles = makeStyles((theme) => ({
   },
  
   title: {
-    color: 'rgb(153, 161, 171)',
-    fontSize: '12px',
+    color: 'rgb(55, 71, 79)',
+    fontSize: '16px',
+    fontWeight:'bold'
   },
   location: {
     color: 'rgb(153, 161, 171)',
     fontSize: '12px',
   },
   locationInfo: {
-    display: 'flex',
-    width: '10rem',
-    justifyContent: 'space-between',
+    display: 'inline-flex',
+    width: '12rem',
+    // justifyContent: 'space-between',
   },
   tech: {
     color: 'rgb(153, 161, 171)',
     fontSize: '12px',
+    border:'1px solid rgb(224, 224, 224)',
+    borderRadius:'11px',
+    paddingRight:'4px',
+    paddingLeft:'4px',
+
   },
   link: {
     textDecoration: 'none',
   },
   salaryBox:{
-    display:'flex'
+    display:'flex',
+    color:'rgb(30, 198, 108)'
   },
+  // image: {
+  //   width: '120px',
+  //   height: '50px',
+  //   marginLeft: '1rem',
+  // },
   image: {
     width: '120px',
     height: '50px',
     marginLeft: '1rem',
+    border:'1px solid rgb(55, 71, 79)',
+    borderRadius: '6px',
+    fontSize: '10px',
+
+
+
   },
   
 }));

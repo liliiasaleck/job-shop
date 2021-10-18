@@ -9,7 +9,7 @@ const SignInLinks: React.FC = () => {
 
   return (
     <>
-      <Link to={routes.signIn}>
+      <Link to={routes.signIn} className={classes.signInButtonLink}>
         <Button className={classes.signInButton}>Sign in</Button>
       </Link>
       

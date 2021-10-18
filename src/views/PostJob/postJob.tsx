@@ -20,59 +20,73 @@ import {useDispatch, useSelector} from 'react-redux';
 import {redirect} from '../../store/actions/authActions';
 import * as yup from 'yup';
 import {useFormik} from 'formik';
+import { store } from 'react-notifications-component';
+
+const notification = {
+  container: "bottom-right",
+  animationIn: ["animate__animated", "animate__fadeIn"],
+  animationOut: ["animate__animated", "animate__fadeOut"],
+  dismiss: {
+    duration: 3000,
+    onScreen: true,
+    showIcon: true,
+  },
+};
 
 const validationSchema = yup.object({
   companyName: yup.string().required('Email is required'),
   companySize: yup.number().required('Company size bigger than 0'),
-  // location: yup.string().required('Email is required'),
+  location: yup.string().required('Email is required'),
   experience: yup.string().required('Email is required'),
   title: yup.string().required('Email is required'),
-  // salaryFrom: yup.number().required('Company size bigger than 0'),
-  // salaryTo: yup.number().required('Company size bigger than 0'),
+  salaryFrom: yup.number().required('Company size bigger than 0'),
+  salaryTo: yup.number().required('Company size bigger than 0'),
   aboutCompany: yup.string().required('Email is required'),
-  // jobDescription: yup.string().required('Email is required'),
+  jobDescription: yup.string().required('Email is required'),
   tech: yup.string().required('Email is required'),
-  // logo: yup.string().required('Email is required'),
-  website: yup.string().required(''),
+  logo: yup.string().required('Email is required'),
+  webSite: yup.string().required(''),
   employmentType: yup.string().required('Password is required'),
-  // address: yup.string().required('Password is required'),
+  address: yup.string().required('Password is required'),
 });
 
 const PostJob: React.FC = () => {
   const classes = useStyles();
-  const [input, setInput] = useState('');
   const history = useHistory();
   const dispatch = useDispatch();
 
   const [address, setAddress] = useState('');
 
-  const handleChange = (event) => {
-    setInput(event.target.value);
-  };
 
   const formik = useFormik({
     initialValues: {
       companyName: '',
       companySize: 0,
-      // location: '',
+      location: '',
       experience: '',
       title: '',
-      // salaryFrom: 0,
-      // salaryTo: 0,
+      salaryFrom: 0,
+      salaryTo: 0,
       employmentType: '',
-      // jobDescription: '',
+      jobDescription: '',
       aboutCompany: '',
       tech: '',
-      // logo: '',
-      website: '',
-      // address: '',
+      logo: '',
+      webSite: '',
+      address: '',
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      console.log(values);
       dispatch(setOffers(values));
-      alert(JSON.stringify(values, null, 2));
+      history.push('/');
+      store.addNotification({
+        title: "Post added!",
+        message: "Your job offer added!",
+        type: "info",
+        ...notification,
+      });
     },
+
   });
 
   const handleAddressChange = (event) => {
@@ -88,6 +102,9 @@ const PostJob: React.FC = () => {
     }
   }, []);
 
+  
+ 
+
   return (
     <>
       <Navbar />
@@ -98,9 +115,16 @@ const PostJob: React.FC = () => {
             Back
           </Button>
           <Typography className={classes.title}>Company logo</Typography>
-          {/* <div>
-            <input type="file" autoComplete="off" />
-          </div> */}
+          <TextField
+            className={classes.textField}
+            label="Logo"
+            name="logo"
+            id="companyName"
+            value={formik.values.logo}
+            onChange={formik.handleChange}
+            error={formik.touched.logo && Boolean(formik.errors.logo)}
+            helperText={formik.touched.logo && formik.errors.logo}
+          />
           <Typography className={classes.title}>About company </Typography>
           <TextField
             className={classes.textField}
@@ -125,12 +149,22 @@ const PostJob: React.FC = () => {
           <TextField
             className={classes.textField}
             label="Company website"
-            name="website"
-            id="website"
-            value={formik.values.website}
+            name="webSite"
+            id="webSite"
+            value={formik.values.webSite}
             onChange={formik.handleChange}
-            error={formik.touched.website && Boolean(formik.errors.website)}
-            helperText={formik.touched.website && formik.errors.website}
+            error={formik.touched.webSite && Boolean(formik.errors.webSite)}
+            helperText={formik.touched.webSite && formik.errors.webSite}
+          />
+          <Typography className={classes.title}>Brand story </Typography>
+
+           <TextareaAutosize
+            className={classes.textarea}
+            minRows={5}
+            id="aboutCompany"
+            name="aboutCompany"
+            value={formik.values.aboutCompany}
+            onChange={formik.handleChange}
           />
           <Typography className={classes.title}>Position info</Typography>
           <FormControl className={classes.formControl}>
@@ -139,7 +173,6 @@ const PostJob: React.FC = () => {
               select
               className={classes.select}
               style={{width: '200px'}}
-              variant="outlined"
               id="experience"
               name="experience"
               value={formik.values.experience}
@@ -156,13 +189,13 @@ const PostJob: React.FC = () => {
           <TextField
             className={classes.offerTitle}
             label="Offer title"
-            style={{width: '200px'}}
-            variant="outlined"
             id="title"
             name="title"
             value={formik.values.title}
             onChange={formik.handleChange}
             error={formik.touched.title && Boolean(formik.errors.title)}
+            helperText={formik.touched.title && formik.errors.title}
+
           />
 
           <Typography className={classes.title}>Employment type</Typography>
@@ -188,7 +221,7 @@ const PostJob: React.FC = () => {
               <MenuItem value={30}>Mandate contract</MenuItem>
             </TextField>
           </FormControl>
-          {/* <TextField
+          <TextField
             className={classes.salaryField}
             label="Monthly salary from"
             type="number"
@@ -199,8 +232,8 @@ const PostJob: React.FC = () => {
             error={formik.touched.salaryFrom && Boolean(formik.errors.salaryFrom)}
             helperText={formik.touched.salaryFrom && formik.errors.salaryFrom}
 
-          /> */}
-          {/* <TextField
+          />
+          <TextField
             className={classes.textField}
             label="Monthly salary to"
             type="number"
@@ -211,7 +244,7 @@ const PostJob: React.FC = () => {
             error={formik.touched.salaryTo && Boolean(formik.errors.salaryTo)}
             helperText={formik.touched.salaryTo && formik.errors.salaryTo}
 
-          /> */}
+          />
 
           <Typography className={classes.title}>Main technology</Typography>
           <FormControl className={classes.formControl}>
@@ -251,16 +284,16 @@ const PostJob: React.FC = () => {
               ))}
             </Select> */}
           </FormControl>
-          {/* <Typography className={classes.title}>Job description</Typography> */}
-          {/* <TextareaAutosize
+          <Typography className={classes.title}>Job description</Typography>
+          <TextareaAutosize
             className={classes.textarea}
             minRows={10}
             id="jobDescription"
             name="jobDescription"
             value={formik.values.jobDescription}
             onChange={formik.handleChange}
-          /> */}
-          {/* <Typography className={classes.title}>Choose your location</Typography>
+          />
+          <Typography className={classes.title}>Choose your location</Typography>
           <TextField
             className={classes.textField}
             label="Office city"
@@ -271,8 +304,8 @@ const PostJob: React.FC = () => {
             error={formik.touched.location && Boolean(formik.errors.location)}
             helperText={formik.touched.location && formik.errors.location}
 
-          /> */}
-          {/* <TextField
+          />
+          <TextField
             className={classes.textField}
             label="Office street"
             id="address"
@@ -281,8 +314,7 @@ const PostJob: React.FC = () => {
             onChange={formik.handleChange}
             error={formik.touched.address && Boolean(formik.errors.address)}
             helperText={formik.touched.address && formik.errors.address}
-
-          /> */}
+          />
 
           <Button className={classes.submitbtn} variant="contained" type="submit">
             Submit

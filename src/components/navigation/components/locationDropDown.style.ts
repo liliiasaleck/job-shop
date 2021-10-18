@@ -7,6 +7,8 @@ export const useStyles = makeStyles((theme: Theme) => ({
     border: '1px solid #D0D0D0',
     borderRadius: '40px',
     textTransform: 'capitalize',
+    width: '12%',
+
   },
 
   mainSelectedLocation: {

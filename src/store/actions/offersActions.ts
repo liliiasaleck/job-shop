@@ -3,12 +3,11 @@ import api from '../../api/baseURL';
 
 
 
-
+//FETCH
 export const fetchOffers = () => {
   return async (dispatch, getState) => {
     try {
       const {offers} = getState();
-      console.log(offers);
       if (offers.location === 'Location') {
         const result = await api.get('/offers');
         if (result.data) dispatch({type: actionsTypes.FETCH_OFFERS, payload: result.data});
@@ -19,6 +18,7 @@ export const fetchOffers = () => {
   };
 };
 
+//SET
 export const setOffers = (jobDetailes) => {
   return async (dispatch, getState) => {
     try {
@@ -72,6 +72,8 @@ export const filterOffersByLocation = (location) => {
   };
 };
 
+
+//SEARCH
 export const searchOfferByName = (search) => {
   return async (dispatch, getState) => {
     try {
@@ -125,33 +127,50 @@ export const advancedFilter = (salaryFrom, salaryTo, employmentType, experience)
   
 };
 
+
+//ADVANCED FILTER
+
 export const filterOffers = () => {
   return async (dispatch, getState) => {
     try {
+      dispatch({type: actionsTypes.SET_LOADING});
       let myParams = {};
       const {salaryFrom, salaryTo, employmentType, experience, location, tech} = getState().offers;
 
-      myParams = {
-        salaryFrom,
-        salaryTo,
-        employmentType,
-        experience,
-        tech,
-        location,
-      };
-      console.log('myParams');
-      console.log(myParams);
+      if (salaryFrom) {
+        myParams = {...myParams, salaryFrom};
+      }
+      if (salaryTo) {
+        myParams = {...myParams, salaryTo};
+      }
+      if (employmentType) {
+        myParams = {...myParams, employmentType};
+      }
+      if (experience) {
+        myParams = {...myParams, experience};
+      }
+      if (location && location !=='Location') {
+        myParams = {...myParams, location};
+      }
+      if (tech && tech !== 'all') {
+        myParams = {...myParams, tech};
+      }
+      
       const result = await api.get('/offers', {params: {...myParams}});
-      if (result.data)
+
+      if (result.data){
         dispatch({
           type: actionsTypes.ADVANCED_FILTER,
           payload: {offersList: result.data},
         });
+      }
+        
     } catch (error) {
       dispatch({type: actionsTypes.FETCH_OFFERS_ERROR, error});
     }
   };
 };
+
 export const changeSalary = (salaryArray) => ({
   type: actionsTypes.SET_SALARY,
   payload: salaryArray,
@@ -173,3 +192,12 @@ export const changeLocation = (location) => ({
   type: actionsTypes.SET_LOCATION,
   payload: location,
 });
+
+export const selectOffer = (offer) => {
+  return async (dispatch, getState) => {
+    console.log('selected offer');
+    console.log(offer);
+
+    dispatch({type: actionsTypes.SELECT_OFFER, payload: offer});
+  };
+};

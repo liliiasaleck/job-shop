@@ -19,7 +19,6 @@ const SignUp: React.FC = () => {
   const classes = useStyles();
 
   const onSubmit = handleSubmit(({email, password}) => {
-    console.log(email, password);
     dispatch(signUp({email, password}));
   });
   const dispatch = useDispatch();

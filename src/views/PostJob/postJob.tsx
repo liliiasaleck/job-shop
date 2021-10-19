@@ -115,6 +115,7 @@ const PostJob: React.FC = () => {
             Back
           </Button>
           <Typography className={classes.title}>Company logo</Typography>
+          {/* <input type='file'/> */}
           <TextField
             className={classes.textField}
             label="Logo"

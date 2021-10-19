@@ -50,6 +50,8 @@ export const useStyles = makeStyles((theme) => ({
   location: {
     color: 'rgb(153, 161, 171)',
     fontSize: '12px',
+    marginLeft:'1rem'
+
   },
   locationInfo: {
     display: 'inline-flex',
@@ -88,5 +90,12 @@ export const useStyles = makeStyles((theme) => ({
 
 
   },
+  more:{
+      // color: 'rgb(153, 161, 171)',
+      fontSize: '12px',
+      color:'blue'
+
+    
+  }
   
 }));

@@ -6,12 +6,10 @@ export const signUp = ({email, password}) => {
     api
       .post('/auth/signup', {email, password})
       .then((res) => {
-        console.log(res);
 
         dispatch({type: actionsTypes.SIGNUP_USER, payload: res.data});
       })
       .catch((err) => {
-        console.log(err);
 
         dispatch({type: actionsTypes.SIGNUP_USER_ERROR, err});
       });
@@ -19,19 +17,16 @@ export const signUp = ({email, password}) => {
 };
 export const signIn = ({email, password}) => {
   return (dispatch, getState) => {
-    console.log('signin action');
 
     api
       .post('/auth/signin', {email, password})
       .then((res) => {
-        console.log(res);
         localStorage.setItem('user', JSON.stringify(res.data));
 
         dispatch({type: actionsTypes.LOGIN_USER, payload: res.data});
       })
       .catch((err) => {
-        console.log('signin error');
-        console.log(err);
+       
 
         dispatch({type: actionsTypes.LOGIN_USER_ERROR, err});
       });

@@ -13,7 +13,6 @@ const authReducer = (state = initState, action) => {
     case actionsTypes.SIGNUP_USER_ERROR:
       return {...state, authError: 'Register Failed'};
     case actionsTypes.SIGNUP_USER:
-      console.log(payload);
       return {...state, authError: '',successMessage:'Account created, please login now'}
     case actionsTypes.LOGIN_USER_ERROR:
       return {...state, authError: 'Login Failed', user};

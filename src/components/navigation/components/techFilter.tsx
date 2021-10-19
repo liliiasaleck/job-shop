@@ -1,8 +1,8 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useEffect } from 'react';
 import {useStyles} from './techFilter.style';
 import {useDispatch} from 'react-redux';
-import {filterOffersByTech} from '../../../store/actions/offersActions';
+import {changeTech, filterOffers, filterOffersByTech} from '../../../store/actions/offersActions';
 import {skills} from '../../../helpers/technology.const';
 import {useSelector} from 'react-redux';
 import {useTheme} from '@material-ui/core';
@@ -13,7 +13,9 @@ const TechFilter: React.FC = () => {
 
   const selectedTech = useSelector((state: any) => state.offers.tech);
 
-  
+  useEffect(() => {
+    dispatch(filterOffers());
+  }, [selectedTech]);
 
   const dispatch = useDispatch();
 
@@ -23,7 +25,7 @@ const TechFilter: React.FC = () => {
         <div
           key={index}
           className={classes.round}
-          onClick={() => dispatch(filterOffersByTech(tech))}
+          onClick={() => dispatch(changeTech(tech))}
           style={{background: tech === selectedTech ? background : 'linear-gradient(-90deg, rgb(145, 147, 170), rgb(125, 130, 168))'}}
         >
           {tech === 'all' ? (

@@ -17,6 +17,8 @@ import {faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import EmailIcon from '@material-ui/icons/Email';
 import CreateIcon from '@material-ui/icons/Create';
+import { useDispatch } from 'react-redux';
+import { selectOffer } from '../../../../store/actions/offersActions';
 
 const SingleOffer: React.FC = ({
   location: {
@@ -37,12 +39,20 @@ const SingleOffer: React.FC = ({
   const history = useHistory();
   const theme = useTheme();
 
+  const dispatch =useDispatch();
+
+  const handleGoBack =()=>{
+    dispatch(selectOffer({}))
+    
+    history.push('/')
+  }
+
   return (
     <>
             <Navigation />
 
       <Box className={classes.box}>
-        <Button className={classes.btnback} onClick={() => history.push('/')}>
+        <Button className={classes.btnback} onClick={handleGoBack}>
           <ArrowBack />
         </Button>
         <div className={classes.top}>

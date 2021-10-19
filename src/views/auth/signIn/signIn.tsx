@@ -22,7 +22,6 @@ const SignIn: React.FC = () => {
 
 
   const onSubmit = handleSubmit(({email, password}) => {
-    console.log(email);
     dispatch(signIn({email, password}));
   });
 

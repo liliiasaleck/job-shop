@@ -9,11 +9,13 @@ import {useStyles} from './offers.style';
 import {useDispatch, useSelector} from 'react-redux';
 import {useEffect} from 'react';
 import {useState} from 'react';
-import {fetchOffers} from '../../../store/actions/offersActions';
+import {fetchOffers, filterOffers, selectOffer} from '../../../store/actions/offersActions';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBuilding} from '@fortawesome/free-solid-svg-icons';
 import {faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons';
 import {images} from '../../../helpers/logos.const';
+import { Spinner } from '../../../components/spinner/spinner';
+
 
 const Offers: React.FC = () => {
   const classes = useStyles();
@@ -21,23 +23,36 @@ const Offers: React.FC = () => {
   const dispatch = useDispatch();
 
   const offersList = useSelector(({offers}: any) => offers.offersList);
-
   const location = useSelector(({offers}: any) => offers.location);
   const tech = useSelector(({offers}: any) => offers.tech);
-  const currentLocation = useSelector((state: any) => state.offers.location);
+  const empType = useSelector(({offers}: any) => offers.employmentType);
+  const experience = useSelector(({offers}: any) => offers.experience);
+  const isLoading = useSelector((state: any) => state.offers.isLoading);
 
   useEffect(() => {
-    console.log('PObieranie ofert');
-    dispatch(fetchOffers());
-    console.log(offersList);
-  }, [currentLocation, tech]);
+    if (location === 'Location' || tech === 'all') dispatch(filterOffers());
+  }, [location, tech, empType, experience]);
 
   return (
     <>
       <Box className={classes.box}>
-        {offersList &&
+        {isLoading && !offersList ? (
+          <Spinner />
+        ) :
           offersList.map((offer) => {
-            const {title, salaryFrom, salaryTo, location, tech, id, logo, companyName} = offer;
+            const {
+              title,
+              salaryFrom,
+              salaryTo,
+              location,
+              tech,
+              id,
+              logo,
+              companyName,
+              employmentType,
+              experience,
+            } = offer;
+            console.log(logo)
             return (
               <Link
                 className={classes.link}
@@ -45,14 +60,14 @@ const Offers: React.FC = () => {
                   pathname: `/singleoffer/${title.replace(/\s/g, '-')}`,
                   state: offer,
                 }}
+                onClick={() => dispatch(selectOffer(offer))}
                 key={id}
               >
                 <Card className={classes.offer}>
                   <CardActionArea className={classes.main}>
+                    {/* <Typography className={classes.image}>{logo}</Typography> */}
 
-                  <Typography className={classes.image}>{logo}</Typography>
-
-                    {/* <img className={classes.image} src={logo} /> */}
+                    <img className={classes.image} src={logo} />
                     <CardContent className={classes.content}>
                       <div className={classes.large}>
                         <Typography className={classes.title}>{title}</Typography>
@@ -72,6 +87,8 @@ const Offers: React.FC = () => {
                             {location}
                           </Typography>
                         </div>
+                        <Typography className={classes.more} >{employmentType}</Typography>
+                        <Typography className={classes.more}>{experience}</Typography>
                         <Typography className={classes.tech}>{tech}</Typography>
                       </div>
                     </CardContent>

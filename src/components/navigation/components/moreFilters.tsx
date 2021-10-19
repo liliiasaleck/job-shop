@@ -3,8 +3,8 @@ import {Modal, Typography, Fade, Button, Divider, Icon, MenuItem, Slider} from '
 import {employmentType} from '../../../helpers/employmentType.cons';
 import {experienceLvl} from '../../../helpers/experienceLvl.const';
 import {useStyles} from './moreFilters.style';
-import {useDispatch} from 'react-redux';
-import {advancedFilter} from '../../../store/actions/offersActions';
+import {useDispatch, useSelector} from 'react-redux';
+import {advancedFilter, changeEmploymentType, changeExperience, changeSalary, filterOffers, resetFilters} from '../../../store/actions/offersActions';
 
 function valuetext(value: number) {
   return `${value}PLN`;
@@ -13,17 +13,19 @@ function valuetext(value: number) {
 const MoreFilter: React.FC = () => {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
-  const [salary, setSalary] = useState<number[]>([0, 100000]);
+  // const [salary, setSalary] = useState<number[]>([0, 100000]);
   const [selectedEmploymentType, setSelectedEmploymentType] = useState('All');
   const [selectedExperienceLvl, setSelectedExperienceLvl] = useState('All');
 
   const [employmentTypeArray, setEmploymentTypeArray] = useState([...employmentType]);
   const [experienceLvlArray, setExperienceLvlArray] = useState([...experienceLvl]);
 
+  const salary = useSelector((state: any) => state.offers.salary);
+
   const dispatch = useDispatch();
 
   const handleChange = (event: any, newValue: number | number[]) => {
-    setSalary(newValue as number[]);
+    dispatch(changeSalary(newValue));
   };
 
   const handleOpen = () => {
@@ -35,29 +37,17 @@ const MoreFilter: React.FC = () => {
   };
 
   const handleAdvancedFilter = () => {
-    dispatch(advancedFilter(salary[0], salary[1], selectedEmploymentType, selectedExperienceLvl));
+    dispatch(filterOffers());
   };
 
-  // const handleFilterOffersByExpEmplSalary = () => {
-  //   let selectedEmploymentType;
-  //   employmentTypeArray.forEach((item) => {
-  //     if (item.isSelected) {
-  //       selectedEmploymentType = item.type;
-  //     }
-  //   });
+  const handleReset = () => {
+    handleEmploymentTypeSelected('All');
+    handleExperienceLvlSelected('All');
+    dispatch(resetFilters());
 
-  //   if (selectedEmploymentType !== 'All') {
-  //     const filteredOffers = offers.filter(
-  //       (offer) =>
-  //         offer.employmentType === selectedEmploymentType &&
-  //         offer.salaryFrom >= salary[0] &&
-  //         offer.salaryTo <= salary[1]
-  //     );
-  //     console.log(filteredOffers);
-  //   }
+    handleClose();
+  };
 
-  //   console.log(selectedEmploymentType);
-  // };
   const handleEmploymentTypeSelected = (type) => {
     const employmentTypeArrayWithSelectedType = employmentTypeArray.map((employment) =>
       employment.type === type
@@ -71,6 +61,7 @@ const MoreFilter: React.FC = () => {
           }
     );
     setSelectedEmploymentType(type);
+    dispatch(changeEmploymentType(type));
     setEmploymentTypeArray([...employmentTypeArrayWithSelectedType]);
   };
 
@@ -87,6 +78,7 @@ const MoreFilter: React.FC = () => {
           }
     );
     setSelectedExperienceLvl(type);
+    dispatch(changeExperience(type));
     setExperienceLvlArray([...experienceLvlArrayWithSelectedType]);
   };
 
@@ -166,7 +158,7 @@ const MoreFilter: React.FC = () => {
               ))}
             </div>
             <div className={classes.buttons}>
-              <Button className={classes.clearBtn} onClick={handleClose}>
+              <Button className={classes.clearBtn} onClick={handleReset}>
                 Clear filter
               </Button>
               <Button

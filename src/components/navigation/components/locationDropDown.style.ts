@@ -2,24 +2,41 @@ import {makeStyles, Theme} from '@material-ui/core';
 
 export const useStyles = makeStyles((theme: Theme) => ({
   mainLocation: {
-    display: 'inline-flex',
     color: 'grey',
     border: '1px solid #D0D0D0',
     borderRadius: '40px',
     textTransform: 'capitalize',
-    width: '12%',
+    width: '10rem',
+    [theme.breakpoints.down('md')]: {
+      
+      fontSize:'12px'
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: '8rem',
 
+      fontSize:'9px',
+    },
   },
 
   mainSelectedLocation: {
-    width: '12%',
+    width: '10rem',
     color: 'rgb(255,64,129)',
     border: '1px solid rgb(255,64,129)',
     borderRadius: '40px',
     textTransform: 'capitalize',
     backgroundColor: 'rgba(255, 64, 129, 0.08)',
+    [theme.breakpoints.down('md')]: {
+      
+      fontSize:'12px'
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: '8rem',
+
+      fontSize:'8px',
+    },
   },
   menu: {
+    marginTop:'4rem',
     width: '50% ',
     boxSizing: 'inherit',
    

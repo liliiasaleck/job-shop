@@ -1,32 +1,43 @@
 import { makeStyles, } from '@material-ui/core';
 
-export const useStyles = makeStyles({
+export const useStyles  = makeStyles((theme) => ({
   toolbar: {
-    display: 'flex',
-    justifyContent: 'space-around',
-    width: '100%',
-    backgroundColor: 'white',
-    color: 'black',
-    position: 'absolute',
-    top: '12%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    zIndex: 1,
-    padding: '20px 20px',
-  },
-  div: {
     display: 'flex',
     justifyContent: 'space-between',
     width: '100%',
-    height: '30px',
     backgroundColor: 'white',
-    color: 'black',
+    // color: 'black',
     position: 'absolute',
-    top: '20%',
-    left: '30%',
+    top: '11.7%',
+    left: '50%',
     transform: 'translate(-50%, -50%)',
     zIndex: 1,
-    padding: '20px 20px',
-    focus: 'red',
-  },
-});
+    // padding: '20px 20px',
+    [theme.breakpoints.down('md')]: {
+      top: '11.5%',
+      left: '50%',  
+    paddingLeft:'2rem',
+  paddingRight:'2rem'  },
+  [theme.breakpoints.down('sm')]: {
+    top: '10%',
+    left: '50%',  
+  paddingLeft:'2rem',
+paddingRight:'6rem'  },
+  
+  // div: {
+  //   display: 'flex',
+  //   justifyContent: 'space-between',
+  //   width: '100%',
+  //   height: '30px',
+  //   backgroundColor: 'white',
+  //   color: 'black',
+  //   position: 'absolute',
+  //   top: '20%',
+  //   left: '30%',
+  //   transform: 'translate(-50%, -50%)',
+  //   zIndex: 1,
+  //   padding: '20px 20px',
+  //   focus: 'red',
+  // },
+},
+}));

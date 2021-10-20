@@ -11,7 +11,9 @@ export const initialState = {
   // salaryFrom: 0,
   employmentType: '',
   selectedOffer: {},
-  logoUrl: ''
+  logoUrl: '',
+  logo: {},
+
 };
 
 export interface Offer {
@@ -21,7 +23,7 @@ export interface Offer {
   salaryTo: number;
   location: string;
   tech: string;
-  logo: string;
+  logo: object;
   experience: string;
   companySize: number;
   companyName: string;
@@ -143,6 +145,13 @@ const offersReducer = (state = initialState, action) => {
       return {
         ...state,
         selectedOffer: payload,
+      };
+
+      case actionsTypes.UPLOAD_LOGO:
+
+      return {
+        ...state,
+        logo: payload,
       };
 
     default:

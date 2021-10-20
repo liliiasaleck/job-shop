@@ -14,8 +14,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBuilding} from '@fortawesome/free-solid-svg-icons';
 import {faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons';
 import {images} from '../../../helpers/logos.const';
-import { Spinner } from '../../../components/spinner/spinner';
-
+import {Spinner} from '../../../components/spinner/spinner';
 
 const Offers: React.FC = () => {
   const classes = useStyles();
@@ -28,6 +27,7 @@ const Offers: React.FC = () => {
   const empType = useSelector(({offers}: any) => offers.employmentType);
   const experience = useSelector(({offers}: any) => offers.experience);
   const isLoading = useSelector((state: any) => state.offers.isLoading);
+  const logo = useSelector(({offers}: any) => offers.logo);
 
   useEffect(() => {
     if (location === 'Location' || tech === 'all') dispatch(filterOffers());
@@ -38,21 +38,9 @@ const Offers: React.FC = () => {
       <Box className={classes.box}>
         {isLoading && !offersList ? (
           <Spinner />
-        ) :
+        ) : (
           offersList.map((offer) => {
-            const {
-              title,
-              salaryFrom,
-              salaryTo,
-              location,
-              tech,
-              id,
-              logo,
-              companyName,
-              employmentType,
-              experience,
-            } = offer;
-            console.log(logo)
+            const {title, salaryFrom, salaryTo, location, tech, id, companyName, logo} = offer;
             return (
               <Link
                 className={classes.link}
@@ -65,30 +53,26 @@ const Offers: React.FC = () => {
               >
                 <Card className={classes.offer}>
                   <CardActionArea className={classes.main}>
-                    {/* <Typography className={classes.image}>{logo}</Typography> */}
+                    <img className={classes.image} src={logo?.url} />
 
-                    <img className={classes.image} src={logo} />
                     <CardContent className={classes.content}>
                       <div className={classes.large}>
                         <Typography className={classes.title}>{title}</Typography>
                         <div className={classes.salaryBox}>
-                          <Typography>{salaryFrom} - </Typography>
-                          <Typography>&nbsp;{salaryTo} PLN</Typography>
+                          <Typography className={classes.salaryText}>{salaryFrom} - </Typography>
+                          <Typography className={classes.salaryText}>&nbsp;{salaryTo} PLN</Typography>
                         </div>
                       </div>
                       <div className={classes.small}>
                         <div className={classes.locationInfo}>
                           <Typography className={classes.location}>
-                            <FontAwesomeIcon icon={faBuilding} />
-                            {companyName}
+                            <FontAwesomeIcon icon={faBuilding} /> {companyName}
                           </Typography>
-                          <Typography className={classes.location}>
-                            <FontAwesomeIcon icon={faMapMarkerAlt} />
-                            {location}
+
+                          <Typography className={classes.locationSecond}>
+                            <FontAwesomeIcon icon={faMapMarkerAlt} /> {location}
                           </Typography>
                         </div>
-                        <Typography className={classes.more} >{employmentType}</Typography>
-                        <Typography className={classes.more}>{experience}</Typography>
                         <Typography className={classes.tech}>{tech}</Typography>
                       </div>
                     </CardContent>
@@ -96,7 +80,8 @@ const Offers: React.FC = () => {
                 </Card>
               </Link>
             );
-          })}
+          })
+        )}
       </Box>
     </>
   );

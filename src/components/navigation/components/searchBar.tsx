@@ -28,7 +28,7 @@ const Search: React.FC = () => {
         type="search"
         value={searchInputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        multiline
+
         classes={{
           root: classes.inputRoot,
           input: classes.inputInput,

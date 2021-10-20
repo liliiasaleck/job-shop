@@ -13,25 +13,27 @@ import React from 'react';
 import Navigation from '../../../../components/navigation/navigationFilters';
 import {useHistory} from 'react-router-dom';
 import {useStyles} from './singleOffer.style';
-import {faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons';
+import {faIdCard, faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import EmailIcon from '@material-ui/icons/Email';
 import CreateIcon from '@material-ui/icons/Create';
-import { useDispatch } from 'react-redux';
-import { selectOffer } from '../../../../store/actions/offersActions';
+import {useDispatch} from 'react-redux';
+import {selectOffer} from '../../../../store/actions/offersActions';
 
 const SingleOffer: React.FC = ({
   location: {
     state: {
       title,
-      salary,
+      salaryFrom,
+      salaryTo,
       location,
       companyName,
-      employmentType,
       companySize,
       experience,
       jobDescription,
       logo,
+      employmentType,
+      aboutCompany,
     },
   },
 }: any) => {
@@ -39,17 +41,17 @@ const SingleOffer: React.FC = ({
   const history = useHistory();
   const theme = useTheme();
 
-  const dispatch =useDispatch();
+  const dispatch = useDispatch();
 
-  const handleGoBack =()=>{
-    dispatch(selectOffer({}))
-    
-    history.push('/')
-  }
+  const handleGoBack = () => {
+    dispatch(selectOffer({}));
+
+    history.push('/');
+  };
 
   return (
     <>
-            <Navigation />
+      <Navigation />
 
       <Box className={classes.box}>
         <Button className={classes.btnback} onClick={handleGoBack}>
@@ -58,17 +60,20 @@ const SingleOffer: React.FC = ({
         <div className={classes.top}>
           <div className={classes.maininfo}>
             <div className={classes.imagebox}>
-            <Typography className={classes.image}>{logo}</Typography>
-              {/* <img className={classes.image} src={logo} /> */}
+              <img className={classes.image} src={logo?.url} />
             </div>
             <div>
-              <Typography variant="h5">{title}</Typography>
-              <Typography>
+              <Typography className={classes.title}>{title}</Typography>
+              <Typography className={classes.subTitle}>
                 <FontAwesomeIcon icon={faMapMarkerAlt} />
+                {" "}
                 {location}
+              
               </Typography>
-              <Typography>
-                {salary} - {employmentType}
+              <Typography className={classes.subTitle}>
+              <FontAwesomeIcon icon={faIdCard} />
+              {" "}
+                {employmentType}
               </Typography>
             </div>
           </div>
@@ -76,23 +81,30 @@ const SingleOffer: React.FC = ({
         <div className={classes.information}>
           <Typography className={classes.infodiv}>
             {companyName}
-            <p>Company name</p>
+            <p className={classes.smallTitle}>Company name</p>
           </Typography>
           <Typography className={classes.infodiv}>
-            {companySize} <p>Company size</p>
+            {companySize} <p className={classes.smallTitle}>Company size</p>
           </Typography>
           <Typography className={classes.infodiv}>
             {experience}
-            <p>EXP.lvl</p>
+            <p className={classes.smallTitle}>EXP.lvl</p>
+          </Typography>
+          <Typography className={classes.infodiv}>
+            {salaryFrom}-{salaryTo}PLN
+            <p className={classes.smallTitle}>Salary</p>
           </Typography>
         </div>
         <div className={classes.description}>
-          <Typography>Description</Typography>
-          <Divider />
-          <Typography>{jobDescription}</Typography>
+          <Typography className={classes.descriptionText}>Brand story</Typography>
+          <Typography className={classes.aboutCompany}>{aboutCompany}</Typography>
+        </div>
+        <div className={classes.description}>
+          <Typography className={classes.descriptionText}>Description</Typography>
+          <Typography className={classes.aboutCompany}>{jobDescription}</Typography>
         </div>
         <div className={classes.divform}>
-          <Typography>Apply for this job</Typography>
+          <Typography className={classes.descriptionText}>Apply for this job</Typography>
           <Divider />
           <form className={classes.form} noValidate autoComplete="off">
             <div className={classes.firstform}>
@@ -136,13 +148,10 @@ const SingleOffer: React.FC = ({
                   ),
                 }}
               />
-              <div>
-                <input type="file" autoComplete="off" />
-              </div>
-            </div>
-            <div className={classes.thirdform}>
-              <Checkbox />
-              <span>Privacy notice for recruitment platform </span>
+              <Button className={classes.uploadBtn} variant="contained" component="label">
+                Upload Logo
+                <input type="file" hidden />
+              </Button>
             </div>
             <Button variant="contained" color="secondary" className={classes.signbtn}>
               Apply

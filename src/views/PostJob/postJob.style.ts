@@ -7,16 +7,26 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     form: {
       position: 'absolute',
-      top: '100%',
+      top: '105%',
       left: '50%',
       width: '70%',
       transform: 'translate(-50%, -50%)',
       zIndex: 1,
       textAlign: 'left',
       backgroundColor: 'white',
-      padding: '3rem',
+      paddingLeft: '6rem',
       overflow: 'hidden',
       boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
+      [theme.breakpoints.down('md')]: {
+        top: '110%',
+        width: '80%',
+
+      },
+      [theme.breakpoints.down('sm')]: {
+        top: '110%',
+        width: '100%',
+
+      },
     },
     textField: {
       width: '15rem',
@@ -28,7 +38,8 @@ export const useStyles = makeStyles((theme: Theme) =>
       marginBottom: '2rem',
       fontSize: '18px',
       color: '#37474f',
-      fontWeight:'bold'
+      fontWeight:'bold',
+      
     },
     subTitle:{
       marginBottom: '1rem',
@@ -38,11 +49,17 @@ export const useStyles = makeStyles((theme: Theme) =>
     offerTitle: {
       width: '57%',
       marginLeft: '4.5rem',
+      [theme.breakpoints.down('sm')]: {
+        top: '110%',
+        marginLeft: '0',
+        width: '50%',
+
+
+      },
     },
     formControl: {},
     select: {
-      marginTop: theme.spacing(2),
-      width: '15rem',
+      width: '12.5rem',
     },
     btn: {
       textTransform: 'capitalize',
@@ -56,19 +73,26 @@ export const useStyles = makeStyles((theme: Theme) =>
       padding: '10px 10px 10px 10px',
     },
     submitbtn: {
-      width: '10rem',
+      width: '12rem',
       marginTop: '3rem',
-      borderRadius: '20px',
+      marginBottom: '3rem',
+      borderRadius: '30px',
       textTransform: 'capitalize',
-      fontSize: '14px',
+      fontSize: '18px',
       backgroundColor:'#ff4081',
       color:'white'
     },
     salaryField:{
-      width: '15rem',
+      width: '16rem',
       borderBottom: 'none',
       marginRight: '2rem',
-      marginLeft:'2rem'
+      marginLeft:'4rem',
+      [theme.breakpoints.down('sm')]: {
+        marginLeft:'0',
+
+
+
+      },
     }
   })
 );

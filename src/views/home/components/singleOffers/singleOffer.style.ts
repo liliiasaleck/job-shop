@@ -1,21 +1,50 @@
-import {makeStyles, } from '@material-ui/core';
+import {makeStyles} from '@material-ui/core';
 
 export const useStyles = makeStyles((theme) => ({
   box: {
-    top: '13%',
+    top: '12%',
     backgroundColor: '#fafafa',
     width: '65%',
     overflow: 'hidden',
     overflowY: 'scroll',
     position: 'absolute',
-    height: '85%',
+    height: '90%',
     [theme.breakpoints.down('md')]: {
       width: '100vw',
+      top: '10%',
+    },
+  },
+  title: {
+    fontSize: '25px',
+    fontWeight: 'bold',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '12px',
+    },
+    [theme.breakpoints.down('md')]: {
+      fontSize: '18px',
+    },
+  },
+  smallTitle: {
+    color: 'grey',
+    fontSize: '12px',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '12px',
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '10px',
+    },
+  },
+  subTitle: {
+    [theme.breakpoints.down('md')]: {
+      fontSize: '14px',
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '12px',
     },
   },
   top: {
     background:
-      'linear-gradient(0deg, rgba(245,0,87,0.5116421568627452) 0%, rgba(245,0,87,0.9626225490196079) 37%)',
+      ' center center / cover no-repeat, linear-gradient(30deg, rgb(59, 89, 152), rgb(112, 140, 199))',
     margin: '10px',
     borderRadius: '5px',
     height: '220px',
@@ -26,10 +55,8 @@ export const useStyles = makeStyles((theme) => ({
     paddingLeft: '2rem',
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    width: '55%',
+    width: '80%',
     color: 'white',
-    fontFamily: 'Open Sans, sans-serif',
   },
   btnback: {
     height: '30px',
@@ -42,25 +69,36 @@ export const useStyles = makeStyles((theme) => ({
     transform: 'translateY(-40%)',
     display: 'flex',
     justifyContent: 'space-around',
-    fontFamily: 'Open Sans, sans-serif',
   },
   infodiv: {
     backgroundColor: 'rgb(255, 255, 255)',
     width: '180px',
     height: '70px',
+    color: '#37474F',
     boxShadow: ' rgb(0 0 0 / 8%) 0px 2px 2px 0px, rgb(0 0 0 / 6%) 0px 1px 5px 0px',
     borderRadius: '5px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    [theme.breakpoints.down('md')]: {
+      width: '160px',
+      height: '65px',
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: '90px',
+      height: '65px',
+      fontSize: '12px',
+    },
   },
   description: {
     backgroundColor: 'rgb(255, 255, 255)',
-    margin: '10px',
+    marginLeft: '1rem',
+    padding: '1rem',
+    marginBottom: '1rem',
+    color: '#37474F',
     borderRadius: '5px',
-    height: '300px',
+    height: 'auto',
     boxShadow: ' rgb(0 0 0 / 8%) 0px 2px 2px 0px, rgb(0 0 0 / 6%) 0px 1px 5px 0px',
-    fontFamily: 'Open Sans, sans-serif',
   },
   divform: {
     backgroundColor: 'rgb(255, 255, 255)',
@@ -78,7 +116,6 @@ export const useStyles = makeStyles((theme) => ({
   },
   signbtn: {
     marginLeft: '3rem',
-    marginTop: '2rem',
     width: '10rem',
     borderRadius: '20px',
     textTransform: 'capitalize',
@@ -90,7 +127,6 @@ export const useStyles = makeStyles((theme) => ({
   },
   secondform: {
     margin: '3rem',
-    
   },
   thirdform: {
     marginLeft: '2rem',
@@ -103,8 +139,8 @@ export const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   image: {
-    width: '90px',
-    height: '50px',
+    width: '5rem',
+    height: '4rem',
   },
   imagebox: {
     width: '120px',
@@ -114,5 +150,31 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     display: 'flex',
     justifyContent: 'center',
+    marginRight: '2rem',
+    [theme.breakpoints.down('sm')]: {
+      width: '70px',
+      height: '70px',
+    },
+  },
+  descriptionText: {
+    padding: '1rem',
+    color: 'rgb(55, 71, 79)',
+    fontWeight: 'bold',
+    
+
+  },
+  aboutCompany:{
+fontSize:'15px',
+[theme.breakpoints.down('sm')]: {
+  fontSize:'13px',
+
+},
+  },
+  uploadBtn: {
+    marginTop: '2rem',
+  },
+  fetch: {
+    paddingLeft: '10px',
+    color: 'red',
   },
 }));

@@ -19,6 +19,15 @@ export const useStyles = makeStyles((theme) => ({
     color: 'white',
     margin: '0px 10px',
     cursor: 'pointer',
+    [theme.breakpoints.down('md')]: {
+      width: '35px',
+      height: '35px',
+
+    },
+    [theme.breakpoints.down('sm')]: {
+      display:'none'
+
+    },
   },
 
   icon: {},

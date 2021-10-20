@@ -104,7 +104,7 @@ export const LocationDropDown: React.FC = () => {
             </MenuItem>
           ))}
         </div>
-        <Accordion>
+        {/* <Accordion>
           <AccordionSummary>
             <Typography className={classes.title}>Other locations Poland</Typography>
           </AccordionSummary>
@@ -124,7 +124,7 @@ export const LocationDropDown: React.FC = () => {
               ))}
             </div>
           </AccordionDetails>
-        </Accordion>
+        </Accordion> */}
         <Button
           className={classes.clear}
           aria-controls="simple-menu"

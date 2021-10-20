@@ -6,8 +6,7 @@ const FlyTo: React.FC = () => {
     const map = useMap();
     const selOffer = useSelector(({offers}: any) => offers.selectedOffer);
     if (Object.keys(selOffer).length > 0) {
-      console.log('trying to fly');
-      map?.flyTo([selOffer?.latitude, selOffer?.longitude], 9);
+      map?.flyTo([selOffer?.latitude, selOffer?.longitude], 15);
     }else{
         map?.flyTo([51.9194, 19.1451], 6)
     }

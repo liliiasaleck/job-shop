@@ -15,17 +15,17 @@ import {ArrowBack} from '@material-ui/icons';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import Navbar from '../../components/navbar/navbar';
 import {skills} from '../../helpers/technology.const';
-import {setOffers} from '../../store/actions/offersActions';
+import {setOffers, uploadLogo} from '../../store/actions/offersActions';
 import {useDispatch, useSelector} from 'react-redux';
 import {redirect} from '../../store/actions/authActions';
 import * as yup from 'yup';
 import {useFormik} from 'formik';
-import { store } from 'react-notifications-component';
+import {store} from 'react-notifications-component';
 
 const notification = {
-  container: "bottom-right",
-  animationIn: ["animate__animated", "animate__fadeIn"],
-  animationOut: ["animate__animated", "animate__fadeOut"],
+  container: 'bottom-right',
+  animationIn: ['animate__animated', 'animate__fadeIn'],
+  animationOut: ['animate__animated', 'animate__fadeOut'],
   dismiss: {
     duration: 3000,
     onScreen: true,
@@ -34,20 +34,19 @@ const notification = {
 };
 
 const validationSchema = yup.object({
-  companyName: yup.string().required('Email is required'),
+  companyName: yup.string().required('Company name is required'),
   companySize: yup.number().required('Company size bigger than 0'),
-  location: yup.string().required('Email is required'),
-  experience: yup.string().required('Email is required'),
-  title: yup.string().required('Email is required'),
-  salaryFrom: yup.number().required('Company size bigger than 0'),
-  salaryTo: yup.number().required('Company size bigger than 0'),
-  aboutCompany: yup.string().required('Email is required'),
-  jobDescription: yup.string().required('Email is required'),
-  tech: yup.string().required('Email is required'),
-  logo: yup.string().required('Email is required'),
-  webSite: yup.string().required(''),
-  employmentType: yup.string().required('Password is required'),
-  address: yup.string().required('Password is required'),
+  location: yup.string().required('Location is required'),
+  experience: yup.string().required('Experience is required'),
+  title: yup.string().required('Title is required'),
+  salaryFrom: yup.number().required('Salary is bigger than 0'),
+  salaryTo: yup.number().required('Salary is bigger than 0'),
+  aboutCompany: yup.string().required('Brand story is required'),
+  jobDescription: yup.string().required('Job description is required'),
+  tech: yup.string().required('Tech stack is required'),
+  webSite: yup.string().required('website stack is required'),
+  employmentType: yup.string().required('Employment type is required'),
+  address: yup.string().required('Address is required'),
 });
 
 const PostJob: React.FC = () => {
@@ -56,7 +55,6 @@ const PostJob: React.FC = () => {
   const dispatch = useDispatch();
 
   const [address, setAddress] = useState('');
-
 
   const formik = useFormik({
     initialValues: {
@@ -71,7 +69,6 @@ const PostJob: React.FC = () => {
       jobDescription: '',
       aboutCompany: '',
       tech: '',
-      logo: '',
       webSite: '',
       address: '',
     },
@@ -80,13 +77,12 @@ const PostJob: React.FC = () => {
       dispatch(setOffers(values));
       history.push('/');
       store.addNotification({
-        title: "Post added!",
-        message: "Your job offer added!",
-        type: "info",
+        title: 'Post added!',
+        message: 'Your job offer added!',
+        type: 'info',
         ...notification,
       });
     },
-
   });
 
   const handleAddressChange = (event) => {
@@ -94,6 +90,7 @@ const PostJob: React.FC = () => {
   };
 
   const user = useSelector(({auth}: any) => auth.user);
+  const logo = useSelector(({offers}: any) => offers.logo);
 
   useEffect(() => {
     if (!user) {
@@ -102,8 +99,12 @@ const PostJob: React.FC = () => {
     }
   }, []);
 
-  
- 
+  const fileChangedHandler = (event) => {
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append('logo', file, file.name);
+    dispatch(uploadLogo(formData));
+  };
 
   return (
     <>
@@ -115,17 +116,10 @@ const PostJob: React.FC = () => {
             Back
           </Button>
           <Typography className={classes.title}>Company logo</Typography>
-          {/* <input type='file'/> */}
-          <TextField
-            className={classes.textField}
-            label="Logo"
-            name="logo"
-            id="companyName"
-            value={formik.values.logo}
-            onChange={formik.handleChange}
-            error={formik.touched.logo && Boolean(formik.errors.logo)}
-            helperText={formik.touched.logo && formik.errors.logo}
-          />
+          <Button variant="contained" component="label">
+            Upload Logo
+            <input type="file" onChange={fileChangedHandler} hidden />
+          </Button>
           <Typography className={classes.title}>About company </Typography>
           <TextField
             className={classes.textField}
@@ -142,6 +136,7 @@ const PostJob: React.FC = () => {
             label="Company size"
             name="companySize"
             id="companySize"
+            type="number"
             value={formik.values.companySize}
             onChange={formik.handleChange}
             error={formik.touched.companySize && Boolean(formik.errors.companySize)}
@@ -159,7 +154,7 @@ const PostJob: React.FC = () => {
           />
           <Typography className={classes.title}>Brand story </Typography>
 
-           <TextareaAutosize
+          <TextareaAutosize
             className={classes.textarea}
             minRows={5}
             id="aboutCompany"
@@ -169,22 +164,21 @@ const PostJob: React.FC = () => {
           />
           <Typography className={classes.title}>Position info</Typography>
           <FormControl className={classes.formControl}>
-            <InputLabel id="demo-simple-select-label">Experience level</InputLabel>
             <TextField
               select
               className={classes.select}
               style={{width: '200px'}}
+              label="Experience level"
               id="experience"
               name="experience"
               value={formik.values.experience}
               onChange={formik.handleChange}
               error={formik.touched.experience && Boolean(formik.errors.experience)}
               helperText={formik.touched.experience && formik.errors.experience}
-
             >
-              <MenuItem value={10}>Junior</MenuItem>
-              <MenuItem value={20}>Mid</MenuItem>
-              <MenuItem value={30}>Senior</MenuItem>
+              <MenuItem value={'Junior'}>Junior</MenuItem>
+              <MenuItem value={'Mid'}>Mid</MenuItem>
+              <MenuItem value={'Senior'}>Senior</MenuItem>
             </TextField>
           </FormControl>
           <TextField
@@ -196,7 +190,6 @@ const PostJob: React.FC = () => {
             onChange={formik.handleChange}
             error={formik.touched.title && Boolean(formik.errors.title)}
             helperText={formik.touched.title && formik.errors.title}
-
           />
 
           <Typography className={classes.title}>Employment type</Typography>
@@ -205,21 +198,20 @@ const PostJob: React.FC = () => {
           </Typography>
 
           <FormControl className={classes.formControl}>
-            <InputLabel id="demo-simple-select-label">Employment type</InputLabel>
             <TextField
               select
               className={classes.select}
               id="employmentType"
               name="employmentType"
+              label="Employment type"
               value={formik.values.employmentType}
               onChange={formik.handleChange}
               error={formik.touched.employmentType && Boolean(formik.errors.employmentType)}
               helperText={formik.touched.employmentType && formik.errors.employmentType}
-
             >
-              <MenuItem value={10}>B2B</MenuItem>
-              <MenuItem value={20}>Permanent</MenuItem>
-              <MenuItem value={30}>Mandate contract</MenuItem>
+              <MenuItem value={'B2B'}>B2B</MenuItem>
+              <MenuItem value={'Permanent'}>Permanent</MenuItem>
+              <MenuItem value={'Mandate contract'}>Mandate contract</MenuItem>
             </TextField>
           </FormControl>
           <TextField
@@ -232,7 +224,6 @@ const PostJob: React.FC = () => {
             onChange={formik.handleChange}
             error={formik.touched.salaryFrom && Boolean(formik.errors.salaryFrom)}
             helperText={formik.touched.salaryFrom && formik.errors.salaryFrom}
-
           />
           <TextField
             className={classes.textField}
@@ -244,12 +235,10 @@ const PostJob: React.FC = () => {
             onChange={formik.handleChange}
             error={formik.touched.salaryTo && Boolean(formik.errors.salaryTo)}
             helperText={formik.touched.salaryTo && formik.errors.salaryTo}
-
           />
 
           <Typography className={classes.title}>Main technology</Typography>
           <FormControl className={classes.formControl}>
-            <InputLabel id="demo-simple-select-label">Tech stack</InputLabel>
             <TextField
               select
               className="px-2 my-2"
@@ -257,6 +246,7 @@ const PostJob: React.FC = () => {
               variant="outlined"
               id="tech"
               name="tech"
+              label="Tech stack"
               value={formik.values.tech}
               onChange={formik.handleChange}
               error={formik.touched.tech && Boolean(formik.errors.tech)}
@@ -268,22 +258,6 @@ const PostJob: React.FC = () => {
                 </MenuItem>
               ))}
             </TextField>
-            {/* <Select
-              className={classes.select}
-              labelId="demo-simple-select-label"
-              id="tech"
-              name="tech"
-              value={formik.values.tech}
-              onChange={formik.handleChange}
-              error={formik.touched.tech && Boolean(formik.errors.tech)}
-              helperText={formik.touched.tech && formik.errors.tech}
-            >
-              {skills.map(({display}, index) => (
-                <MenuItem key={index} value={display}>
-                  {display}
-                </MenuItem>
-              ))}
-            </Select> */}
           </FormControl>
           <Typography className={classes.title}>Job description</Typography>
           <TextareaAutosize
@@ -304,7 +278,6 @@ const PostJob: React.FC = () => {
             onChange={formik.handleChange}
             error={formik.touched.location && Boolean(formik.errors.location)}
             helperText={formik.touched.location && formik.errors.location}
-
           />
           <TextField
             className={classes.textField}
@@ -316,10 +289,11 @@ const PostJob: React.FC = () => {
             error={formik.touched.address && Boolean(formik.errors.address)}
             helperText={formik.touched.address && formik.errors.address}
           />
-
-          <Button className={classes.submitbtn} variant="contained" type="submit">
-            Submit
-          </Button>
+          <div>
+            <Button className={classes.submitbtn} variant="contained" type="submit">
+              Submit
+            </Button>
+          </div>
         </form>
       </Box>
     </>

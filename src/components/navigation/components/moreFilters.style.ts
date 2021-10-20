@@ -12,6 +12,9 @@ export const useStyles = makeStyles((theme: Theme) =>
       padding: theme.spacing(2, 4, 3),
       color: 'rgb(119, 119, 119)',
       width:'40%',
+      [theme.breakpoints.down('md')]: {
+        width: '50%',
+      },
       [theme.breakpoints.down('sm')]: {
         height: '100%',
         width: '100%',
@@ -22,12 +25,19 @@ export const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'space-between',
     },
     main: {
-      display: 'inline-flex',
-      marginLeft: 'rem',
       border: '1px solid lightgrey',
       borderRadius: '40px',
       textTransform: 'capitalize',
       color: 'grey',
+      fontSize:'14px',
+      width:'10rem',
+
+      [theme.breakpoints.down('md')]: {
+        fontSize:'9px',
+        width:'8rem'
+
+      },
+
     },
 
     item: {
@@ -52,7 +62,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'space-between',
     },
     close: {
-      marginLeft: '33rem',
+      marginLeft: '10rem',
       color: '#99A1AB',
     },
     text: {

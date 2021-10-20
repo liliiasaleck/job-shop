@@ -60,7 +60,6 @@ export const useStyles = makeStyles((theme) => ({
   buttons: {
     textDecoration: 'none',
     textTransform: 'capitalize',
-    fontFamily: 'Open Sans, sans-serif',
     fontSize: '14px',
     [theme.breakpoints.down('sm')]: {
       display: 'none',
@@ -69,19 +68,16 @@ export const useStyles = makeStyles((theme) => ({
   hamburger: {
     textDecoration: 'none',
     textTransform: 'capitalize',
-    fontFamily: 'Open Sans, sans-serif',
     fontSize: '14px',
   },
   menu: {
     fontWeight: 'bold',
-    fontFamily: 'Open Sans, sans-serif',
     textTransform: 'uppercase',
     fontSize: '20px',
   },
   post: {
     textDecoration: 'none',
     textTransform: 'capitalize',
-    fontFamily: 'Open Sans, sans-serif',
     fontSize: '14px',
     color: 'rgb(119, 119, 119)',
     border: '1px solid #D0D0D0',

@@ -22,7 +22,7 @@ export const fetchOffers = () => {
 export const setOffers = (jobDetailes) => {
   return async (dispatch, getState) => {
     try {
-      const {auth} = getState();
+      const {auth, offers} = getState();
       const {user} = auth;
       const userObject = JSON.parse(user);
       let header;
@@ -30,17 +30,20 @@ export const setOffers = (jobDetailes) => {
         header = {Authorization: 'Bearer ' + userObject.accessToken};
       }
       const {address} = jobDetailes;
-      const result = await api.post('/offers', {...jobDetailes}, {headers: {...header},});
+      const result = await api.post(
+        '/offers',
+        {...jobDetailes, logoId: offers.logo.id},
+        {headers: {...header}}
+      );
       if (result.data) {
         dispatch({type: actionsTypes.SET_OFFERS, payload: result.data});
-        
       }
-
     } catch (error) {
-      dispatch({type: actionsTypes.FETCH_OFFERS_ERROR, error});     
+      dispatch({type: actionsTypes.FETCH_OFFERS_ERROR, error});
     }
   };
 };
+
 
 export const filterOffersByTech = (tech) => {
   return async (dispatch, getState) => {
@@ -195,9 +198,32 @@ export const changeLocation = (location) => ({
 
 export const selectOffer = (offer) => {
   return async (dispatch, getState) => {
-    console.log('selected offer');
-    console.log(offer);
+    
 
     dispatch({type: actionsTypes.SELECT_OFFER, payload: offer});
+  };
+};
+
+export const uploadLogo = (file) => {
+  return async (dispatch, getState) => {
+    try {
+      const {auth} = getState();
+      const {user} = auth;
+      const userObject = JSON.parse(user);
+      let headers;
+      if (userObject && userObject.accessToken) {
+        headers = {Authorization: 'Bearer ' + userObject.accessToken};
+      }
+      headers = {...headers, 'content-type': 'multipart/form-data'};
+      const result = await api.post('/offers/logo', file, {headers});
+
+      if (result.data)
+        dispatch({
+          type: actionsTypes.UPLOAD_LOGO,
+          payload: result.data,
+        });
+    } catch (error) {
+      dispatch({type: actionsTypes.UPLOAD_LOGO_ERROR, error});
+    }
   };
 };

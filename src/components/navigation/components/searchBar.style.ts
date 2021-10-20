@@ -36,6 +36,11 @@ export const useStyles = makeStyles((theme: Theme) =>
         marginLeft: theme.spacing(1),
         width: 'auto',
       },
+      [theme.breakpoints.down('md')]: {
+      
+        display:'none'
+      },
+      
     },
   })
 );

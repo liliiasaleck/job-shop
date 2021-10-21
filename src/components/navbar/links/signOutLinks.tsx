@@ -10,7 +10,6 @@ const SignOutLinks: React.FC = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-
   return (
     <>
       <Link to={routes.signIn} className={classes.signInButtonLink}>

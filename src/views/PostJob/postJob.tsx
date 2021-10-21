@@ -1,13 +1,4 @@
-import {
-  Button,
-  TextField,
-  Typography,
-  FormControl,
-  Select,
-  InputLabel,
-  MenuItem,
-  Box,
-} from '@material-ui/core';
+import {Button, TextField, Typography, FormControl, MenuItem, Box} from '@material-ui/core';
 import React, {useEffect, useState} from 'react';
 import {useStyles} from './postJob.style';
 import {useHistory} from 'react-router-dom';

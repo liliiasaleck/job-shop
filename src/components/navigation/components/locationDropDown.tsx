@@ -14,12 +14,12 @@ import {
   filterOffers,
 } from '../../../store/actions/offersActions';
 
-export const LocationDropDown: React.FC = () => {
+const LocationDropDown: React.FC = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
   const [anchorLocation, setAnchor] = useState(null);
-  
+
   const handleClose = () => {
     setAnchor(null);
   };
@@ -33,7 +33,6 @@ export const LocationDropDown: React.FC = () => {
   };
 
   const currentLocation = useSelector((state: any) => state.offers.location);
-
 
   useEffect(() => {
     if (currentLocation !== 'Location') {
@@ -104,27 +103,7 @@ export const LocationDropDown: React.FC = () => {
             </MenuItem>
           ))}
         </div>
-        {/* <Accordion>
-          <AccordionSummary>
-            <Typography className={classes.title}>Other locations Poland</Typography>
-          </AccordionSummary>
-          <AccordionDetails>
-            <div className={classes.containerOtherLocation}>
-              {otherLocations.map((location, index) => (
-                <MenuItem
-                  key={index}
-                  className={classes.city}
-                  onClick={() => {
-                    dispatch(changeLocation(location));
-                    handleClose();
-                  }}
-                >
-                  {location}
-                </MenuItem>
-              ))}
-            </div>
-          </AccordionDetails>
-        </Accordion> */}
+
         <Button
           className={classes.clear}
           aria-controls="simple-menu"

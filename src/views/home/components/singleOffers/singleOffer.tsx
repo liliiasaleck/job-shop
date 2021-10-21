@@ -65,15 +65,10 @@ const SingleOffer: React.FC = ({
             <div>
               <Typography className={classes.title}>{title}</Typography>
               <Typography className={classes.subTitle}>
-                <FontAwesomeIcon icon={faMapMarkerAlt} />
-                {" "}
-                {location}
-              
+                <FontAwesomeIcon icon={faMapMarkerAlt} /> {location}
               </Typography>
               <Typography className={classes.subTitle}>
-              <FontAwesomeIcon icon={faIdCard} />
-              {" "}
-                {employmentType}
+                <FontAwesomeIcon icon={faIdCard} /> {employmentType}
               </Typography>
             </div>
           </div>

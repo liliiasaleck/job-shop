@@ -8,13 +8,12 @@ export const useStyles = makeStyles((theme: Theme) => ({
     textTransform: 'capitalize',
     width: '10rem',
     [theme.breakpoints.down('md')]: {
-      
-      fontSize:'12px'
+      fontSize: '12px',
     },
     [theme.breakpoints.down('sm')]: {
       width: '8rem',
 
-      fontSize:'9px',
+      fontSize: '9px',
     },
   },
 
@@ -26,20 +25,18 @@ export const useStyles = makeStyles((theme: Theme) => ({
     textTransform: 'capitalize',
     backgroundColor: 'rgba(255, 64, 129, 0.08)',
     [theme.breakpoints.down('md')]: {
-      
-      fontSize:'12px'
+      fontSize: '12px',
     },
     [theme.breakpoints.down('sm')]: {
       width: '8rem',
 
-      fontSize:'8px',
+      fontSize: '8px',
     },
   },
   menu: {
-    marginTop:'4rem',
+    marginTop: '4rem',
     width: '50% ',
     boxSizing: 'inherit',
-   
   },
   container: {
     display: 'flex',
@@ -47,7 +44,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
   containerOtherLocation: {
     display: 'flex',
     flexWrap: 'wrap',
-    
   },
   title: {
     margin: '10px 10px 10px 20px',

@@ -13,7 +13,6 @@ export const initialState = {
   selectedOffer: {},
   logoUrl: '',
   logo: {},
-
 };
 
 export interface Offer {
@@ -34,37 +33,19 @@ export interface Offer {
 
 const offersReducer = (state = initialState, action) => {
   const {type, payload} = action;
- 
 
   switch (type) {
-    case actionsTypes.FILTER_OFFERS_BY_TECH:
-      const {tech} = payload;
-      return {
-        ...state,
-        offersList: payload.offersList,
-        tech,
-      };
-
     case actionsTypes.SEARCH_OFFER_BY_NAME:
       return {
         ...state,
         offersList: payload.offersList,
       };
 
-    case actionsTypes.FILTER_OFFERS_BY_LOCATION:
-      const {location} = payload;
-      return {
-        ...state,
-        offersList: payload.offersList,
-        location,
-      };
-
     case actionsTypes.ADVANCED_FILTER:
-
       return {
         ...state,
         offersList: payload.offersList,
-        isLoading: false
+        isLoading: false,
       };
 
     case actionsTypes.RESET_FILTERS:
@@ -91,7 +72,7 @@ const offersReducer = (state = initialState, action) => {
       return {
         ...state,
         offersList: payload,
-        isLoading: false
+        isLoading: false,
       };
 
     case actionsTypes.SET_OFFERS:
@@ -135,20 +116,19 @@ const offersReducer = (state = initialState, action) => {
         employmentType: payload,
       };
 
-      case actionsTypes.SET_LOADING:
+    case actionsTypes.SET_LOADING:
       return {
         ...state,
         isLoading: true,
       };
 
-      case actionsTypes.SELECT_OFFER:
+    case actionsTypes.SELECT_OFFER:
       return {
         ...state,
         selectedOffer: payload,
       };
 
-      case actionsTypes.UPLOAD_LOGO:
-
+    case actionsTypes.UPLOAD_LOGO:
       return {
         ...state,
         logo: payload,
@@ -160,4 +140,3 @@ const offersReducer = (state = initialState, action) => {
 };
 
 export default offersReducer;
-

@@ -37,10 +37,8 @@ export const useStyles = makeStyles((theme: Theme) =>
         width: 'auto',
       },
       [theme.breakpoints.down('md')]: {
-      
-        display:'none'
+        display: 'none',
       },
-      
     },
   })
 );

@@ -12,7 +12,6 @@ const Search: React.FC = () => {
   const dispatch = useDispatch();
   const debouncedSearchTerm: string = useDebounce<string>(searchInputValue, 500);
 
-
   useEffect(() => {
     dispatch(searchOfferByName(searchInputValue));
   }, [debouncedSearchTerm]);
@@ -28,7 +27,6 @@ const Search: React.FC = () => {
         type="search"
         value={searchInputValue}
         onChange={(e) => setInputValue(e.target.value)}
-
         classes={{
           root: classes.inputRoot,
           input: classes.inputInput,

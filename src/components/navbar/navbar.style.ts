@@ -13,44 +13,40 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('sm')]: {
       fontSize: '20px',
     },
-  
   },
-  logoDiv:{
-    display:'flex',
+  logoDiv: {
+    display: 'flex',
   },
   title: {
     marginLeft: '15px',
     color: '#909090',
     fontSize: '14px',
-    marginTop:'0.7rem',
+    marginTop: '0.7rem',
     [theme.breakpoints.down('md')]: {
-      marginTop:'0.8rem',
+      marginTop: '0.8rem',
       fontSize: '12px',
     },
     [theme.breakpoints.down('sm')]: {
-      display:'none'
-
+      display: 'none',
     },
   },
   toolbar: {
     backgroundColor: 'white',
     borderBottom: '1px solid gainsboro',
-    display:"flex",
-    justifyContent: "space-between",
-   
+    display: 'flex',
+    justifyContent: 'space-between',
   },
   header: {
     boxShadow: '0px 0px 0px 0px',
-    
   },
   list: {
-    margin:'1rem 0 1rem 0 ',
+    margin: '1rem 0 1rem 0 ',
     width: '17rem',
     color: '#484848',
-    height:'100%',
-    display:'flex',
-    flexDirection:'column',
-    flex:'1',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    flex: '1',
   },
   textlink: {
     color: 'inherit',
@@ -103,39 +99,35 @@ export const useStyles = makeStyles((theme) => ({
       width: '60px',
     },
   },
-  signInButtonLink:{
+  signInButtonLink: {
     textDecoration: 'none',
     textTransform: 'capitalize',
     fontSize: '14px',
   },
-  groupButton:{
-   marginTop:'auto',
-   width:'15rem',
-   marginLeft:'1rem',
-
+  groupButton: {
+    marginTop: 'auto',
+    width: '15rem',
+    marginLeft: '1rem',
   },
-  registerButton:{
-    border:'1px solid lightgrey',
-    borderRadius:'5px',
-    marginTop:'1rem',
-    height:'4rem',
-
+  registerButton: {
+    border: '1px solid lightgrey',
+    borderRadius: '5px',
+    marginTop: '1rem',
+    height: '4rem',
   },
-  registerLink:{
-    color:'#37474f',
+  registerLink: {
+    color: '#37474f',
     textDecoration: 'none',
   },
-  registerIcon:{
-    backgroundColor:'rgb(252, 228, 236)',
-    width:'2.5rem',
-    height:'2.5rem',
-    borderRadius:'50%',
-    marginRight:'1rem',
-    padding:'0.5rem'
+  registerIcon: {
+    backgroundColor: 'rgb(252, 228, 236)',
+    width: '2.5rem',
+    height: '2.5rem',
+    borderRadius: '50%',
+    marginRight: '1rem',
+    padding: '0.5rem',
   },
-  icon:{
-    color:'rgb(255, 64, 129)'
-  }
-
- 
+  icon: {
+    color: 'rgb(255, 64, 129)',
+  },
 }));

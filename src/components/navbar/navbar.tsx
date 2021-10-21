@@ -19,7 +19,7 @@ import CreateIcon from '@material-ui/icons/Create';
 import ComputerIcon from '@material-ui/icons/Computer';
 import {routes} from '../../routing/routes';
 import {useStyles} from './navbar.style';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 import SignInLinks from '../navbar/links/signInLinks';
 import SignOutLinks from '../navbar/links/signOutLinks';
 
@@ -86,7 +86,11 @@ const Navbar: React.FC = () => {
             </ListItem>
             <ListItem button>
               <GroupIcon />
-              <Link className={classes.textlink} to={{ pathname: 'https://geek.justjoin.it/' }} target='_blank'>
+              <Link
+                className={classes.textlink}
+                to={{pathname: 'https://geek.justjoin.it/'}}
+                target="_blank"
+              >
                 <ListItemText>Geek</ListItemText>
               </Link>
             </ListItem>
@@ -94,17 +98,17 @@ const Navbar: React.FC = () => {
           <div className={classes.groupButton}>
             <ListItem button className={classes.registerButton}>
               <div className={classes.registerIcon}>
-              <ComputerIcon className={classes.icon}/>
+                <ComputerIcon className={classes.icon} />
               </div>
-              <Link  to={routes.signIn} className={classes.registerLink}>
+              <Link to={routes.signIn} className={classes.registerLink}>
                 <ListItemText>Sign in</ListItemText>
               </Link>
             </ListItem>
-            <ListItem button className={classes.registerButton} >
-            <div className={classes.registerIcon}>
-              <GroupIcon className={classes.icon}/>
+            <ListItem button className={classes.registerButton}>
+              <div className={classes.registerIcon}>
+                <GroupIcon className={classes.icon} />
               </div>
-              <Link  to={routes.signUp} className={classes.registerLink}>
+              <Link to={routes.signUp} className={classes.registerLink}>
                 <ListItemText>Sign up</ListItemText>
               </Link>
             </ListItem>

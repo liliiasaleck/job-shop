@@ -12,7 +12,6 @@ const SignInLinks: React.FC = () => {
       <Link to={routes.signIn} className={classes.signInButtonLink}>
         <Button className={classes.signInButton}>Sign in</Button>
       </Link>
-      
     </>
   );
 };

@@ -7,8 +7,6 @@ import offersReducer from './offersReducer';
 const rootReducer = combineReducers({
   auth: ignoreActions(authReducer, [
     actionsTypes.FETCH_OFFERS,
-    actionsTypes.FILTER_OFFERS_BY_LOCATION,
-    actionsTypes.FILTER_OFFERS_BY_TECH,
     actionsTypes.SEARCH_OFFER_BY_NAME,
     actionsTypes.ADVANCED_FILTER,
   ]),

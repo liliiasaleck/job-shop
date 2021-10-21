@@ -14,7 +14,6 @@ type FormData = {
 };
 
 const SignUp: React.FC = () => {
-  // const [name, setName] = useState("");
   const {register, handleSubmit} = useForm<FormData>();
   const classes = useStyles();
 
@@ -53,7 +52,7 @@ const SignUp: React.FC = () => {
             <Checkbox required />
             <Typography>I accept terms of service </Typography>
           </div> */}
-          <Button type="submit" variant="contained"  className={classes.btn}>
+          <Button type="submit" variant="contained" className={classes.btn}>
             Register
           </Button>
           <Typography>

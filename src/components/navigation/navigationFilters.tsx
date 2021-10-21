@@ -1,5 +1,5 @@
-import { Toolbar} from '@material-ui/core';
-import React, { useState } from 'react';
+import {Toolbar} from '@material-ui/core';
+import React, {useState} from 'react';
 import Search from './components/searchBar';
 import DropDown from './components/locationDropDown';
 import MoreFilter from './components/moreFilters';
@@ -8,7 +8,6 @@ import TechFilter from './components/techFilter';
 
 const NavigationFilters: React.FC = () => {
   const classes = useStyles();
- 
 
   return (
     <>

@@ -11,7 +11,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: theme.palette.background.paper,
       padding: theme.spacing(2, 4, 3),
       color: 'rgb(119, 119, 119)',
-      width:'40%',
+      width: '40%',
       [theme.breakpoints.down('md')]: {
         width: '50%',
       },
@@ -29,15 +29,13 @@ export const useStyles = makeStyles((theme: Theme) =>
       borderRadius: '40px',
       textTransform: 'capitalize',
       color: 'grey',
-      fontSize:'14px',
-      width:'10rem',
+      fontSize: '14px',
+      width: '10rem',
 
       [theme.breakpoints.down('md')]: {
-        fontSize:'9px',
-        width:'8rem'
-
+        fontSize: '9px',
+        width: '8rem',
       },
-
     },
 
     item: {

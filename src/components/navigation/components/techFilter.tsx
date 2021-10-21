@@ -1,5 +1,5 @@
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {useStyles} from './techFilter.style';
 import {useDispatch} from 'react-redux';
 import {changeTech, filterOffers, filterOffersByTech} from '../../../store/actions/offersActions';
@@ -26,7 +26,12 @@ const TechFilter: React.FC = () => {
           key={index}
           className={classes.round}
           onClick={() => dispatch(changeTech(tech))}
-          style={{background: tech === selectedTech ? background : 'linear-gradient(-90deg, rgb(145, 147, 170), rgb(125, 130, 168))'}}
+          style={{
+            background:
+              tech === selectedTech
+                ? background
+                : 'linear-gradient(-90deg, rgb(145, 147, 170), rgb(125, 130, 168))',
+          }}
         >
           {tech === 'all' ? (
             'All'

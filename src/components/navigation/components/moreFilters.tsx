@@ -4,7 +4,14 @@ import {employmentType} from '../../../helpers/employmentType.cons';
 import {experienceLvl} from '../../../helpers/experienceLvl.const';
 import {useStyles} from './moreFilters.style';
 import {useDispatch, useSelector} from 'react-redux';
-import {advancedFilter, changeEmploymentType, changeExperience, changeSalary, filterOffers, resetFilters} from '../../../store/actions/offersActions';
+import {
+  advancedFilter,
+  changeEmploymentType,
+  changeExperience,
+  changeSalary,
+  filterOffers,
+  resetFilters,
+} from '../../../store/actions/offersActions';
 
 function valuetext(value: number) {
   return `${value}PLN`;

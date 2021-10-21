@@ -6,7 +6,7 @@ import {Typography, TextField, Button, Checkbox, Box} from '@material-ui/core';
 import {useStyles} from './signIn.styles';
 import {pageTitleText} from '../const/signIn.const';
 import {useDispatch, useSelector} from 'react-redux';
-import { signIn } from '../../../store/actions/authActions';
+import {signIn} from '../../../store/actions/authActions';
 
 type FormData = {
   email: string;
@@ -14,12 +14,9 @@ type FormData = {
 };
 
 const SignIn: React.FC = () => {
-  // const [name, setName] = useState("");
   const {register, handleSubmit} = useForm<FormData>();
   const classes = useStyles();
   const dispatch = useDispatch();
-
-
 
   const onSubmit = handleSubmit(({email, password}) => {
     dispatch(signIn({email, password}));
@@ -28,7 +25,6 @@ const SignIn: React.FC = () => {
   const successMessage = useSelector(({auth}: any) => auth.successMessage);
   const user = useSelector(({auth}: any) => auth.user);
   if (user) return <Redirect to="/postJob" />;
-
 
   return (
     <>
@@ -55,7 +51,7 @@ const SignIn: React.FC = () => {
             required
           />
 
-          <Button variant="contained" className={classes.btn} type='submit'>
+          <Button variant="contained" className={classes.btn} type="submit">
             Sign in
           </Button>
           <Typography>

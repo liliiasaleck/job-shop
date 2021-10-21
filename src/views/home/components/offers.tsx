@@ -8,7 +8,6 @@ import {Link} from 'react-router-dom';
 import {useStyles} from './offers.style';
 import {useDispatch, useSelector} from 'react-redux';
 import {useEffect} from 'react';
-import {useState} from 'react';
 import {fetchOffers, filterOffers, selectOffer} from '../../../store/actions/offersActions';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBuilding} from '@fortawesome/free-solid-svg-icons';
@@ -39,7 +38,7 @@ const Offers: React.FC = () => {
         {isLoading && !offersList ? (
           <Spinner />
         ) : (
-          offersList.map((offer) => {
+          offersList?.map((offer) => {
             const {title, salaryFrom, salaryTo, location, tech, id, companyName, logo} = offer;
             return (
               <Link
@@ -60,7 +59,9 @@ const Offers: React.FC = () => {
                         <Typography className={classes.title}>{title}</Typography>
                         <div className={classes.salaryBox}>
                           <Typography className={classes.salaryText}>{salaryFrom} - </Typography>
-                          <Typography className={classes.salaryText}>&nbsp;{salaryTo} PLN</Typography>
+                          <Typography className={classes.salaryText}>
+                            &nbsp;{salaryTo} PLN
+                          </Typography>
                         </div>
                       </div>
                       <div className={classes.small}>

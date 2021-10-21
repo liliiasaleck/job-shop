@@ -1,4 +1,4 @@
-import { makeStyles} from '@material-ui/core';
+import {makeStyles} from '@material-ui/core';
 
 export const useStyles = makeStyles((theme) => ({
   main: {
@@ -22,11 +22,9 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down('md')]: {
       width: '35px',
       height: '35px',
-
     },
     [theme.breakpoints.down('sm')]: {
-      display:'none'
-
+      display: 'none',
     },
   },
 

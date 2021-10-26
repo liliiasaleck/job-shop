@@ -3,31 +3,31 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Icon from '@material-ui/core/Icon';
-import {Accordion, AccordionDetails, AccordionSummary, Typography} from '@material-ui/core';
+import {Typography} from '@material-ui/core';
 import {useStyles} from './locationDropDown.style';
-import {topPolandLocations, topWorldLocations, otherLocations} from '../../../helpers/topLocations';
+import {topPolandLocations, topWorldLocations, } from '../../../helpers/topLocations';
 import {useDispatch, useSelector} from 'react-redux';
 import {
-  filterOffersByLocation,
   resetFilters,
   changeLocation,
   filterOffers,
 } from '../../../store/actions/offersActions';
+import { ReactElement } from 'react';
 
-const LocationDropDown: React.FC = () => {
+
+const LocationDropDown = (): ReactElement => {
   const classes = useStyles();
   const dispatch = useDispatch();
-
-  const [anchorLocation, setAnchor] = useState(null);
-
-  const handleClose = () => {
+  const [anchorLocation, setAnchor] = useState<null | HTMLElement>(null);
+  
+  const handleClose = (): void => {
     setAnchor(null);
   };
-  const openMenu = (event) => {
+  const openMenu = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchor(event.currentTarget);
   };
 
-  const handleReset = () => {
+  const handleReset = (): void =>  {
     dispatch(resetFilters());
     handleClose();
   };

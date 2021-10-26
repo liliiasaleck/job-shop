@@ -1,5 +1,5 @@
 import {Button, TextField, Typography, FormControl, MenuItem, Box} from '@material-ui/core';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useStyles} from './postJob.style';
 import {useHistory} from 'react-router-dom';
 import {ArrowBack} from '@material-ui/icons';
@@ -9,45 +9,19 @@ import {skills} from '../../helpers/technology.const';
 import {setOffers, uploadLogo} from '../../store/actions/offersActions';
 import {useDispatch, useSelector} from 'react-redux';
 import {redirect} from '../../store/actions/authActions';
-import * as yup from 'yup';
-import {useFormik} from 'formik';
+import {useFormik, FormikProps} from 'formik';
 import {store} from 'react-notifications-component';
+import {validationSchema, notification} from '../../helpers/notifications';
+import {ReactElement} from 'react';
+import { PostJobProps } from '../../ts/interfaces';
 
-const notification = {
-  container: 'bottom-right',
-  animationIn: ['animate__animated', 'animate__fadeIn'],
-  animationOut: ['animate__animated', 'animate__fadeOut'],
-  dismiss: {
-    duration: 3000,
-    onScreen: true,
-    showIcon: true,
-  },
-};
 
-const validationSchema = yup.object({
-  companyName: yup.string().required('Company name is required'),
-  companySize: yup.number().required('Company size bigger than 0'),
-  location: yup.string().required('Location is required'),
-  experience: yup.string().required('Experience is required'),
-  title: yup.string().required('Title is required'),
-  salaryFrom: yup.number().required('Salary is bigger than 0'),
-  salaryTo: yup.number().required('Salary is bigger than 0'),
-  aboutCompany: yup.string().required('Brand story is required'),
-  jobDescription: yup.string().required('Job description is required'),
-  tech: yup.string().required('Tech stack is required'),
-  webSite: yup.string().required('website stack is required'),
-  employmentType: yup.string().required('Employment type is required'),
-  address: yup.string().required('Address is required'),
-});
-
-const PostJob: React.FC = () => {
+const PostJob = (): ReactElement => {
   const classes = useStyles();
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const [address, setAddress] = useState('');
-
-  const formik = useFormik({
+  const formik: FormikProps<PostJobProps> = useFormik<PostJobProps>({
     initialValues: {
       companyName: '',
       companySize: 0,
@@ -76,12 +50,7 @@ const PostJob: React.FC = () => {
     },
   });
 
-  const handleAddressChange = (event) => {
-    setAddress(event.target.value);
-  };
-
   const user = useSelector(({auth}: any) => auth.user);
-  const logo = useSelector(({offers}: any) => offers.logo);
 
   useEffect(() => {
     if (!user) {

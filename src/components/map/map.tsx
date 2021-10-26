@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import {useStyles} from './map.style';
 import {MapContainer, TileLayer, Marker, Popup} from 'react-leaflet';
 import './map.css';
@@ -6,7 +6,8 @@ import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import FlyTo from './flyTo';
 
-const Map: React.FC = () => {
+
+const Map = (): ReactElement => {
   const classes = useStyles();
 
   const offersList = useSelector(({offers}: any) => offers.offersList);

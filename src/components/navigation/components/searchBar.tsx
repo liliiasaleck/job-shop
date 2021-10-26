@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, ReactElement} from 'react';
 import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import {useStyles} from './searchBar.style';
@@ -6,10 +6,12 @@ import {useDispatch} from 'react-redux';
 import {searchOfferByName} from '../../../store/actions/offersActions';
 import {useDebounce} from '../../../hooks/useDebounce';
 
-const Search: React.FC = () => {
+
+const Search = (): ReactElement => {
   const classes = useStyles();
-  const [searchInputValue, setInputValue] = useState('');
   const dispatch = useDispatch();
+
+  const [searchInputValue, setInputValue] = useState<string>('');
   const debouncedSearchTerm: string = useDebounce<string>(searchInputValue, 500);
 
   useEffect(() => {

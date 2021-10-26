@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {ReactElement, useState} from 'react';
 import {
   AppBar,
   Toolbar,
@@ -23,17 +23,18 @@ import {useSelector} from 'react-redux';
 import SignInLinks from '../navbar/links/signInLinks';
 import SignOutLinks from '../navbar/links/signOutLinks';
 
-const Navbar: React.FC = () => {
-  const classes = useStyles();
 
-  const [open, setOpenDrawer] = useState(false);
-  const handleDrawer = () => {
+const Navbar = (): ReactElement => {
+  const classes = useStyles();
+  const [open, setOpenDrawer] = useState<boolean>(false);
+  
+  const handleDrawer = (): void =>  {
     setOpenDrawer(true);
   };
 
   const user = useSelector(({auth}: any) => auth.user);
-
   const links = user ? <SignOutLinks /> : <SignInLinks />;
+  
   return (
     <>
       <AppBar className={classes.header}>

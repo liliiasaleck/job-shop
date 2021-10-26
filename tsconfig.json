@@ -20,7 +20,7 @@
     "jsx": "react-jsx",
     "noImplicitAny": false,
     "noFallthroughCasesInSwitch": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
   },
   "include": [
     "src"

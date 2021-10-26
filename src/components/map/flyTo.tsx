@@ -2,7 +2,8 @@ import { useMap } from "react-leaflet";
 import { useSelector } from "react-redux";
 import React from 'react';
 
-const FlyTo: React.FC = () => {
+
+const FlyTo = () => {
     const map = useMap();
     const selOffer = useSelector(({offers}: any) => offers.selectedOffer);
     if (Object.keys(selOffer).length > 0) {

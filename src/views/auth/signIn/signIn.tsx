@@ -1,20 +1,18 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import Navbar from '../../../components/navbar/navbar';
 import {useForm} from 'react-hook-form';
-import {Typography, TextField, Button, Checkbox, Box} from '@material-ui/core';
+import {Typography, TextField, Button,Box} from '@material-ui/core';
 import {useStyles} from './signIn.styles';
 import {pageTitleText} from '../const/signIn.const';
 import {useDispatch, useSelector} from 'react-redux';
 import {signIn} from '../../../store/actions/authActions';
+import { FormDataProps } from '../../../ts/interfaces';
 
-type FormData = {
-  email: string;
-  password: string;
-};
 
-const SignIn: React.FC = () => {
-  const {register, handleSubmit} = useForm<FormData>();
+
+const SignIn = (): ReactElement => {
+  const {register, handleSubmit} = useForm<FormDataProps>();
   const classes = useStyles();
   const dispatch = useDispatch();
 

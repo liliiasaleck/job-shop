@@ -16,6 +16,7 @@ export const fetchOffers = () => {
   };
 };
 
+
 //SET
 export const setOffers = (jobDetailes) => {
   return async (dispatch, getState) => {

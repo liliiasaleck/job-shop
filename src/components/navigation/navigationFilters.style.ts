@@ -4,12 +4,13 @@ export const useStyles = makeStyles((theme) => ({
   toolbar: {
     display: 'flex',
     justifyContent: 'space-between',
-    backgroundColor: 'white',
+    // backgroundColor: 'white',
     // color: 'black',
     position: 'absolute',
     top: '11.7%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
+    width:"100%",
     zIndex: 1,
     [theme.breakpoints.down('md')]: {
       top: '11.5%',

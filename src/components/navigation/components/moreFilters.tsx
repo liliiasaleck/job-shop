@@ -1,11 +1,10 @@
-import React, {useState} from 'react';
+import React, {ReactElement, useState} from 'react';
 import {Modal, Typography, Fade, Button, Divider, Icon, MenuItem, Slider} from '@material-ui/core';
 import {employmentType} from '../../../helpers/employmentType.cons';
 import {experienceLvl} from '../../../helpers/experienceLvl.const';
 import {useStyles} from './moreFilters.style';
 import {useDispatch, useSelector} from 'react-redux';
 import {
-  advancedFilter,
   changeEmploymentType,
   changeExperience,
   changeSalary,
@@ -13,16 +12,12 @@ import {
   resetFilters,
 } from '../../../store/actions/offersActions';
 
-function valuetext(value: number) {
-  return `${value}PLN`;
-}
 
-const MoreFilter: React.FC = () => {
+const MoreFilter = (): ReactElement => {
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
-  // const [salary, setSalary] = useState<number[]>([0, 100000]);
-  const [selectedEmploymentType, setSelectedEmploymentType] = useState('All');
-  const [selectedExperienceLvl, setSelectedExperienceLvl] = useState('All');
+  const [open, setOpen] = useState<boolean>(false);
+  const [selectedEmploymentType, setSelectedEmploymentType] = useState<string>('All');
+  const [selectedExperienceLvl, setSelectedExperienceLvl] = useState<string>('All');
 
   const [employmentTypeArray, setEmploymentTypeArray] = useState([...employmentType]);
   const [experienceLvlArray, setExperienceLvlArray] = useState([...experienceLvl]);
@@ -35,11 +30,11 @@ const MoreFilter: React.FC = () => {
     dispatch(changeSalary(newValue));
   };
 
-  const handleOpen = () => {
+  const handleOpen = (): void =>  {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleClose = (): void =>  {
     setOpen(false);
   };
 
@@ -47,11 +42,10 @@ const MoreFilter: React.FC = () => {
     dispatch(filterOffers());
   };
 
-  const handleReset = () => {
+  const handleReset = (): void => {
     handleEmploymentTypeSelected('All');
     handleExperienceLvlSelected('All');
     dispatch(resetFilters());
-
     handleClose();
   };
 

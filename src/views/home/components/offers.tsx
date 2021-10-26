@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import {Box, useTheme} from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -12,10 +12,11 @@ import {fetchOffers, filterOffers, selectOffer} from '../../../store/actions/off
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBuilding} from '@fortawesome/free-solid-svg-icons';
 import {faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons';
-import {images} from '../../../helpers/logos.const';
 import {Spinner} from '../../../components/spinner/spinner';
 
-const Offers: React.FC = () => {
+interface OffersProps{}
+
+const Offers = ({}: OffersProps): ReactElement => {
   const classes = useStyles();
   const theme = useTheme();
   const dispatch = useDispatch();
@@ -26,7 +27,6 @@ const Offers: React.FC = () => {
   const empType = useSelector(({offers}: any) => offers.employmentType);
   const experience = useSelector(({offers}: any) => offers.experience);
   const isLoading = useSelector((state: any) => state.offers.isLoading);
-  const logo = useSelector(({offers}: any) => offers.logo);
 
   useEffect(() => {
     if (location === 'Location' || tech === 'all') dispatch(filterOffers());

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import './spinner.css';
 
-export const Spinner: React.FC = () => {
+interface SpinnerProps{}
+
+export const Spinner = ({}: SpinnerProps): ReactElement => {
   return (
     <div>
       <div className="sk-cube-grid">

@@ -30,10 +30,9 @@ export const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: 'rgb(243, 246, 248)',
       borderRadius: '30px',
       height: '40px',
-      marginLeft: 0,
       width: '100%',
       [theme.breakpoints.up('sm')]: {
-        marginLeft: theme.spacing(1),
+        marginLeft: theme.spacing(),
         width: 'auto',
       },
       [theme.breakpoints.down('md')]: {

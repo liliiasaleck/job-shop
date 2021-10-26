@@ -11,8 +11,8 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '40px',
-    width: '40px',
+    height: '38px',
+    width: '38px',
     borderRadius: '30px',
     background: 'linear-gradient(-90deg, rgb(145, 147, 170), rgb(125, 130, 168))',
     padding: '15px 15px ',
@@ -29,4 +29,20 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   icon: {},
+  display:{
+    display: 'flex',
+    fontSize:'11px',
+    color:'rgb(117, 117, 117)',
+    justifyContent:'space-around',
+    width:'100%',
+    marginTop: '2px',
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
+
+
+  },
+  container:{
+  }
+
 }));

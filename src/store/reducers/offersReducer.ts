@@ -1,35 +1,22 @@
+import { Offer } from '../../ts/interfaces';
 import {actionsTypes} from '../actions/actionsTypes';
-import {offers} from '../../views/home/components/singleOffers/const/offerList.const';
-export const initialState = {
+
+
+export const initialState: Offer = {
   offersList: [],
   location: 'Location',
   tech: 'all',
   experience: '',
   salary: [0, 0],
   isLoading: false,
-  // salaryTo: 0,
-  // salaryFrom: 0,
   employmentType: '',
   selectedOffer: {},
   logoUrl: '',
   logo: {},
 };
 
-export interface Offer {
-  id: number;
-  title: string;
-  salaryFrom: number;
-  salaryTo: number;
-  location: string;
-  tech: string;
-  logo: object;
-  experience: string;
-  companySize: number;
-  companyName: string;
-  employmentType: string;
-  jobDescription: string;
-  aboutCompany: string;
-}
+
+
 
 const offersReducer = (state = initialState, action) => {
   const {type, payload} = action;
@@ -80,6 +67,7 @@ const offersReducer = (state = initialState, action) => {
         ...state,
       };
 
+      
     case actionsTypes.SET_OFFERS_ERROR:
       return {
         ...state,

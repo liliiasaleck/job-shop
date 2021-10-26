@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import Navbar from '../../../components/navbar/navbar';
 import {useForm} from 'react-hook-form';
@@ -6,21 +6,18 @@ import {Typography, TextField, Button, Checkbox, Box} from '@material-ui/core';
 import {useStyles} from './signUp.style';
 import {useDispatch, useSelector} from 'react-redux';
 import {signUp} from '../../../store/actions/authActions';
-import {pageTitleText, SignUpTitleText} from '../const/signIn.const';
+import {SignUpTitleText} from '../const/signIn.const';
+import { FormDataProps } from '../../../ts/interfaces';
 
-type FormData = {
-  email: string;
-  password: string;
-};
 
-const SignUp: React.FC = () => {
-  const {register, handleSubmit} = useForm<FormData>();
+const SignUp = (): ReactElement => {
+  const {register, handleSubmit} = useForm<FormDataProps>();
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const onSubmit = handleSubmit(({email, password}) => {
     dispatch(signUp({email, password}));
   });
-  const dispatch = useDispatch();
 
   const signUpError = useSelector(({auth}: any) => auth.authError);
 
@@ -29,7 +26,7 @@ const SignUp: React.FC = () => {
 
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <Box className={classes.box}>
         <form className={classes.form} noValidate autoComplete="off" action="#" onSubmit={onSubmit}>
           <Typography variant="h3">{SignUpTitleText}</Typography>

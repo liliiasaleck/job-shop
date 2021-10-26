@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import HomePage from '../views/home/homePage';
 import SignIn from '../views/auth/signIn/signIn';
@@ -6,13 +6,14 @@ import SignUp from '../views/auth/signUp/signUp';
 import PostJob from '../views/PostJob/postJob';
 import SingleOffer from '../views/home/components/singleOffers/singleOffer';
 import Navbar from '../components/navbar/navbar';
-import MainTemplate from '../templates/mainTemplate';
+import MainTemplate from '../helpers/mainTemplate';
 import {routes} from './routes';
 
-const Router = () => {
+
+const Router = (): ReactElement  => {
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar/>
       <Switch>
         <MainTemplate>
           <Route component={HomePage} path={routes.main} exact />

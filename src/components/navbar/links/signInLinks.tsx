@@ -1,10 +1,13 @@
 import {Button} from '@material-ui/core';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import {Link} from 'react-router-dom';
 import {routes} from '../../../routing/routes';
 import {useStyles} from '../navbar.style';
 
-const SignInLinks: React.FC = () => {
+
+interface SignInLinksProps{}
+
+const SignInLinks = ({}: SignInLinksProps): ReactElement => {
   const classes = useStyles();
 
   return (

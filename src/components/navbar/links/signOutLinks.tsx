@@ -1,12 +1,14 @@
 import {Button} from '@material-ui/core';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import {useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {signOut} from '../../../store/actions/authActions';
 import {routes} from '../../../routing/routes';
 import {useStyles} from '../navbar.style';
 
-const SignOutLinks: React.FC = () => {
+interface SignOutLinksProps{}
+
+const SignOutLinks = ({}: SignOutLinksProps): ReactElement=> {
   const classes = useStyles();
   const dispatch = useDispatch();
 

@@ -30,4 +30,5 @@ export const actionsTypes = {
   LOGIN_USER_ERROR: 'LOGIN_USER_ERROR',
   LOGOUT_USER: 'LOGOUT_USER',
   REDIRECT_USER: 'REDIRECT_USER',
+
 };

@@ -1,26 +1,25 @@
-import React, { ReactElement } from 'react';
+import React, {ReactElement} from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
-import HomePage from '../views/home/homePage';
-import SignIn from '../views/auth/signIn/signIn';
-import SignUp from '../views/auth/signUp/signUp';
-import PostJob from '../views/PostJob/postJob';
-import SingleOffer from '../views/home/components/singleOffers/singleOffer';
-import Navbar from '../components/navbar/navbar';
-import MainTemplate from '../helpers/mainTemplate';
-import {routes} from './routes';
+import HomePage from '../views/home/home-page';
+import PostOffer from '../views/post-offer/post-offer.component';
+import Offer from '../views/home/offer-list/offer/offer.component';
+import Navbar from '../components/toolbar/toolbar.component';
+import MainTemplate from '../helpers/main-template';
+import {NavigationPathEnum} from '../ts/enum';
+import SignInComponent from '../views/auth/sign-in/sign-in.component';
+import SignUpComponent from '../views/auth/sign-up/sign-up.component';
 
-
-const Router = (): ReactElement  => {
+const Router = (): ReactElement => {
   return (
     <BrowserRouter>
-      <Navbar/>
+      <Navbar />
       <Switch>
         <MainTemplate>
-          <Route component={HomePage} path={routes.main} exact />
-          <Route component={SingleOffer} path={routes.singleOffer} />
-          <Route component={SignIn} path={routes.signIn} />
-          <Route component={SignUp} path={routes.signUp} />
-          <Route component={PostJob} path={routes.postJob} />
+          <Route path={NavigationPathEnum.MAIN} component={HomePage} exact/>
+          <Route path={NavigationPathEnum.SINGLE_OFFER} component={Offer} />
+          <Route path={NavigationPathEnum.SIGN_IN} component={SignInComponent}/>
+          <Route path={NavigationPathEnum.SIGN_UP} component={SignUpComponent}/>
+          <Route path={NavigationPathEnum.POST_OFFER} component={PostOffer}/>
         </MainTemplate>
       </Switch>
     </BrowserRouter>

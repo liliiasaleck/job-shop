@@ -5,7 +5,7 @@ export interface OfferModel {
     salaryTo: number;
     location: string;
     tech: string;
-    logo: object;
+    logo: {url: string};
     logoUrl: string;
     experience: string;
     companySize: number;

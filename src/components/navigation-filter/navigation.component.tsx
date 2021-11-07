@@ -1,10 +1,10 @@
 import {Toolbar} from '@material-ui/core';
 import React, { ReactElement } from 'react';
-import Search from './components/search-bar';
-import DropDown from './components/location-filter.component';
-import MoreFilter from './components/advanced-filter.component';
+import Search from './search-bar/search-bar';
+import DropDown from './location-filter/location-filter.component';
+import MoreFilter from './advanced-filter/advanced-filter.component';
 import {useStyles} from './navigation.style';
-import TechFilter from './components/technology-filter.component';
+import TechFilter from './technology-filter/technology-filter.component';
 
 
 const NavigationComponent = (): ReactElement  => {

@@ -1,10 +1,10 @@
 import {Button, TextField, Typography, FormControl, MenuItem, Box} from '@material-ui/core';
-import React, {EffectCallback, useEffect} from 'react';
+import React, {ChangeEvent, EffectCallback, useEffect} from 'react';
 import {useStyles} from './post-offer.style';
 import {useHistory} from 'react-router-dom';
 import {ArrowBack} from '@material-ui/icons';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
-import Navbar from '../../components/toolbar/toolbar.component';
+import Navbar from '../../components/navbar/navbar.component';
 import {skills} from '../../helpers/technology.const';
 import {setOffers, uploadLogo} from '../../store/actions/offers-actions';
 import {useDispatch, useSelector} from 'react-redux';
@@ -79,7 +79,10 @@ const PostOffer = (): ReactElement => {
     history.push('/signIn');
   }, []);
 
-  const fileChangedHandler = (event) => {
+  const fileChangedHandler = (event: ChangeEvent <HTMLInputElement>) : void => {
+    if(!event.target?.files?.[0]){
+      return;
+    }
     const file = event.target.files[0];
     const formData = new FormData();
     formData.append('logo', file, file.name);
@@ -95,7 +98,7 @@ const PostOffer = (): ReactElement => {
             <ArrowBack />
             {BACK_BUTTON_TEXT}
           </Button>
-          <Typography className={classes.title}>Company logo</Typography>
+          <Typography className={classes.title}>{UPLOAD_BUTTON_TEXT}</Typography>
           <Button variant="contained" component="label">
             {UPLOAD_BUTTON_TEXT}
             <input type="file" onChange={fileChangedHandler} hidden />

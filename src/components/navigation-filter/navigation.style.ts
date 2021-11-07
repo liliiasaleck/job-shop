@@ -17,10 +17,10 @@ export const useStyles = makeStyles((theme) => ({
       paddingRight: '2rem',
     },
     [theme.breakpoints.down('sm')]: {
-      top: '10%',
+      top: '10.5%',
       left: '50%',
       paddingLeft: '2rem',
-      paddingRight: '6rem',
+      paddingRight: '7rem',
     },
   },
 }));

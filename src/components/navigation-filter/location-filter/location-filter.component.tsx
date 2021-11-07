@@ -15,7 +15,7 @@ import {
   WORLD_CITY_TEXT,
   LOCATION_TEXT,
   CLEAR_BUTTON_TEXT,
-} from '../components/filters.const';
+} from '../navigation.const';
 import { StoreInterface } from '../../../store/store.interface';
 
 const LocationFilter = (): ReactElement => {

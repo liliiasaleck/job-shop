@@ -22,7 +22,7 @@ import {
   CLEAR_BUTTON_TEXT,
   SHOW_BUTTON_TEXT,
   ALL_TEXT
-} from '../components/filters.const';
+} from '../navigation.const';
 import { StoreInterface } from '../../../store/store.interface';
 
 const AdvancedFilter = (): ReactElement => {

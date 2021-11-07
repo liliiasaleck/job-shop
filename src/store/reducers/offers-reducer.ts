@@ -10,7 +10,7 @@ const initState = {
   employmentType: '',
   selectedOffer: {},
   logoUrl: '',
-  logo: {},
+  logo: {url: ''},
 };
 
 

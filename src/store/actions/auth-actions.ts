@@ -1,30 +1,43 @@
+import { loginUser, registerUser } from '../../services/auth.service';
 import api from '../../api/baseURL';
 import {actionsTypes} from './actions-types';
 
+
+// export const signUp = ({email, password}) => {
+//   return (dispatch, getState) => {
+//     api
+//       .post('/auth/signup', {email, password})
+//       .then((res) => {
+//         dispatch({type: actionsTypes.SIGNUP_USER, payload: res.data});
+//       })
+//       .catch((err) => {
+//         dispatch({type: actionsTypes.SIGNUP_USER_ERROR, err});
+//       });
+//   };
+// };
+
 export const signUp = ({email, password}) => {
-  return (dispatch, getState) => {
-    api
-      .post('/auth/signup', {email, password})
-      .then((res) => {
-        dispatch({type: actionsTypes.SIGNUP_USER, payload: res.data});
-      })
-      .catch((err) => {
-        dispatch({type: actionsTypes.SIGNUP_USER_ERROR, err});
-      });
+  return async (dispatch, getState) => {
+    try {
+      const response = await registerUser({email, password});
+      dispatch({type: actionsTypes.SIGNUP_USER, payload: response.data});
+    } catch (err) {
+      dispatch({type: actionsTypes.SIGNUP_USER_ERROR, err});
+    }
   };
 };
-export const signIn = ({email, password}) => {
-  return (dispatch, getState) => {
-    api
-      .post('/auth/signin', {email, password})
-      .then((res) => {
-        localStorage.setItem('user', JSON.stringify(res.data));
 
-        dispatch({type: actionsTypes.LOGIN_USER, payload: res.data});
-      })
-      .catch((err) => {
-        dispatch({type: actionsTypes.LOGIN_USER_ERROR, err});
-      });
+export const signIn = ({email, password}) => {
+  return async (dispatch, getState) => {
+
+    try{
+      const response = await loginUser({email, password});
+      localStorage.setItem('user', JSON.stringify(response.data));
+
+      dispatch({type: actionsTypes.LOGIN_USER, payload: response.data});
+    }catch(err){
+      dispatch({type: actionsTypes.LOGIN_USER_ERROR, err});
+    }
   };
 };
 

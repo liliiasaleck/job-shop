@@ -80,6 +80,7 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    paddingTop: '0.6rem',
     [theme.breakpoints.down('md')]: {
       width: '160px',
       height: '65px',
@@ -160,15 +161,18 @@ export const useStyles = makeStyles((theme) => ({
     padding: '1rem',
     color: 'rgb(55, 71, 79)',
     fontWeight: 'bold',
-    
-
   },
-  aboutCompany:{
-fontSize:'15px',
-[theme.breakpoints.down('sm')]: {
-  fontSize:'13px',
-
-},
+  applyJobText:{
+    padding: '1rem 1rem 1rem 2rem',
+    color: 'rgb(55, 71, 79)',
+    fontWeight: 'bold',
+  },
+  aboutCompany: {
+    fontSize: '15px',
+    paddingLeft:'1rem',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '13px',
+    },
   },
   uploadBtn: {
     marginTop: '2rem',

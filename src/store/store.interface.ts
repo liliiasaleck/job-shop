@@ -16,7 +16,7 @@ export interface StoreInterface {
     employmentType: string;
     selectedOffer: LocationModel;
     logoUrl: string;
-    logo: object;
+    logo: {url: string};
   };
 }
 

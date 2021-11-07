@@ -1,20 +1,20 @@
 import React, {ReactElement} from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import Navbar from '../../../components/toolbar/toolbar.component';
+import Navbar from '../../components/navbar/navbar.component';
 import {useForm} from 'react-hook-form';
 import {Typography, TextField, Button, Checkbox, Box} from '@material-ui/core';
 import {useStyles} from './sign-up.style';
 import {useDispatch, useSelector} from 'react-redux';
-import {signUp} from '../../../store/actions/auth-actions';
-import {FormDataProps} from '../sign-up/sign-up.interface';
-import {NavigationPathEnum} from '../../../ts/enum';
-import {StoreInterface} from '../../../store/store.interface';
+import {signUp} from '../../store/actions/auth-actions';
+import {FormDataProps} from './sign-up.interface';
+import {NavigationPathEnum} from '../../ts/enum';
+import {StoreInterface} from '../../store/store.interface';
 import {
   SIGN_UP_TEXT,
   REGISTER_BUTTON_TEXT,
   SIGN_UP_LINK_TEXT,
   SIGN_IN_LINK_TEXT,
-} from '../sign-up/sign-up.const';
+} from './sign-up.const';
 
 const SignUpComponent = (): ReactElement => {
   const {register, handleSubmit} = useForm<FormDataProps>();

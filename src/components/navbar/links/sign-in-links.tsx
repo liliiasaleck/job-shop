@@ -2,8 +2,8 @@ import {Button} from '@material-ui/core';
 import React, { ReactElement } from 'react';
 import {Link} from 'react-router-dom';
 import { NavigationPathEnum } from '../../../ts/enum';
-import {useStyles} from '../toolbar.style';
-import {SIGN_IN_LINK_TEXT} from '../links/links.const';
+import {useStyles} from '../navbar.style';
+import {SIGN_IN_LINK_TEXT} from './links.const';
 
 
 

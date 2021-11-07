@@ -3,11 +3,11 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import HomePage from '../views/home/home-page';
 import PostOffer from '../views/post-offer/post-offer.component';
 import Offer from '../views/home/offer-list/offer/offer.component';
-import Navbar from '../components/toolbar/toolbar.component';
+import Navbar from '../components/navbar/navbar.component';
 import MainTemplate from '../helpers/main-template';
 import {NavigationPathEnum} from '../ts/enum';
-import SignInComponent from '../views/auth/sign-in/sign-in.component';
-import SignUpComponent from '../views/auth/sign-up/sign-up.component';
+import SignInComponent from '../views/sign-in/sign-in.component';
+import SignUpComponent from '../views/sign-up/sign-up.component';
 
 const Router = (): ReactElement => {
   return (

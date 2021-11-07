@@ -6,7 +6,7 @@ import { StoreInterface } from "../../store/store.interface";
 
 
 
-const FlyToComponent = () => {
+const FlyToComponent = () : null => {
     const map = useMap();
     const selOffer = useSelector(({offers}: StoreInterface) => offers.selectedOffer);
 

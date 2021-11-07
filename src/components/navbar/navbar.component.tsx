@@ -16,7 +16,7 @@ import WorkIcon from '@material-ui/icons/Work';
 import GroupIcon from '@material-ui/icons/Group';
 import CreateIcon from '@material-ui/icons/Create';
 import ComputerIcon from '@material-ui/icons/Computer';
-import {useStyles} from './toolbar.style';
+import {useStyles} from './navbar.style';
 import {useSelector} from 'react-redux';
 import SignInLinks from './links/sign-in-links';
 import SignOutLinks from './links/sign-out-links';
@@ -30,10 +30,10 @@ import {
   SIGN_IN_LINK_TEXT,
   SIGN_UP_LINK_TEXT,
   GEEK_IN_LINK_TEXT,
-} from '../toolbar/toolbar.const';
+} from './navbar.const';
 import { StoreInterface } from '../../store/store.interface';
 
-const Navbar = (): ReactElement => {
+const NavbarComponent = (): ReactElement => {
   const classes = useStyles();
   const [open, setOpenDrawer] = useState<boolean>(false);
 
@@ -129,4 +129,4 @@ const Navbar = (): ReactElement => {
   );
 };
 
-export default Navbar;
+export default NavbarComponent;

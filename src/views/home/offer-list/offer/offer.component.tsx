@@ -21,7 +21,7 @@ import {useFormik, FormikProps} from 'formik';
 import {validationSchemaSingleOffer, notification} from '../../../../helpers/notifications';
 import {store} from 'react-notifications-component';
 import {SingleOfferFormik, SingleOfferProps} from '../offer/offer.interface';
-import NavigationComponent from '../../../../components/filters/navigation.component';
+import NavigationComponent from '../../../../components/navigation-filter/navigation.component';
 import {
   COMPANY_NAME_TEXT,
   COMPANY_SIZE_TEXT,
@@ -127,7 +127,7 @@ const OfferComponent = ({
           <Typography className={classes.aboutCompany}>{jobDescription}</Typography>
         </div>
         <div className={classes.divform}>
-          <Typography className={classes.descriptionText}>{APPLY_JOB_TEXT}</Typography>
+          <Typography className={classes.applyJobText}>{APPLY_JOB_TEXT}</Typography>
           <Divider />
           <form
             className={classes.form}

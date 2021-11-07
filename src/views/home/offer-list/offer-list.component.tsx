@@ -23,16 +23,17 @@ const OfferList = ({}: OffersProps): ReactElement => {
   const theme = useTheme();
   const dispatch = useDispatch();
 
-  const offersList = useSelector(({offers}: any) => offers.offersList);
   const location = useSelector(({offers}: StoreInterface) => offers.location);
   const tech = useSelector(({offers}: StoreInterface) => offers.tech);
   const empType = useSelector(({offers}: StoreInterface) => offers.employmentType);
   const experience = useSelector(({offers}: StoreInterface) => offers.experience);
+  const offersList = useSelector(({offers}: StoreInterface) => offers.offersList);
   const isLoading = useSelector((state: StoreInterface) => state.offers.isLoading);
 
   useEffect(() => {
     if (location === 'Location' || tech === 'all') {
-    } dispatch(filterOffers());
+    } 
+    dispatch(filterOffers());
   }, [location, tech, empType, experience]);
 
   return (

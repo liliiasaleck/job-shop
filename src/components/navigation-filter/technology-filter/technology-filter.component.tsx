@@ -6,7 +6,7 @@ import {changeTech, filterOffers} from '../../../store/actions/offers-actions';
 import { skills} from '../../../helpers/technology.const';
 import {useSelector} from 'react-redux';
 import {useTheme} from '@material-ui/core';
-import {ALL_TEXT,ALL_FILTER_TEXT} from '../components/filters.const';
+import {ALL_TEXT,ALL_FILTER_TEXT} from '../navigation.const';
 import { StoreInterface } from '../../../store/store.interface';
 
 

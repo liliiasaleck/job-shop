@@ -1,20 +1,20 @@
 import React, {ReactElement} from 'react';
 import {Link, Redirect} from 'react-router-dom';
-import Navbar from '../../../components/toolbar/toolbar.component';
+import Navbar from '../../components/navbar/navbar.component';
 import {useForm} from 'react-hook-form';
 import {Typography, TextField, Button, Box} from '@material-ui/core';
 import {useStyles} from './sign-in.styles';
 import {useDispatch, useSelector} from 'react-redux';
-import {signIn} from '../../../store/actions/auth-actions';
-import {FormDataProps} from '../sign-in/sign-in.interface';
-import {NavigationPathEnum} from '../../../ts/enum';
-import {StoreInterface} from '../../../store/store.interface';
+import {signIn} from '../../store/actions/auth-actions';
+import {FormDataProps} from './sign-in.interface';
+import {NavigationPathEnum} from '../../ts/enum';
+import {StoreInterface} from '../../store/store.interface';
 import {
   SIGN_IN_TEXT,
   SIGN_IN_BUTTON_TEXT,
   NEW_ACCOUNT_TEXT,
   SIGN_UP_LINK_TEXT,
-} from '../sign-in/sign-in.const';
+} from './sign-in.const';
 
 const SignInComponent = (): ReactElement => {
   const {register, handleSubmit} = useForm<FormDataProps>();

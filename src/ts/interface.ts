@@ -4,6 +4,8 @@ export interface OfferModel {
     salaryFrom: number;
     salaryTo: number;
     location: string;
+    longitude: number;
+    latitude:number;
     tech: string;
     logo: {url: string};
     logoUrl: string;

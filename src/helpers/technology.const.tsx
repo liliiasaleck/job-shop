@@ -1,6 +1,6 @@
 import {IconProp} from '@fortawesome/fontawesome-svg-core';
-import {faJs, faHtml5, faPhp, faPython, faJava} from '@fortawesome/free-brands-svg-icons';
-import {faGem, faMobile, faSearch, faTasks, faUserCog} from '@fortawesome/free-solid-svg-icons';
+import {faJs, faHtml5, faPhp, faPython, faJava, faBattleNet} from '@fortawesome/free-brands-svg-icons';
+import {faGem, faMobile, faSearch, faTasks, faUserCog, faSync, faDatabase, faGamepad} from '@fortawesome/free-solid-svg-icons';
 
 export interface Skill  {
   display: string;
@@ -76,5 +76,29 @@ export const skills: Skill[] = [
     tech: 'RUBY',
     icon: faGem,
     background: 'linear-gradient(-90deg, rgb(239, 83, 80), rgb(244, 67, 54))',
+  },
+  {
+    display: '.Net',
+    tech: 'NET',
+    icon: faBattleNet,
+    background: 'linear-gradient(-90deg, rgb(103, 37, 114), rgb(150, 70, 163))',
+  },
+  {
+    display: 'Data',
+    tech: 'DATA',
+    icon: faDatabase,
+    background: 'linear-gradient(-90deg, rgb(137, 219, 84), rgb(101, 175, 53))',
+  },
+  {
+    display: 'Game',
+    tech: 'GAME',
+    icon: faGamepad,
+    background: 'linear-gradient(-90deg, rgb(255, 64, 129), rgb(236, 64, 122))',
+  },
+  {
+    display: 'DevOps',
+    tech: 'DEVOPS',
+    icon: faSync,
+    background: 'linear-gradient(-90deg, rgb(82, 102, 225), rgb(129, 102, 224))',
   },
 ];

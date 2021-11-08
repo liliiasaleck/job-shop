@@ -1,20 +1,6 @@
-import { loginUser, registerUser } from '../../services/auth.service';
+import {loginUser, registerUser} from '../../services/auth.service';
 import api from '../../api/baseURL';
 import {actionsTypes} from './actions-types';
-
-
-// export const signUp = ({email, password}) => {
-//   return (dispatch, getState) => {
-//     api
-//       .post('/auth/signup', {email, password})
-//       .then((res) => {
-//         dispatch({type: actionsTypes.SIGNUP_USER, payload: res.data});
-//       })
-//       .catch((err) => {
-//         dispatch({type: actionsTypes.SIGNUP_USER_ERROR, err});
-//       });
-//   };
-// };
 
 export const signUp = ({email, password}) => {
   return async (dispatch, getState) => {
@@ -29,13 +15,11 @@ export const signUp = ({email, password}) => {
 
 export const signIn = ({email, password}) => {
   return async (dispatch, getState) => {
-
-    try{
+    try {
       const response = await loginUser({email, password});
       localStorage.setItem('user', JSON.stringify(response.data));
-
       dispatch({type: actionsTypes.LOGIN_USER, payload: response.data});
-    }catch(err){
+    } catch (err) {
       dispatch({type: actionsTypes.LOGIN_USER_ERROR, err});
     }
   };

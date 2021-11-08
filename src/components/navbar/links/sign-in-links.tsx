@@ -6,8 +6,6 @@ import {useStyles} from '../navbar.style';
 import {SIGN_IN_LINK_TEXT} from './links.const';
 
 
-
-
 const SignInLinksComponent = (): ReactElement => {
   const classes = useStyles();
 

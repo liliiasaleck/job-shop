@@ -2,20 +2,6 @@ import {actionsTypes} from './actions-types';
 import api from '../../api/baseURL';
 import {getOffers} from '../../services/offers.service';
 
-// export const fetchOffers = () => {
-//   return async (dispatch, getState) => {
-//     try {
-//       const {offers} = getState();
-//       if (offers.location === 'Location') {
-//         const result = await api.get('/offers');
-//         if (result.data) dispatch({type: actionsTypes.FETCH_OFFERS, payload: result.data});
-//       }
-//     } catch (error) {
-//       dispatch({type: actionsTypes.FETCH_OFFERS_ERROR, error});
-//     }
-//   };
-// };
-
 export const fetchOffers = () => {
   return async (dispatch, getState) => {
     try {

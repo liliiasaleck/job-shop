@@ -25,24 +25,30 @@ export const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'space-between',
     },
     main: {
-      border: '1px solid lightgrey',
+      border:'1px solid rgba(0, 0, 0, 0.23)',
+      borderColor: '#E4E8F0',
       borderRadius: '40px',
       textTransform: 'capitalize',
-      color: 'grey',
+      color: 'rgb(119, 119, 119)',
+      marginLeft:'.7rem',
+      marginRight:'.5rem',
       fontSize: '14px',
-      width: '10rem',
-
+      width: '9rem',
       [theme.breakpoints.down('md')]: {
-        fontSize: '9px',
+        fontSize: '10px',
         width: '8rem',
+        marginLeft:'0',
       },
     },
-
     item: {
-      border: '1px solid #D0D0D0',
+      border:'1px solid rgba(0, 0, 0, 0.23)',
+      borderColor: '#E4E8F0',
       borderRadius: '40px',
       margin: '10px 10px 10px 10px',
       color: '#99A1AB',
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '12px',
+      },
     },
 
     itemSelected: {
@@ -51,9 +57,14 @@ export const useStyles = makeStyles((theme: Theme) =>
       margin: '10px 10px 10px 10px',
       color: 'rgb(255,64,129)',
       backgroundColor: 'rgba(255, 64, 129, 0.08)',
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '12px',
+      },
     },
     box: {
       display: 'flex',
+      width: 'auto',
+      marginBottom: '15px',
     },
     buttons: {
       display: 'flex',
@@ -65,9 +76,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     text: {
       margin: '15px 15px',
-    },
-    dropdown: {
-      width: '15%',
+      fontWeight: 'bold',
     },
     slider: {
       color: '#ab47bc',
@@ -77,10 +86,11 @@ export const useStyles = makeStyles((theme: Theme) =>
     sliderbox: {
       display: 'flex',
       justifyContent: 'space-around',
-      marginBottom: '15px',
+      marginBottom: '20px',
     },
     slidervalue: {
-      border: '1px #D0D0D0 solid',
+      border:'1px solid rgba(0, 0, 0, 0.23)',
+      borderColor: '#E4E8F0',
       borderRadius: '40px',
       width: '200px',
       height: '50px',
@@ -89,21 +99,32 @@ export const useStyles = makeStyles((theme: Theme) =>
       flexDirection: 'column',
       color: '#99A1AB',
       alignItems: 'center',
+      [theme.breakpoints.down('sm')]: {
+        width: '130px',
+        fontSize: '12px',
+      },
     },
     clearBtn: {
+      textTransform: 'capitalize',
+      border:'1px solid rgba(0, 0, 0, 0.23)',
+      borderColor: '#E4E8F0',
+      borderRadius: '40px',
+      marginTop: '1rem',
+      marginBottom: '15px',
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '12px',
+      },
+    },
+    showBtn: {
       textTransform: 'capitalize',
       borderRadius: '40px',
       color: 'white',
       backgroundColor: '#ff4081',
-      marginTop: '10px',
+      marginTop: '1rem',
       marginBottom: '15px',
-    },
-    showBtn: {
-      textTransform: 'capitalize',
-      border: '1px solid #D0D0D0',
-      borderRadius: '40px',
-      marginTop: '15px',
-      marginBottom: '15px',
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '12px',
+      },
     },
   })
 );

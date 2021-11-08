@@ -178,7 +178,7 @@ const OfferComponent = ({
             <div className={classes.secondform}>
               <TextField
                 className={classes.textarea}
-                label="Introduce yourself (linkedin/github links) optional"
+                label="Introduce yourself (linkedin/github links)"
                 multiline
                 rows={6}
                 variant="outlined"

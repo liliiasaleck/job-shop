@@ -2,16 +2,14 @@ import {makeStyles} from '@material-ui/core';
 
 export const useStyles = makeStyles((theme) => ({
   box: {
-    top: '12%',
+    top: '14%',
     backgroundColor: '#fafafa',
     width: '65%',
-    overflow: 'hidden',
     overflowY: 'scroll',
-    position: 'absolute',
-    height: '90%',
+    position: 'fixed',
+    height: '86%',
     [theme.breakpoints.down('md')]: {
       width: '100vw',
-      top: '10%',
     },
   },
   title: {
@@ -45,7 +43,8 @@ export const useStyles = makeStyles((theme) => ({
   top: {
     background:
       ' center center / cover no-repeat, linear-gradient(30deg, rgb(59, 89, 152), rgb(112, 140, 199))',
-    margin: '10px',
+    marginLeft: '1rem',
+    marginRight: '.5rem',
     borderRadius: '5px',
     height: '220px',
     boxShadow: ' rgb(0 0 0 / 8%) 0px 2px 2px 0px, rgb(0 0 0 / 6%) 0px 1px 5px 0px',
@@ -94,6 +93,7 @@ export const useStyles = makeStyles((theme) => ({
   description: {
     backgroundColor: 'rgb(255, 255, 255)',
     marginLeft: '1rem',
+    marginRight: '.5rem',
     padding: '1rem',
     marginBottom: '1rem',
     color: '#37474F',

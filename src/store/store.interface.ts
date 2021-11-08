@@ -19,4 +19,3 @@ export interface StoreInterface {
     logo: {url: string};
   };
 }
-

@@ -50,7 +50,7 @@ const AdvancedFilter = (): ReactElement => {
     setOpen(false);
   };
 
-  const handleAdvancedFilter = () => {
+  const handleAdvancedFilter = (): void => {
     dispatch(filterOffers());
   };
 
@@ -96,24 +96,20 @@ const AdvancedFilter = (): ReactElement => {
   };
 
   return (
-    <div className={classes.dropdown}>
+    <>
       <Button
         className={classes.main}
         onClick={handleOpen}
-        endIcon={<Icon>expand_more</Icon>}
-        startIcon={<Icon>tune</Icon>}
-      >
+        endIcon={<Icon>expand_more</Icon>}      >
        {FILTER_TITLE_TEXT}
       </Button>
       <Modal className={classes.modal} open={open} onClose={handleClose}>
         <Fade in={open}>
           <div className={classes.paper}>
             <div className={classes.filtersContainer}>
-              <Typography className={classes.text}>{FILTER_TITLE_TEXT}</Typography>
+              <Typography>{FILTER_TITLE_TEXT}</Typography>
               <Button
                 className={classes.close}
-                aria-controls="simple-menu"
-                aria-haspopup="true"
                 endIcon={<Icon>close</Icon>}
                 onClick={handleClose}
               />
@@ -145,7 +141,7 @@ const AdvancedFilter = (): ReactElement => {
                 </div>
               </div>
             </div>
-            <div></div>
+            <Divider />
             <div>
               <Typography className={classes.text}>{EMPLOYMENT_TYPE_TEXT}</Typography>
             </div>
@@ -160,6 +156,7 @@ const AdvancedFilter = (): ReactElement => {
                 </MenuItem>
               ))}
             </div>
+            <Divider />
             <div>
               <Typography className={classes.text}>{SENIORITY_TYPE_TEXT}</Typography>
             </div>
@@ -174,6 +171,7 @@ const AdvancedFilter = (): ReactElement => {
                 </MenuItem>
               ))}
             </div>
+            <Divider />
             <div className={classes.buttons}>
               <Button className={classes.clearBtn} onClick={handleReset}>
                 {CLEAR_BUTTON_TEXT}
@@ -191,7 +189,7 @@ const AdvancedFilter = (): ReactElement => {
           </div>
         </Fade>
       </Modal>
-    </div>
+    </>
   );
 };
 

@@ -14,7 +14,7 @@ const SearchBar = (): ReactElement => {
   const [searchInputValue, setInputValue] = useState<string>('');
   const debouncedSearchTerm: string = useDebounce<string>(searchInputValue, 500);
 
-  useEffect(() => {
+  useEffect((): void => {
     dispatch(searchOfferByName(searchInputValue));
   }, [debouncedSearchTerm]);
 

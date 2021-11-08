@@ -3,6 +3,7 @@ import {makeStyles} from '@material-ui/core';
 export const useStyles = makeStyles((theme) => ({
   main: {
     display: 'flex',
+    marginTop:'.9rem',
   },
   round: {
     display: 'flex',
@@ -31,7 +32,6 @@ export const useStyles = makeStyles((theme) => ({
     color:'rgb(117, 117, 117)',
     justifyContent:'space-around',
     width:'100%',
-    marginTop: '2px',
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },

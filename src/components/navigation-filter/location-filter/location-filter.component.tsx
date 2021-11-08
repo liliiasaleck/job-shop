@@ -37,7 +37,7 @@ const LocationFilter = (): ReactElement => {
 
   const currentLocation = useSelector((state: StoreInterface) => state.offers.location);
 
-  useEffect(() => {
+  useEffect((): void => {
     if (currentLocation !== LOCATION_TEXT) {
       return;
     }
@@ -50,8 +50,6 @@ const LocationFilter = (): ReactElement => {
         className={
           currentLocation === LOCATION_TEXT ? classes.mainLocation : classes.mainSelectedLocation
         }
-        aria-controls="simple-menu"
-        aria-haspopup="true"
         onClick={openMenu}
         endIcon={<Icon>expand_more</Icon>}
       >
@@ -59,21 +57,20 @@ const LocationFilter = (): ReactElement => {
       </Button>
       <Menu
         className={classes.menu}
-        id="simple-menu"
         anchorEl={anchorLocation}
-        keepMounted
         open={Boolean(anchorLocation)}
         onClick={handleClose}
       >
         <div className={classes.container}>
+          <div className={classes.remoteContainer}>
           <MenuItem className={classes.remote} onClick={() => dispatch(changeLocation(LOCATION_REMOTE_TEXT))}>
             {LOCATION_REMOTE_TEXT}
           </MenuItem>
+          </div>
           <Button
             className={classes.close}
-            aria-controls="simple-menu"
-            aria-haspopup="true"
             endIcon={<Icon>close</Icon>}
+            onClick={handleClose}
           />
         </div>
         <Typography className={classes.title}>{POLAND_CITY_TEXT}</Typography>
@@ -110,8 +107,6 @@ const LocationFilter = (): ReactElement => {
 
         <Button
           className={classes.clear}
-          aria-controls="simple-menu"
-          aria-haspopup="true"
           onClick={handleReset}
         >
           {CLEAR_BUTTON_TEXT}

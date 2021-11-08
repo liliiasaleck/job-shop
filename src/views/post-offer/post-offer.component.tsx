@@ -71,7 +71,7 @@ const PostOffer = (): ReactElement => {
 
   const user = useSelector(({auth}: StoreInterface) => auth.user);
 
-  useEffect(() => {
+  useEffect((): void => {
     if (user) {
       return;
     }

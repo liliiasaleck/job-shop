@@ -4,7 +4,7 @@ export const useStyles = makeStyles((theme) => ({
   container: {
     width: '35%',
     height: '83%',
-    position: 'absolute',
+    position: 'fixed',
     top: '58%',
     left: '83%',
     transform: 'translate(-50%, -50%)',

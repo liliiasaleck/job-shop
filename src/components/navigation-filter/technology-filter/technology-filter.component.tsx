@@ -3,26 +3,24 @@ import React, {ReactElement, useEffect} from 'react';
 import {useStyles} from './technology-filter.style';
 import {useDispatch} from 'react-redux';
 import {changeTech, filterOffers} from '../../../store/actions/offers-actions';
-import { skills} from '../../../helpers/technology.const';
+import {skills} from '../../../helpers/technology.const';
 import {useSelector} from 'react-redux';
 import {useTheme} from '@material-ui/core';
-import {ALL_TEXT,ALL_FILTER_TEXT} from '../navigation.const';
-import { StoreInterface } from '../../../store/store.interface';
-
+import {ALL_TEXT, ALL_FILTER_TEXT} from '../navigation.const';
+import {StoreInterface} from '../../../store/store.interface';
+import {
+  BACKGROUND_COLOR
+} from '../navigation.const';
 
 const TechnologyFilter = (): ReactElement => {
   const classes = useStyles();
   const theme = useTheme();
   const dispatch = useDispatch();
-
-
   const selectedTech = useSelector((state: StoreInterface) => state.offers.tech);
   
-
-  useEffect(() => {
+  useEffect((): void => {
     dispatch(filterOffers());
   }, [selectedTech]);
-
 
   return (
     <div>
@@ -36,7 +34,7 @@ const TechnologyFilter = (): ReactElement => {
               background:
                 tech === selectedTech
                   ? background
-                  : 'linear-gradient(-90deg, rgb(145, 147, 170), rgb(125, 130, 168))',
+                  : BACKGROUND_COLOR,
             }}
           >
             {tech === ALL_FILTER_TEXT ? (
@@ -48,15 +46,11 @@ const TechnologyFilter = (): ReactElement => {
         ))}
       </div>
       <div className={classes.display}>
-      {skills.map(({
-         display}, index) => (
+        {skills.map(({display}, index) => (
           <div
             key={index}
-            className={classes.display}
-            onClick={() => dispatch(changeTech(display))}
-           
-          >{display}
-          
+            className={classes.display}          >
+            {display}
           </div>
         ))}
       </div>

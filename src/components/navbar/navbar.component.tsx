@@ -9,6 +9,7 @@ import {
   ListItem,
   List,
   ListItemText,
+  Icon,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import {Link} from 'react-router-dom';
@@ -31,7 +32,7 @@ import {
   SIGN_UP_LINK_TEXT,
   GEEK_IN_LINK_TEXT,
 } from './navbar.const';
-import { StoreInterface } from '../../store/store.interface';
+import {StoreInterface} from '../../store/store.interface';
 
 const NavbarComponent = (): ReactElement => {
   const classes = useStyles();
@@ -39,6 +40,10 @@ const NavbarComponent = (): ReactElement => {
 
   const handleDrawer = (): void => {
     setOpenDrawer(true);
+  };
+
+  const handleClose = (): void => {
+    setOpenDrawer(false);
   };
 
   const user = useSelector(({auth}: StoreInterface) => auth.user);
@@ -73,9 +78,16 @@ const NavbarComponent = (): ReactElement => {
       <Drawer anchor="right" onClose={() => setOpenDrawer(false)} open={open}>
         <List className={classes.list}>
           <div>
-            <ListItem>
-              <Typography className={classes.menu}>{PAGE_MENU_TEXT}</Typography>
-            </ListItem>
+            <div className={classes.topMenu}>
+              <ListItem>
+                <Typography className={classes.menu}>{PAGE_MENU_TEXT}</Typography>
+              </ListItem>
+              <Button
+                endIcon={<Icon>close</Icon>}
+                className={classes.closeMenu}
+                onClick={handleClose}
+              />
+            </div>
             <ListItem button>
               <WorkIcon />
               <Link to={NavigationPathEnum.MAIN} className={classes.textlink}>

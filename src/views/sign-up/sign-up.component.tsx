@@ -27,15 +27,15 @@ const SignUpComponent = (): ReactElement => {
 
   const signUpError = useSelector(({auth}: any): StoreInterface => auth.authError);
   const successMessage = useSelector(({auth}: any): StoreInterface => auth.successMessage);
-
-  if (successMessage) return <Redirect to={NavigationPathEnum.SIGN_IN} />;
-
+  if (successMessage) {
+    return <Redirect to={NavigationPathEnum.SIGN_IN} />;
+  }
   return (
     <>
       <Navbar />
       <Box className={classes.box}>
         <form className={classes.form} noValidate autoComplete="off" action="#" onSubmit={onSubmit}>
-          <Typography variant="h3">{SIGN_UP_TEXT}</Typography>
+          <Typography className={classes.title}>{SIGN_UP_TEXT}</Typography>
           <TextField
             className={classes.textfield}
             label="Email"

@@ -7,6 +7,3 @@ export const BARND_STORY_TEXT='Brand story';
 export const DESCRIPTION_TEXT='Description';
 export const APPLY_JOB_TEXT='Apply for this job';
 export const APPLY_BUTTON_TEXT='Apply';
-
-
-

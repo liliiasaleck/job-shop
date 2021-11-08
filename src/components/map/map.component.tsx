@@ -6,12 +6,13 @@ import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import FlyTo from './fly-to.component';
 import {MAP_LONG_TEXT,MAP_LAT_TEXT,MAP_ZOOM_TEXT} from '../map/map.const';
+import { StoreInterface } from '../../store/store.interface';
 
 
 const MapComponent = (): ReactElement => {
   const classes = useStyles();
 
-  const offersList = useSelector(({offers}: any) => offers.offersList);
+  const offersList = useSelector(({offers}: StoreInterface) => offers.offersList);
 
   return (
     <div className={classes.container}>
@@ -27,7 +28,7 @@ const MapComponent = (): ReactElement => {
               <Popup>
                 <Link
                   to={{
-                    pathname: `/offer/${offer.title.replace(/\s/g, '-')}`,
+                    pathname: `/singleoffer/${offer.title.replace(/\s/g, '-')}`,
                     state: offer,
                   }}
                 >

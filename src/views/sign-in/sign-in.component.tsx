@@ -26,16 +26,17 @@ const SignInComponent = (): ReactElement => {
   });
 
   const successMessage = useSelector(({auth}: StoreInterface) => auth.successMessage);
-
   const user = useSelector(({auth}: StoreInterface) => auth.user);
-  if (user) return <Redirect to={NavigationPathEnum.POST_OFFER} />;
+  if (user) {
+    return <Redirect to={NavigationPathEnum.POST_OFFER} />;
+  };
 
   return (
     <>
       <Navbar />
       <Box className={classes.box}>
         <form className={classes.form} noValidate autoComplete="off" onSubmit={onSubmit}>
-          <Typography className={classes.title} variant="h3">
+          <Typography className={classes.title}>
             {SIGN_IN_TEXT}
           </Typography>
           <Typography className={classes.successMessage}>{successMessage}</Typography>

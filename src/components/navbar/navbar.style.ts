@@ -31,10 +31,11 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   toolbar: {
-    backgroundColor: 'white',
-    borderBottom: '1px solid gainsboro',
+    backgroundColor: '#ffffff',
+    borderBottom: '1px solid #E4E8F0',
     display: 'flex',
     justifyContent: 'space-between',
+    minHeight:'4rem'
   },
   header: {
     boxShadow: '0px 0px 0px 0px',
@@ -71,12 +72,19 @@ export const useStyles = makeStyles((theme) => ({
     textTransform: 'uppercase',
     fontSize: '20px',
   },
+  topMenu:{
+    display: 'flex',
+  },
+  closeMenu:{
+    color: '#99A1AB',
+  },
   post: {
     textDecoration: 'none',
     textTransform: 'capitalize',
     fontSize: '14px',
     color: 'rgb(119, 119, 119)',
-    border: '1px solid #D0D0D0',
+    border:'1px solid rgba(0, 0, 0, 0.23)',
+    borderColor: '#E4E8F0',
     borderRadius: '20px',
     marginRight: '1rem',
     width: '100px',

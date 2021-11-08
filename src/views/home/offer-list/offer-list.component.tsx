@@ -1,5 +1,5 @@
-import React, { ReactElement } from 'react';
-import {Box, useTheme} from '@material-ui/core';
+import React, {ReactElement} from 'react';
+import {Box, Button, useTheme} from '@material-ui/core';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -8,17 +8,15 @@ import {Link} from 'react-router-dom';
 import {useStyles} from './offer-list.style';
 import {useDispatch, useSelector} from 'react-redux';
 import {useEffect} from 'react';
-import {filterOffers, selectOffer} from '../../../store/actions/offers-actions';
+import {filterOffers, resetFilters, selectOffer} from '../../../store/actions/offers-actions';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBuilding} from '@fortawesome/free-solid-svg-icons';
 import {faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons';
 import {Spinner} from '../../../components/spinner/spinner';
-import {SALARY_TEXT} from '../offer-list/offer-list.const';
-import { StoreInterface } from '../../../store/store.interface';
+import {NO_FOUND_OFFERS, REMOVE_FILTERS, SALARY_TEXT} from '../offer-list/offer-list.const';
+import {StoreInterface} from '../../../store/store.interface';
 
-interface OffersProps{}
-
-const OfferList = ({}: OffersProps): ReactElement => {
+const OfferList = (): ReactElement => {
   const classes = useStyles();
   const theme = useTheme();
   const dispatch = useDispatch();
@@ -30,18 +28,20 @@ const OfferList = ({}: OffersProps): ReactElement => {
   const offersList = useSelector(({offers}: StoreInterface) => offers.offersList);
   const isLoading = useSelector((state: StoreInterface) => state.offers.isLoading);
 
-  useEffect(() => {
+  useEffect((): void => {
     if (location === 'Location' || tech === 'all') {
-    } 
+    }
     dispatch(filterOffers());
   }, [location, tech, empType, experience]);
+
+  const handleReset = (): void => {
+    dispatch(resetFilters());
+  };
 
   return (
     <>
       <Box className={classes.box}>
-        {isLoading && !offersList ? (
-          <Spinner />
-        ) : (
+        {offersList?.length > 0 ? (
           offersList?.map((offer) => {
             const {title, salaryFrom, salaryTo, location, tech, id, companyName, logo} = offer;
             return (
@@ -86,6 +86,12 @@ const OfferList = ({}: OffersProps): ReactElement => {
               </Link>
             );
           })
+        ) : (
+          <div className={classes.noOffers}>
+            <Typography className={classes.noOffersText}>{NO_FOUND_OFFERS}</Typography>
+            <Button className={classes.removeFilters}
+            onClick={handleReset}>{REMOVE_FILTERS}</Button>
+          </div>
         )}
       </Box>
     </>

@@ -20,12 +20,10 @@ export const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.down('md')]: {
         top: '110%',
         width: '80%',
-
       },
       [theme.breakpoints.down('sm')]: {
         top: '110%',
         width: '100%',
-
       },
     },
     textField: {
@@ -39,7 +37,6 @@ export const useStyles = makeStyles((theme: Theme) =>
       fontSize: '18px',
       color: '#37474f',
       fontWeight:'bold',
-      
     },
     subTitle:{
       marginBottom: '1rem',
@@ -53,8 +50,6 @@ export const useStyles = makeStyles((theme: Theme) =>
         top: '110%',
         marginLeft: '0',
         width: '50%',
-
-
       },
     },
     formControl: {},
@@ -65,7 +60,6 @@ export const useStyles = makeStyles((theme: Theme) =>
       textTransform: 'capitalize',
       fontSize: '16px',
       marginTop: '2rem',
-
     },
     textarea: {
       width: '85%',
@@ -89,9 +83,6 @@ export const useStyles = makeStyles((theme: Theme) =>
       marginLeft:'4rem',
       [theme.breakpoints.down('sm')]: {
         marginLeft:'0',
-
-
-
       },
     }
   })

@@ -15,21 +15,3 @@ export const MAIN_TECHNOLOGY_TEXT='Main technology';
 export const JOB_DESCRIPTION_TEXT='Job description';
 export const LOCATION_TEXT='Choose your location';
 export const SUBMIT_BUTTON_TEXT='Submit';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

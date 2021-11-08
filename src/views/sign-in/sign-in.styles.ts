@@ -19,9 +19,16 @@ export const useStyles = makeStyles((theme: Theme) =>
     textfield: {
       marginTop: '2rem',
       width: '25rem',
+      [theme.breakpoints.down('sm')]: {
+        width: '17rem',
+      },
     },
     title: {
       marginBottom: '1rem',
+      fontSize:'3rem',
+      [theme.breakpoints.down('sm')]: {
+        fontSize:'1.8rem',
+      },
     },
     btn: {
       width: '15rem',
@@ -29,20 +36,16 @@ export const useStyles = makeStyles((theme: Theme) =>
       borderRadius: '20px',
       textTransform: 'capitalize',
       backgroundColor:'#ff4081',
-      color:'white'
+      color:'white',
+      [theme.breakpoints.down('sm')]: {
+        width: '10rem',
+      },
     },
     signup: {
       textDecorationLine: 'none',
       color:'#ff4081',
 
     },
-    checkbox: {
-      display: 'flex',
-      height: '10px',
-      margin: '2rem 2rem',
-      color: 'rgb(135, 152, 173)',
-    },
-
     successMessage: {
       color: 'green',
       fontSize: '14px',

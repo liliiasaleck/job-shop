@@ -21,12 +21,12 @@ const SignUpComponent = (): ReactElement => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const onSubmit = handleSubmit(({email, password}) => {
+  const onSubmit = handleSubmit(({email, password} :FormDataProps) => {
     dispatch(signUp({email, password}));
   });
 
-  const signUpError = useSelector(({auth}: any): StoreInterface => auth.authError);
-  const successMessage = useSelector(({auth}: any): StoreInterface => auth.successMessage);
+  const signUpError = useSelector(({auth}: StoreInterface) => auth.authError);
+  const successMessage = useSelector(({auth}: StoreInterface) => auth.successMessage);
   if (successMessage) {
     return <Redirect to={NavigationPathEnum.SIGN_IN} />;
   }

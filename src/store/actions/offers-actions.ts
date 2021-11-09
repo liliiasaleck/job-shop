@@ -1,9 +1,12 @@
 import {actionsTypes} from './actions-types';
 import api from '../../api/baseURL';
-import {getOffers} from '../../services/offers.service';
+import {addLogo, createOffer, filteredOffer, getOffers, searchOffers} from '../../services/offers.service';
+import { OfferModel } from '../../ts/interface';
+import { Dispatch } from 'react';
+import { IOffersAction } from './action-types.interface';
 
 export const fetchOffers = () => {
-  return async (dispatch, getState) => {
+  return async (dispatch: Dispatch<IOffersAction>, getState) => {
     try {
       const {offers} = getState();
       if (offers.location === 'Location') {
@@ -17,7 +20,7 @@ export const fetchOffers = () => {
 };
 
 export const setOffers = (jobDetailes) => {
-  return async (dispatch, getState) => {
+  return async (dispatch: Dispatch<IOffersAction>, getState) => {
     try {
       const {auth, offers} = getState();
       const {user} = auth;
@@ -27,44 +30,40 @@ export const setOffers = (jobDetailes) => {
         header = {Authorization: 'Bearer ' + userObject.accessToken};
       }
       const {address} = jobDetailes;
-      const result = await api.post(
-        '/offers',
-        {...jobDetailes, logoId: offers.logo.id},
-        {headers: {...header}}
-      );
-      if (result.data) {
-        dispatch({type: actionsTypes.SET_OFFERS, payload: result.data});
+      const response = await createOffer({...jobDetailes, logoId: offers.logo.id}, header);
+      if (response.data) {
+        dispatch({type: actionsTypes.SET_OFFERS, payload: response.data});
       }
-    } catch (error) {
-      dispatch({type: actionsTypes.FETCH_OFFERS_ERROR, error});
+    } catch (err) {
+      dispatch({type: actionsTypes.FETCH_OFFERS_ERROR, err});
     }
   };
 };
 
 
-export const searchOfferByName = (search) => {
-  return async (dispatch, getState) => {
+export const searchOfferByName = (search: string) => {
+  return async (dispatch: Dispatch<IOffersAction>) => {
     try {
-      const result = await api.get('/offers', {params: {search}});
-      if (result.data)
+      const response = await searchOffers(search);
+      if (response.data)
         dispatch({
           type: actionsTypes.SEARCH_OFFER_BY_NAME,
-          payload: {offersList: result.data},
+          payload: {offersList: response.data},
         });
-    } catch (error) {
-      dispatch({type: actionsTypes.FETCH_OFFERS_ERROR, error});
+    } catch (err) {
+      dispatch({type: actionsTypes.FETCH_OFFERS_ERROR, err});
     }
   };
 };
 
 export const resetFilters = () => {
-  return async (dispatch, getState) => {
+  return async (dispatch: Dispatch<IOffersAction>) => {
     dispatch({type: actionsTypes.RESET_FILTERS});
   };
 };
 
 export const filterOffers = () => {
-  return async (dispatch, getState) => {
+  return async (dispatch: Dispatch<IOffersAction>, getState) => {
     try {
       dispatch({type: actionsTypes.SET_LOADING});
       let myParams = {};
@@ -88,17 +87,15 @@ export const filterOffers = () => {
       if (tech && tech !== 'all') {
         myParams = {...myParams, tech};
       }
-
-      const result = await api.get('/offers', {params: {...myParams}});
-
-      if (result.data) {
+      const response = await filteredOffer(myParams);
+      if (response.data) {
         dispatch({
           type: actionsTypes.ADVANCED_FILTER,
-          payload: {offersList: result.data},
+          payload: {offersList: response.data},
         });
       }
-    } catch (error) {
-      dispatch({type: actionsTypes.FETCH_OFFERS_ERROR, error});
+    } catch (err) {
+      dispatch({type: actionsTypes.FETCH_OFFERS_ERROR, err});
     }
   };
 };
@@ -126,13 +123,13 @@ export const changeLocation = (location) => ({
 });
 
 export const selectOffer = (offer) => {
-  return async (dispatch, getState) => {
+  return async (dispatch: Dispatch<IOffersAction>) => {
     dispatch({type: actionsTypes.SELECT_OFFER, payload: offer});
   };
 };
 
-export const uploadLogo = (file) => {
-  return async (dispatch, getState) => {
+export const uploadLogo = (file: FormData) => {
+  return async (dispatch: Dispatch<IOffersAction>, getState) => {
     try {
       const {auth} = getState();
       const {user} = auth;
@@ -142,15 +139,15 @@ export const uploadLogo = (file) => {
         headers = {Authorization: 'Bearer ' + userObject.accessToken};
       }
       headers = {...headers, 'content-type': 'multipart/form-data'};
-      const result = await api.post('/offers/logo', file, {headers});
+      const response = await addLogo(file, headers);
 
-      if (result.data)
+      if (response.data)
         dispatch({
           type: actionsTypes.UPLOAD_LOGO,
-          payload: result.data,
+          payload: response.data,
         });
-    } catch (error) {
-      dispatch({type: actionsTypes.UPLOAD_LOGO_ERROR, error});
+    } catch (err) {
+      dispatch({type: actionsTypes.UPLOAD_LOGO_ERROR, err});
     }
   };
 };

@@ -29,8 +29,6 @@ const OfferList = (): ReactElement => {
   const isLoading = useSelector((state: StoreInterface) => state.offers.isLoading);
 
   useEffect((): void => {
-    if (location === 'Location' || tech === 'all') {
-    }
     dispatch(filterOffers());
   }, [location, tech, empType, experience]);
 

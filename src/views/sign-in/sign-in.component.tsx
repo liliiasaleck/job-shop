@@ -5,7 +5,7 @@ import {useForm} from 'react-hook-form';
 import {Typography, TextField, Button, Box} from '@material-ui/core';
 import {useStyles} from './sign-in.styles';
 import {useDispatch, useSelector} from 'react-redux';
-import {signIn} from '../../store/actions/auth-actions';
+import {clearMessage, signIn} from '../../store/actions/auth-actions';
 import {FormDataProps} from './sign-in.interface';
 import {NavigationPathEnum} from '../../ts/enum';
 import {StoreInterface} from '../../store/store.interface';
@@ -21,7 +21,7 @@ const SignInComponent = (): ReactElement => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const onSubmit = handleSubmit(({email, password}) => {
+  const onSubmit = handleSubmit(({email, password}: FormDataProps) => {
     dispatch(signIn({email, password}));
   });
 
@@ -29,16 +29,14 @@ const SignInComponent = (): ReactElement => {
   const user = useSelector(({auth}: StoreInterface) => auth.user);
   if (user) {
     return <Redirect to={NavigationPathEnum.POST_OFFER} />;
-  };
+  }
 
   return (
     <>
       <Navbar />
       <Box className={classes.box}>
         <form className={classes.form} noValidate autoComplete="off" onSubmit={onSubmit}>
-          <Typography className={classes.title}>
-            {SIGN_IN_TEXT}
-          </Typography>
+          <Typography className={classes.title}>{SIGN_IN_TEXT}</Typography>
           <Typography className={classes.successMessage}>{successMessage}</Typography>
           <TextField
             className={classes.textfield}
@@ -61,7 +59,11 @@ const SignInComponent = (): ReactElement => {
           </Button>
           <Typography>
             {NEW_ACCOUNT_TEXT}
-            <Link to={NavigationPathEnum.SIGN_UP} className={classes.signup}>
+            <Link
+              to={NavigationPathEnum.SIGN_UP}
+              onClick={() => dispatch(clearMessage())}
+              className={classes.signup}
+            >
               {SIGN_UP_LINK_TEXT}
             </Link>
           </Typography>

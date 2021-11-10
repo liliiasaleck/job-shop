@@ -74,7 +74,10 @@ export const useStyles = makeStyles((theme: Theme) =>
       textTransform: 'capitalize',
       fontSize: '18px',
       backgroundColor:'#ff4081',
-      color:'white'
+      color:'white',
+      '&:hover': {
+        backgroundColor: '#ff4081',
+    },
     },
     salaryField:{
       width: '16rem',

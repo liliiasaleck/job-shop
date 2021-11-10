@@ -1,9 +1,7 @@
 import React, { ReactElement } from 'react';
 import './spinner.css';
 
-interface SpinnerProps{}
-
-export const Spinner = ({}: SpinnerProps): ReactElement => {
+export const Spinner = (): ReactElement => {
   return (
     <div>
       <div className="sk-cube-grid">

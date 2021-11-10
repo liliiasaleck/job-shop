@@ -3,7 +3,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import InputBase from '@material-ui/core/InputBase';
 import {useStyles} from './search-bar.style';
 import {useDispatch} from 'react-redux';
-import {searchOfferByName} from '../../../store/actions/offers-actions';
+import {searchOfferByName} from '../../../store/actions/offers.actions';
 import {useDebounce} from '../../../hooks/use-debounce';
 
 

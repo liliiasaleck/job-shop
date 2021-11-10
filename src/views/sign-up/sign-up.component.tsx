@@ -5,7 +5,7 @@ import {useForm} from 'react-hook-form';
 import {Typography, TextField, Button, Checkbox, Box} from '@material-ui/core';
 import {useStyles} from './sign-up.style';
 import {useDispatch, useSelector} from 'react-redux';
-import {signUp} from '../../store/actions/auth-actions';
+import {clearMessage, signUp} from '../../store/actions/auth.actions';
 import {FormDataProps} from './sign-up.interface';
 import {NavigationPathEnum} from '../../ts/enum';
 import {StoreInterface} from '../../store/store.interface';
@@ -27,8 +27,11 @@ const SignUpComponent = (): ReactElement => {
 
   const signUpError = useSelector(({auth}: StoreInterface) => auth.authError);
   const successMessage = useSelector(({auth}: StoreInterface) => auth.successMessage);
+
   if (successMessage) {
     return <Redirect to={NavigationPathEnum.SIGN_IN} />;
+  }else{
+    signUpError;
   }
   return (
     <>
@@ -36,6 +39,7 @@ const SignUpComponent = (): ReactElement => {
       <Box className={classes.box}>
         <form className={classes.form} noValidate autoComplete="off" action="#" onSubmit={onSubmit}>
           <Typography className={classes.title}>{SIGN_UP_TEXT}</Typography>
+          <Typography className={classes.errorMessage}>{signUpError}</Typography>
           <TextField
             className={classes.textfield}
             label="Email"
@@ -56,7 +60,7 @@ const SignUpComponent = (): ReactElement => {
           </Button>
           <Typography>
             {SIGN_UP_LINK_TEXT}
-            <Link to={NavigationPathEnum.SIGN_IN} className={classes.signin}>
+            <Link to={NavigationPathEnum.SIGN_IN} onClick={()=> dispatch(clearMessage())} className={classes.signin}>
               {SIGN_IN_LINK_TEXT}
             </Link>
           </Typography>

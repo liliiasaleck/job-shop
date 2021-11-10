@@ -1,6 +1,6 @@
 import {loginUser, registerUser, UserInfo} from '../../services/auth.service';
 import api from '../../api/baseURL';
-import {actionsTypes} from './actions-types';
+import {actionsTypes} from './actions.types';
 import { Dispatch } from 'react';
 import { IAuthAction } from './action-types.interface';
 

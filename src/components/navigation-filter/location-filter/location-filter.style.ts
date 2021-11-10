@@ -7,18 +7,18 @@ export const useStyles = makeStyles((theme: Theme) => ({
     borderColor: '#E4E8F0',
     borderRadius: '40px',
     textTransform: 'capitalize',
-    width: '10rem',
+    minWidth: '8rem',
     marginLeft:'1rem',
     marginRight:'.5rem',
     [theme.breakpoints.down('md')]: {
       fontSize: '10px',
       marginLeft:'.2rem',
       marginRight:'0',
-      width: '8rem',
+      minWidth: '8rem',
 
     },
     [theme.breakpoints.down('sm')]: {
-      width: '8rem',
+      minWidth: '8rem',
       fontSize: '9px',
     },
   },
@@ -74,6 +74,8 @@ export const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   remote:{
+    display:'flex',
+    justifyContent:'center',
     [theme.breakpoints.down('md')]: {
       fontSize:'11px',
     },
@@ -100,9 +102,13 @@ export const useStyles = makeStyles((theme: Theme) => ({
     color: 'White',
     backgroundColor: '#ff4081',
     textTransform: 'capitalize',
+    '&:hover': {
+      backgroundColor: '#ff4081',
+  },
     [theme.breakpoints.down('md')]: {
       fontSize:'11px',
       width: '15%',
     },
+
   },
 }));

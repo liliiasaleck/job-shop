@@ -5,9 +5,9 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Icon from '@material-ui/core/Icon';
 import {Typography} from '@material-ui/core';
 import {useStyles} from './location-filter.style';
-import {topPolandLocations, topWorldLocations} from '../../../helpers/top-locations';
+import {topPolandLocations, topWorldLocations} from '../../../const/top-locations';
 import {useDispatch, useSelector} from 'react-redux';
-import {resetFilters, changeLocation, filterOffers} from '../../../store/actions/offers-actions';
+import {resetFilters, changeLocation, filterOffers} from '../../../store/actions/offers.actions';
 import {ReactElement} from 'react';
 import {
   LOCATION_REMOTE_TEXT,

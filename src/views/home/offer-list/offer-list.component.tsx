@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom';
 import {useStyles} from './offer-list.style';
 import {useDispatch, useSelector} from 'react-redux';
 import {useEffect} from 'react';
-import {filterOffers, resetFilters, selectOffer} from '../../../store/actions/offers-actions';
+import {filterOffers, resetFilters, selectOffer} from '../../../store/actions/offers.actions';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faBuilding} from '@fortawesome/free-solid-svg-icons';
 import {faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons';

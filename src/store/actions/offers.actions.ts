@@ -1,7 +1,6 @@
-import {actionsTypes} from './actions-types';
+import {actionsTypes} from './actions.types';
 import api from '../../api/baseURL';
 import {addLogo, createOffer, filteredOffer, getOffers, searchOffers} from '../../services/offers.service';
-import { OfferModel } from '../../ts/interface';
 import { Dispatch } from 'react';
 import { IOffersAction } from './action-types.interface';
 
@@ -31,6 +30,7 @@ export const setOffers = (jobDetailes) => {
       }
       const {address} = jobDetailes;
       const response = await createOffer({...jobDetailes, logoId: offers.logo.id}, header);
+      console.log(response)
       if (response.data) {
         dispatch({type: actionsTypes.SET_OFFERS, payload: response.data});
       }

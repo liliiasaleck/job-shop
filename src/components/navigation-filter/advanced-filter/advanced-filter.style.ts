@@ -36,8 +36,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       width: '9rem',
       [theme.breakpoints.down('md')]: {
         fontSize: '10px',
-        width: '8rem',
-        marginLeft:'0',
+        minWidth: '8rem',
       },
     },
     item: {
@@ -122,6 +121,9 @@ export const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: '#ff4081',
       marginTop: '1rem',
       marginBottom: '15px',
+      '&:hover': {
+        backgroundColor: '#ff4081',
+    },
       [theme.breakpoints.down('sm')]: {
         fontSize: '12px',
       },

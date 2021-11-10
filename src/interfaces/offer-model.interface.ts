@@ -18,17 +18,3 @@ export interface OfferModel {
     address: string;
     logoId: number;
   }
-
-  export interface LocationModel{
-    longitude: number;
-    latitude: number;
-  }
-
-  export type FilterOfferParams = {
-    salaryFrom?: number;
-    salaryTo?: number;
-    location?: string;
-    employmentType?: string;
-    tech?: string;
-    experience?: string;
-  }

@@ -36,6 +36,9 @@ export const useStyles = makeStyles((theme: Theme) =>
       borderRadius: '20px',
       textTransform: 'capitalize',
       backgroundColor:'#ff4081',
+      '&:hover': {
+        backgroundColor: '#ff4081',
+    },
       color:'white',
       [theme.breakpoints.down('sm')]: {
         width: '10rem',
@@ -44,7 +47,11 @@ export const useStyles = makeStyles((theme: Theme) =>
     signin: {
       textDecorationLine: 'none',
       color:'#ff4081',
-
     },
+    errorMessage:{
+      color: 'red',
+      fontSize: '14px',
+      borderRadius: '3px',
+    }
   })
 );

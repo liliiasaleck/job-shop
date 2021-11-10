@@ -1,4 +1,4 @@
-import {actionsTypes} from '../actions/actions-types';
+import {actionsTypes} from '../actions/actions.types';
 
 const initState = {
   offersList: [],

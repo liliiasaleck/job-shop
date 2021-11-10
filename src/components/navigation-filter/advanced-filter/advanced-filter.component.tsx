@@ -1,7 +1,7 @@
 import React, {ReactElement, useState} from 'react';
 import {Modal, Typography, Fade, Button, Divider, Icon, MenuItem, Slider} from '@material-ui/core';
-import {employmentType} from '../../../helpers/employment-type.const';
-import {experienceLvl} from '../../../helpers/experience-lvl.const';
+import {employmentType} from '../../../const/employment-type.const';
+import {experienceLvl} from '../../../const/experience-lvl.const';
 import {useStyles} from './advanced-filter.style';
 import {useDispatch, useSelector} from 'react-redux';
 import {
@@ -10,7 +10,7 @@ import {
   changeSalary,
   filterOffers,
   resetFilters,
-} from '../../../store/actions/offers-actions';
+} from '../../../store/actions/offers.actions';
 import {
   FILTER_TITLE_TEXT,
   SALARY_TEXT,

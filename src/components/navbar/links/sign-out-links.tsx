@@ -2,7 +2,7 @@ import {Button} from '@material-ui/core';
 import React, { ReactElement } from 'react';
 import {useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {signOut} from '../../../store/actions/auth-actions';
+import {signOut} from '../../../store/actions/auth.actions';
 import {useStyles} from '../navbar.style';
 import { NavigationPathEnum } from '../../../ts/enum';
 import {SIGN_OUT_LINK_TEXT} from './links.const';

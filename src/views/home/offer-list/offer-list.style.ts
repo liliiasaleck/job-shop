@@ -3,11 +3,11 @@ import {makeStyles} from '@material-ui/core';
 export const useStyles = makeStyles((theme) => ({
   box: {
     width: '65%',
-    height: '86%',
+    height: '100%',
     overflow: 'hidden',
     overflowY: 'scroll',
-    position: 'fixed',
-    top: '59%',
+    position: 'absolute',
+    top: '68%',
     left: '33%',
     transform: 'translate(-50%, -50%)',
     [theme.breakpoints.down('md')]: {

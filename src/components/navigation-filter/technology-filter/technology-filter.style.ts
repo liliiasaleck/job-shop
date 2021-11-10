@@ -1,9 +1,16 @@
 import {makeStyles} from '@material-ui/core';
 
 export const useStyles = makeStyles((theme) => ({
+  filterBox: {
+    overflowX: 'scroll',
+    marginTop: '.5rem',
+    [theme.breakpoints.down('md')]: {
+      marginTop: '0.7',
+      height: '3.2rem',
+    },
+  },
   main: {
     display: 'flex',
-    marginTop:'.9rem',
   },
   round: {
     display: 'flex',
@@ -17,22 +24,14 @@ export const useStyles = makeStyles((theme) => ({
     color: 'white',
     margin: '0px 10px',
     cursor: 'pointer',
-    [theme.breakpoints.down('md')]: {
-      width: '35px',
-      height: '35px',
-    },
-    [theme.breakpoints.down('sm')]: {
-      display: 'none',
-    },
   },
-
-  display:{
-    display: 'flex',
-    fontSize:'11px',
-    color:'rgb(117, 117, 117)',
-    justifyContent:'space-around',
+  display: {
+    fontSize: '11px',
+    color: 'rgb(117, 117, 117)',
+    display:'flex',
     width:'100%',
-    [theme.breakpoints.down('sm')]: {
+    justifyContent:'space-around',
+    [theme.breakpoints.down('md')]: {
       display: 'none',
     },
   },

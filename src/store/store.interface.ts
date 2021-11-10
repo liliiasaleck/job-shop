@@ -1,4 +1,5 @@
-import {OfferModel, LocationModel} from '../ts/interface';
+import { LocationModel } from '../interfaces/location-model.interface';
+import { OfferModel } from '../interfaces/offer-model.interface';
 
 export interface StoreInterface {
   auth: {

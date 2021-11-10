@@ -5,7 +5,7 @@ import {useForm} from 'react-hook-form';
 import {Typography, TextField, Button, Box} from '@material-ui/core';
 import {useStyles} from './sign-in.styles';
 import {useDispatch, useSelector} from 'react-redux';
-import {clearMessage, signIn} from '../../store/actions/auth-actions';
+import {clearMessage, signIn} from '../../store/actions/auth.actions';
 import {FormDataProps} from './sign-in.interface';
 import {NavigationPathEnum} from '../../ts/enum';
 import {StoreInterface} from '../../store/store.interface';
@@ -25,10 +25,13 @@ const SignInComponent = (): ReactElement => {
     dispatch(signIn({email, password}));
   });
 
+  const signInError = useSelector(({auth}: StoreInterface) => auth.authError);
   const successMessage = useSelector(({auth}: StoreInterface) => auth.successMessage);
   const user = useSelector(({auth}: StoreInterface) => auth.user);
   if (user) {
     return <Redirect to={NavigationPathEnum.POST_OFFER} />;
+  } else {
+    signInError;
   }
 
   return (
@@ -38,6 +41,7 @@ const SignInComponent = (): ReactElement => {
         <form className={classes.form} noValidate autoComplete="off" onSubmit={onSubmit}>
           <Typography className={classes.title}>{SIGN_IN_TEXT}</Typography>
           <Typography className={classes.successMessage}>{successMessage}</Typography>
+          <Typography className={classes.errorMessage}>{signInError}</Typography>
           <TextField
             className={classes.textfield}
             label="Email"

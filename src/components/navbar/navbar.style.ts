@@ -35,7 +35,7 @@ export const useStyles = makeStyles((theme) => ({
     borderBottom: '1px solid #E4E8F0',
     display: 'flex',
     justifyContent: 'space-between',
-    minHeight:'4rem'
+    minHeight: '4rem',
   },
   header: {
     boxShadow: '0px 0px 0px 0px',
@@ -72,10 +72,10 @@ export const useStyles = makeStyles((theme) => ({
     textTransform: 'uppercase',
     fontSize: '20px',
   },
-  topMenu:{
+  topMenu: {
     display: 'flex',
   },
-  closeMenu:{
+  closeMenu: {
     color: '#99A1AB',
   },
   post: {
@@ -83,7 +83,7 @@ export const useStyles = makeStyles((theme) => ({
     textTransform: 'capitalize',
     fontSize: '14px',
     color: 'rgb(119, 119, 119)',
-    border:'1px solid rgba(0, 0, 0, 0.23)',
+    border: '1px solid rgba(0, 0, 0, 0.23)',
     borderColor: '#E4E8F0',
     borderRadius: '20px',
     marginRight: '1rem',
@@ -97,6 +97,10 @@ export const useStyles = makeStyles((theme) => ({
     textTransform: 'capitalize',
     fontSize: '14px',
     color: '#fff',
+    '&:hover': {
+      backgroundColor: '#ff4081',
+      color: '#fff',
+    },
     borderRadius: '20px',
     marginRight: '1rem',
     width: '100px',

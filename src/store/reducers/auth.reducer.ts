@@ -1,5 +1,5 @@
-import { StoreInterface } from '../../store/store.interface';
-import {actionsTypes} from '../actions/actions-types';
+import { StoreInterface } from '../store.interface';
+import {actionsTypes} from '../actions/actions.types';
 
 const initState= {
   authError: '',
@@ -24,7 +24,7 @@ const authReducer = (state = initState, action) => {
     case actionsTypes.REDIRECT_USER:
       return {...state, successMessage: 'Please login to your account'};
       case actionsTypes.CLEAR_MESSAGE:
-      return {...state, successMessage: ''};
+      return {...state, successMessage: '', authError: ''};
     default:
       return state;
   }

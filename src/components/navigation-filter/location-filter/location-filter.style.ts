@@ -3,17 +3,17 @@ import {makeStyles, Theme} from '@material-ui/core';
 export const useStyles = makeStyles((theme: Theme) => ({
   mainLocation: {
     color: 'rgb(119, 119, 119)',
-    border:'1px solid rgba(0, 0, 0, 0.23)',
+    border: '1px solid rgba(0, 0, 0, 0.23)',
     borderColor: '#E4E8F0',
     borderRadius: '40px',
     textTransform: 'capitalize',
     minWidth: '10rem',
-    marginLeft:'1rem',
-    marginRight:'.5rem',
+    marginLeft: '1rem',
+    marginRight: '.5rem',
     [theme.breakpoints.down('md')]: {
       fontSize: '10px',
-      marginLeft:'.2rem',
-      marginRight:'0',
+      marginLeft: '.2rem',
+      marginRight: '0',
       minWidth: '8rem',
     },
     [theme.breakpoints.down('sm')]: {
@@ -27,16 +27,15 @@ export const useStyles = makeStyles((theme: Theme) => ({
     color: 'rgb(255,64,129)',
     border: '1px solid rgb(255,64,129)',
     borderRadius: '40px',
-    marginLeft:'1rem',
-    marginRight:'.5rem',
+    marginLeft: '1rem',
+    marginRight: '.5rem',
     textTransform: 'capitalize',
     backgroundColor: 'rgba(255, 64, 129, 0.08)',
     [theme.breakpoints.down('md')]: {
       fontSize: '10px',
-      marginLeft:'.2rem',
-      marginRight:'0',
+      marginLeft: '.2rem',
+      marginRight: '0',
       minWidth: '8rem',
-
     },
     [theme.breakpoints.down('sm')]: {
       width: '8rem',
@@ -47,11 +46,17 @@ export const useStyles = makeStyles((theme: Theme) => ({
   menu: {
     marginTop: '4rem',
     boxSizing: 'inherit',
-    height:'100vh'
-
+    height: '100vh',
   },
   container: {
     display: 'flex',
+  },
+  containerCity: {
+    display: 'flex',
+    [theme.breakpoints.down('xs')]: {
+      minHeight: 'auto',
+      flexWrap: 'wrap',
+    },
   },
   containerOtherLocation: {
     display: 'flex',
@@ -64,24 +69,27 @@ export const useStyles = makeStyles((theme: Theme) => ({
     color: '#99A1AB',
   },
   city: {
-    border:'1px solid rgba(0, 0, 0, 0.23)',
+    border: '1px solid rgba(0, 0, 0, 0.23)',
     borderColor: '#E4E8F0',
     borderRadius: '40px',
     marginLeft: '10px',
     color: '#99A1AB',
     [theme.breakpoints.down('md')]: {
-      fontSize:'11px',
+      fontSize: '11px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      margin: '5px',
     },
   },
-  remote:{
-    display:'flex',
-    justifyContent:'center',
+  remote: {
+    display: 'flex',
+    justifyContent: 'center',
     [theme.breakpoints.down('md')]: {
-      fontSize:'11px',
+      fontSize: '11px',
     },
   },
-  remoteContainer:{
-    border:'1px solid rgba(0, 0, 0, 0.23)',
+  remoteContainer: {
+    border: '1px solid rgba(0, 0, 0, 0.23)',
     borderColor: '#E4E8F0',
     borderRadius: '40px',
     width: '5.5rem',
@@ -107,11 +115,10 @@ export const useStyles = makeStyles((theme: Theme) => ({
     textTransform: 'capitalize',
     '&:hover': {
       backgroundColor: '#ff4081',
-  },
+    },
     [theme.breakpoints.down('md')]: {
-      fontSize:'11px',
+      fontSize: '11px',
       minWidth: '10%',
     },
-
   },
 }));

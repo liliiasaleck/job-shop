@@ -38,6 +38,10 @@ export const useStyles = makeStyles((theme: Theme) =>
         fontSize: '10px',
         minWidth: '8rem',
       },
+      [theme.breakpoints.down('sm')]: {
+        minWidth: '8rem',
+        fontSize: '9px',
+      },
     },
     item: {
       border: '1px solid rgba(0, 0, 0, 0.23)',
@@ -64,6 +68,11 @@ export const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       width: 'auto',
       marginBottom: '15px',
+      [theme.breakpoints.down('xs')]: {
+        fontSize: '12px',
+        height: 'auto',
+        flexWrap:'wrap'
+      },
     },
     buttons: {
       display: 'flex',

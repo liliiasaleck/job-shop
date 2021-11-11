@@ -29,6 +29,11 @@ export const useStyles = makeStyles((theme) => ({
       width: '34px',
       marginTop: '5px',
     },
+    [theme.breakpoints.down('sm')]: {
+      height: '30px',
+      width: '30px',
+      marginTop: '5px',
+    },
   },
   display: {
     fontSize: '11px',

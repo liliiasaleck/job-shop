@@ -46,13 +46,16 @@ export const useStyles = makeStyles((theme) => ({
   content: {
     width: '90%',
   },
-
   title: {
     color: 'rgb(55, 71, 79)',
     fontSize: '16px',
     fontWeight: 'bold',
     [theme.breakpoints.down('sm')]: {
       fontSize: '13px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '13px',
+      maxWidth:'10rem'
     },
   },
   location: {
@@ -82,18 +85,23 @@ export const useStyles = makeStyles((theme) => ({
   salaryBox: {
     display: 'flex',
     color: 'rgb(30, 198, 108)',
+    minWidth:'2.5rem',
   },
   salaryText: {
     fontSize: '16px',
     [theme.breakpoints.down('sm')]: {
-      fontSize: '12px',
+      fontSize: '10px',
+    },
+    [theme.breakpoints.down('xs')]: {
+      fontSize: '9px',
     },
   },
   image: {
     maxWidth: '7rem',
     position:'relative',
     maxHeight: '2rem',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('xs')]: {
+      maxWidth: '4rem',
     },
   },
   imageBox:{
@@ -101,7 +109,10 @@ export const useStyles = makeStyles((theme) => ({
     padding:'15px 10px',
     height: '4rem',
     display:'flex',
-    justifyContent:'center'
+    justifyContent:'center',
+    [theme.breakpoints.down('xs')]: {
+      width: '5rem',
+    },
   },
   more: {
     fontSize: '12px',
@@ -118,6 +129,9 @@ export const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.down('sm')]: {
       left: '15%',
+    },
+    [theme.breakpoints.down('xs')]: {
+      left: '8%',
     },
   },
   noOffersText:{

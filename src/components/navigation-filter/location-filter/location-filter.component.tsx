@@ -16,7 +16,7 @@ import {
   LOCATION_TEXT,
   CLEAR_BUTTON_TEXT,
 } from '../navigation.const';
-import { StoreInterface } from '../../../store/store.interface';
+import {StoreInterface} from '../../../store/store.interface';
 
 const LocationFilter = (): ReactElement => {
   const classes = useStyles();
@@ -63,18 +63,17 @@ const LocationFilter = (): ReactElement => {
       >
         <div className={classes.container}>
           <div className={classes.remoteContainer}>
-          <MenuItem className={classes.remote} onClick={() => dispatch(changeLocation(LOCATION_REMOTE_TEXT))}>
-            {LOCATION_REMOTE_TEXT}
-          </MenuItem>
+            <MenuItem
+              className={classes.remote}
+              onClick={() => dispatch(changeLocation(LOCATION_REMOTE_TEXT))}
+            >
+              {LOCATION_REMOTE_TEXT}
+            </MenuItem>
           </div>
-          <Button
-            className={classes.close}
-            endIcon={<Icon>close</Icon>}
-            onClick={handleClose}
-          />
+          <Button className={classes.close} endIcon={<Icon>close</Icon>} onClick={handleClose} />
         </div>
         <Typography className={classes.title}>{POLAND_CITY_TEXT}</Typography>
-        <div className={classes.container}>
+        <div className={classes.containerCity}>
           {topPolandLocations.map((location, index) => (
             <MenuItem
               key={index}
@@ -90,7 +89,7 @@ const LocationFilter = (): ReactElement => {
         </div>
 
         <Typography className={classes.title}>{WORLD_CITY_TEXT}</Typography>
-        <div className={classes.container}>
+        <div className={classes.containerCity}>
           {topWorldLocations.map((location, index) => (
             <MenuItem
               key={index}
@@ -105,10 +104,7 @@ const LocationFilter = (): ReactElement => {
           ))}
         </div>
 
-        <Button
-          className={classes.clear}
-          onClick={handleReset}
-        >
+        <Button className={classes.clear} onClick={handleReset}>
           {CLEAR_BUTTON_TEXT}
         </Button>
       </Menu>

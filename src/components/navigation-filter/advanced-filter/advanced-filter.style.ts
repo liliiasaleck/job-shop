@@ -25,13 +25,13 @@ export const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'space-between',
     },
     main: {
-      border:'1px solid rgba(0, 0, 0, 0.23)',
+      border: '1px solid rgba(0, 0, 0, 0.23)',
       borderColor: '#E4E8F0',
       borderRadius: '40px',
       textTransform: 'capitalize',
       color: 'rgb(119, 119, 119)',
-      marginLeft:'.7rem',
-      marginRight:'.5rem',
+      marginLeft: '.7rem',
+      marginRight: '.5rem',
       fontSize: '14px',
       width: '9rem',
       [theme.breakpoints.down('md')]: {
@@ -40,7 +40,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       },
     },
     item: {
-      border:'1px solid rgba(0, 0, 0, 0.23)',
+      border: '1px solid rgba(0, 0, 0, 0.23)',
       borderColor: '#E4E8F0',
       borderRadius: '40px',
       margin: '10px 10px 10px 10px',
@@ -70,8 +70,10 @@ export const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'space-between',
     },
     close: {
-      marginLeft: '10rem',
       color: '#99A1AB',
+      '&:hover': {
+        backgroundColor: '#ffffff',
+      },
     },
     text: {
       margin: '15px 15px',
@@ -88,7 +90,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       marginBottom: '20px',
     },
     slidervalue: {
-      border:'1px solid rgba(0, 0, 0, 0.23)',
+      border: '1px solid rgba(0, 0, 0, 0.23)',
       borderColor: '#E4E8F0',
       borderRadius: '40px',
       width: '200px',
@@ -105,7 +107,7 @@ export const useStyles = makeStyles((theme: Theme) =>
     },
     clearBtn: {
       textTransform: 'capitalize',
-      border:'1px solid rgba(0, 0, 0, 0.23)',
+      border: '1px solid rgba(0, 0, 0, 0.23)',
       borderColor: '#E4E8F0',
       borderRadius: '40px',
       marginTop: '1rem',
@@ -123,7 +125,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       marginBottom: '15px',
       '&:hover': {
         backgroundColor: '#ff4081',
-    },
+      },
       [theme.breakpoints.down('sm')]: {
         fontSize: '12px',
       },

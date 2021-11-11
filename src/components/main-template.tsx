@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import Map from './map/map.component';
-import {NavigationPathEnum} from '../ts/enum';
+import {NavigationPathEnum} from '../enums/navigation-path.enum';
 
 const MainTemplateComponent = ({children}: any) => {
   const {pathname} = window.location;

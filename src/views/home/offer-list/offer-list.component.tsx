@@ -39,7 +39,9 @@ const OfferList = (): ReactElement => {
   return (
     <>
       <Box className={classes.box}>
-        {offersList?.length > 0 ? (
+        {isLoading ? (
+          <Spinner/>
+        ) : offersList?.length > 0 ? (
           offersList?.map((offer) => {
             const {title, salaryFrom, salaryTo, location, tech, id, companyName, logo} = offer;
             return (
@@ -54,8 +56,9 @@ const OfferList = (): ReactElement => {
               >
                 <Card className={classes.offer}>
                   <CardActionArea className={classes.main}>
-                    <img className={classes.image} src={logo?.url} />
-
+                    <div className={classes.imageBox}>
+                      <img className={classes.image} src={logo?.url} />
+                    </div>
                     <CardContent className={classes.content}>
                       <div className={classes.large}>
                         <Typography className={classes.title}>{title}</Typography>
@@ -87,8 +90,9 @@ const OfferList = (): ReactElement => {
         ) : (
           <div className={classes.noOffers}>
             <Typography className={classes.noOffersText}>{NO_FOUND_OFFERS}</Typography>
-            <Button className={classes.removeFilters}
-            onClick={handleReset}>{REMOVE_FILTERS}</Button>
+            <Button className={classes.removeFilters} onClick={handleReset}>
+              {REMOVE_FILTERS}
+            </Button>
           </div>
         )}
       </Box>

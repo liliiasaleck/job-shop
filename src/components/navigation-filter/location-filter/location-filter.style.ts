@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     borderColor: '#E4E8F0',
     borderRadius: '40px',
     textTransform: 'capitalize',
-    minWidth: '8rem',
+    minWidth: '10rem',
     marginLeft:'1rem',
     marginRight:'.5rem',
     [theme.breakpoints.down('md')]: {
@@ -15,7 +15,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
       marginLeft:'.2rem',
       marginRight:'0',
       minWidth: '8rem',
-
     },
     [theme.breakpoints.down('sm')]: {
       minWidth: '8rem',
@@ -24,7 +23,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
   },
 
   mainSelectedLocation: {
-    width: '10rem',
+    minWidth: '10rem',
     color: 'rgb(255,64,129)',
     border: '1px solid rgb(255,64,129)',
     borderRadius: '40px',
@@ -36,12 +35,13 @@ export const useStyles = makeStyles((theme: Theme) => ({
       fontSize: '10px',
       marginLeft:'.2rem',
       marginRight:'0',
-      width: '8rem',
+      minWidth: '8rem',
 
     },
     [theme.breakpoints.down('sm')]: {
       width: '8rem',
       fontSize: '9px',
+      minWidth: '8rem',
     },
   },
   menu: {
@@ -91,6 +91,9 @@ export const useStyles = makeStyles((theme: Theme) => ({
   close: {
     marginLeft: '27rem',
     color: '#99A1AB',
+    '&:hover': {
+      backgroundColor: '#ffffff',
+    },
     [theme.breakpoints.down('sm')]: {
       marginLeft: '22rem',
     },
@@ -107,7 +110,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
   },
     [theme.breakpoints.down('md')]: {
       fontSize:'11px',
-      width: '15%',
+      minWidth: '10%',
     },
 
   },

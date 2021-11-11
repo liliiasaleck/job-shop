@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import Offers from './offer-list/offer-list.component';
-import {Box, useTheme} from '@material-ui/core';
+import {Box} from '@material-ui/core';
 import {useStyles} from './home-page.style';
 import NavigationComponent from '../../components/navigation-filter/navigation.component';
 

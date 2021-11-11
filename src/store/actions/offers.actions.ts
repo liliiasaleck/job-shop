@@ -1,8 +1,14 @@
 import {actionsTypes} from './actions.types';
 import api from '../../api/baseURL';
-import {addLogo, createOffer, filteredOffer, getOffers, searchOffers} from '../../services/offers.service';
-import { Dispatch } from 'react';
-import { IOffersAction } from './action-types.interface';
+import {
+  addLogo,
+  createOffer,
+  filteredOffer,
+  getOffers,
+  searchOffers,
+} from '../../services/offers.service';
+import {Dispatch} from 'react';
+import {IOffersAction} from '../../interfaces/action-types.interface';
 
 export const fetchOffers = () => {
   return async (dispatch: Dispatch<IOffersAction>, getState) => {
@@ -30,7 +36,6 @@ export const setOffers = (jobDetailes) => {
       }
       const {address} = jobDetailes;
       const response = await createOffer({...jobDetailes, logoId: offers.logo.id}, header);
-      console.log(response)
       if (response.data) {
         dispatch({type: actionsTypes.SET_OFFERS, payload: response.data});
       }
@@ -40,11 +45,11 @@ export const setOffers = (jobDetailes) => {
   };
 };
 
-
 export const searchOfferByName = (search: string) => {
   return async (dispatch: Dispatch<IOffersAction>) => {
     try {
       const response = await searchOffers(search);
+      console.log(response);
       if (response.data)
         dispatch({
           type: actionsTypes.SEARCH_OFFER_BY_NAME,
@@ -68,7 +73,6 @@ export const filterOffers = () => {
       dispatch({type: actionsTypes.SET_LOADING});
       let myParams = {};
       const {salaryFrom, salaryTo, employmentType, experience, location, tech} = getState().offers;
-
       if (salaryFrom) {
         myParams = {...myParams, salaryFrom};
       }

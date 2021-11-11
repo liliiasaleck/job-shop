@@ -18,10 +18,10 @@ import GroupIcon from '@material-ui/icons/Group';
 import CreateIcon from '@material-ui/icons/Create';
 import ComputerIcon from '@material-ui/icons/Computer';
 import {useStyles} from './navbar.style';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import SignInLinks from './links/sign-in-links';
 import SignOutLinks from './links/sign-out-links';
-import {NavigationPathEnum} from '../../ts/enum';
+import {NavigationPathEnum} from '../../enums/navigation-path.enum';
 import {
   PAGE_TITLE_TEXT,
   LOGO_TEXT,
@@ -33,10 +33,13 @@ import {
   GEEK_IN_LINK_TEXT,
 } from './navbar.const';
 import {StoreInterface} from '../../store/store.interface';
+import {resetFilters} from '../../store/actions/offers.actions';
+import {clearMessage} from '../../store/actions/auth.actions';
 
 const NavbarComponent = (): ReactElement => {
   const classes = useStyles();
   const [open, setOpenDrawer] = useState<boolean>(false);
+  const dispatch = useDispatch();
 
   const handleDrawer = (): void => {
     setOpenDrawer(true);
@@ -44,6 +47,11 @@ const NavbarComponent = (): ReactElement => {
 
   const handleClose = (): void => {
     setOpenDrawer(false);
+  };
+
+  const handleReset = (): void => {
+    dispatch(resetFilters());
+    dispatch(clearMessage());
   };
 
   const user = useSelector(({auth}: StoreInterface) => auth.user);
@@ -54,7 +62,7 @@ const NavbarComponent = (): ReactElement => {
       <AppBar className={classes.header}>
         <Toolbar className={classes.toolbar}>
           <div className={classes.logoDiv}>
-            <Link to={NavigationPathEnum.MAIN} className={classes.logo}>
+            <Link to={NavigationPathEnum.MAIN} onClick={handleReset} className={classes.logo}>
               {LOGO_TEXT}
             </Link>
             <Typography className={classes.title}>{PAGE_TITLE_TEXT}</Typography>

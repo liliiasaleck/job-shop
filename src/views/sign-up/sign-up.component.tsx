@@ -1,4 +1,4 @@
-import React, {ReactElement} from 'react';
+import React, {ReactElement, useState} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import Navbar from '../../components/navbar/navbar.component';
 import {useForm} from 'react-hook-form';
@@ -7,7 +7,7 @@ import {useStyles} from './sign-up.style';
 import {useDispatch, useSelector} from 'react-redux';
 import {clearMessage, signUp} from '../../store/actions/auth.actions';
 import {FormDataProps} from './sign-up.interface';
-import {NavigationPathEnum} from '../../ts/enum';
+import {NavigationPathEnum} from '../../enums/navigation-path.enum';
 import {StoreInterface} from '../../store/store.interface';
 import {
   SIGN_UP_TEXT,
@@ -15,6 +15,7 @@ import {
   SIGN_UP_LINK_TEXT,
   SIGN_IN_LINK_TEXT,
 } from './sign-up.const';
+import { Spinner } from '../../components/spinner/spinner';
 
 const SignUpComponent = (): ReactElement => {
   const {register, handleSubmit} = useForm<FormDataProps>();
@@ -27,7 +28,6 @@ const SignUpComponent = (): ReactElement => {
 
   const signUpError = useSelector(({auth}: StoreInterface) => auth.authError);
   const successMessage = useSelector(({auth}: StoreInterface) => auth.successMessage);
-
   if (successMessage) {
     return <Redirect to={NavigationPathEnum.SIGN_IN} />;
   }else{

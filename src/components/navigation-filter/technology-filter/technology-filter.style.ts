@@ -24,6 +24,11 @@ export const useStyles = makeStyles((theme) => ({
     color: 'white',
     margin: '0px 10px',
     cursor: 'pointer',
+    [theme.breakpoints.down('sm')]: {
+      height: '34px',
+      width: '34px',
+      marginTop: '5px',
+    },
   },
   display: {
     fontSize: '11px',

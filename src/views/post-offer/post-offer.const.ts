@@ -1,4 +1,5 @@
 export const BACK_BUTTON_TEXT='Back';
+export const UPLOAD_LOGO_TEXT='Company Logo';
 export const UPLOAD_BUTTON_TEXT='Upload Logo';
 export const ABOUT_COMPANY_TEXT='About company';
 export const BRAND_STORY_TEXT='Brand story';

@@ -1,5 +1,5 @@
 import {Button, TextField, Typography, FormControl, MenuItem, Box} from '@material-ui/core';
-import React, {ChangeEvent, EffectCallback, useEffect} from 'react';
+import React, {ChangeEvent, useEffect} from 'react';
 import {useStyles} from './post-offer.style';
 import {useHistory} from 'react-router-dom';
 import {ArrowBack} from '@material-ui/icons';
@@ -33,6 +33,7 @@ import {
   JOB_DESCRIPTION_TEXT,
   LOCATION_TEXT,
   SUBMIT_BUTTON_TEXT,
+  UPLOAD_LOGO_TEXT,
 } from '../post-offer/post-offer.const';
 
 const PostOffer = (): ReactElement => {
@@ -79,8 +80,8 @@ const PostOffer = (): ReactElement => {
     history.push('/signIn');
   }, []);
 
-  const fileChangedHandler = (event: ChangeEvent <HTMLInputElement>) : void => {
-    if(!event.target?.files?.[0]){
+  const fileChangedHandler = (event: ChangeEvent<HTMLInputElement>): void => {
+    if (!event.target?.files?.[0]) {
       return;
     }
     const file = event.target.files[0];
@@ -98,17 +99,20 @@ const PostOffer = (): ReactElement => {
             <ArrowBack />
             {BACK_BUTTON_TEXT}
           </Button>
-          <Typography className={classes.title}>{UPLOAD_BUTTON_TEXT}</Typography>
+          <Typography className={classes.title}>{UPLOAD_LOGO_TEXT}</Typography>
           <Button variant="contained" component="label">
             {UPLOAD_BUTTON_TEXT}
             <input type="file" onChange={fileChangedHandler} hidden />
           </Button>
-          <Typography className={classes.title}>{ABOUT_COMPANY_TEXT} </Typography>
+          <Typography className={classes.title}>{ABOUT_COMPANY_TEXT}</Typography>
           <TextField
             className={classes.textField}
             label="Company name"
             name="companyName"
             id="companyName"
+            InputLabelProps={{
+              shrink: true,
+            }}
             value={formik.values.companyName}
             onChange={formik.handleChange}
             error={formik.touched.companyName && Boolean(formik.errors.companyName)}
@@ -130,13 +134,15 @@ const PostOffer = (): ReactElement => {
             label="Company website"
             name="webSite"
             id="webSite"
+            InputLabelProps={{
+              shrink: true,
+            }}
             value={formik.values.webSite}
             onChange={formik.handleChange}
             error={formik.touched.webSite && Boolean(formik.errors.webSite)}
             helperText={formik.touched.webSite && formik.errors.webSite}
           />
           <Typography className={classes.title}>{BRAND_STORY_TEXT}</Typography>
-
           <TextareaAutosize
             className={classes.textarea}
             minRows={5}
@@ -146,38 +152,44 @@ const PostOffer = (): ReactElement => {
             onChange={formik.handleChange}
           />
           <Typography className={classes.title}>{POSITION_INFO_TEXT}</Typography>
-          <FormControl className={classes.formControl}>
+          <div  className={classes.positionInfoBox}>
+            <FormControl className={classes.formControl}>
+              <TextField
+                select
+                className={classes.select}
+                style={{width: '200px'}}
+                label="Experience level"
+                id="experience"
+                name="experience"
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                value={formik.values.experience}
+                onChange={formik.handleChange}
+                error={formik.touched.experience && Boolean(formik.errors.experience)}
+                helperText={formik.touched.experience && formik.errors.experience}
+              >
+                <MenuItem value={'Junior'}>{EXPERIANCE_JUNIOR_TEXT}</MenuItem>
+                <MenuItem value={'Mid'}>{EXPERIANCE_MID_TEXT}</MenuItem>
+                <MenuItem value={'Senior'}>{EXPERIANCE_SENIOR_TEXT}</MenuItem>
+              </TextField>
+            </FormControl>
             <TextField
-              select
-              className={classes.select}
-              style={{width: '200px'}}
-              label="Experience level"
-              id="experience"
-              name="experience"
-              value={formik.values.experience}
+              className={classes.offerTitle}
+              label="Offer title"
+              id="title"
+              name="title"
+              InputLabelProps={{
+                shrink: true,
+              }}
+              value={formik.values.title}
               onChange={formik.handleChange}
-              error={formik.touched.experience && Boolean(formik.errors.experience)}
-              helperText={formik.touched.experience && formik.errors.experience}
-            >
-              <MenuItem value={'Junior'}>{EXPERIANCE_JUNIOR_TEXT}</MenuItem>
-              <MenuItem value={'Mid'}>{EXPERIANCE_MID_TEXT}</MenuItem>
-              <MenuItem value={'Senior'}>{EXPERIANCE_SENIOR_TEXT}</MenuItem>
-            </TextField>
-          </FormControl>
-          <TextField
-            className={classes.offerTitle}
-            label="Offer title"
-            id="title"
-            name="title"
-            value={formik.values.title}
-            onChange={formik.handleChange}
-            error={formik.touched.title && Boolean(formik.errors.title)}
-            helperText={formik.touched.title && formik.errors.title}
-          />
-
+              error={formik.touched.title && Boolean(formik.errors.title)}
+              helperText={formik.touched.title && formik.errors.title}
+            />
+          </div>
           <Typography className={classes.title}>{EMPLOYMENT_TYPE_TEXT}</Typography>
           <Typography className={classes.subTitle}>{SALARY_QUESTION_TEXT}</Typography>
-
           <FormControl className={classes.formControl}>
             <TextField
               select
@@ -185,6 +197,9 @@ const PostOffer = (): ReactElement => {
               id="employmentType"
               name="employmentType"
               label="Employment type"
+              InputLabelProps={{
+                shrink: true,
+              }}
               value={formik.values.employmentType}
               onChange={formik.handleChange}
               error={formik.touched.employmentType && Boolean(formik.errors.employmentType)}
@@ -255,6 +270,9 @@ const PostOffer = (): ReactElement => {
             label="Office city"
             id="location"
             name="location"
+            InputLabelProps={{
+              shrink: true,
+            }}
             value={formik.values.location}
             onChange={formik.handleChange}
             error={formik.touched.location && Boolean(formik.errors.location)}
@@ -265,6 +283,9 @@ const PostOffer = (): ReactElement => {
             label="Office street"
             id="address"
             name="address"
+            InputLabelProps={{
+              shrink: true,
+            }}
             value={formik.values.address}
             onChange={formik.handleChange}
             error={formik.touched.address && Boolean(formik.errors.address)}

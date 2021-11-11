@@ -5,6 +5,4 @@ export enum NavigationPathEnum {
     POST_OFFER = '/postOffer',
     SINGLE_OFFER = '/singleoffer',
   };
-  export enum SINGLE_OFFER_ROUTE {
-    SINGLE_OFFER_ID = '/singleOffer/:offerName',
-  }
+

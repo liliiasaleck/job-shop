@@ -6,6 +6,7 @@ export interface StoreInterface {
     authError: string;
     user: string;
     successMessage: string;
+    isLoading: boolean;
   };
   offers: {
     offersList: OfferModel[];
@@ -13,11 +14,11 @@ export interface StoreInterface {
     tech: string;
     experience: string;
     salary: Array<number>;
-    isLoading: boolean;
     employmentType: string;
     selectedOffer: LocationModel;
     logoUrl: string;
     logo: {url: string};
+    isLoading: boolean;
   };
 }
 

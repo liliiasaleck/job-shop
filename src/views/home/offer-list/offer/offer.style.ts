@@ -60,9 +60,9 @@ export const useStyles = makeStyles((theme) => ({
   btnback: {
     height: '30px',
     marginLeft: '20px',
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
     transform: 'translateY(170%)',
     color: 'white',
+    
   },
   information: {
     transform: 'translateY(-40%)',
@@ -119,7 +119,12 @@ export const useStyles = makeStyles((theme) => ({
     marginLeft: '3rem',
     width: '10rem',
     borderRadius: '20px',
+    color:'#ffffff',
+    backgroundColor: '#ff4081',
     textTransform: 'capitalize',
+    '&:hover': {
+      backgroundColor: '#ff4081',
+    }
   },
   firstform: {
     margin: '2rem',
@@ -140,17 +145,22 @@ export const useStyles = makeStyles((theme) => ({
     width: '100%',
   },
   image: {
-    width: '5rem',
-    height: '4rem',
+    maxWidth: '7rem',
+    position:'relative',
+    maxHeight: '2rem',
+    [theme.breakpoints.down('sm')]: {
+      maxWidth: '4rem',
+    },
   },
   imagebox: {
-    width: '120px',
-    height: '120px',
+    width: '8rem',
     backgroundColor: 'rgb(255 255 255 / 48%)',
     borderRadius: '50%',
     alignItems: 'center',
     display: 'flex',
     justifyContent: 'center',
+    padding:'15px 10px',
+    height: '8rem',
     marginRight: '2rem',
     [theme.breakpoints.down('sm')]: {
       width: '70px',

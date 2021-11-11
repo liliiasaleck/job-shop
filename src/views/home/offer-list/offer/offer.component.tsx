@@ -93,10 +93,12 @@ const OfferComponent = ({
             <div>
               <Typography className={classes.title}>{title}</Typography>
               <Typography className={classes.subTitle}>
-                <FontAwesomeIcon icon={faMapMarkerAlt} /> {location}
+                <FontAwesomeIcon icon={faMapMarkerAlt} />
+                {location}
               </Typography>
               <Typography className={classes.subTitle}>
-                <FontAwesomeIcon icon={faIdCard} /> {employmentType}
+                {salaryFrom}&nbsp;-&nbsp;{salaryTo}
+                &nbsp;{SALARY_CURRENCY_TEXT}
               </Typography>
             </div>
           </div>
@@ -114,7 +116,7 @@ const OfferComponent = ({
             <p className={classes.smallTitle}>{EXPERIENCE_LVL_TEXT}</p>
           </Typography>
           <Typography className={classes.infodiv}>
-            {salaryFrom}-{salaryTo} {SALARY_CURRENCY_TEXT}
+            {employmentType}
             <p className={classes.smallTitle}>{SALARY_TEXT}</p>
           </Typography>
         </div>
@@ -198,7 +200,7 @@ const OfferComponent = ({
                 }}
               />
             </div>
-            <Button variant="contained" color="secondary" className={classes.signbtn} type="submit">
+            <Button variant="contained" className={classes.signbtn} type="submit">
               {APPLY_BUTTON_TEXT}
             </Button>
           </form>

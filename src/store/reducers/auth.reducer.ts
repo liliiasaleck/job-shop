@@ -1,10 +1,10 @@
-import { StoreInterface } from '../store.interface';
 import {actionsTypes} from '../actions/actions.types';
 
-const initState= {
+const initState = {
   authError: '',
   user: localStorage.getItem('user'),
   successMessage: '',
+  isLoading: false,
 };
 
 const authReducer = (state = initState, action) => {
@@ -14,7 +14,11 @@ const authReducer = (state = initState, action) => {
     case actionsTypes.SIGNUP_USER_ERROR:
       return {...state, authError: 'Register Failed'};
     case actionsTypes.SIGNUP_USER:
-      return {...state, authError: '', successMessage: 'Account created, please login now'};
+      return {
+        ...state,
+        authError: '',
+        successMessage: 'Account created, please login now',
+      };
     case actionsTypes.LOGIN_USER_ERROR:
       return {...state, authError: 'Login Failed', user};
     case actionsTypes.LOGIN_USER:
@@ -23,7 +27,7 @@ const authReducer = (state = initState, action) => {
       return {...state, authError: '', user, successMessage: 'Logout successful'};
     case actionsTypes.REDIRECT_USER:
       return {...state, successMessage: 'Please login to your account'};
-      case actionsTypes.CLEAR_MESSAGE:
+    case actionsTypes.CLEAR_MESSAGE:
       return {...state, successMessage: '', authError: ''};
     default:
       return state;

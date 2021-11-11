@@ -23,11 +23,12 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   offer: {
-    width: '99%',
+    width: '98%',
     boxShadow: 'rgba(149, 157, 165, 0.2) 0px 8px 24px',
     borderRadius: '5px',
     margin: '5px 5px',
-    marginright: '30px',
+    [theme.breakpoints.down('sm')]: {
+    },
   },
   main: {
     display: 'flex',
@@ -89,14 +90,18 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   image: {
-    width: '5rem',
-    height: '3.5rem',
-    marginLeft: '1rem',
+    maxWidth: '7rem',
+    position:'relative',
+    maxHeight: '2rem',
     [theme.breakpoints.down('sm')]: {
-      width: '4rem',
-      height: '3.5rem',
-      marginLeft: '1rem',
     },
+  },
+  imageBox:{
+    width: '8rem',
+    padding:'15px 10px',
+    height: '4rem',
+    display:'flex',
+    justifyContent:'center'
   },
   more: {
     fontSize: '12px',
@@ -104,10 +109,16 @@ export const useStyles = makeStyles((theme) => ({
   },
   noOffers:{
     position: 'fixed',
-    top: '15%',
+    top: '27%',
     left: '30%',
     display:'flex',
-    flexDirection:'column'
+    flexDirection:'column',
+    [theme.breakpoints.down('md')]: {
+      left: '25%',
+    },
+    [theme.breakpoints.down('sm')]: {
+      left: '15%',
+    },
   },
   noOffersText:{
     color:'#ff4081',

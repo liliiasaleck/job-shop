@@ -22,7 +22,11 @@ export const useStyles = makeStyles((theme: Theme) =>
         width: '80%',
       },
       [theme.breakpoints.down('sm')]: {
-        top: '110%',
+        top: '115%',
+        width: '100%',
+      },
+      [theme.breakpoints.down('xs')]: {
+        top: '125%',
         width: '100%',
       },
     },
@@ -39,7 +43,7 @@ export const useStyles = makeStyles((theme: Theme) =>
       fontWeight:'bold',
     },
     subTitle:{
-      marginBottom: '1rem',
+      marginBottom: '2rem',
       fontSize: '14px',
       color: '#37474f',
     },
@@ -78,6 +82,12 @@ export const useStyles = makeStyles((theme: Theme) =>
       '&:hover': {
         backgroundColor: '#ff4081',
     },
+    },
+    positionInfoBox:{
+      [theme.breakpoints.down('sm')]: {
+        display:'flex',
+        flexDirection:'column'
+      },
     },
     salaryField:{
       width: '16rem',

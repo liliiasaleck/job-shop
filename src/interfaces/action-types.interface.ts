@@ -1,4 +1,4 @@
-interface IActions {
+export interface IActions {
     SIGNUP_USER: string;
     SIGNUP_USER_ERROR: string;
     SET_OFFERS: string;

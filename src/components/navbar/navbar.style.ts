@@ -48,6 +48,9 @@ export const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     flex: '1',
+    [theme.breakpoints.down('sm')]: {
+      width: '14rem',
+    },
   },
   textlink: {
     color: 'inherit',
@@ -77,6 +80,10 @@ export const useStyles = makeStyles((theme) => ({
   },
   closeMenu: {
     color: '#99A1AB',
+    '&:hover': {
+      backgroundColor: '#ffffff',
+    },
+    marginRight:'1rem'
   },
   post: {
     textDecoration: 'none',
@@ -120,6 +127,9 @@ export const useStyles = makeStyles((theme) => ({
     marginTop: 'auto',
     width: '15rem',
     marginLeft: '1rem',
+    [theme.breakpoints.down('sm')]: {
+      width: '12rem',
+    },
   },
   registerButton: {
     border: '1px solid lightgrey',

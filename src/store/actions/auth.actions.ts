@@ -2,7 +2,7 @@ import {loginUser, registerUser, UserInfo} from '../../services/auth.service';
 import api from '../../api/baseURL';
 import {actionsTypes} from './actions.types';
 import { Dispatch } from 'react';
-import { IAuthAction } from './action-types.interface';
+import { IAuthAction } from '../../interfaces/action-types.interface';
 
 export const signUp = ({email, password}: UserInfo) => {
   return async (dispatch: Dispatch<IAuthAction>) => {
